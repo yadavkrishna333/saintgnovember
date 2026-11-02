@@ -108,5 +108,35 @@ export const supabaseApi = {
     });
     if (!res.ok) throw new Error(await res.text());
     return true;
+  },
+
+  async insertWarehouseSend(record, userId = 'usr-krishan') {
+    if (!isSupabaseConfigured()) return null;
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/warehouse_sends`, {
+        method: 'POST',
+        headers: getHeaders(),
+        body: JSON.stringify({
+          id: record.id,
+          user_id: userId,
+          product_id: record.productId,
+          sku: record.sku,
+          product_name: record.productName,
+          style_category: record.styleCategory,
+          dispatch_no: record.dispatchNo,
+          destination: record.destination,
+          reason: record.reason,
+          notes: record.notes,
+          sent_items: record.sentItems,
+          total_count: record.totalCount,
+          timestamp: record.timestamp || new Date().toISOString()
+        })
+      });
+      if (res.ok) return await res.json();
+    } catch (e) {
+      // Optional logging table in Supabase
+    }
+    return null;
   }
 };
+

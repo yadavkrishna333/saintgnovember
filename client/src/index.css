@@ -12,6 +12,16 @@ button, a, input, select {
   touch-action: manipulation;
 }
 
+/* Butter-Smooth Table & Row Hover Performance (Hardware Accelerated) */
+table {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+tr {
+  will-change: background-color;
+}
+
 /* Custom scrollbar for modern dark theme */
 ::-webkit-scrollbar {
   width: 6px;

@@ -15,10 +15,12 @@ import {
   Tag,
   ChevronDown,
   RefreshCw,
-  Edit3
+  Edit3,
+  ClipboardPaste
 } from 'lucide-react';
 import { getColorHex } from '../utils/colors';
 import { EditWarehouseModal } from '../components/EditWarehouseModal';
+import { BulkWarehousePasteModal } from '../components/BulkWarehousePasteModal';
 
 export function WarehouseSendView() {
   const { 
@@ -50,6 +52,7 @@ export function WarehouseSendView() {
   const [historySearch, setHistorySearch] = useState('');
   const [selectedChallan, setSelectedChallan] = useState(null);
   const [editingRecord, setEditingRecord] = useState(null);
+  const [isBulkWarehouseOpen, setIsBulkWarehouseOpen] = useState(false);
 
   // Active product
   const currentProduct = useMemo(() => {
@@ -200,19 +203,31 @@ export function WarehouseSendView() {
           </div>
         </div>
 
-        {/* Stats Pill Badges */}
-        <div className="grid grid-cols-3 gap-2 sm:gap-3">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-xl px-3 py-2 text-center">
-            <span className="text-[10px] text-slate-400 font-semibold block uppercase">Total Dispatches</span>
-            <span className="text-lg font-black text-white">{stats.totalDispatches}</span>
-          </div>
-          <div className="bg-slate-900/90 border border-slate-800 rounded-xl px-3 py-2 text-center">
-            <span className="text-[10px] text-amber-400/90 font-semibold block uppercase">Total Pieces Sent</span>
-            <span className="text-lg font-black text-amber-400">{stats.totalUnits}</span>
-          </div>
-          <div className="bg-slate-900/90 border border-slate-800 rounded-xl px-3 py-2 text-center">
-            <span className="text-[10px] text-emerald-400 font-semibold block uppercase">Today's Units</span>
-            <span className="text-lg font-black text-emerald-400">{stats.todayUnits}</span>
+        <div className="flex flex-wrap items-center gap-3">
+          {/* Bulk Paste Dispatch Button */}
+          <button
+            type="button"
+            onClick={() => setIsBulkWarehouseOpen(true)}
+            className="px-4 py-2.5 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-xs flex items-center gap-2 shadow-lg shadow-amber-500/25 active:scale-95 transition"
+          >
+            <ClipboardPaste className="w-4 h-4 stroke-[2.5]" />
+            <span>📋 Bulk Paste Dispatch</span>
+          </button>
+
+          {/* Stats Pill Badges */}
+          <div className="grid grid-cols-3 gap-2 sm:gap-3">
+            <div className="bg-slate-900/90 border border-slate-800 rounded-xl px-3 py-2 text-center">
+              <span className="text-[10px] text-slate-400 font-semibold block uppercase">Total Dispatches</span>
+              <span className="text-lg font-black text-white">{stats.totalDispatches}</span>
+            </div>
+            <div className="bg-slate-900/90 border border-slate-800 rounded-xl px-3 py-2 text-center">
+              <span className="text-[10px] text-amber-400/90 font-semibold block uppercase">Total Pieces Sent</span>
+              <span className="text-lg font-black text-amber-400">{stats.totalUnits}</span>
+            </div>
+            <div className="bg-slate-900/90 border border-slate-800 rounded-xl px-3 py-2 text-center">
+              <span className="text-[10px] text-emerald-400 font-semibold block uppercase">Today's Units</span>
+              <span className="text-lg font-black text-emerald-400">{stats.todayUnits}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -687,6 +702,13 @@ export function WarehouseSendView() {
         recordToEdit={editingRecord}
       />
 
+      {/* Bulk Warehouse Paste Modal */}
+      <BulkWarehousePasteModal
+        isOpen={isBulkWarehouseOpen}
+        onClose={() => setIsBulkWarehouseOpen(false)}
+      />
+
     </div>
   );
 }
+

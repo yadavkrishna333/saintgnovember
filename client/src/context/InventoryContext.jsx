@@ -696,7 +696,7 @@ export function InventoryProvider({ children }) {
 
   // Warehouse Send Action
   const sendStockToWarehouse = useCallback(async (data) => {
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       if (socket && socket.connected) {
         socket.emit('warehouse:send', data, (res) => {
           if (res?.success) resolve(res);
@@ -705,17 +705,95 @@ export function InventoryProvider({ children }) {
       } else {
         const host = window.location.hostname;
         const apiUrl = window.location.port === '5173' ? `http://${host}:5000` : '';
-        fetch(`${apiUrl}/api/warehouse`, {
-          method: 'POST',
-          headers: getAuthHeaders(),
-          body: JSON.stringify(data)
-        })
-          .then(res => res.json())
-          .then(res => res.error ? reject(new Error(res.error)) : resolve(res))
-          .catch(reject);
+        try {
+          const res = await fetch(`${apiUrl}/api/warehouse`, {
+            method: 'POST',
+            headers: getAuthHeaders(),
+            body: JSON.stringify(data)
+          });
+          const contentType = res.headers.get('content-type') || '';
+          if (contentType.includes('application/json')) {
+            const json = await res.json();
+            if (res.ok && !json.error) return resolve(json);
+            throw new Error(json.error || 'Server error');
+          }
+          throw new Error('API server unavailable');
+        } catch (err) {
+          // Fallback for Netlify / Direct Supabase / Local storage
+          try {
+            const product = inventory.find(p => p.id === data.productId);
+            if (!product) throw new Error('Product not found in catalog');
+
+            let totalSent = 0;
+            const updatedSizes = { ...(product.sizes || {}) };
+            const sentDetails = {};
+
+            Object.entries(data.sizeQuantities || {}).forEach(([size, qty]) => {
+              const deduct = Math.max(0, parseInt(qty, 10) || 0);
+              if (deduct > 0) {
+                const currentAvail = Number(updatedSizes[size] || 0);
+                const actualDeduct = Math.min(deduct, currentAvail);
+                if (actualDeduct > 0) {
+                  updatedSizes[size] = currentAvail - actualDeduct;
+                  totalSent += actualDeduct;
+                  sentDetails[size] = actualDeduct;
+                }
+              }
+            });
+
+            if (totalSent === 0) {
+              throw new Error('No available units to send for this product');
+            }
+
+            const updatedProduct = {
+              ...product,
+              sizes: updatedSizes,
+              updatedAt: new Date().toISOString()
+            };
+
+            const record = {
+              id: `wh-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`,
+              type: 'warehouse_send',
+              productId: product.id,
+              productName: product.name,
+              styleCategory: product.styleCategory || product.name,
+              sku: product.sku,
+              category: product.category,
+              dispatchNo: (data.dispatchNo || '').trim() || `WH-${Date.now().toString().slice(-6)}`,
+              destination: (data.destination || '').trim() || 'Central Warehouse',
+              reason: (data.reason || '').trim() || 'Seasonal Return',
+              notes: (data.notes || '').trim(),
+              sentItems: sentDetails,
+              totalCount: totalSent,
+              timestamp: data.date ? new Date(data.date).toISOString() : new Date().toISOString()
+            };
+
+            // Sync to Supabase
+            if (isSupabaseConfigured()) {
+              try {
+                await supabaseApi.upsertProduct(updatedProduct, 'usr-krishan');
+                if (supabaseApi.insertWarehouseSend) {
+                  await supabaseApi.insertWarehouseSend(record, 'usr-krishan');
+                }
+              } catch (supErr) {
+                console.warn('Supabase warehouse fallback sync warning:', supErr);
+              }
+            }
+
+            // Update local state
+            setInventory(prev => prev.map(p => p.id === product.id ? updatedProduct : p));
+            setWarehouseSends(prev => [record, ...prev]);
+
+            playTone(880, 'triangle', 0.12);
+            resolve({ success: true, record, updatedProduct });
+          } catch (fallbackErr) {
+            reject(fallbackErr);
+          }
+        }
       }
     });
-  }, [socket, getAuthHeaders]);
+  }, [socket, getAuthHeaders, inventory, setInventory, setWarehouseSends]);
+
 
   const updateWarehouseRecord = useCallback(async (id, updates) => {
     return new Promise((resolve, reject) => {

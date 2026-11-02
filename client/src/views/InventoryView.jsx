@@ -283,12 +283,12 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                   {showTable && (
                     <div 
                       ref={el => { if (el) tableRefs.current[category.id] = el; }}
-                      className="relative max-h-[calc(100vh-230px)] overflow-x-auto overflow-y-auto border border-slate-800/90 rounded-3xl shadow-2xl bg-slate-900/95 backdrop-blur-xl"
+                      className="relative max-h-[calc(100vh-230px)] overflow-x-auto overflow-y-auto border border-slate-800/90 rounded-3xl shadow-2xl bg-slate-900"
                     >
                       <table className="w-full text-left border-collapse text-xs">
                         
                         {/* Table Header with DISPLAY column & STICKY TOP + STICKY LEFT */}
-                        <thead className="sticky top-0 z-30 bg-slate-950/98 backdrop-blur-md shadow-md">
+                        <thead className="sticky top-0 z-30 bg-slate-950 shadow-md">
                           <tr className="border-b border-slate-800 text-slate-400 font-extrabold uppercase tracking-wider text-[10px] select-none">
                             <th className="py-2 px-2 text-center w-12 sticky left-0 z-40 bg-slate-950 border-r border-slate-800/80 shadow-[2px_0_5px_rgba(0,0,0,0.5)]">SR</th>
                             <th className="py-2 px-2 w-[205px] min-w-[205px] text-amber-300 font-black tracking-wider sticky left-[48px] z-40 bg-slate-950 border-r border-slate-800/80 shadow-[3px_0_8px_rgba(0,0,0,0.6)]">
@@ -332,24 +332,24 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                             return (
                               <tr 
                                 key={product.id}
-                                className="hover:bg-slate-850/60 transition-colors group"
+                                className="hover:bg-slate-800/40"
                               >
                                 
                                 {/* SR NO (STICKY LEFT) */}
-                                <td className="py-1.5 px-2 text-center font-mono font-bold text-slate-500 group-hover:text-amber-400 transition sticky left-0 z-20 bg-slate-950 group-hover:bg-slate-900 border-r border-slate-800/80 shadow-[2px_0_5px_rgba(0,0,0,0.5)] text-[10px]">
+                                <td className="py-1.5 px-2 text-center font-mono font-bold text-slate-500 sticky left-0 z-20 bg-slate-950 border-r border-slate-800/80 shadow-[2px_0_5px_rgba(0,0,0,0.5)] text-[10px]">
                                   #{srNo}
                                 </td>
 
                                 {/* SKU CODE (COMPACT & UNIFORM FIXED SIZE) */}
-                                <td className="py-1.5 px-2 whitespace-nowrap w-[205px] sticky left-[48px] z-20 bg-slate-950 group-hover:bg-slate-900 border-r border-slate-800/80 shadow-[3px_0_8px_rgba(0,0,0,0.6)]">
-                                  <div className="w-[190px] h-[30px] px-2 flex items-center justify-between rounded-lg bg-slate-950 border border-amber-500/60 font-mono font-black text-[11px] text-amber-300 shadow-sm tracking-wider group-hover:border-amber-400 group-hover:shadow-amber-500/10 transition">
+                                <td className="py-1.5 px-2 whitespace-nowrap w-[205px] sticky left-[48px] z-20 bg-slate-950 border-r border-slate-800/80 shadow-[3px_0_8px_rgba(0,0,0,0.6)]">
+                                  <div className="w-[190px] h-[30px] px-2 flex items-center justify-between rounded-lg bg-slate-950 border border-amber-500/60 font-mono font-black text-[11px] text-amber-300 shadow-sm tracking-wider">
                                     <span className="truncate select-all font-extrabold" title={product.sku}>
                                       {product.sku}
                                     </span>
                                     <button
                                       onClick={() => handleCopySku(product.sku)}
                                       title="Copy SKU Code"
-                                      className="p-0.5 rounded hover:bg-slate-800 text-slate-400 hover:text-white transition flex-shrink-0 ml-1"
+                                      className="p-0.5 rounded hover:bg-slate-800 text-slate-400 hover:text-white flex-shrink-0 ml-1"
                                     >
                                       {copiedSku === product.sku ? (
                                         <Check className="w-3 h-3 text-emerald-400 stroke-[3]" />
@@ -367,6 +367,7 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                                       <img
                                         src={product.imageUrl}
                                         alt={product.name}
+                                        loading="lazy"
                                         className="w-7 h-7 rounded-lg object-cover border border-slate-700 bg-slate-950 flex-shrink-0 shadow-sm"
                                         onError={(e) => { e.target.style.display = 'none'; }}
                                       />
@@ -417,7 +418,7 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                                     >
                                       <div className="flex flex-col items-center justify-center gap-0.5">
                                         <span 
-                                          className={`min-w-[26px] px-1.5 py-0.2 rounded-md text-[11px] font-black font-mono transition-all leading-tight ${
+                                          className={`min-w-[26px] px-1.5 py-0.2 rounded-md text-[11px] font-black font-mono leading-tight ${
                                             isZero
                                               ? 'bg-rose-500/20 text-rose-400 border border-rose-500/40'
                                               : 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40'
@@ -427,12 +428,12 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                                           {qty}
                                         </span>
 
-                                        <div className="flex items-center gap-0.5 opacity-60 group-hover:opacity-100 transition">
+                                        <div className="flex items-center gap-0.5 opacity-80 hover:opacity-100">
                                           <button
                                             type="button"
                                             disabled={isZero}
                                             onClick={() => adjustStock(product.id, size, -1)}
-                                            className="w-3.5 h-3.5 rounded bg-slate-800 hover:bg-slate-700 active:scale-90 disabled:opacity-20 flex items-center justify-center text-slate-300 transition"
+                                            className="w-3.5 h-3.5 rounded bg-slate-800 hover:bg-slate-700 active:scale-90 disabled:opacity-20 flex items-center justify-center text-slate-300"
                                             title={`-1 to Size ${size}`}
                                           >
                                             <Minus className="w-2 h-2" />
@@ -440,7 +441,7 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                                           <button
                                             type="button"
                                             onClick={() => adjustStock(product.id, size, 1)}
-                                            className="w-3.5 h-3.5 rounded bg-slate-800 hover:bg-amber-500 hover:text-slate-950 active:scale-90 flex items-center justify-center text-slate-300 transition"
+                                            className="w-3.5 h-3.5 rounded bg-slate-800 hover:bg-amber-500 hover:text-slate-950 active:scale-90 flex items-center justify-center text-slate-300"
                                             title={`+1 to Size ${size}`}
                                           >
                                             <Plus className="w-2 h-2" />
