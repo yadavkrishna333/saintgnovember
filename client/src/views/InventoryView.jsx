@@ -18,7 +18,8 @@ import {
   ChevronLeft,
   ChevronRight,
   SlidersHorizontal,
-  ClipboardPaste
+  ClipboardPaste,
+  FileSpreadsheet
 } from 'lucide-react';
 import { BulkPasteModal } from '../components/BulkPasteModal';
 
@@ -147,6 +148,16 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
             </button>
           </div>
 
+
+          <button
+            onClick={onOpenGSheetModal}
+            className="flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 rounded-2xl bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-500/40 text-emerald-300 hover:text-emerald-200 font-bold text-xs transition shadow-md shadow-emerald-500/10 active:scale-95 flex-shrink-0"
+            title="Sync & Update Live Google Sheet (गूगल शीट अपडेट करें)"
+          >
+            <FileSpreadsheet className="w-4 h-4 text-emerald-400" />
+            <span className="hidden sm:inline">Google Sheet</span>
+            <span className="sm:hidden">Sheet</span>
+          </button>
 
           <button
             onClick={() => setIsBulkPasteOpen(true)}

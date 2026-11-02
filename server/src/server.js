@@ -324,8 +324,9 @@ app.post('/api/sync/googlesheet', async (req, res) => {
   if (!webhookUrl) return res.status(400).json({ error: 'Google Sheet Webhook URL is required' });
 
   try {
-    const payload = {
+    const payload = req.body.payload || {
       appName: "KY INVENTORY",
+      targetSpreadsheetId: "1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE",
       syncedAt: new Date().toISOString(),
       inventory: getAllProducts(userId),
       sales: getAllSales(userId),

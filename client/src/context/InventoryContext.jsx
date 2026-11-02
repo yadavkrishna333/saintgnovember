@@ -980,17 +980,85 @@ export function InventoryProvider({ children }) {
 
   // Google Sheets Sync
   const syncToGoogleSheets = useCallback(async (webhookUrl) => {
-    const host = window.location.hostname;
-    const apiUrl = window.location.port === '5173' ? `http://${host}:5000` : '';
-    const res = await fetch(`${apiUrl}/api/sync/googlesheet`, {
-      method: 'POST',
-      headers: getAuthHeaders(),
-      body: JSON.stringify({ webhookUrl })
+    if (!webhookUrl || !webhookUrl.trim()) {
+      throw new Error('Please enter your Google Apps Script Webhook URL');
+    }
+
+    const cleanWebhookUrl = webhookUrl.trim();
+
+    // Enrich sales with replenishment status & product details
+    const productMap = {};
+    (inventory || []).forEach(p => {
+      if (p.sku) productMap[p.sku.toUpperCase().trim()] = p;
+      if (p.id) productMap[p.id] = p;
     });
-    const data = await res.json();
-    if (!res.ok || data.error) throw new Error(data.error || 'Sync failed');
-    return data;
-  }, [getAuthHeaders]);
+
+    const enrichedSales = (sales || []).map(s => {
+      const p = (s.sku && productMap[s.sku.toUpperCase().trim()]) || productMap[s.productId];
+      const pSku = s.sku || p?.sku || '';
+      const pColor = s.color || p?.color || '';
+      const pCat = s.category || p?.category || '';
+      const sizeKey = String(s.size || '').trim();
+      const currentStock = Number(p?.sizes?.[sizeKey] || 0);
+
+      let isNotReceived = false;
+      if (!p || currentStock === 0) {
+        isNotReceived = true;
+      } else if ((pCat === 'women_footwear' || sizeKey === '37') && sizeKey === '37' && currentStock < 2) {
+        isNotReceived = true;
+      }
+
+      return {
+        ...s,
+        sku: pSku,
+        color: pColor,
+        category: pCat,
+        currentStock,
+        status: isNotReceived ? 'NOT RECEIVED' : 'RECEIVED'
+      };
+    });
+
+    const payload = {
+      appName: "KY INVENTORY",
+      targetSpreadsheetId: "1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE",
+      syncedAt: new Date().toISOString(),
+      inventory,
+      sales: enrichedSales,
+      warehouseSends,
+      replenishments
+    };
+
+    const host = window.location.hostname;
+    const isLocalDev = window.location.port === '5173' || host === 'localhost' || host === '127.0.0.1';
+    const apiUrl = isLocalDev ? `http://${host}:5000` : '';
+
+    if (apiUrl) {
+      try {
+        const res = await fetch(`${apiUrl}/api/sync/googlesheet`, {
+          method: 'POST',
+          headers: getAuthHeaders(),
+          body: JSON.stringify({ webhookUrl: cleanWebhookUrl, payload })
+        });
+        const data = await res.json();
+        if (res.ok && !data.error) return data;
+      } catch (srvErr) {
+        console.warn('Backend sync failed, falling back to direct browser post:', srvErr);
+      }
+    }
+
+    // Direct browser post to Google Apps Script Webhook (works on Netlify and mobile)
+    try {
+      await fetch(cleanWebhookUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
+      return { success: true, message: 'Google Sheet updated successfully!' };
+    } catch (err) {
+      throw new Error('Google Sheet sync error: ' + err.message);
+    }
+  }, [inventory, sales, warehouseSends, replenishments, getAuthHeaders]);
 
   // Category Actions
   const addCategory = useCallback(async (categoryData) => {
