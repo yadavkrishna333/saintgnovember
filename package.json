@@ -1,0 +1,17 @@
+{
+  "name": "shoes-jackets-inventory",
+  "version": "1.0.0",
+  "description": "Real-time Footwear & Jacket Inventory for PC & Mobile",
+  "scripts": {
+    "install:all": "npm --prefix server install && npm --prefix client install",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"cyan,magenta\" \"npm run dev:server\" \"npm run dev:client\"",
+    "build": "npm --prefix client run build",
+    "sync:supabase": "node server/scripts/sync_to_supabase.js",
+    "start": "npm --prefix server start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

@@ -1,0 +1,21 @@
+[
+  {
+    "id": "wh-1bc69809",
+    "type": "warehouse_send",
+    "productId": "prod-w1",
+    "productName": "Classic Italian Block Heels",
+    "styleCategory": "Block Heels",
+    "sku": "SG-F-1560-TAN",
+    "category": "women_footwear",
+    "dispatchNo": "WH-EDITED-001",
+    "destination": "Central Warehouse",
+    "reason": "Seasonal Return",
+    "notes": "Updated challan",
+    "sentItems": {
+      "36": 2
+    },
+    "totalCount": 2,
+    "timestamp": "2026-11-02T07:02:19.789Z",
+    "updatedAt": "2026-11-02T07:50:57.891Z"
+  }
+]

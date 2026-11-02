@@ -1,0 +1,53 @@
+[
+  {
+    "id": "sale-46680967",
+    "type": "sale",
+    "productId": "prod-w1",
+    "sku": "SG-F-1560-TAN",
+    "productName": "Classic Italian Block Heels",
+    "styleCategory": "Block Heels",
+    "color": "Tan",
+    "brand": "Zara",
+    "category": "women_footwear",
+    "size": "36",
+    "quantity": 1,
+    "unitPrice": 4499,
+    "totalAmount": 4499,
+    "paymentMode": "UPI",
+    "customerName": "Edited Customer",
+    "timestamp": "2026-11-02T07:50:32.425Z",
+    "updatedAt": "2026-11-02T07:50:44.417Z"
+  },
+  {
+    "id": "sale-a457707e",
+    "type": "sale",
+    "productId": "prod-w1",
+    "productName": "Classic Italian Block Heels",
+    "styleCategory": "Block Heels",
+    "brand": "Zara",
+    "category": "women_footwear",
+    "size": "35",
+    "quantity": 1,
+    "unitPrice": 4499,
+    "totalAmount": 4499,
+    "paymentMode": "Cash",
+    "customerName": "",
+    "timestamp": "2026-11-02T07:25:56.674Z"
+  },
+  {
+    "id": "sale-7317441a",
+    "type": "sale",
+    "productId": "prod-w1",
+    "productName": "Classic Italian Block Heels",
+    "styleCategory": "Block Heels",
+    "brand": "Zara",
+    "category": "women_footwear",
+    "size": "35",
+    "quantity": 1,
+    "unitPrice": 4499,
+    "totalAmount": 4499,
+    "paymentMode": "Cash",
+    "customerName": "",
+    "timestamp": "2026-11-02T07:25:06.864Z"
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "id": "women_footwear",
+    "label": "Women Footwear",
+    "sizes": [
+      "35",
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41"
+    ],
+    "icon": "👠",
+    "order": 1
+  },
+  {
+    "id": "men_footwear",
+    "label": "Mens Footwear",
+    "sizes": [
+      "40",
+      "41",
+      "42",
+      "43",
+      "44",
+      "45"
+    ],
+    "icon": "👟",
+    "order": 2
+  },
+  {
+    "id": "men_jacket",
+    "label": "Mens Jacket",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "icon": "🧥",
+    "order": 3
+  },
+  {
+    "id": "women_jacket",
+    "label": "Women Jacket",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "icon": "🧥",
+    "order": 4
+  },
+  {
+    "id": "bags",
+    "label": "Bags",
+    "sizes": [
+      "Standard"
+    ],
+    "icon": "👜",
+    "order": 5
+  }
+]
