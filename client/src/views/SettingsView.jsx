@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useInventory } from '../context/InventoryContext';
+import { supabaseApi } from '../utils/supabase';
 import { 
   Settings, 
   Plus, 
@@ -37,18 +38,36 @@ export function SettingsView({ onOpenQrModal, onOpenGSheetModal }) {
       const host = window.location.hostname;
       const apiUrl = window.location.port === '5173' ? `http://${host}:5000` : '';
       const token = localStorage.getItem('ky_token') || '';
-      const res = await fetch(`${apiUrl}/api/sync/supabase`, {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+      
+      let syncedViaApi = false;
+      try {
+        const res = await fetch(`${apiUrl}/api/sync/supabase`, {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+          }
+        });
+        const ct = res.headers.get('content-type') || '';
+        if (ct.includes('application/json')) {
+          const data = await res.json();
+          if (res.ok && !data.error) {
+            setSupabaseMsg(`✅ ${data.message || 'Successfully synced items to Supabase!'}`);
+            syncedViaApi = true;
+          }
         }
-      });
-      const data = await res.json();
-      if (!res.ok || data.error) {
-        throw new Error(data.error || 'Sync failed');
+      } catch {
+        syncedViaApi = false;
       }
-      setSupabaseMsg(`✅ ${data.message || 'Successfully synced items to Supabase!'}`);
+
+      if (!syncedViaApi) {
+        let count = 0;
+        for (const item of inventory) {
+          await supabaseApi.upsertProduct(item, 'usr-krishan');
+          count++;
+        }
+        setSupabaseMsg(`✅ Successfully synced ${count} items directly to Supabase Cloud Database!`);
+      }
     } catch (err) {
       setSupabaseMsg(`❌ Error: ${err.message}`);
     } finally {
