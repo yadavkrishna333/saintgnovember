@@ -311,13 +311,6 @@ export function WarehouseSendView() {
                     </div>
                   </div>
                 </div>
-
-                <div className="text-right">
-                  <span className="text-[10px] uppercase font-bold text-slate-400 block">Current Available Stock</span>
-                  <span className="text-base font-black text-emerald-400">
-                    {Object.values(currentProduct.sizes || {}).reduce((s, q) => s + (Number(q) || 0), 0)} Pieces
-                  </span>
-                </div>
               </div>
             )}
 

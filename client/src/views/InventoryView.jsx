@@ -18,8 +18,10 @@ import {
   Eye,
   ChevronLeft,
   ChevronRight,
-  SlidersHorizontal
+  SlidersHorizontal,
+  ClipboardPaste
 } from 'lucide-react';
+import { BulkPasteModal } from '../components/BulkPasteModal';
 
 export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOpenReplenish, onOpenGSheetModal }) {
   const { 
@@ -37,6 +39,7 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
   const [viewMode, setViewMode] = useState('auto'); // 'auto' | 'table' | 'cards'
   // Default to women_footwear so clicking Inventory renders instantly without processing 5 categories at once
   const [selectedCategory, setSelectedCategory] = useState('women_footwear');
+  const [isBulkPasteOpen, setIsBulkPasteOpen] = useState(false);
   
   // Mobile detection for high-performance DOM rendering (eliminates duplicate 143+ cards/rows)
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 1024);
@@ -138,6 +141,16 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
             </button>
           </div>
 
+
+          <button
+            onClick={() => setIsBulkPasteOpen(true)}
+            className="flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 rounded-2xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-amber-300 hover:text-amber-200 font-bold text-xs transition shadow-md active:scale-95 flex-shrink-0"
+            title="Bulk Paste / Add Multiple Items at Once (एक साथ कई आर्टिकल्स पेस्ट करके जोड़ें)"
+          >
+            <ClipboardPaste className="w-4 h-4 text-amber-400" />
+            <span className="hidden sm:inline">Bulk Paste Add</span>
+            <span className="sm:hidden">Bulk</span>
+          </button>
 
           <button
             onClick={onOpenAddModal}
@@ -276,37 +289,37 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                         
                         {/* Table Header with DISPLAY column & STICKY TOP + STICKY LEFT */}
                         <thead className="sticky top-0 z-30 bg-slate-950/98 backdrop-blur-md shadow-md">
-                          <tr className="border-b border-slate-800 text-slate-400 font-extrabold uppercase tracking-wider text-[11px] select-none">
-                            <th className="py-3.5 px-3 text-center w-14 sticky left-0 z-40 bg-slate-950 border-r border-slate-800/80 shadow-[2px_0_5px_rgba(0,0,0,0.5)]">SR NO</th>
-                            <th className="py-3.5 px-3 w-[230px] min-w-[230px] text-amber-300 font-black tracking-wider sticky left-[56px] z-40 bg-slate-950 border-r border-slate-800/80 shadow-[3px_0_8px_rgba(0,0,0,0.6)]">
-                              <div className="flex items-center gap-1.5">
+                          <tr className="border-b border-slate-800 text-slate-400 font-extrabold uppercase tracking-wider text-[10px] select-none">
+                            <th className="py-2 px-2 text-center w-12 sticky left-0 z-40 bg-slate-950 border-r border-slate-800/80 shadow-[2px_0_5px_rgba(0,0,0,0.5)]">SR</th>
+                            <th className="py-2 px-2 w-[205px] min-w-[205px] text-amber-300 font-black tracking-wider sticky left-[48px] z-40 bg-slate-950 border-r border-slate-800/80 shadow-[3px_0_8px_rgba(0,0,0,0.6)]">
+                              <div className="flex items-center gap-1">
                                 <span>SKU CODE</span>
-                                <span className="text-[9px] uppercase px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">MAIN</span>
+                                <span className="text-[8px] uppercase px-1 py-0.2 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">MAIN</span>
                               </div>
                             </th>
-                            <th className="py-3.5 px-3 min-w-[220px]">STYLE CATEGORY</th>
-                            <th className="py-3.5 px-3 min-w-[140px] max-w-[170px]">COLOR</th>
+                            <th className="py-2 px-2.5 min-w-[180px]">STYLE CATEGORY</th>
+                            <th className="py-2 px-2 min-w-[120px] max-w-[150px]">COLOR</th>
 
                             {/* Size Columns */}
                             {categorySizes.map((size) => (
                               <th 
                                 key={size} 
-                                className="py-3.5 px-2 text-center min-w-[55px] font-mono text-white bg-slate-900/60 border-x border-slate-800/60"
+                                className="py-2 px-1.5 text-center min-w-[45px] font-mono text-white bg-slate-900/60 border-x border-slate-800/60 text-[10px]"
                               >
                                 {size}
                               </th>
                             ))}
 
-                            {/* DISPLAY COLUMN (Highlighted lightly in subtle gold) */}
-                            <th className="py-3.5 px-3 text-center w-28 bg-amber-500/10 text-amber-300 border-x border-amber-500/30">
+                            {/* DISPLAY COLUMN */}
+                            <th className="py-2 px-2 text-center w-24 bg-amber-500/10 text-amber-300 border-x border-amber-500/30 text-[10px]">
                               <div className="flex items-center justify-center gap-1 font-black">
-                                <Eye className="w-3.5 h-3.5 text-amber-400" />
+                                <Eye className="w-3 h-3 text-amber-400" />
                                 <span>DISPLAY</span>
                               </div>
                             </th>
 
-                            <th className="py-3.5 px-3 text-center w-20">TOTAL</th>
-                            <th className="py-3.5 px-3 text-center min-w-[150px]">ACTIONS</th>
+                            <th className="py-2 px-2 text-center w-16 text-[10px]">TOTAL</th>
+                            <th className="py-2 px-2 text-center min-w-[130px] text-[10px]">ACTIONS</th>
                           </tr>
                         </thead>
 
@@ -314,86 +327,85 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                           {items.map((product, idx) => {
                             const srNo = String(idx + 1).padStart(2, '0');
                             const colorInfo = getColorDetails(product.color);
-                            // Strictly sum of sizes, DISPLAY is NOT added!
                             const totalStock = Object.values(product.sizes || {}).reduce((s, v) => s + (Number(v) || 0), 0);
 
                             return (
                               <tr 
                                 key={product.id}
-                                className="hover:bg-slate-800/50 transition-colors group"
+                                className="hover:bg-slate-850/60 transition-colors group"
                               >
                                 
                                 {/* SR NO (STICKY LEFT) */}
-                                <td className="py-3.5 px-3 text-center font-mono font-bold text-slate-500 group-hover:text-amber-400 transition sticky left-0 z-20 bg-slate-950 group-hover:bg-slate-900 border-r border-slate-800/80 shadow-[2px_0_5px_rgba(0,0,0,0.5)]">
+                                <td className="py-1.5 px-2 text-center font-mono font-bold text-slate-500 group-hover:text-amber-400 transition sticky left-0 z-20 bg-slate-950 group-hover:bg-slate-900 border-r border-slate-800/80 shadow-[2px_0_5px_rgba(0,0,0,0.5)] text-[10px]">
                                   #{srNo}
                                 </td>
 
-                                {/* SKU CODE (STICKY LEFT & UNIFORM FIXED SIZE - NO JUMPING) */}
-                                <td className="py-3.5 px-3 whitespace-nowrap w-[230px] sticky left-[56px] z-20 bg-slate-950 group-hover:bg-slate-900 border-r border-slate-800/80 shadow-[3px_0_8px_rgba(0,0,0,0.6)]">
-                                  <div className="w-[215px] h-[38px] px-3 flex items-center justify-between rounded-xl bg-slate-950 border-2 border-amber-500/70 font-mono font-black text-xs text-amber-300 shadow-md tracking-wider group-hover:border-amber-400 group-hover:shadow-amber-500/10 transition">
-                                    <span className="truncate select-all font-extrabold tracking-wider" title={product.sku}>
+                                {/* SKU CODE (COMPACT & UNIFORM FIXED SIZE) */}
+                                <td className="py-1.5 px-2 whitespace-nowrap w-[205px] sticky left-[48px] z-20 bg-slate-950 group-hover:bg-slate-900 border-r border-slate-800/80 shadow-[3px_0_8px_rgba(0,0,0,0.6)]">
+                                  <div className="w-[190px] h-[30px] px-2 flex items-center justify-between rounded-lg bg-slate-950 border border-amber-500/60 font-mono font-black text-[11px] text-amber-300 shadow-sm tracking-wider group-hover:border-amber-400 group-hover:shadow-amber-500/10 transition">
+                                    <span className="truncate select-all font-extrabold" title={product.sku}>
                                       {product.sku}
                                     </span>
                                     <button
                                       onClick={() => handleCopySku(product.sku)}
                                       title="Copy SKU Code"
-                                      className="p-1 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition flex-shrink-0 ml-1.5"
+                                      className="p-0.5 rounded hover:bg-slate-800 text-slate-400 hover:text-white transition flex-shrink-0 ml-1"
                                     >
                                       {copiedSku === product.sku ? (
-                                        <Check className="w-3.5 h-3.5 text-emerald-400 stroke-[3]" />
+                                        <Check className="w-3 h-3 text-emerald-400 stroke-[3]" />
                                       ) : (
-                                        <Copy className="w-3.5 h-3.5" />
+                                        <Copy className="w-3 h-3" />
                                       )}
                                     </button>
                                   </div>
                                 </td>
 
-                                {/* STYLE CATEGORY (With Photo, prominent "Block Heels", and Price) */}
-                                <td className="py-3.5 px-3">
-                                  <div className="flex items-center gap-3">
+                                {/* STYLE CATEGORY (COMPACT WITH SMALL PHOTO) */}
+                                <td className="py-1.5 px-2.5">
+                                  <div className="flex items-center gap-2">
                                     {product.imageUrl && (
                                       <img
                                         src={product.imageUrl}
                                         alt={product.name}
-                                        className="w-12 h-12 rounded-xl object-cover border border-slate-700 bg-slate-950 flex-shrink-0 shadow-md"
+                                        className="w-7 h-7 rounded-lg object-cover border border-slate-700 bg-slate-950 flex-shrink-0 shadow-sm"
                                         onError={(e) => { e.target.style.display = 'none'; }}
                                       />
                                     )}
 
-                                    <div className="min-w-0">
-                                      <div className="text-sm font-black text-amber-300 tracking-wide uppercase">
+                                    <div className="min-w-0 leading-tight">
+                                      <div className="text-[11px] font-black text-amber-300 tracking-wide uppercase truncate max-w-[160px]">
                                         {product.styleCategory || "Block Heels"}
                                       </div>
-                                      <div className="text-xs font-semibold text-slate-300 truncate max-w-[180px]" title={product.name}>
+                                      <div className="text-[10px] font-medium text-slate-400 truncate max-w-[150px]" title={product.name}>
                                         {product.name}
                                       </div>
-                                      <div className="mt-1 flex items-center gap-2">
-                                        <span className="text-xs font-black text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-lg">
+                                      <div className="flex items-center gap-1.5 mt-0.5">
+                                        <span className="text-[10px] font-black text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-1.5 py-0.2 rounded">
                                           ₹{Number(product.sellingPrice || 0).toLocaleString('en-IN')}
                                         </span>
-                                        <span className="text-[10px] uppercase font-bold text-slate-500">{product.brand}</span>
+                                        <span className="text-[9px] uppercase font-bold text-slate-500">{product.brand}</span>
                                       </div>
                                     </div>
                                   </div>
                                 </td>
 
-                                {/* COLOR (ADJUSTED LONG COLOR NAME WITH COLOR CIRCLE) */}
-                                <td className="py-3.5 px-3 whitespace-nowrap min-w-[140px] max-w-[170px]">
-                                  <div className="inline-flex items-center gap-2 px-2.5 py-1.5 rounded-xl bg-slate-950/80 border border-slate-800 text-xs">
+                                {/* COLOR (COMPACT WITH CIRCLE DOT) */}
+                                <td className="py-1.5 px-2 whitespace-nowrap min-w-[120px] max-w-[150px]">
+                                  <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-lg bg-slate-950/80 border border-slate-800 text-[10px]">
                                     <span 
-                                      className="w-3.5 h-3.5 rounded-full shadow-sm flex-shrink-0 border ring-1 ring-white/10"
+                                      className="w-2.5 h-2.5 rounded-full shadow-sm flex-shrink-0 border ring-1 ring-white/10"
                                       style={{ 
                                         backgroundColor: colorInfo.bg,
                                         borderColor: colorInfo.border || 'rgba(255,255,255,0.3)' 
                                       }}
                                     />
-                                    <span className="font-bold text-slate-200 truncate max-w-[110px]" title={formatColorName(product.color)}>
+                                    <span className="font-bold text-slate-200 truncate max-w-[95px]" title={formatColorName(product.color)}>
                                       {formatColorName(product.color)}
                                     </span>
                                   </div>
                                 </td>
 
-                                {/* SIZES: 0 = RED, >0 = GREEN */}
+                                {/* SIZES: 0 = RED, >0 = GREEN (COMPACT WITH + / -) */}
                                 {categorySizes.map((size) => {
                                   const qty = Number(product.sizes?.[size] || 0);
                                   const isZero = qty === 0;
@@ -401,37 +413,37 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                                   return (
                                     <td 
                                       key={size}
-                                      className="py-2.5 px-1.5 text-center border-x border-slate-800/40 select-none"
+                                      className="py-1 px-1 text-center border-x border-slate-800/40 select-none"
                                     >
-                                      <div className="flex flex-col items-center justify-center gap-1">
+                                      <div className="flex flex-col items-center justify-center gap-0.5">
                                         <span 
-                                          className={`min-w-[30px] px-2 py-0.5 rounded-lg text-xs font-black font-mono transition-all ${
+                                          className={`min-w-[26px] px-1.5 py-0.2 rounded-md text-[11px] font-black font-mono transition-all leading-tight ${
                                             isZero
-                                              ? 'bg-rose-500/20 text-rose-400 border border-rose-500/40 shadow-sm shadow-rose-500/10'
-                                              : 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-sm shadow-emerald-500/10'
+                                              ? 'bg-rose-500/20 text-rose-400 border border-rose-500/40'
+                                              : 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40'
                                           }`}
                                           title={`Size ${size}: ${qty} left`}
                                         >
                                           {qty}
                                         </span>
 
-                                        <div className="flex items-center gap-1 opacity-70 group-hover:opacity-100 transition">
+                                        <div className="flex items-center gap-0.5 opacity-60 group-hover:opacity-100 transition">
                                           <button
                                             type="button"
                                             disabled={isZero}
                                             onClick={() => adjustStock(product.id, size, -1)}
-                                            className="w-4 h-4 rounded bg-slate-800 hover:bg-slate-700 active:scale-90 disabled:opacity-20 flex items-center justify-center text-slate-300 transition"
+                                            className="w-3.5 h-3.5 rounded bg-slate-800 hover:bg-slate-700 active:scale-90 disabled:opacity-20 flex items-center justify-center text-slate-300 transition"
                                             title={`-1 to Size ${size}`}
                                           >
-                                            <Minus className="w-2.5 h-2.5" />
+                                            <Minus className="w-2 h-2" />
                                           </button>
                                           <button
                                             type="button"
                                             onClick={() => adjustStock(product.id, size, 1)}
-                                            className="w-4 h-4 rounded bg-slate-800 hover:bg-amber-500 hover:text-slate-950 active:scale-90 flex items-center justify-center text-slate-300 transition"
+                                            className="w-3.5 h-3.5 rounded bg-slate-800 hover:bg-amber-500 hover:text-slate-950 active:scale-90 flex items-center justify-center text-slate-300 transition"
                                             title={`+1 to Size ${size}`}
                                           >
-                                            <Plus className="w-2.5 h-2.5" />
+                                            <Plus className="w-2 h-2" />
                                           </button>
                                         </div>
                                       </div>
@@ -439,30 +451,30 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                                   );
                                 })}
 
-                                {/* DISPLAY COLUMN (Highlighted subtle gold, NOT in total) */}
-                                <td className="py-3.5 px-2 text-center bg-amber-500/5 border-x border-amber-500/30">
+                                {/* DISPLAY COLUMN (COMPACT) */}
+                                <td className="py-1 px-1.5 text-center bg-amber-500/5 border-x border-amber-500/30">
                                   <select
                                     value={product.displaySize || ''}
                                     onChange={(e) => updateDisplaySize(product.id, e.target.value)}
-                                    className={`text-xs font-bold px-2 py-1 rounded-lg border transition cursor-pointer text-center focus:outline-none ${
+                                    className={`text-[10px] font-bold px-1.5 py-0.5 rounded border transition cursor-pointer text-center focus:outline-none ${
                                       product.displaySize 
                                         ? 'bg-amber-400/20 border-amber-400/50 text-amber-300 font-mono' 
                                         : 'bg-slate-950/60 border-slate-800 text-slate-500 hover:text-slate-300'
                                     }`}
                                     title="Choose what size is put on shop display (NOT added to total)"
                                   >
-                                    <option value="" className="bg-slate-900 text-slate-400">-- None --</option>
+                                    <option value="" className="bg-slate-900 text-slate-400">None</option>
                                     {categorySizes.map(s => (
                                       <option key={s} value={s} className="bg-slate-900 text-white font-bold">
-                                        Size {s}
+                                        {s}
                                       </option>
                                     ))}
                                   </select>
                                 </td>
 
-                                {/* TOTAL (Strictly Sum of inventory sizes) */}
-                                <td className="py-3.5 px-3 text-center">
-                                  <span className={`font-mono font-black text-xs px-2.5 py-1 rounded-xl border ${
+                                {/* TOTAL */}
+                                <td className="py-1.5 px-2 text-center">
+                                  <span className={`font-mono font-black text-[11px] px-2 py-0.5 rounded-lg border ${
                                     totalStock === 0
                                       ? 'bg-rose-500/15 text-rose-400 border-rose-500/30'
                                       : totalStock < 7 && (product.category === 'women_footwear' || product.category === 'men_footwear')
@@ -473,40 +485,40 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                                   </span>
                                 </td>
 
-                                {/* ACTIONS */}
-                                <td className="py-3.5 px-3 text-center whitespace-nowrap">
-                                  <div className="flex items-center justify-center gap-1.5">
+                                {/* ACTIONS (COMPACT BUTTONS) */}
+                                <td className="py-1.5 px-2 text-center whitespace-nowrap">
+                                  <div className="flex items-center justify-center gap-1">
                                     <button
                                       onClick={() => onQuickSale(product)}
                                       disabled={totalStock <= 0}
-                                      className="p-1.5 rounded-xl bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white border border-emerald-500/30 active:scale-95 disabled:opacity-30 disabled:cursor-not-allowed transition"
+                                      className="p-1 rounded-lg bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white border border-emerald-500/30 active:scale-95 disabled:opacity-30 disabled:cursor-not-allowed transition"
                                       title="Sell Item"
                                     >
-                                      <ShoppingCart className="w-3.5 h-3.5" />
+                                      <ShoppingCart className="w-3 h-3" />
                                     </button>
 
                                     <button
                                       onClick={() => onOpenReplenish(product)}
-                                      className="p-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500 text-amber-400 hover:text-slate-950 border border-amber-500/30 active:scale-95 transition"
+                                      className="p-1 rounded-lg bg-amber-500/20 hover:bg-amber-500 text-amber-400 hover:text-slate-950 border border-amber-500/30 active:scale-95 transition"
                                       title="Receive Stock"
                                     >
-                                      <Truck className="w-3.5 h-3.5" />
+                                      <Truck className="w-3 h-3" />
                                     </button>
 
                                     <button
                                       onClick={() => onEditProduct(product)}
-                                      className="p-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700/60 active:scale-95 transition"
+                                      className="p-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700/60 active:scale-95 transition"
                                       title="Edit Product"
                                     >
-                                      <Edit3 className="w-3.5 h-3.5" />
+                                      <Edit3 className="w-3 h-3" />
                                     </button>
 
                                     <button
                                       onClick={() => handleDelete(product)}
-                                      className="p-1.5 rounded-xl bg-rose-500/10 hover:bg-rose-500 text-rose-400 hover:text-white border border-rose-500/20 active:scale-95 transition"
+                                      className="p-1 rounded-lg bg-rose-500/10 hover:bg-rose-500 text-rose-400 hover:text-white border border-rose-500/20 active:scale-95 transition"
                                       title="Delete Product"
                                     >
-                                      <Trash2 className="w-3.5 h-3.5" />
+                                      <Trash2 className="w-3 h-3" />
                                     </button>
                                   </div>
                                 </td>
@@ -517,46 +529,46 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                         </tbody>
 
                         {/* CATEGORY TOTAL FOOTER ROW (STICKY BOTTOM + STICKY LEFT) */}
-                        <tfoot className="sticky bottom-0 z-30 bg-slate-950/98 backdrop-blur-md border-t-2 border-amber-500/40 text-xs font-black text-white shadow-[-1px_-4px_10px_rgba(0,0,0,0.5)]">
+                        <tfoot className="sticky bottom-0 z-30 bg-slate-950/98 backdrop-blur-md border-t-2 border-amber-500/40 text-[11px] font-black text-white shadow-[-1px_-4px_10px_rgba(0,0,0,0.5)]">
                           <tr>
-                            <td className="py-3 px-3 text-center font-mono text-amber-400 sticky left-0 z-40 bg-slate-950 border-r border-slate-800 shadow-[2px_0_5px_rgba(0,0,0,0.5)]">
+                            <td className="py-2 px-2 text-center font-mono text-amber-400 sticky left-0 z-40 bg-slate-950 border-r border-slate-800 shadow-[2px_0_5px_rgba(0,0,0,0.5)]">
                               TOTAL
                             </td>
-                            <td className="py-3 px-3 font-mono text-amber-300 uppercase tracking-wider sticky left-[56px] z-40 bg-slate-950 border-r border-slate-800 shadow-[3px_0_8px_rgba(0,0,0,0.6)]">
+                            <td className="py-2 px-2 font-mono text-amber-300 uppercase tracking-wider sticky left-[48px] z-40 bg-slate-950 border-r border-slate-800 shadow-[3px_0_8px_rgba(0,0,0,0.6)]">
                               {items.length} Models
                             </td>
-                            <td className="py-3 px-3 text-slate-400 font-bold uppercase tracking-wide">
+                            <td className="py-2 px-2 text-slate-400 font-bold uppercase tracking-wide">
                               Category Summary
                             </td>
-                            <td className="py-3 px-3 text-slate-500">
+                            <td className="py-2 px-2 text-slate-500">
                               -
                             </td>
 
                             {/* Size-wise sum pills across category */}
                             {categorySizes.map((size) => (
                               <td 
-                                key={size}
-                                className="py-3 px-2 text-center border-x border-slate-800/80 bg-slate-900/40"
+                                key={size} 
+                                className="py-2 px-1 text-center border-x border-slate-800/80 bg-slate-900/40"
                               >
-                                <span className="inline-block px-2 py-1 rounded-lg bg-indigo-600/20 border border-indigo-500/40 text-indigo-300 font-mono font-black text-xs">
+                                <span className="inline-block px-1.5 py-0.5 rounded bg-indigo-600/20 border border-indigo-500/40 text-indigo-300 font-mono font-black text-[10px]">
                                   {sizeTotals[size]}
                                 </span>
                               </td>
                             ))}
 
                             {/* Display total */}
-                            <td className="py-3 px-2 text-center bg-amber-500/10 border-x border-amber-500/30 text-amber-300 font-mono font-bold">
+                            <td className="py-2 px-1 text-center bg-amber-500/10 border-x border-amber-500/30 text-amber-300 font-mono font-bold text-[10px]">
                               {displayPiecesCount} on display
                             </td>
 
                             {/* Grand Category Total Quantity */}
-                            <td className="py-3 px-3 text-center">
-                              <span className="inline-block px-3 py-1 rounded-xl bg-amber-500 text-slate-950 font-black text-xs font-mono shadow-md shadow-amber-500/20">
+                            <td className="py-2 px-2 text-center">
+                              <span className="inline-block px-2 py-0.5 rounded-lg bg-amber-500 text-slate-950 font-black text-[11px] font-mono shadow-sm">
                                 {grandCategoryTotal}
                               </span>
                             </td>
 
-                            <td className="py-3 px-3 text-center text-slate-500">
+                            <td className="py-2 px-2 text-center text-slate-500">
                               -
                             </td>
                           </tr>
@@ -765,6 +777,13 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
         })}
       </div>
 
+      {/* Bulk Paste Modal */}
+      <BulkPasteModal 
+        isOpen={isBulkPasteOpen} 
+        onClose={() => setIsBulkPasteOpen(false)} 
+      />
+
     </div>
   );
 }
+

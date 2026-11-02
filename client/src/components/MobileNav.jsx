@@ -17,11 +17,13 @@ import {
   ChevronRight,
   FileSpreadsheet,
   LogOut,
-  User
+  User,
+  Sun,
+  Moon
 } from 'lucide-react';
 
 export function MobileNav({ onOpenAddModal, onOpenQrModal, onOpenScanner, onOpenGSheetModal }) {
-  const { activeTab, setActiveTab, isConnected, connectedDevices, stats, currentUser, setIsLoginModalOpen, logout } = useInventory();
+  const { activeTab, setActiveTab, isConnected, connectedDevices, stats, currentUser, setIsLoginModalOpen, logout, theme, toggleTheme } = useInventory();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const allTabs = [
@@ -82,6 +84,14 @@ export function MobileNav({ onOpenAddModal, onOpenQrModal, onOpenScanner, onOpen
             <span className={`w-1.5 h-1.5 rounded-full ${isConnected ? 'bg-emerald-400 animate-sync-pulse' : 'bg-rose-500'}`}></span>
             <span className="text-slate-400 font-semibold">{connectedDevices} dev</span>
           </div>
+
+          <button
+            onClick={toggleTheme}
+            className="p-1.5 rounded-xl bg-slate-800/90 border border-slate-700/60 active:scale-90 transition text-slate-300"
+            title={theme === 'dark' ? "Switch to Light Mode" : "Switch to Dark Mode"}
+          >
+            {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-300" /> : <Moon className="w-4 h-4 text-indigo-400" />}
+          </button>
 
           <button
             onClick={onOpenScanner}

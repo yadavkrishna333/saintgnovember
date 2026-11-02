@@ -16,11 +16,13 @@ import {
   ChevronRight,
   Pin,
   FileSpreadsheet,
-  LogOut
+  LogOut,
+  Sun,
+  Moon
 } from 'lucide-react';
 
 export function Sidebar({ onOpenAddModal, onOpenQrModal, onOpenScanner, onOpenGSheetModal }) {
-  const { activeTab, setActiveTab, isConnected, connectedDevices, stats, currentUser, setIsLoginModalOpen, logout } = useInventory();
+  const { activeTab, setActiveTab, isConnected, connectedDevices, stats, currentUser, setIsLoginModalOpen, logout, theme, toggleTheme } = useInventory();
   const [isPinned, setIsPinned] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -82,13 +84,23 @@ export function Sidebar({ onOpenAddModal, onOpenQrModal, onOpenScanner, onOpenGS
             </div>
           </div>
 
-          <button
-            onClick={() => setIsPinned(!isPinned)}
-            className="p-1.5 rounded-xl text-slate-400 hover:text-amber-400 hover:bg-slate-800 transition active:scale-90"
-            title={isPinned ? "Unpin (Auto-Hide on Mouse Leave)" : "Pin Sidebar (Stay Open)"}
-          >
-            {isPinned ? <Pin className="w-4 h-4 text-amber-400 rotate-45" /> : <ChevronLeft className="w-4 h-4" />}
-          </button>
+          <div className="flex items-center gap-1">
+            <button
+              onClick={toggleTheme}
+              className="p-1.5 rounded-xl text-slate-400 hover:text-amber-400 hover:bg-slate-800 transition active:scale-90"
+              title={theme === 'dark' ? "Switch to Light Mode (दिन का मोड)" : "Switch to Dark Mode (रात का मोड)"}
+            >
+              {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-300" /> : <Moon className="w-4 h-4 text-indigo-400" />}
+            </button>
+
+            <button
+              onClick={() => setIsPinned(!isPinned)}
+              className="p-1.5 rounded-xl text-slate-400 hover:text-amber-400 hover:bg-slate-800 transition active:scale-90"
+              title={isPinned ? "Unpin (Auto-Hide on Mouse Leave)" : "Pin Sidebar (Stay Open)"}
+            >
+              {isPinned ? <Pin className="w-4 h-4 text-amber-400 rotate-45" /> : <ChevronLeft className="w-4 h-4" />}
+            </button>
+          </div>
         </div>
 
         {/* Sync Indicator */}

@@ -90,6 +90,22 @@ export function InventoryProvider({ children }) {
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [socket, setSocket] = useState(null);
 
+  // Theme Management: 'dark' | 'light'
+  const [theme, setTheme] = useState(() => localStorage.getItem('ky_theme') || 'dark');
+
+  useEffect(() => {
+    if (theme === 'light') {
+      document.documentElement.classList.add('light');
+    } else {
+      document.documentElement.classList.remove('light');
+    }
+    localStorage.setItem('ky_theme', theme);
+  }, [theme]);
+
+  const toggleTheme = useCallback(() => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  }, []);
+
   const getAuthHeaders = useCallback(() => {
     const token = authToken || localStorage.getItem('ky_token') || '';
     return {
@@ -1119,7 +1135,9 @@ export function InventoryProvider({ children }) {
     revertSale,
     syncToGoogleSheets,
     addCategory,
-    deleteCategory
+    deleteCategory,
+    theme,
+    toggleTheme
   };
 
   return (
