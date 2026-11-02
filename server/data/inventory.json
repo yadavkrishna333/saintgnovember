@@ -1,5 +1,6 @@
 [
   {
+    "displaySize": "37",
     "id": "prod-w-1-sg-f-1852-silver",
     "sku": "SG-F-1852-SILVER",
     "name": "Article SG-F-1852-SILVER",
@@ -19,13 +20,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1852-SILVER",
     "createdAt": "2026-11-02T13:16:54.700Z",
     "updatedAt": "2026-11-02T13:16:54.701Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-2-sg-f-1867-black",
     "sku": "SG-F-1867-BLACK",
     "name": "Article SG-F-1867-BLACK",
@@ -45,13 +46,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1867-BLACK",
     "createdAt": "2026-11-02T13:16:54.701Z",
     "updatedAt": "2026-11-02T13:16:54.701Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-3-sg-f-1867-offwhite",
     "sku": "SG-F-1867-OFFWHITE",
     "name": "Article SG-F-1867-OFFWHITE",
@@ -71,13 +72,13 @@
       "40": 1,
       "41": 2
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1867-OFFWHITE",
     "createdAt": "2026-11-02T13:16:54.701Z",
     "updatedAt": "2026-11-02T13:16:54.701Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-4-sg-f-1929-black",
     "sku": "SG-F-1929-BLACK",
     "name": "Article SG-F-1929-BLACK",
@@ -97,13 +98,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1929-BLACK",
     "createdAt": "2026-11-02T13:16:54.701Z",
     "updatedAt": "2026-11-02T13:16:54.701Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-5-sg-f-1869-platin",
     "sku": "SG-F-1869-PLATIN",
     "name": "Article SG-F-1869-PLATIN",
@@ -123,13 +124,13 @@
       "40": 1,
       "41": 0
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1869-PLATIN",
     "createdAt": "2026-11-02T13:16:54.701Z",
     "updatedAt": "2026-11-02T13:16:54.701Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-6-sg-f-1869-black",
     "sku": "SG-F-1869-BLACK",
     "name": "Article SG-F-1869-BLACK",
@@ -149,13 +150,13 @@
       "40": 1,
       "41": 0
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1869-BLACK",
     "createdAt": "2026-11-02T13:16:54.701Z",
     "updatedAt": "2026-11-02T13:16:54.701Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-7-sg-f-1853-oldgold",
     "sku": "SG-F-1853-OLDGOLD",
     "name": "Article SG-F-1853-OLDGOLD",
@@ -175,13 +176,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1853-OLDGOLD",
     "createdAt": "2026-11-02T13:16:54.701Z",
     "updatedAt": "2026-11-02T13:16:54.701Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-8-sg-f-1630-offwhite",
     "sku": "SG-F-1630-OFFWHITE",
     "name": "Article SG-F-1630-OFFWHITE",
@@ -201,13 +202,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1630-OFFWHITE",
     "createdAt": "2026-11-02T13:16:54.701Z",
     "updatedAt": "2026-11-02T13:16:54.702Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-9-sg-f-1847-darkbrown",
     "sku": "SG-F-1847-DARKBROWN",
     "name": "Article SG-F-1847-DARKBROWN",
@@ -227,13 +228,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1847-DARKBROWN",
     "createdAt": "2026-11-02T13:16:54.702Z",
     "updatedAt": "2026-11-02T13:16:54.702Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-10-sg-f-1847-platin",
     "sku": "SG-F-1847-PLATIN",
     "name": "Article SG-F-1847-PLATIN",
@@ -253,13 +254,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1847-PLATIN",
     "createdAt": "2026-11-02T13:16:54.702Z",
     "updatedAt": "2026-11-02T13:16:54.702Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-11-sg-f-1844-black",
     "sku": "SG-F-1844-BLACK",
     "name": "Article SG-F-1844-BLACK",
@@ -279,13 +280,13 @@
       "40": 1,
       "41": 0
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1844-BLACK",
     "createdAt": "2026-11-02T13:16:54.702Z",
     "updatedAt": "2026-11-02T13:16:54.702Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-12-sg-f-1844-stone",
     "sku": "SG-F-1844-STONE",
     "name": "Article SG-F-1844-STONE",
@@ -305,13 +306,13 @@
       "40": 1,
       "41": 0
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1844-STONE",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-13-sg-f-1822-offwhite",
     "sku": "SG-F-1822-OFFWHITE",
     "name": "Article SG-F-1822-OFFWHITE",
@@ -331,13 +332,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1822-OFFWHITE",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-14-sg-f-1845-coral",
     "sku": "SG-F-1845-CORAL",
     "name": "Article SG-F-1845-CORAL",
@@ -357,13 +358,13 @@
       "40": 0,
       "41": 0
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1845-CORAL",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-15-sg-f-1909-black",
     "sku": "SG-F-1909-BLACK",
     "name": "Article SG-F-1909-BLACK",
@@ -383,13 +384,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1909-BLACK",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-16-sg-f-1856-oldgold",
     "sku": "SG-F-1856-OLDGOLD",
     "name": "Article SG-F-1856-OLDGOLD",
@@ -409,13 +410,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1856-OLDGOLD",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-17-sg-f-1874-coral",
     "sku": "SG-F-1874-CORAL",
     "name": "Article SG-F-1874-CORAL",
@@ -435,13 +436,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1874-CORAL",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-18-sg-f-1910-black",
     "sku": "SG-F-1910-BLACK",
     "name": "Article SG-F-1910-BLACK",
@@ -461,13 +462,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1910-BLACK",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-19-sg-f-1910-ivory",
     "sku": "SG-F-1910-IVORY",
     "name": "Article SG-F-1910-IVORY",
@@ -487,13 +488,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1910-IVORY",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-20-sg-f-1822-platin",
     "sku": "SG-F-1822-PLATIN",
     "name": "Article SG-F-1822-PLATIN",
@@ -513,13 +514,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1822-PLATIN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-21-sg-f-1864-platin",
     "sku": "SG-F-1864-PLATIN",
     "name": "Article SG-F-1864-PLATIN",
@@ -539,13 +540,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1864-PLATIN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-22-sg-f-1836-platin",
     "sku": "SG-F-1836-PLATIN",
     "name": "Article SG-F-1836-PLATIN",
@@ -565,13 +566,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1836-PLATIN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-23-sg-f-1836-black",
     "sku": "SG-F-1836-BLACK",
     "name": "Article SG-F-1836-BLACK",
@@ -591,13 +592,13 @@
       "40": 1,
       "41": 0
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1836-BLACK",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-24-sg-f-1616-brown",
     "sku": "SG-F-1616-BROWN",
     "name": "Article SG-F-1616-BROWN",
@@ -617,13 +618,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1616-BROWN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-25-sg-f-1376-multi",
     "sku": "SG-F-1376-MULTI",
     "name": "Article SG-F-1376-MULTI",
@@ -643,13 +644,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1376-MULTI",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "38",
     "id": "prod-w-26-sg-f-1923-gold",
     "sku": "SG-F-1923-GOLD",
     "name": "Article SG-F-1923-GOLD",
@@ -669,13 +670,13 @@
       "40": 0,
       "41": 1
     },
-    "displaySize": "38",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1923-GOLD",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-27-sg-f-1842-offwhite",
     "sku": "SG-F-1842-OFFWHITE",
     "name": "Article SG-F-1842-OFFWHITE",
@@ -695,13 +696,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1842-OFFWHITE",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-28-sg-f-1842-tan",
     "sku": "SG-F-1842-TAN",
     "name": "Article SG-F-1842-TAN",
@@ -721,13 +722,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1842-TAN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-29-sg-f-1549-black",
     "sku": "SG-F-1549-BLACK",
     "name": "Article SG-F-1549-BLACK",
@@ -747,13 +748,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1549-BLACK",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-30-sg-f-1923-silver",
     "sku": "SG-F-1923-SILVER",
     "name": "Article SG-F-1923-SILVER",
@@ -773,13 +774,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1923-SILVER",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-31-sg-f-1930-lightgold",
     "sku": "SG-F-1930-LIGHTGOLD",
     "name": "Article SG-F-1930-LIGHTGOLD",
@@ -799,13 +800,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1930-LIGHTGOLD",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-32-sg-f-1885-taupe",
     "sku": "SG-F-1885-TAUPE",
     "name": "Article SG-F-1885-TAUPE",
@@ -825,13 +826,13 @@
       "40": 0,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1885-TAUPE",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-33-sg-f-1885-darkbrown",
     "sku": "SG-F-1885-DARKBROWN",
     "name": "Article SG-F-1885-DARKBROWN",
@@ -851,13 +852,13 @@
       "40": 0,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1885-DARKBROWN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-34-sg-f-1863-platin",
     "sku": "SG-F-1863-PLATIN",
     "name": "Article SG-F-1863-PLATIN",
@@ -877,13 +878,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1863-PLATIN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-35-sg-f-1863-lightbeige",
     "sku": "SG-F-1863-LIGHTBEIGE",
     "name": "Article SG-F-1863-LIGHTBEIGE",
@@ -903,13 +904,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1863-LIGHTBEIGE",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-36-sg-f-1864-black",
     "sku": "SG-F-1864-BLACK",
     "name": "Article SG-F-1864-BLACK",
@@ -929,13 +930,13 @@
       "40": 1,
       "41": 0
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1864-BLACK",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "38",
     "id": "prod-w-37-sg-f-1860-darkbrown",
     "sku": "SG-F-1860-DARKBROWN",
     "name": "Article SG-F-1860-DARKBROWN",
@@ -955,13 +956,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "38",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1860-DARKBROWN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-38-sg-f-1860-platin",
     "sku": "SG-F-1860-PLATIN",
     "name": "Article SG-F-1860-PLATIN",
@@ -981,13 +982,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1860-PLATIN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-39-sg-f-1849-platin",
     "sku": "SG-F-1849-PLATIN",
     "name": "Article SG-F-1849-PLATIN",
@@ -1007,13 +1008,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1849-PLATIN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-40-sg-f-1861-darkbrown",
     "sku": "SG-F-1861-DARKBROWN",
     "name": "Article SG-F-1861-DARKBROWN",
@@ -1033,13 +1034,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1861-DARKBROWN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-41-sg-f-1892-brown",
     "sku": "SG-F-1892-BROWN",
     "name": "Article SG-F-1892-BROWN",
@@ -1059,13 +1060,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1892-BROWN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-42-sg-f-1865-tan",
     "sku": "SG-F-1865-TAN",
     "name": "Article SG-F-1865-TAN",
@@ -1085,13 +1086,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1865-TAN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-43-sg-f-1843-stone",
     "sku": "SG-F-1843-STONE",
     "name": "Article SG-F-1843-STONE",
@@ -1111,13 +1112,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1843-STONE",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-44-sg-f-1825-black",
     "sku": "SG-F-1825-BLACK",
     "name": "Article SG-F-1825-BLACK",
@@ -1137,13 +1138,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1825-BLACK",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-45-sg-f-1825-platin",
     "sku": "SG-F-1825-PLATIN",
     "name": "Article SG-F-1825-PLATIN",
@@ -1163,13 +1164,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1825-PLATIN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-46-sg-f-1983-black",
     "sku": "SG-F-1983-BLACK",
     "name": "Article SG-F-1983-BLACK",
@@ -1189,13 +1190,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1983-BLACK",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-47-sg-f-1985-chestnut",
     "sku": "SG-F-1985-CHESTNUT",
     "name": "Article SG-F-1985-CHESTNUT",
@@ -1215,13 +1216,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1985-CHESTNUT",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-48-sg-f-1951-brown",
     "sku": "SG-F-1951-BROWN",
     "name": "Article SG-F-1951-BROWN",
@@ -1241,13 +1242,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1951-BROWN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-49-sg-f-1986-black",
     "sku": "SG-F-1986-BLACK",
     "name": "Article SG-F-1986-BLACK",
@@ -1267,13 +1268,13 @@
       "40": 1,
       "41": 0
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1986-BLACK",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-50-sg-f-1924-black",
     "sku": "SG-F-1924-BLACK",
     "name": "Article SG-F-1924-BLACK",
@@ -1293,13 +1294,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1924-BLACK",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-51-sg-f-1859-black",
     "sku": "SG-F-1859-BLACK",
     "name": "Article SG-F-1859-BLACK",
@@ -1319,13 +1320,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1859-BLACK",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-52-sg-f-1874-turq",
     "sku": "SG-F-1874-TURQ",
     "name": "Article SG-F-1874-TURQ",
@@ -1345,13 +1346,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1874-TURQ",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-53-sg-f-1531-platin",
     "sku": "SG-F-1531-PLATIN",
     "name": "Article SG-F-1531-PLATIN",
@@ -1371,13 +1372,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1531-PLATIN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-54-sg-f-1998-tan",
     "sku": "SG-F-1998-TAN",
     "name": "Article SG-F-1998-TAN",
@@ -1397,13 +1398,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1998-TAN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-55-sg-f-1846-platin",
     "sku": "SG-F-1846-PLATIN",
     "name": "Article SG-F-1846-PLATIN",
@@ -1423,13 +1424,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1846-PLATIN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-56-sg-f-1827-black",
     "sku": "SG-F-1827-BLACK",
     "name": "Article SG-F-1827-BLACK",
@@ -1449,13 +1450,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1827-BLACK",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-57-sg-f-1904-platin",
     "sku": "SG-F-1904-PLATIN",
     "name": "Article SG-F-1904-PLATIN",
@@ -1475,13 +1476,13 @@
       "40": 1,
       "41": 0
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1904-PLATIN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-58-sg-f-1821-platin",
     "sku": "SG-F-1821-PLATIN",
     "name": "Article SG-F-1821-PLATIN",
@@ -1501,13 +1502,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1821-PLATIN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-59-sg-f-1826-black",
     "sku": "SG-F-1826-BLACK",
     "name": "Article SG-F-1826-BLACK",
@@ -1527,13 +1528,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1826-BLACK",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-60-sg-f-1826-offwhite",
     "sku": "SG-F-1826-OFFWHITE",
     "name": "Article SG-F-1826-OFFWHITE",
@@ -1553,13 +1554,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1826-OFFWHITE",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-61-sg-f-28-white",
     "sku": "SG-F-28-WHITE",
     "name": "Article SG-F-28-WHITE",
@@ -1579,13 +1580,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-28-WHITE",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-62-sg-f-1940-chestnut",
     "sku": "SG-F-1940-CHESTNUT",
     "name": "Article SG-F-1940-CHESTNUT",
@@ -1605,13 +1606,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1940-CHESTNUT",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-63-sg-f-1935-brown",
     "sku": "SG-F-1935-BROWN",
     "name": "Article SG-F-1935-BROWN",
@@ -1631,13 +1632,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1935-BROWN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-64-sg-f-1576-black",
     "sku": "SG-F-1576-BLACK",
     "name": "Article SG-F-1576-BLACK",
@@ -1657,13 +1658,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1576-BLACK",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-65-sg-f-1576-portroyale",
     "sku": "SG-F-1576-PORTROYALE",
     "name": "Article SG-F-1576-PORTROYALE",
@@ -1683,13 +1684,13 @@
       "40": 0,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1576-PORTROYALE",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-66-sg-f-1928-blue",
     "sku": "SG-F-1928-BLUE",
     "name": "Article SG-F-1928-BLUE",
@@ -1709,13 +1710,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1928-BLUE",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-67-sg-f-1928-white",
     "sku": "SG-F-1928-WHITE",
     "name": "Article SG-F-1928-WHITE",
@@ -1735,13 +1736,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1928-WHITE",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-68-sg-f-1560-black",
     "sku": "SG-F-1560-BLACK",
     "name": "Article SG-F-1560-BLACK",
@@ -1761,13 +1762,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1560-BLACK",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w1",
     "sku": "SG-F-1560-TAN",
     "name": "Classic Italian Block Heels",
@@ -1787,13 +1788,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Elegant block heel, comfortable all-day wear.",
     "createdAt": "2026-11-02T06:00:00.000Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-70-sg-f-1561-tan",
     "sku": "SG-F-1561-TAN",
     "name": "Article SG-F-1561-TAN",
@@ -1813,13 +1814,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1561-TAN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "38",
     "id": "prod-w2",
     "sku": "SG-F-1561-BLACK",
     "name": "Stiletto Pointed Pencil Heels",
@@ -1839,13 +1840,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "38",
     "imageUrl": "https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?w=500&auto=format&fit=crop&q=80",
     "notes": "Glossy finish 4-inch slender pencil heel.",
     "createdAt": "2026-11-02T06:00:00.000Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-72-sg-f-1318-offwhite",
     "sku": "SG-F-1318-OFFWHITE",
     "name": "Article SG-F-1318-OFFWHITE",
@@ -1865,13 +1866,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1318-OFFWHITE",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-73-sg-f-1318-black",
     "sku": "SG-F-1318-BLACK",
     "name": "Article SG-F-1318-BLACK",
@@ -1891,13 +1892,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1318-BLACK",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-74-sg-f-1610-multi",
     "sku": "SG-F-1610-MULTI",
     "name": "Article SG-F-1610-MULTI",
@@ -1917,13 +1918,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1610-MULTI",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-75-sg-f-1610-platin",
     "sku": "SG-F-1610-PLATIN",
     "name": "Article SG-F-1610-PLATIN",
@@ -1943,13 +1944,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1610-PLATIN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-76-sg-f-1915-platin",
     "sku": "SG-F-1915-PLATIN",
     "name": "Article SG-F-1915-PLATIN",
@@ -1969,13 +1970,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1915-PLATIN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-77-sg-f-1915-black",
     "sku": "SG-F-1915-BLACK",
     "name": "Article SG-F-1915-BLACK",
@@ -1995,13 +1996,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1915-BLACK",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-78-sg-f-1637-white",
     "sku": "SG-F-1637-WHITE",
     "name": "Article SG-F-1637-WHITE",
@@ -2021,13 +2022,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1637-WHITE",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-79-sg-f-1820-tan",
     "sku": "SG-F-1820-TAN",
     "name": "Article SG-F-1820-TAN",
@@ -2047,13 +2048,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1820-TAN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-80-sg-f-1820-skyblue",
     "sku": "SG-F-1820-SKYBLUE",
     "name": "Article SG-F-1820-SKYBLUE",
@@ -2073,13 +2074,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1820-SKYBLUE",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-81-sg-f-1917-black",
     "sku": "SG-F-1917-BLACK",
     "name": "Article SG-F-1917-BLACK",
@@ -2099,13 +2100,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1917-BLACK",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "36",
     "id": "prod-w-82-sg-f-1917-platin",
     "sku": "SG-F-1917-PLATIN",
     "name": "Article SG-F-1917-PLATIN",
@@ -2125,13 +2126,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "36",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1917-PLATIN",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-83-sg-f-1932-silvermulti",
     "sku": "SG-F-1932-SILVERMULTI",
     "name": "Article SG-F-1932-SILVERMULTI",
@@ -2151,13 +2152,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1932-SILVERMULTI",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-84-sg-f-1932-lightgold",
     "sku": "SG-F-1932-LIGHTGOLD",
     "name": "Article SG-F-1932-LIGHTGOLD",
@@ -2177,13 +2178,13 @@
       "40": 1,
       "41": 0
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1932-LIGHTGOLD",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-85-sg-f-1918-silver",
     "sku": "SG-F-1918-SILVER",
     "name": "Article SG-F-1918-SILVER",
@@ -2203,13 +2204,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1918-SILVER",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-86-sg-f-1711-black",
     "sku": "SG-F-1711-BLACK",
     "name": "Article SG-F-1711-BLACK",
@@ -2229,13 +2230,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1711-BLACK",
     "createdAt": "2026-11-02T13:16:54.703Z",
     "updatedAt": "2026-11-02T13:16:54.703Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-87-sg-f-1824-black",
     "sku": "SG-F-1824-BLACK",
     "name": "Article SG-F-1824-BLACK",
@@ -2255,13 +2256,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1824-BLACK",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-88-sg-f-1824-platin",
     "sku": "SG-F-1824-PLATIN",
     "name": "Article SG-F-1824-PLATIN",
@@ -2281,13 +2282,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1824-PLATIN",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-89-sg-f-1893-black",
     "sku": "SG-F-1893-BLACK",
     "name": "Article SG-F-1893-BLACK",
@@ -2307,13 +2308,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1893-BLACK",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-90-sg-f-1893-brown",
     "sku": "SG-F-1893-BROWN",
     "name": "Article SG-F-1893-BROWN",
@@ -2333,13 +2334,13 @@
       "40": 1,
       "41": 0
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1893-BROWN",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-91-sg-f-1892-black",
     "sku": "SG-F-1892-BLACK",
     "name": "Article SG-F-1892-BLACK",
@@ -2359,13 +2360,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1892-BLACK",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-92-sg-f-1911-offwhite",
     "sku": "SG-F-1911-OFFWHITE",
     "name": "Article SG-F-1911-OFFWHITE",
@@ -2385,13 +2386,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1911-OFFWHITE",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-93-sg-f-1911-platin",
     "sku": "SG-F-1911-PLATIN",
     "name": "Article SG-F-1911-PLATIN",
@@ -2411,13 +2412,13 @@
       "40": 1,
       "41": 2
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1911-PLATIN",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-94-sg-f-1849-mais",
     "sku": "SG-F-1849-MAIS",
     "name": "Article SG-F-1849-MAIS",
@@ -2437,13 +2438,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1849-MAIS",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-95-sg-f-1376-platin",
     "sku": "SG-F-1376-PLATIN",
     "name": "Article SG-F-1376-PLATIN",
@@ -2463,13 +2464,13 @@
       "40": 0,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1376-PLATIN",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-96-sg-f-1878-offwhite",
     "sku": "SG-F-1878-OFFWHITE",
     "name": "Article SG-F-1878-OFFWHITE",
@@ -2489,13 +2490,13 @@
       "40": 1,
       "41": 0
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1878-OFFWHITE",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-97-sg-f-1878-black",
     "sku": "SG-F-1878-BLACK",
     "name": "Article SG-F-1878-BLACK",
@@ -2515,13 +2516,13 @@
       "40": 1,
       "41": 0
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1878-BLACK",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-98-sg-f-1919-platin",
     "sku": "SG-F-1919-PLATIN",
     "name": "Article SG-F-1919-PLATIN",
@@ -2541,13 +2542,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1919-PLATIN",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-99-sg-f-1876-tan",
     "sku": "SG-F-1876-TAN",
     "name": "Article SG-F-1876-TAN",
@@ -2567,13 +2568,13 @@
       "40": 0,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1876-TAN",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-100-sg-f-1551-blue",
     "sku": "SG-F-1551-BLUE",
     "name": "Article SG-F-1551-BLUE",
@@ -2593,13 +2594,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1551-BLUE",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-101-sg-f-1855-oldgold",
     "sku": "SG-F-1855-OLDGOLD",
     "name": "Article SG-F-1855-OLDGOLD",
@@ -2619,13 +2620,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1855-OLDGOLD",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-102-sg-f-1761-black",
     "sku": "SG-F-1761-BLACK",
     "name": "Article SG-F-1761-BLACK",
@@ -2645,13 +2646,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1761-BLACK",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-103-sg-f-1942-chestnut",
     "sku": "SG-F-1942-CHESTNUT",
     "name": "Article SG-F-1942-CHESTNUT",
@@ -2671,13 +2672,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1942-CHESTNUT",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-104-sg-f-1839-black",
     "sku": "SG-F-1839-BLACK",
     "name": "Article SG-F-1839-BLACK",
@@ -2697,13 +2698,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1839-BLACK",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-105-sg-f-1931-lightgold",
     "sku": "SG-F-1931-LIGHTGOLD",
     "name": "Article SG-F-1931-LIGHTGOLD",
@@ -2723,13 +2724,13 @@
       "40": 1,
       "41": 0
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1931-LIGHTGOLD",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-106-sg-f-1732-red",
     "sku": "SG-F-1732-RED",
     "name": "Article SG-F-1732-RED",
@@ -2749,13 +2750,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1732-RED",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-107-sg-f-1732-white",
     "sku": "SG-F-1732-WHITE",
     "name": "Article SG-F-1732-WHITE",
@@ -2775,13 +2776,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1732-WHITE",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-108-sg-f-1732-blue",
     "sku": "SG-F-1732-BLUE",
     "name": "Article SG-F-1732-BLUE",
@@ -2801,13 +2802,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1732-BLUE",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-109-sg-f-1443-offwhite",
     "sku": "SG-F-1443-OFFWHITE",
     "name": "Article SG-F-1443-OFFWHITE",
@@ -2827,13 +2828,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1443-OFFWHITE",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-110-sg-f-1443-gold",
     "sku": "SG-F-1443-GOLD",
     "name": "Article SG-F-1443-GOLD",
@@ -2853,13 +2854,13 @@
       "40": 1,
       "41": 0
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1443-GOLD",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-111-sg-f-1905-oldgold",
     "sku": "SG-F-1905-OLDGOLD",
     "name": "Article SG-F-1905-OLDGOLD",
@@ -2879,13 +2880,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1905-OLDGOLD",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-112-sg-f-160-platin",
     "sku": "SG-F-160-PLATIN",
     "name": "Article SG-F-160-PLATIN",
@@ -2905,13 +2906,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-160-PLATIN",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-113-sg-f-1920-platin",
     "sku": "SG-F-1920-PLATIN",
     "name": "Article SG-F-1920-PLATIN",
@@ -2931,13 +2932,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1920-PLATIN",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-114-sg-f-1920-black",
     "sku": "SG-F-1920-BLACK",
     "name": "Article SG-F-1920-BLACK",
@@ -2957,13 +2958,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1920-BLACK",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-115-sg-f-1544-white",
     "sku": "SG-F-1544-WHITE",
     "name": "Article SG-F-1544-WHITE",
@@ -2983,13 +2984,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1544-WHITE",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-116-sg-f-1544-black",
     "sku": "SG-F-1544-BLACK",
     "name": "Article SG-F-1544-BLACK",
@@ -3009,13 +3010,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1544-BLACK",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-117-sg-f-1985-black",
     "sku": "SG-F-1985-BLACK",
     "name": "Article SG-F-1985-BLACK",
@@ -3035,13 +3036,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1985-BLACK",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-118-sg-f-1991-black",
     "sku": "SG-F-1991-BLACK",
     "name": "Article SG-F-1991-BLACK",
@@ -3061,13 +3062,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1991-BLACK",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-119-sg-f-1669-black",
     "sku": "SG-F-1669-BLACK",
     "name": "Article SG-F-1669-BLACK",
@@ -3087,13 +3088,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1669-BLACK",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "36",
     "id": "prod-w-120-sg-f-1841-black",
     "sku": "SG-F-1841-BLACK",
     "name": "Article SG-F-1841-BLACK",
@@ -3113,13 +3114,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "36",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1841-BLACK",
     "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "updatedAt": "2026-11-02T13:20:20.509Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-121-sg-f-1885-brown",
     "sku": "SG-F-1885-BROWN",
     "name": "Article SG-F-1885-BROWN",
@@ -3139,13 +3140,13 @@
       "40": 1,
       "41": 0
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1885-BROWN",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-122-sg-f-1009-taupe",
     "sku": "SG-F-1009-TAUPE",
     "name": "Article SG-F-1009-TAUPE",
@@ -3165,13 +3166,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1009-TAUPE",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-123-sg-f-1585-black",
     "sku": "SG-F-1585-BLACK",
     "name": "Article SG-F-1585-BLACK",
@@ -3191,13 +3192,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1585-BLACK",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-124-sg-f-790-black",
     "sku": "SG-F-790-BLACK",
     "name": "Article SG-F-790-BLACK",
@@ -3217,13 +3218,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-790-BLACK",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-125-sg-f-1649-bordo",
     "sku": "SG-F-1649-BORDO",
     "name": "Article SG-F-1649-BORDO",
@@ -3243,13 +3244,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1649-BORDO",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-126-sg-f-1690-black",
     "sku": "SG-F-1690-BLACK",
     "name": "Article SG-F-1690-BLACK",
@@ -3269,13 +3270,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1690-BLACK",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-127-sg-f-1151-brown",
     "sku": "SG-F-1151-BROWN",
     "name": "Article SG-F-1151-BROWN",
@@ -3295,13 +3296,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1151-BROWN",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-128-sg-f-1650-brown",
     "sku": "SG-F-1650-BROWN",
     "name": "Article SG-F-1650-BROWN",
@@ -3321,13 +3322,13 @@
       "40": 1,
       "41": 0
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1650-BROWN",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-129-sg-f-02-black",
     "sku": "SG-F-02-BLACK",
     "name": "Article SG-F-02-BLACK",
@@ -3347,13 +3348,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-02-BLACK",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "37",
     "id": "prod-w-130-sg-f-1171-black",
     "sku": "SG-F-1171-BLACK",
     "name": "Article SG-F-1171-BLACK",
@@ -3373,13 +3374,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "37",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1171-BLACK",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "",
     "id": "prod-w-131-sg-f-1761-marron",
     "sku": "SG-F-1761-MARRON",
     "name": "Article SG-F-1761-MARRON",
@@ -3399,13 +3400,13 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1761-MARRON",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "",
     "id": "prod-w-132-sg-f-1767-black",
     "sku": "SG-F-1767-BLACK",
     "name": "Article SG-F-1767-BLACK",
@@ -3425,13 +3426,13 @@
       "40": 0,
       "41": 0
     },
-    "displaySize": "",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1767-BLACK",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "",
     "id": "prod-w-133-sg-f-1532-brown",
     "sku": "SG-F-1532-BROWN",
     "name": "Article SG-F-1532-BROWN",
@@ -3451,13 +3452,13 @@
       "40": 0,
       "41": 1
     },
-    "displaySize": "",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1532-BROWN",
     "createdAt": "2026-11-02T13:16:54.704Z",
     "updatedAt": "2026-11-02T13:16:54.704Z"
   },
   {
+    "displaySize": "",
     "id": "prod-w-134-sg-f-1839-brown",
     "sku": "SG-F-1839-BROWN",
     "name": "Article SG-F-1839-BROWN",
@@ -3477,7 +3478,6 @@
       "40": 1,
       "41": 1
     },
-    "displaySize": "",
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
     "notes": "Imported stock batch - SG-F-1839-BROWN",
     "createdAt": "2026-11-02T13:16:54.704Z",
@@ -3699,5 +3699,1158 @@
     "notes": "Padded 15.6 inch compartment.",
     "createdAt": "2026-11-02T06:00:00.000Z",
     "updatedAt": "2026-11-02T06:00:00.000Z"
+  },
+  {
+    "id": "prod-wom-sg-f-1760-lighttaupe",
+    "sku": "SG-F-1760-LIGHTTAUPE",
+    "name": "Article SG-F-1760-LIGHTTAUPE",
+    "brand": "Saint G",
+    "category": "women_footwear",
+    "styleCategory": "Block Heels",
+    "color": "Light Taupe",
+    "costPrice": 2200,
+    "sellingPrice": 4499,
+    "sizes": {
+      "35": 0,
+      "36": 1,
+      "37": 1,
+      "38": 1,
+      "39": 1,
+      "40": 1,
+      "41": 1
+    },
+    "displaySize": "37",
+    "imageUrl": "",
+    "notes": "Batch added SG-F-1760-LIGHTTAUPE",
+    "createdAt": "2026-11-02T17:03:16.581Z",
+    "updatedAt": "2026-11-02T17:03:16.581Z"
+  },
+  {
+    "id": "prod-wom-sg-f-1939-brodo",
+    "sku": "SG-F-1939-BRODO",
+    "name": "Article SG-F-1939-BRODO",
+    "brand": "Saint G",
+    "category": "women_footwear",
+    "styleCategory": "Block Heels",
+    "color": "Bordo",
+    "costPrice": 2200,
+    "sellingPrice": 4499,
+    "sizes": {
+      "35": 0,
+      "36": 1,
+      "37": 1,
+      "38": 1,
+      "39": 1,
+      "40": 1,
+      "41": 1
+    },
+    "displaySize": "37",
+    "imageUrl": "",
+    "notes": "Batch added SG-F-1939-BRODO",
+    "createdAt": "2026-11-02T17:03:16.582Z",
+    "updatedAt": "2026-11-02T17:03:16.582Z"
+  },
+  {
+    "id": "prod-wom-sg-f-1765-brown",
+    "sku": "SG-F-1765-BROWN",
+    "name": "Article SG-F-1765-BROWN",
+    "brand": "Saint G",
+    "category": "women_footwear",
+    "styleCategory": "Block Heels",
+    "color": "Brown",
+    "costPrice": 2200,
+    "sellingPrice": 4499,
+    "sizes": {
+      "35": 0,
+      "36": 1,
+      "37": 1,
+      "38": 1,
+      "39": 1,
+      "40": 1,
+      "41": 1
+    },
+    "displaySize": "37",
+    "imageUrl": "",
+    "notes": "Batch added SG-F-1765-BROWN",
+    "createdAt": "2026-11-02T17:03:16.582Z",
+    "updatedAt": "2026-11-02T17:03:16.582Z"
+  },
+  {
+    "id": "prod-wom-sg-f-103-brown",
+    "sku": "SG-F-103-BROWN",
+    "name": "Article SG-F-103-BROWN",
+    "brand": "Saint G",
+    "category": "women_footwear",
+    "styleCategory": "Block Heels",
+    "color": "Brown",
+    "costPrice": 2200,
+    "sellingPrice": 4499,
+    "sizes": {
+      "35": 0,
+      "36": 1,
+      "37": 1,
+      "38": 1,
+      "39": 0,
+      "40": 1,
+      "41": 1
+    },
+    "displaySize": "37",
+    "imageUrl": "",
+    "notes": "Batch added SG-F-103-BROWN",
+    "createdAt": "2026-11-02T17:03:16.582Z",
+    "updatedAt": "2026-11-02T17:03:16.582Z"
+  },
+  {
+    "id": "prod-wom-sg-f-1942-black",
+    "sku": "SG-F-1942-BLACK",
+    "name": "Article SG-F-1942-BLACK",
+    "brand": "Saint G",
+    "category": "women_footwear",
+    "styleCategory": "Block Heels",
+    "color": "Black",
+    "costPrice": 2200,
+    "sellingPrice": 4499,
+    "sizes": {
+      "35": 0,
+      "36": 1,
+      "37": 1,
+      "38": 1,
+      "39": 1,
+      "40": 1,
+      "41": 1
+    },
+    "displaySize": "37",
+    "imageUrl": "",
+    "notes": "Batch added SG-F-1942-BLACK",
+    "createdAt": "2026-11-02T17:03:16.582Z",
+    "updatedAt": "2026-11-02T17:03:16.582Z"
+  },
+  {
+    "id": "prod-wom-sg-f-1995-black",
+    "sku": "SG-F-1995-BLACK",
+    "name": "Article SG-F-1995-BLACK",
+    "brand": "Saint G",
+    "category": "women_footwear",
+    "styleCategory": "Block Heels",
+    "color": "Black",
+    "costPrice": 2200,
+    "sellingPrice": 4499,
+    "sizes": {
+      "35": 0,
+      "36": 1,
+      "37": 1,
+      "38": 1,
+      "39": 1,
+      "40": 1,
+      "41": 1
+    },
+    "displaySize": "37",
+    "imageUrl": "",
+    "notes": "Batch added SG-F-1995-BLACK",
+    "createdAt": "2026-11-02T17:03:16.582Z",
+    "updatedAt": "2026-11-02T17:03:16.582Z"
+  },
+  {
+    "id": "prod-wom-sg-f-1001-brown",
+    "sku": "SG-F-1001-BROWN",
+    "name": "Article SG-F-1001-BROWN",
+    "brand": "Saint G",
+    "category": "women_footwear",
+    "styleCategory": "Block Heels",
+    "color": "Brown",
+    "costPrice": 2200,
+    "sellingPrice": 4499,
+    "sizes": {
+      "35": 0,
+      "36": 1,
+      "37": 1,
+      "38": 1,
+      "39": 1,
+      "40": 1,
+      "41": 1
+    },
+    "displaySize": "37",
+    "imageUrl": "",
+    "notes": "Batch added SG-F-1001-BROWN",
+    "createdAt": "2026-11-02T17:03:16.582Z",
+    "updatedAt": "2026-11-02T17:03:16.582Z"
+  },
+  {
+    "id": "prod-wom-sg-f-1994-black",
+    "sku": "SG-F-1994-BLACK",
+    "name": "Article SG-F-1994-BLACK",
+    "brand": "Saint G",
+    "category": "women_footwear",
+    "styleCategory": "Block Heels",
+    "color": "Black",
+    "costPrice": 2200,
+    "sellingPrice": 4499,
+    "sizes": {
+      "35": 0,
+      "36": 1,
+      "37": 1,
+      "38": 1,
+      "39": 1,
+      "40": 1,
+      "41": 1
+    },
+    "displaySize": "37",
+    "imageUrl": "",
+    "notes": "Batch added SG-F-1994-BLACK",
+    "createdAt": "2026-11-02T17:03:16.582Z",
+    "updatedAt": "2026-11-02T17:03:16.582Z"
+  },
+  {
+    "id": "prod-men-sgm-12-black",
+    "sku": "SGM-12-BLACK",
+    "name": "Article SGM-12-BLACK",
+    "brand": "Saint G",
+    "category": "men_footwear",
+    "styleCategory": "Leather Shoes",
+    "color": "Black",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "40": 1,
+      "41": 1,
+      "42": 1,
+      "43": 1,
+      "44": 1,
+      "45": 0
+    },
+    "displaySize": "41",
+    "imageUrl": "",
+    "notes": "Batch added SGM-12-BLACK",
+    "createdAt": "2026-11-02T17:03:16.582Z",
+    "updatedAt": "2026-11-02T17:03:16.582Z"
+  },
+  {
+    "id": "prod-men-sgm-65-black",
+    "sku": "SGM-65-BLACK",
+    "name": "Article SGM-65-BLACK",
+    "brand": "Saint G",
+    "category": "men_footwear",
+    "styleCategory": "Leather Shoes",
+    "color": "Black",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "40": 1,
+      "41": 1,
+      "42": 1,
+      "43": 1,
+      "44": 1,
+      "45": 0
+    },
+    "displaySize": "41",
+    "imageUrl": "",
+    "notes": "Batch added SGM-65-BLACK",
+    "createdAt": "2026-11-02T17:03:16.582Z",
+    "updatedAt": "2026-11-02T17:03:16.582Z"
+  },
+  {
+    "id": "prod-men-sgm-09-beige",
+    "sku": "SGM-09-BEIGE",
+    "name": "Article SGM-09-BEIGE",
+    "brand": "Saint G",
+    "category": "men_footwear",
+    "styleCategory": "Leather Shoes",
+    "color": "Beige",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "40": 1,
+      "41": 1,
+      "42": 1,
+      "43": 1,
+      "44": 0,
+      "45": 0
+    },
+    "displaySize": "41",
+    "imageUrl": "",
+    "notes": "Batch added SGM-09-BEIGE",
+    "createdAt": "2026-11-02T17:03:16.582Z",
+    "updatedAt": "2026-11-02T17:03:16.582Z"
+  },
+  {
+    "id": "prod-men-sgm-46-black",
+    "sku": "SGM-46-BLACK",
+    "name": "Article SGM-46-BLACK",
+    "brand": "Saint G",
+    "category": "men_footwear",
+    "styleCategory": "Leather Shoes",
+    "color": "Black",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "40": 1,
+      "41": 1,
+      "42": 1,
+      "43": 1,
+      "44": 1,
+      "45": 0
+    },
+    "displaySize": "41",
+    "imageUrl": "",
+    "notes": "Batch added SGM-46-BLACK",
+    "createdAt": "2026-11-02T17:03:16.583Z",
+    "updatedAt": "2026-11-02T17:03:16.583Z"
+  },
+  {
+    "id": "prod-men-sgm-20-black",
+    "sku": "SGM-20-BLACK",
+    "name": "Article SGM-20-BLACK",
+    "brand": "Saint G",
+    "category": "men_footwear",
+    "styleCategory": "Leather Shoes",
+    "color": "Black",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "40": 0,
+      "41": 1,
+      "42": 1,
+      "43": 1,
+      "44": 0,
+      "45": 0
+    },
+    "displaySize": "41",
+    "imageUrl": "",
+    "notes": "Batch added SGM-20-BLACK",
+    "createdAt": "2026-11-02T17:03:16.583Z",
+    "updatedAt": "2026-11-02T17:03:16.583Z"
+  },
+  {
+    "id": "prod-men-sgm-43-navy",
+    "sku": "SGM-43-NAVY",
+    "name": "Article SGM-43-NAVY",
+    "brand": "Saint G",
+    "category": "men_footwear",
+    "styleCategory": "Leather Shoes",
+    "color": "Navy",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "40": 1,
+      "41": 0,
+      "42": 1,
+      "43": 1,
+      "44": 1,
+      "45": 0
+    },
+    "displaySize": "41",
+    "imageUrl": "",
+    "notes": "Batch added SGM-43-NAVY",
+    "createdAt": "2026-11-02T17:03:16.583Z",
+    "updatedAt": "2026-11-02T17:03:16.583Z"
+  },
+  {
+    "id": "prod-men-sgm-43-black",
+    "sku": "SGM-43-BLACK",
+    "name": "Article SGM-43-BLACK",
+    "brand": "Saint G",
+    "category": "men_footwear",
+    "styleCategory": "Leather Shoes",
+    "color": "Black",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "40": 1,
+      "41": 1,
+      "42": 3,
+      "43": 1,
+      "44": 1,
+      "45": 0
+    },
+    "displaySize": "41",
+    "imageUrl": "",
+    "notes": "Batch added SGM-43-BLACK",
+    "createdAt": "2026-11-02T17:03:16.583Z",
+    "updatedAt": "2026-11-02T17:03:16.583Z"
+  },
+  {
+    "id": "prod-men-sgm-41-brown",
+    "sku": "SGM-41-BROWN",
+    "name": "Article SGM-41-BROWN",
+    "brand": "Saint G",
+    "category": "men_footwear",
+    "styleCategory": "Leather Shoes",
+    "color": "Brown",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "40": 0,
+      "41": 1,
+      "42": 0,
+      "43": 0,
+      "44": 0,
+      "45": 0
+    },
+    "displaySize": "41",
+    "imageUrl": "",
+    "notes": "Batch added SGM-41-BROWN",
+    "createdAt": "2026-11-02T17:03:16.583Z",
+    "updatedAt": "2026-11-02T17:03:16.583Z"
+  },
+  {
+    "id": "prod-men-sgm-09-brown",
+    "sku": "SGM-09-BROWN",
+    "name": "Article SGM-09-BROWN",
+    "brand": "Saint G",
+    "category": "men_footwear",
+    "styleCategory": "Leather Shoes",
+    "color": "Brown",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "40": 0,
+      "41": 2,
+      "42": 2,
+      "43": 1,
+      "44": 0,
+      "45": 0
+    },
+    "displaySize": "41",
+    "imageUrl": "",
+    "notes": "Batch added SGM-09-BROWN",
+    "createdAt": "2026-11-02T17:03:16.583Z",
+    "updatedAt": "2026-11-02T17:03:16.583Z"
+  },
+  {
+    "id": "prod-men-sgm-22-brown",
+    "sku": "SGM-22-BROWN",
+    "name": "Article SGM-22-BROWN",
+    "brand": "Saint G",
+    "category": "men_footwear",
+    "styleCategory": "Leather Shoes",
+    "color": "Brown",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "40": 1,
+      "41": 2,
+      "42": 1,
+      "43": 1,
+      "44": 0,
+      "45": 0
+    },
+    "displaySize": "41",
+    "imageUrl": "",
+    "notes": "Batch added SGM-22-BROWN",
+    "createdAt": "2026-11-02T17:03:16.583Z",
+    "updatedAt": "2026-11-02T17:03:16.583Z"
+  },
+  {
+    "id": "prod-men-jk-m-04-black",
+    "sku": "JK-M-04-BLACK",
+    "name": "Article JK-M-04-BLACK",
+    "brand": "Saint G",
+    "category": "men_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Black",
+    "costPrice": 4500,
+    "sellingPrice": 8999,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 1
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-M-04-BLACK",
+    "createdAt": "2026-11-02T17:03:16.583Z",
+    "updatedAt": "2026-11-02T17:03:16.583Z"
+  },
+  {
+    "id": "prod-men-jk-m-01-black",
+    "sku": "JK-M-01-BLACK",
+    "name": "Article JK-M-01-BLACK",
+    "brand": "Saint G",
+    "category": "men_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Black",
+    "costPrice": 4500,
+    "sellingPrice": 8999,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 1
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-M-01-BLACK",
+    "createdAt": "2026-11-02T17:03:16.583Z",
+    "updatedAt": "2026-11-02T17:03:16.583Z"
+  },
+  {
+    "id": "prod-men-jk-m-01-chocolate",
+    "sku": "JK-M-01-CHOCOLATE",
+    "name": "Article JK-M-01-CHOCOLATE",
+    "brand": "Saint G",
+    "category": "men_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Chocolate",
+    "costPrice": 4500,
+    "sellingPrice": 8999,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 0,
+      "XXL": 1
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-M-01-CHOCOLATE",
+    "createdAt": "2026-11-02T17:03:16.583Z",
+    "updatedAt": "2026-11-02T17:03:16.583Z"
+  },
+  {
+    "id": "prod-men-jk-m-29-blue",
+    "sku": "JK-M-29-BLUE",
+    "name": "Article JK-M-29-BLUE",
+    "brand": "Saint G",
+    "category": "men_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Blue",
+    "costPrice": 4500,
+    "sellingPrice": 8999,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 1
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-M-29-BLUE",
+    "createdAt": "2026-11-02T17:03:16.584Z",
+    "updatedAt": "2026-11-02T17:03:16.584Z"
+  },
+  {
+    "id": "prod-men-jk-m-29-chocolate",
+    "sku": "JK-M-29-CHOCOLATE",
+    "name": "Article JK-M-29-CHOCOLATE",
+    "brand": "Saint G",
+    "category": "men_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Chocolate",
+    "costPrice": 4500,
+    "sellingPrice": 8999,
+    "sizes": {
+      "S": 2,
+      "M": 4,
+      "L": 2,
+      "XL": 2,
+      "XXL": 2
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-M-29-CHOCOLATE",
+    "createdAt": "2026-11-02T17:03:16.584Z",
+    "updatedAt": "2026-11-02T17:03:16.584Z"
+  },
+  {
+    "id": "prod-men-jk-m-08-black",
+    "sku": "JK-M-08-BLACK",
+    "name": "Article JK-M-08-BLACK",
+    "brand": "Saint G",
+    "category": "men_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Black",
+    "costPrice": 4500,
+    "sellingPrice": 8999,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 1
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-M-08-BLACK",
+    "createdAt": "2026-11-02T17:03:16.584Z",
+    "updatedAt": "2026-11-02T17:03:16.584Z"
+  },
+  {
+    "id": "prod-men-jk-m-34-black",
+    "sku": "JK-M-34-BLACK",
+    "name": "Article JK-M-34-BLACK",
+    "brand": "Saint G",
+    "category": "men_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Black",
+    "costPrice": 4500,
+    "sellingPrice": 8999,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 1
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-M-34-BLACK",
+    "createdAt": "2026-11-02T17:03:16.584Z",
+    "updatedAt": "2026-11-02T17:03:16.584Z"
+  },
+  {
+    "id": "prod-men-jk-m-11-blackwhite",
+    "sku": "JK-M-11-BLACKWHITE",
+    "name": "Article JK-M-11-BLACKWHITE",
+    "brand": "Saint G",
+    "category": "men_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Black White",
+    "costPrice": 4500,
+    "sellingPrice": 8999,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 0
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-M-11-BLACKWHITE",
+    "createdAt": "2026-11-02T17:03:16.585Z",
+    "updatedAt": "2026-11-02T17:03:16.585Z"
+  },
+  {
+    "id": "prod-men-jk-m-07-tan",
+    "sku": "JK-M-07-TAN",
+    "name": "Article JK-M-07-TAN",
+    "brand": "Saint G",
+    "category": "men_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Tan",
+    "costPrice": 4500,
+    "sellingPrice": 8999,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 0
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-M-07-TAN",
+    "createdAt": "2026-11-02T17:03:16.585Z",
+    "updatedAt": "2026-11-02T17:03:16.585Z"
+  },
+  {
+    "id": "prod-men-jk-m-76-black",
+    "sku": "JK-M-76-BLACK",
+    "name": "Article JK-M-76-BLACK",
+    "brand": "Saint G",
+    "category": "men_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Black",
+    "costPrice": 4500,
+    "sellingPrice": 8999,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 1
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-M-76-BLACK",
+    "createdAt": "2026-11-02T17:03:16.585Z",
+    "updatedAt": "2026-11-02T17:03:16.585Z"
+  },
+  {
+    "id": "prod-men-jk-m-78-brown",
+    "sku": "JK-M-78-BROWN",
+    "name": "Article JK-M-78-BROWN",
+    "brand": "Saint G",
+    "category": "men_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Brown",
+    "costPrice": 4500,
+    "sellingPrice": 8999,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 1
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-M-78-BROWN",
+    "createdAt": "2026-11-02T17:03:16.585Z",
+    "updatedAt": "2026-11-02T17:03:16.585Z"
+  },
+  {
+    "id": "prod-men-jk-m-81-brown",
+    "sku": "JK-M-81-BROWN",
+    "name": "Article JK-M-81-BROWN",
+    "brand": "Saint G",
+    "category": "men_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Brown",
+    "costPrice": 4500,
+    "sellingPrice": 8999,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 1
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-M-81-BROWN",
+    "createdAt": "2026-11-02T17:03:16.585Z",
+    "updatedAt": "2026-11-02T17:03:16.585Z"
+  },
+  {
+    "id": "prod-men-jk-m-36-darkgrey",
+    "sku": "JK-M-36-DARKGREY",
+    "name": "Article JK-M-36-DARKGREY",
+    "brand": "Saint G",
+    "category": "men_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Dark Grey",
+    "costPrice": 4500,
+    "sellingPrice": 8999,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 1
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-M-36-DARKGREY",
+    "createdAt": "2026-11-02T17:03:16.585Z",
+    "updatedAt": "2026-11-02T17:03:16.585Z"
+  },
+  {
+    "id": "prod-men-jk-m-56-darktan",
+    "sku": "JK-M-56-DARKTAN",
+    "name": "Article JK-M-56-DARKTAN",
+    "brand": "Saint G",
+    "category": "men_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Dark Tan",
+    "costPrice": 4500,
+    "sellingPrice": 8999,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 1
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-M-56-DARKTAN",
+    "createdAt": "2026-11-02T17:03:16.585Z",
+    "updatedAt": "2026-11-02T17:03:16.585Z"
+  },
+  {
+    "id": "prod-men-jk-m-23-black",
+    "sku": "JK-M-23-BLACK",
+    "name": "Article JK-M-23-BLACK",
+    "brand": "Saint G",
+    "category": "men_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Black",
+    "costPrice": 4500,
+    "sellingPrice": 8999,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 1
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-M-23-BLACK",
+    "createdAt": "2026-11-02T17:03:16.585Z",
+    "updatedAt": "2026-11-02T17:03:16.585Z"
+  },
+  {
+    "id": "prod-men-jk-m-47-dark-grey",
+    "sku": "JK-M-47-DARK-GREY",
+    "name": "Article JK-M-47-DARK-GREY",
+    "brand": "Saint G",
+    "category": "men_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Dark Grey",
+    "costPrice": 4500,
+    "sellingPrice": 8999,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 1
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-M-47-DARK-GREY",
+    "createdAt": "2026-11-02T17:03:16.585Z",
+    "updatedAt": "2026-11-02T17:03:16.585Z"
+  },
+  {
+    "id": "prod-men-jk-m-55-black",
+    "sku": "JK-M-55-BLACK",
+    "name": "Article JK-M-55-BLACK",
+    "brand": "Saint G",
+    "category": "men_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Black",
+    "costPrice": 4500,
+    "sellingPrice": 8999,
+    "sizes": {
+      "S": 0,
+      "M": 1,
+      "L": 0,
+      "XL": 0,
+      "XXL": 0
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-M-55-BLACK",
+    "createdAt": "2026-11-02T17:03:16.585Z",
+    "updatedAt": "2026-11-02T17:03:16.585Z"
+  },
+  {
+    "id": "prod-wom-jk-f-04-black",
+    "sku": "JK-F-04-BLACK",
+    "name": "Article JK-F-04-BLACK",
+    "brand": "Saint G",
+    "category": "women_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Black",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 0
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-F-04-BLACK",
+    "createdAt": "2026-11-02T17:03:16.585Z",
+    "updatedAt": "2026-11-02T17:03:16.585Z"
+  },
+  {
+    "id": "prod-wom-jk-f-19-black",
+    "sku": "JK-F-19-BLACK",
+    "name": "Article JK-F-19-BLACK",
+    "brand": "Saint G",
+    "category": "women_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Black",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 0
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-F-19-BLACK",
+    "createdAt": "2026-11-02T17:03:16.585Z",
+    "updatedAt": "2026-11-02T17:03:16.585Z"
+  },
+  {
+    "id": "prod-wom-jk-f-06-black",
+    "sku": "JK-F-06-BLACK",
+    "name": "Article JK-F-06-BLACK",
+    "brand": "Saint G",
+    "category": "women_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Black",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 0
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-F-06-BLACK",
+    "createdAt": "2026-11-02T17:03:16.585Z",
+    "updatedAt": "2026-11-02T17:03:16.585Z"
+  },
+  {
+    "id": "prod-wom-jk-f-02-black",
+    "sku": "JK-F-02-BLACK",
+    "name": "Article JK-F-02-BLACK",
+    "brand": "Saint G",
+    "category": "women_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Black",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 0
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-F-02-BLACK",
+    "createdAt": "2026-11-02T17:03:16.586Z",
+    "updatedAt": "2026-11-02T17:03:16.586Z"
+  },
+  {
+    "id": "prod-wom-jk-f-06-grey",
+    "sku": "JK-F-06-GREY",
+    "name": "Article JK-F-06-GREY",
+    "brand": "Saint G",
+    "category": "women_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Grey",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 0
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-F-06-GREY",
+    "createdAt": "2026-11-02T17:03:16.586Z",
+    "updatedAt": "2026-11-02T17:03:16.586Z"
+  },
+  {
+    "id": "prod-wom-jk-f-38-black",
+    "sku": "JK-F-38-BLACK",
+    "name": "Article JK-F-38-BLACK",
+    "brand": "Saint G",
+    "category": "women_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Black",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 0
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-F-38-BLACK",
+    "createdAt": "2026-11-02T17:03:16.586Z",
+    "updatedAt": "2026-11-02T17:03:16.586Z"
+  },
+  {
+    "id": "prod-wom-jk-f-13-black",
+    "sku": "JK-F-13-BLACK",
+    "name": "Article JK-F-13-BLACK",
+    "brand": "Saint G",
+    "category": "women_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Black",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 0
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-F-13-BLACK",
+    "createdAt": "2026-11-02T17:03:16.586Z",
+    "updatedAt": "2026-11-02T17:03:16.586Z"
+  },
+  {
+    "id": "prod-wom-jk-f-58-black",
+    "sku": "JK-F-58-BLACK",
+    "name": "Article JK-F-58-BLACK",
+    "brand": "Saint G",
+    "category": "women_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Black",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 0
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-F-58-BLACK",
+    "createdAt": "2026-11-02T17:03:16.586Z",
+    "updatedAt": "2026-11-02T17:03:16.586Z"
+  },
+  {
+    "id": "prod-wom-jk-f-63-olive",
+    "sku": "JK-F-63-OLIVE",
+    "name": "Article JK-F-63-OLIVE",
+    "brand": "Saint G",
+    "category": "women_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Olive",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "S": 1,
+      "M": 1,
+      "L": 1,
+      "XL": 1,
+      "XXL": 0
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-F-63-OLIVE",
+    "createdAt": "2026-11-02T17:03:16.586Z",
+    "updatedAt": "2026-11-02T17:03:16.586Z"
+  },
+  {
+    "id": "prod-wom-jk-f-39-grey",
+    "sku": "JK-F-39-GREY",
+    "name": "Article JK-F-39-GREY",
+    "brand": "Saint G",
+    "category": "women_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Grey",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 0,
+      "XL": 0,
+      "XXL": 0
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-F-39-GREY",
+    "createdAt": "2026-11-02T17:03:16.586Z",
+    "updatedAt": "2026-11-02T17:03:16.586Z"
+  },
+  {
+    "id": "prod-wom-jk-f-52-black",
+    "sku": "JK-F-52-BLACK",
+    "name": "Article JK-F-52-BLACK",
+    "brand": "Saint G",
+    "category": "women_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Black",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "S": 0,
+      "M": 1,
+      "L": 0,
+      "XL": 0,
+      "XXL": 0
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-F-52-BLACK",
+    "createdAt": "2026-11-02T17:03:16.586Z",
+    "updatedAt": "2026-11-02T17:03:16.586Z"
+  },
+  {
+    "id": "prod-wom-jk-f-51-black",
+    "sku": "JK-F-51-BLACK",
+    "name": "Article JK-F-51-BLACK",
+    "brand": "Saint G",
+    "category": "women_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Black",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 0,
+      "XXL": 0
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-F-51-BLACK",
+    "createdAt": "2026-11-02T17:03:16.586Z",
+    "updatedAt": "2026-11-02T17:03:16.586Z"
+  },
+  {
+    "id": "prod-wom-jk-f-06-brown",
+    "sku": "JK-F-06-BROWN",
+    "name": "Article JK-F-06-BROWN",
+    "brand": "Saint G",
+    "category": "women_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Brown",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 0,
+      "XXL": 0
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-F-06-BROWN",
+    "createdAt": "2026-11-02T17:03:16.586Z",
+    "updatedAt": "2026-11-02T17:03:16.586Z"
+  },
+  {
+    "id": "prod-wom-jk-f-19-brown",
+    "sku": "JK-F-19-BROWN",
+    "name": "Article JK-F-19-BROWN",
+    "brand": "Saint G",
+    "category": "women_jacket",
+    "styleCategory": "Leather Jacket",
+    "color": "Brown",
+    "costPrice": 3800,
+    "sellingPrice": 7499,
+    "sizes": {
+      "S": 0,
+      "M": 2,
+      "L": 1,
+      "XL": 0,
+      "XXL": 0
+    },
+    "displaySize": "M",
+    "imageUrl": "",
+    "notes": "Batch added JK-F-19-BROWN",
+    "createdAt": "2026-11-02T17:03:16.586Z",
+    "updatedAt": "2026-11-02T17:03:16.586Z"
   }
 ]
