@@ -142,7 +142,7 @@ function populateSpreadsheet(ss, inventory, sales) {
   }
 
   // 1. Women Footwear
-  buildCategorySheet("Women Footwear", "women_footwear", "VIVIBLU SHOP", [35, 36, 37, 38, 39, 40, 41]);
+  buildCategorySheet("Women Footwear", "women_footwear", "SR NO", [35, 36, 37, 38, 39, 40, 41]);
 
   // 2. Mens Footwear
   buildCategorySheet("Mens Footwear", "men_footwear", "Sr No.", [40, 41, 42, 43, 44, 45]);
@@ -324,7 +324,7 @@ export function GoogleSheetsSyncModal({ isOpen, onClose }) {
       // 1. Women Footwear
       const wfItems = inventory.filter(p => p.category === 'women_footwear');
       const wfSizes = [35, 36, 37, 38, 39, 40, 41];
-      const wfRows = [['VIVIBLU SHOP', 'SKU', 35, 36, 37, 38, 39, 40, 41, 'TOTAL']];
+      const wfRows = [['SR NO', 'SKU', 35, 36, 37, 38, 39, 40, 41, 'TOTAL']];
       const wfTotals = { 35: 0, 36: 0, 37: 0, 38: 0, 39: 0, 40: 0, 41: 0 };
       let wfGrand = 0;
       wfItems.forEach((p, idx) => {
