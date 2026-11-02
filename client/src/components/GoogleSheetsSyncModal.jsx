@@ -24,9 +24,10 @@ import {
 
 const TARGET_SHEET_URL = "https://docs.google.com/spreadsheets/d/1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE/edit?gid=0#gid=0";
 const TARGET_SHEET_ID = "1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE";
+const DEFAULT_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzh5BnwfJzIhQ9x8upyCOwNN8OTdTaLcfWFCgtk0jXyMtpWwABQRP-T02mAx_He1o3E/exec";
 
 const GOOGLE_APPS_SCRIPT_TEMPLATE = `// ==============================================================
-// KY INVENTORY -> GOOGLE SHEETS AUTO-SYNC SCRIPT
+// KY INVENTORY -> GOOGLE SHEETS ULTRA-FAST AUTO-SYNC SCRIPT
 // Target Spreadsheet: 1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE
 // ==============================================================
 
@@ -93,7 +94,7 @@ function doPost(e) {
   }
 }
 
-// 3. MASTER POPULATE FUNCTION (ALL 6 SHEETS)
+// 3. MASTER POPULATE FUNCTION (ALL 6 SHEETS IN BATCH - 1 SECOND)
 function populateSpreadsheet(ss, inventory, sales) {
   var productMap = {};
   inventory.forEach(function(p) {
@@ -107,8 +108,7 @@ function populateSpreadsheet(ss, inventory, sales) {
     
     var items = inventory.filter(function(p) { return p.category === categoryId; });
     var headers = [headerLabel, "SKU"].concat(sizesList).concat(["TOTAL"]);
-    sheet.appendRow(headers);
-    sheet.getRange(1, 1, 1, headers.length).setFontWeight("bold").setBackground("#f1f5f9");
+    var allRows = [headers];
     
     var sizeTotals = {};
     sizesList.forEach(function(s) { sizeTotals[s] = 0; });
@@ -125,20 +125,19 @@ function populateSpreadsheet(ss, inventory, sales) {
       });
       row.push(rowTotal);
       grandTotal += rowTotal;
-      sheet.appendRow(row);
+      allRows.push(row);
     });
     
     var totalRow = ["TOTAL", ""];
     sizesList.forEach(function(s) { totalRow.push(sizeTotals[s]); });
     totalRow.push(grandTotal);
-    sheet.appendRow(totalRow);
+    allRows.push(totalRow);
     
-    var lastRow = sheet.getLastRow();
-    if (lastRow > 1) {
-      sheet.getRange(lastRow, 1, 1, headers.length).setFontWeight("bold").setBackground("#e2e8f0");
-      sheet.getRange(1, 1, lastRow, headers.length).setHorizontalAlignment("center");
-      sheet.getRange(2, 2, lastRow - 1, 1).setHorizontalAlignment("left");
-    }
+    sheet.getRange(1, 1, allRows.length, headers.length).setValues(allRows);
+    sheet.getRange(1, 1, 1, headers.length).setFontWeight("bold").setBackground("#f1f5f9");
+    sheet.getRange(allRows.length, 1, 1, headers.length).setFontWeight("bold").setBackground("#e2e8f0");
+    sheet.getRange(1, 1, allRows.length, headers.length).setHorizontalAlignment("center");
+    sheet.getRange(2, 2, allRows.length - 2, 1).setHorizontalAlignment("left");
     sheet.autoResizeColumns(1, headers.length);
   }
 
@@ -162,8 +161,8 @@ function populateSpreadsheet(ss, inventory, sales) {
   salesSheet.clear();
   
   var salesHeaders = ["Sell Date", "SKU Code", "Color", "Size", "Status"];
-  salesSheet.appendRow(salesHeaders);
-  salesSheet.getRange(1, 1, 1, 5).setFontWeight("bold").setBackground("#1e293b").setFontColor("#ffffff");
+  var salesRows = [salesHeaders];
+  var statusColors = [];
   
   sales.forEach(function(s) {
     var p = (s.sku && productMap[s.sku.toUpperCase().trim()]) || productMap[s.productId];
@@ -184,29 +183,28 @@ function populateSpreadsheet(ss, inventory, sales) {
     var d = s.timestamp ? new Date(s.timestamp) : new Date();
     var dateStr = Utilities.formatDate(d, Session.getScriptTimeZone() || "GMT+5:30", "dd/MM/yyyy HH:mm");
     
-    salesSheet.appendRow([dateStr, pSku, pColor, sizeKey, status]);
+    salesRows.push([dateStr, pSku, pColor, sizeKey, status]);
+    statusColors.push(isNotReceived ? "#fee2e2" : "#dcfce7");
   });
 
-  var salesLastRow = salesSheet.getLastRow();
-  if (salesLastRow > 1) {
-    salesSheet.getRange(1, 1, salesLastRow, 5).setHorizontalAlignment("center");
-    salesSheet.getRange(2, 2, salesLastRow - 1, 1).setHorizontalAlignment("left");
+  if (salesRows.length > 0) {
+    salesSheet.getRange(1, 1, salesRows.length, 5).setValues(salesRows);
+    salesSheet.getRange(1, 1, 1, 5).setFontWeight("bold").setBackground("#1e293b").setFontColor("#ffffff");
+    salesSheet.getRange(1, 1, salesRows.length, 5).setHorizontalAlignment("center");
+    salesSheet.getRange(2, 2, salesRows.length - 1, 1).setHorizontalAlignment("left");
     
-    for (var r = 2; r <= salesLastRow; r++) {
-      var cell = salesSheet.getRange(r, 5);
-      var val = cell.getValue();
-      if (val === "NOT RECEIVED") {
-        cell.setBackground("#fee2e2").setFontColor("#b91c1c").setFontWeight("bold");
-      } else if (val === "RECEIVED") {
-        cell.setBackground("#dcfce7").setFontColor("#15803d").setFontWeight("bold");
-      }
+    for (var i = 0; i < statusColors.length; i++) {
+      var rowIdx = i + 2;
+      var bg = statusColors[i];
+      var fg = bg === "#fee2e2" ? "#b91c1c" : "#15803d";
+      salesSheet.getRange(rowIdx, 5).setBackground(bg).setFontColor(fg).setFontWeight("bold");
     }
+    salesSheet.autoResizeColumns(1, 5);
   }
-  salesSheet.autoResizeColumns(1, 5);
 
   return {
     status: "success",
-    message: "Successfully updated Google Sheet 1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE!",
+    message: "Synced to Google Sheet!",
     productsCount: inventory.length,
     salesCount: sales.length,
     timestamp: new Date().toISOString()
@@ -223,7 +221,7 @@ export function GoogleSheetsSyncModal({ isOpen, onClose }) {
   } = useInventory();
 
   const [activeTab, setActiveTab] = useState('sync'); // 'sync' | 'daily_sales' | 'script'
-  const [webhookUrl, setWebhookUrl] = useState(() => localStorage.getItem('ky_gsheet_webhook') || '');
+  const [webhookUrl, setWebhookUrl] = useState(() => localStorage.getItem('ky_gsheet_webhook') || DEFAULT_WEBHOOK_URL);
   const [isSyncing, setIsSyncing] = useState(false);
   const [syncStatus, setSyncStatus] = useState({ type: '', text: '' });
   const [copiedCode, setCopiedCode] = useState(false);
@@ -466,7 +464,7 @@ export function GoogleSheetsSyncModal({ isOpen, onClose }) {
               <div className="flex items-center gap-2">
                 <h2 className="text-lg font-black text-white">Google Sheet Live Sync</h2>
                 <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2 py-0.5 rounded-full font-bold">
-                  1-Click Update
+                  Connected & Ready
                 </span>
               </div>
               <p className="text-xs text-slate-400">
@@ -770,13 +768,10 @@ export function GoogleSheetsSyncModal({ isOpen, onClose }) {
                   Purana text mita kar neeche diya hua code <strong>Paste</strong> karein aur <strong>Save (Ctrl+S)</strong> karein.
                 </li>
                 <li>
-                  Editor me upar dropdown me <strong>syncNow</strong> select karke <strong>Run (चलाएं)</strong> par click karein (Pehli baar Authorization maangega, Review Permissions &gt; Allow kar dein).
+                  Editor me upar dropdown me <strong>syncNow</strong> select karke <strong>Run (चलाएं)</strong> par click karein.
                 </li>
                 <li>
-                  <strong>Web App Deploy karein:</strong> Upar right me <strong>Deploy &gt; New deployment</strong> &gt; Select type: <strong>Web app</strong> &gt; Who has access: <strong>Anyone</strong> select karke <strong>Deploy</strong> karein.
-                </li>
-                <li>
-                  Mile hue Web App URL ko copy karke app ke <strong>1-Click Sync tab</strong> me paste kar dein!
+                  <strong>Web App Deploy:</strong> Upar right me <strong>Deploy &gt; New deployment</strong> &gt; Select type: <strong>Web app</strong> &gt; Who has access: <strong>Anyone</strong> select karke <strong>Deploy</strong> karein.
                 </li>
               </ol>
             </div>
