@@ -1018,12 +1018,23 @@ export function InventoryProvider({ children }) {
       };
     });
 
+    const finalSales = enrichedSales && enrichedSales.length > 0 ? enrichedSales : [{
+      id: 'placeholder-sale',
+      sku: 'NO SALES RECORDED YET',
+      color: '-',
+      size: '-',
+      quantity: 0,
+      currentStock: 0,
+      status: 'RECEIVED',
+      timestamp: new Date().toISOString()
+    }];
+
     const payload = {
       appName: "KY INVENTORY",
       targetSpreadsheetId: "1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE",
       syncedAt: new Date().toISOString(),
       inventory,
-      sales: enrichedSales,
+      sales: finalSales,
       warehouseSends,
       replenishments
     };

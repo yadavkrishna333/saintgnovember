@@ -334,7 +334,7 @@ export function setDisplaySize(userId, id, displaySize) {
 
 export function deleteProduct(userId, id) {
   const t = getTenant(userId);
-  const index = t.inventory.findIndex(p => p.id === id);
+  const index = t.inventory.findIndex(p => p.id === id || p.sku === id);
   if (index === -1) return false;
 
   t.inventory.splice(index, 1);

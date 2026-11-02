@@ -399,6 +399,56 @@ app.post('/api/sync/supabase', async (req, res) => {
   }
 });
 
+// Google Sheets Webhook Sync Proxy
+app.post('/api/sync/googlesheet', async (req, res) => {
+  const userId = extractUserId(req);
+  const { webhookUrl, payload } = req.body;
+  if (!webhookUrl || !webhookUrl.trim()) {
+    return res.status(400).json({ error: 'webhookUrl is required' });
+  }
+
+  try {
+    const cleanPayload = payload || {
+      appName: 'KY INVENTORY',
+      targetSpreadsheetId: '1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE',
+      syncedAt: new Date().toISOString(),
+      inventory: getAllProducts(userId),
+      sales: getAllSales(userId)
+    };
+
+    if (!cleanPayload.sales || cleanPayload.sales.length === 0) {
+      cleanPayload.sales = [{
+        id: 'placeholder-sale',
+        sku: 'NO SALES RECORDED YET',
+        color: '-',
+        size: '-',
+        quantity: 0,
+        status: 'RECEIVED',
+        timestamp: new Date().toISOString()
+      }];
+    }
+
+    const gRes = await fetch(webhookUrl.trim(), {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(cleanPayload)
+    });
+
+    const text = await gRes.text();
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      data = { raw: text };
+    }
+
+    res.json({ success: true, ...data });
+  } catch (err) {
+    console.error('Google Sheet Sync Error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // Stats
 app.get('/api/stats', (req, res) => {
   const userId = extractUserId(req);
@@ -509,6 +559,8 @@ io.on('connection', (socket) => {
     if (success) {
       broadcastUpdates('product:deleted', { id }, socket.userId);
       if (typeof callback === 'function') callback({ success: true });
+    } else {
+      if (typeof callback === 'function') callback({ success: false, error: 'Product not found' });
     }
   });
 

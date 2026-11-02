@@ -137,7 +137,9 @@ function populateSpreadsheet(ss, inventory, sales) {
     sheet.getRange(1, 1, 1, headers.length).setFontWeight("bold").setBackground("#f1f5f9");
     sheet.getRange(allRows.length, 1, 1, headers.length).setFontWeight("bold").setBackground("#e2e8f0");
     sheet.getRange(1, 1, allRows.length, headers.length).setHorizontalAlignment("center");
-    sheet.getRange(2, 2, allRows.length - 2, 1).setHorizontalAlignment("left");
+    if (allRows.length > 2) {
+      sheet.getRange(2, 2, allRows.length - 2, 1).setHorizontalAlignment("left");
+    }
     sheet.autoResizeColumns(1, headers.length);
   }
 
@@ -187,7 +189,7 @@ function populateSpreadsheet(ss, inventory, sales) {
     statusColors.push(isNotReceived ? "#fee2e2" : "#dcfce7");
   });
 
-  if (salesRows.length > 0) {
+  if (salesRows.length > 1) {
     salesSheet.getRange(1, 1, salesRows.length, 5).setValues(salesRows);
     salesSheet.getRange(1, 1, 1, 5).setFontWeight("bold").setBackground("#1e293b").setFontColor("#ffffff");
     salesSheet.getRange(1, 1, salesRows.length, 5).setHorizontalAlignment("center");
@@ -199,6 +201,12 @@ function populateSpreadsheet(ss, inventory, sales) {
       var fg = bg === "#fee2e2" ? "#b91c1c" : "#15803d";
       salesSheet.getRange(rowIdx, 5).setBackground(bg).setFontColor(fg).setFontWeight("bold");
     }
+    salesSheet.autoResizeColumns(1, 5);
+  } else {
+    var placeholderRows = [salesHeaders, ["-", "No sales recorded yet", "-", "-", "-"]];
+    salesSheet.getRange(1, 1, 2, 5).setValues(placeholderRows);
+    salesSheet.getRange(1, 1, 1, 5).setFontWeight("bold").setBackground("#1e293b").setFontColor("#ffffff");
+    salesSheet.getRange(1, 1, 2, 5).setHorizontalAlignment("center");
     salesSheet.autoResizeColumns(1, 5);
   }
 
