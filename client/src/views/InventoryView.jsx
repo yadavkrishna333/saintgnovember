@@ -65,9 +65,17 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
     setTimeout(() => setCopiedSku(null), 1500);
   };
 
-  const handleDelete = (product) => {
-    if (window.confirm(`Are you sure you want to delete "${product.name}" (${product.sku})?`)) {
-      deleteProduct(product.id);
+  const handleDelete = async (product) => {
+    if (!product || !product.id) return;
+    const confirmDelete = window.confirm(
+      `⚠️ Kya aap article "${product.sku || product.name}" ko inventory se DELETE karna chahte hain?\n\nYeh article inventory aur cloud database se permanent delete ho jayega.`
+    );
+    if (confirmDelete) {
+      try {
+        await deleteProduct(product.id);
+      } catch (err) {
+        console.error('Delete error:', err);
+      }
     }
   };
 

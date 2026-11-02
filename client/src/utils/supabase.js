@@ -64,6 +64,24 @@ export const supabaseApi = {
     return res.json();
   },
 
+  async deleteProduct(productId, userId = 'usr-krishan') {
+    if (!isSupabaseConfigured()) return null;
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/inventory?id=eq.${productId}`, {
+        method: 'DELETE',
+        headers: getHeaders()
+      });
+      if (!res.ok) {
+        console.warn('Supabase deleteProduct error:', await res.text());
+        return false;
+      }
+      return true;
+    } catch (e) {
+      console.warn('Supabase deleteProduct exception:', e);
+      return false;
+    }
+  },
+
   // Sales
   async getSales(userId = 'usr-krishan') {
     if (!isSupabaseConfigured()) return null;

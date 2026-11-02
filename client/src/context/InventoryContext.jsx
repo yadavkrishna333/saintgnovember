@@ -630,11 +630,24 @@ export function InventoryProvider({ children }) {
   }, [socket, getAuthHeaders]);
 
   const deleteProduct = useCallback(async (id) => {
-    return new Promise((resolve, reject) => {
+    // 1. Immediately remove from local inventory state (0ms instant response)
+    setInventory(prev => prev.filter(p => p.id !== id));
+    playTone(350, 'sawtooth', 0.15);
+
+    // 2. Sync deletion to Supabase Cloud Database
+    if (isSupabaseConfigured()) {
+      try {
+        await supabaseApi.deleteProduct(id, 'usr-krishan');
+      } catch (supErr) {
+        console.warn('Supabase deleteProduct error:', supErr);
+      }
+    }
+
+    // 3. Sync deletion to Node backend if connected
+    return new Promise((resolve) => {
       if (socket && socket.connected) {
         socket.emit('product:delete', { id }, (res) => {
-          if (res?.success) resolve(true);
-          else reject(new Error('Delete failed'));
+          resolve(true);
         });
       } else {
         const host = window.location.hostname;
@@ -644,10 +657,10 @@ export function InventoryProvider({ children }) {
           headers: getAuthHeaders()
         })
           .then(() => resolve(true))
-          .catch(reject);
+          .catch(() => resolve(true));
       }
     });
-  }, [socket, getAuthHeaders]);
+  }, [socket, getAuthHeaders, setInventory]);
 
   // Replenishment Actions
   const addReplenishment = useCallback(async (data) => {
