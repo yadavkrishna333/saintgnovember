@@ -609,22 +609,35 @@ export function getAllWarehouseSends(userId) {
 }
 
 // ---------------- Sales & Billing ----------------
-export function recordSale(userId, { productId, size, quantity = 1, unitPrice, paymentMode = 'Cash', customerName = '' }) {
+export function recordSale(userId, { productId, sku, size, quantity = 1, unitPrice, paymentMode = 'Cash', customerName = '', timestamp, deductStock = true }) {
   const t = getTenant(userId);
-  const product = t.inventory.find(p => p.id === productId);
-  if (!product) throw new Error("Product not found");
+  let product = t.inventory.find(p => p.id === productId);
+  if (!product && sku) {
+    const cleanSku = String(sku).trim().toLowerCase();
+    product = t.inventory.find(p => p.sku && p.sku.trim().toLowerCase() === cleanSku);
+  }
+  if (!product) throw new Error("Product not found in inventory");
 
   const currentQty = Number(product.sizes?.[size] || 0);
-  if (currentQty < quantity) {
-    throw new Error(`Insufficient stock for Size ${size}! Available: ${currentQty}, Requested: ${quantity}`);
+  if (deductStock !== false) {
+    if (currentQty < quantity) {
+      throw new Error(`Insufficient stock for Size ${size}! Available: ${currentQty}, Requested: ${quantity}`);
+    }
+    product.sizes[size] = currentQty - quantity;
+    product.updatedAt = new Date().toISOString();
+    t.saveInventory();
   }
-
-  product.sizes[size] = currentQty - quantity;
-  product.updatedAt = new Date().toISOString();
-  t.saveInventory();
 
   const price = unitPrice !== undefined ? Number(unitPrice) : product.sellingPrice;
   const totalAmount = price * quantity;
+
+  let saleTimestamp = new Date().toISOString();
+  if (timestamp) {
+    const parsed = new Date(timestamp);
+    if (!isNaN(parsed.getTime())) {
+      saleTimestamp = parsed.toISOString();
+    }
+  }
 
   const saleRecord = {
     id: `sale-${crypto.randomUUID().slice(0, 8)}`,
@@ -642,11 +655,11 @@ export function recordSale(userId, { productId, size, quantity = 1, unitPrice, p
     totalAmount,
     paymentMode,
     customerName: customerName.trim(),
-    timestamp: new Date().toISOString()
+    timestamp: saleTimestamp
   };
 
   t.sales.unshift(saleRecord);
-  if (t.sales.length > 1000) t.sales = t.sales.slice(0, 1000);
+  if (t.sales.length > 2000) t.sales = t.sales.slice(0, 2000);
   t.saveSales();
 
   return { sale: saleRecord, updatedProduct: product };
@@ -781,21 +794,31 @@ export function getStats(userId) {
     }
   });
 
-  const now = new Date();
-  const todayStr = now.toISOString().slice(0, 10);
-  const monthStr = now.toISOString().slice(0, 7);
+  function toLocalDateStr(d) {
+    if (!d) return '';
+    const dt = new Date(d);
+    if (isNaN(dt.getTime())) return '';
+    const y = dt.getFullYear();
+    const m = String(dt.getMonth() + 1).padStart(2, '0');
+    const day = String(dt.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
+  }
 
-  const todaySales = t.sales.filter(s => (s.timestamp || '').startsWith(todayStr));
+  const now = new Date();
+  const todayStr = toLocalDateStr(now);
+  const yesterday = new Date(now.getTime() - 86400000);
+  const yesterdayStr = toLocalDateStr(yesterday);
+  const monthStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+
+  const todaySales = t.sales.filter(s => toLocalDateStr(s.timestamp) === todayStr);
   const todayRevenue = todaySales.reduce((acc, s) => acc + (Number(s.totalAmount) || 0), 0);
   const todayItemsSold = todaySales.reduce((acc, s) => acc + (Number(s.quantity) || 0), 0);
 
-  const yesterday = new Date(now.getTime() - 86400000);
-  const yesterdayStr = yesterday.toISOString().slice(0, 10);
-  const yesterdaySales = t.sales.filter(s => (s.timestamp || '').startsWith(yesterdayStr));
+  const yesterdaySales = t.sales.filter(s => toLocalDateStr(s.timestamp) === yesterdayStr);
   const yesterdayRevenue = yesterdaySales.reduce((acc, s) => acc + (Number(s.totalAmount) || 0), 0);
   const yesterdayItemsSold = yesterdaySales.reduce((acc, s) => acc + (Number(s.quantity) || 0), 0);
 
-  const monthSales = t.sales.filter(s => (s.timestamp || '').startsWith(monthStr));
+  const monthSales = t.sales.filter(s => toLocalDateStr(s.timestamp).startsWith(monthStr));
   const monthRevenue = monthSales.reduce((acc, s) => acc + (Number(s.totalAmount) || 0), 0);
   const monthItemsSold = monthSales.reduce((acc, s) => acc + (Number(s.quantity) || 0), 0);
 

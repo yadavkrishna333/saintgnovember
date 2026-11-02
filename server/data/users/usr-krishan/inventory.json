@@ -1,7 +1,7 @@
 [
   {
-    "id": "prod-w-1-sg-f-1852-silver",
     "displaySize": "37",
+    "id": "prod-w-1-sg-f-1852-silver",
     "sku": "SG-F-1852-SILVER",
     "name": "Article SG-F-1852-SILVER",
     "brand": "Zara",
@@ -26,8 +26,8 @@
     "updatedAt": "2026-11-02T17:26:58.443Z"
   },
   {
-    "id": "prod-w-2-sg-f-1867-black",
     "displaySize": "37",
+    "id": "prod-w-2-sg-f-1867-black",
     "sku": "SG-F-1867-BLACK",
     "name": "Article SG-F-1867-BLACK",
     "brand": "Zara",
@@ -52,8 +52,8 @@
     "updatedAt": "2026-11-02T17:26:58.445Z"
   },
   {
-    "id": "prod-w-3-sg-f-1867-offwhite",
     "displaySize": "37",
+    "id": "prod-w-3-sg-f-1867-offwhite",
     "sku": "SG-F-1867-OFFWHITE",
     "name": "Article SG-F-1867-OFFWHITE",
     "brand": "Zara",
@@ -78,8 +78,8 @@
     "updatedAt": "2026-11-02T17:26:58.445Z"
   },
   {
-    "id": "prod-w-4-sg-f-1929-black",
     "displaySize": "37",
+    "id": "prod-w-4-sg-f-1929-black",
     "sku": "SG-F-1929-BLACK",
     "name": "Article SG-F-1929-BLACK",
     "brand": "Zara",
@@ -104,8 +104,8 @@
     "updatedAt": "2026-11-02T17:26:58.445Z"
   },
   {
-    "id": "prod-w-5-sg-f-1869-platin",
     "displaySize": "37",
+    "id": "prod-w-5-sg-f-1869-platin",
     "sku": "SG-F-1869-PLATIN",
     "name": "Article SG-F-1869-PLATIN",
     "brand": "Zara",
@@ -130,8 +130,8 @@
     "updatedAt": "2026-11-02T17:26:58.445Z"
   },
   {
-    "id": "prod-w-6-sg-f-1869-black",
     "displaySize": "37",
+    "id": "prod-w-6-sg-f-1869-black",
     "sku": "SG-F-1869-BLACK",
     "name": "Article SG-F-1869-BLACK",
     "brand": "Zara",
@@ -156,8 +156,8 @@
     "updatedAt": "2026-11-02T17:26:58.445Z"
   },
   {
-    "id": "prod-w-7-sg-f-1853-oldgold",
     "displaySize": "37",
+    "id": "prod-w-7-sg-f-1853-oldgold",
     "sku": "SG-F-1853-OLDGOLD",
     "name": "Article SG-F-1853-OLDGOLD",
     "brand": "Zara",
@@ -182,8 +182,8 @@
     "updatedAt": "2026-11-02T17:26:58.445Z"
   },
   {
-    "id": "prod-w-8-sg-f-1630-offwhite",
     "displaySize": "37",
+    "id": "prod-w-8-sg-f-1630-offwhite",
     "sku": "SG-F-1630-OFFWHITE",
     "name": "Article SG-F-1630-OFFWHITE",
     "brand": "Zara",
@@ -208,8 +208,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-9-sg-f-1847-darkbrown",
     "displaySize": "37",
+    "id": "prod-w-9-sg-f-1847-darkbrown",
     "sku": "SG-F-1847-DARKBROWN",
     "name": "Article SG-F-1847-DARKBROWN",
     "brand": "Zara",
@@ -234,8 +234,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-10-sg-f-1847-platin",
     "displaySize": "37",
+    "id": "prod-w-10-sg-f-1847-platin",
     "sku": "SG-F-1847-PLATIN",
     "name": "Article SG-F-1847-PLATIN",
     "brand": "Zara",
@@ -260,8 +260,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-11-sg-f-1844-black",
     "displaySize": "37",
+    "id": "prod-w-11-sg-f-1844-black",
     "sku": "SG-F-1844-BLACK",
     "name": "Article SG-F-1844-BLACK",
     "brand": "Zara",
@@ -286,8 +286,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-12-sg-f-1844-stone",
     "displaySize": "37",
+    "id": "prod-w-12-sg-f-1844-stone",
     "sku": "SG-F-1844-STONE",
     "name": "Article SG-F-1844-STONE",
     "brand": "Zara",
@@ -312,8 +312,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-13-sg-f-1822-offwhite",
     "displaySize": "37",
+    "id": "prod-w-13-sg-f-1822-offwhite",
     "sku": "SG-F-1822-OFFWHITE",
     "name": "Article SG-F-1822-OFFWHITE",
     "brand": "Zara",
@@ -338,8 +338,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-14-sg-f-1845-coral",
     "displaySize": "37",
+    "id": "prod-w-14-sg-f-1845-coral",
     "sku": "SG-F-1845-CORAL",
     "name": "Article SG-F-1845-CORAL",
     "brand": "Zara",
@@ -364,8 +364,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-15-sg-f-1909-black",
     "displaySize": "37",
+    "id": "prod-w-15-sg-f-1909-black",
     "sku": "SG-F-1909-BLACK",
     "name": "Article SG-F-1909-BLACK",
     "brand": "Zara",
@@ -390,8 +390,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-16-sg-f-1856-oldgold",
     "displaySize": "37",
+    "id": "prod-w-16-sg-f-1856-oldgold",
     "sku": "SG-F-1856-OLDGOLD",
     "name": "Article SG-F-1856-OLDGOLD",
     "brand": "Zara",
@@ -416,8 +416,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-17-sg-f-1874-coral",
     "displaySize": "37",
+    "id": "prod-w-17-sg-f-1874-coral",
     "sku": "SG-F-1874-CORAL",
     "name": "Article SG-F-1874-CORAL",
     "brand": "Zara",
@@ -442,8 +442,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-18-sg-f-1910-black",
     "displaySize": "37",
+    "id": "prod-w-18-sg-f-1910-black",
     "sku": "SG-F-1910-BLACK",
     "name": "Article SG-F-1910-BLACK",
     "brand": "Zara",
@@ -468,8 +468,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-19-sg-f-1910-ivory",
     "displaySize": "37",
+    "id": "prod-w-19-sg-f-1910-ivory",
     "sku": "SG-F-1910-IVORY",
     "name": "Article SG-F-1910-IVORY",
     "brand": "Zara",
@@ -494,8 +494,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-20-sg-f-1822-platin",
     "displaySize": "37",
+    "id": "prod-w-20-sg-f-1822-platin",
     "sku": "SG-F-1822-PLATIN",
     "name": "Article SG-F-1822-PLATIN",
     "brand": "Zara",
@@ -520,8 +520,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-21-sg-f-1864-platin",
     "displaySize": "37",
+    "id": "prod-w-21-sg-f-1864-platin",
     "sku": "SG-F-1864-PLATIN",
     "name": "Article SG-F-1864-PLATIN",
     "brand": "Zara",
@@ -546,8 +546,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-22-sg-f-1836-platin",
     "displaySize": "37",
+    "id": "prod-w-22-sg-f-1836-platin",
     "sku": "SG-F-1836-PLATIN",
     "name": "Article SG-F-1836-PLATIN",
     "brand": "Zara",
@@ -572,8 +572,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-23-sg-f-1836-black",
     "displaySize": "37",
+    "id": "prod-w-23-sg-f-1836-black",
     "sku": "SG-F-1836-BLACK",
     "name": "Article SG-F-1836-BLACK",
     "brand": "Zara",
@@ -598,8 +598,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-24-sg-f-1616-brown",
     "displaySize": "37",
+    "id": "prod-w-24-sg-f-1616-brown",
     "sku": "SG-F-1616-BROWN",
     "name": "Article SG-F-1616-BROWN",
     "brand": "Zara",
@@ -624,8 +624,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-25-sg-f-1376-multi",
     "displaySize": "37",
+    "id": "prod-w-25-sg-f-1376-multi",
     "sku": "SG-F-1376-MULTI",
     "name": "Article SG-F-1376-MULTI",
     "brand": "Zara",
@@ -650,8 +650,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-26-sg-f-1923-gold",
     "displaySize": "38",
+    "id": "prod-w-26-sg-f-1923-gold",
     "sku": "SG-F-1923-GOLD",
     "name": "Article SG-F-1923-GOLD",
     "brand": "Zara",
@@ -676,8 +676,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-27-sg-f-1842-offwhite",
     "displaySize": "37",
+    "id": "prod-w-27-sg-f-1842-offwhite",
     "sku": "SG-F-1842-OFFWHITE",
     "name": "Article SG-F-1842-OFFWHITE",
     "brand": "Zara",
@@ -702,8 +702,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-28-sg-f-1842-tan",
     "displaySize": "37",
+    "id": "prod-w-28-sg-f-1842-tan",
     "sku": "SG-F-1842-TAN",
     "name": "Article SG-F-1842-TAN",
     "brand": "Zara",
@@ -728,8 +728,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-29-sg-f-1549-black",
     "displaySize": "37",
+    "id": "prod-w-29-sg-f-1549-black",
     "sku": "SG-F-1549-BLACK",
     "name": "Article SG-F-1549-BLACK",
     "brand": "Zara",
@@ -754,8 +754,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-30-sg-f-1923-silver",
     "displaySize": "37",
+    "id": "prod-w-30-sg-f-1923-silver",
     "sku": "SG-F-1923-SILVER",
     "name": "Article SG-F-1923-SILVER",
     "brand": "Zara",
@@ -780,8 +780,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-31-sg-f-1930-lightgold",
     "displaySize": "37",
+    "id": "prod-w-31-sg-f-1930-lightgold",
     "sku": "SG-F-1930-LIGHTGOLD",
     "name": "Article SG-F-1930-LIGHTGOLD",
     "brand": "Zara",
@@ -806,8 +806,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-32-sg-f-1885-taupe",
     "displaySize": "37",
+    "id": "prod-w-32-sg-f-1885-taupe",
     "sku": "SG-F-1885-TAUPE",
     "name": "Article SG-F-1885-TAUPE",
     "brand": "Zara",
@@ -832,8 +832,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-33-sg-f-1885-darkbrown",
     "displaySize": "37",
+    "id": "prod-w-33-sg-f-1885-darkbrown",
     "sku": "SG-F-1885-DARKBROWN",
     "name": "Article SG-F-1885-DARKBROWN",
     "brand": "Zara",
@@ -858,8 +858,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-34-sg-f-1863-platin",
     "displaySize": "37",
+    "id": "prod-w-34-sg-f-1863-platin",
     "sku": "SG-F-1863-PLATIN",
     "name": "Article SG-F-1863-PLATIN",
     "brand": "Zara",
@@ -884,8 +884,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-35-sg-f-1863-lightbeige",
     "displaySize": "37",
+    "id": "prod-w-35-sg-f-1863-lightbeige",
     "sku": "SG-F-1863-LIGHTBEIGE",
     "name": "Article SG-F-1863-LIGHTBEIGE",
     "brand": "Zara",
@@ -910,8 +910,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-36-sg-f-1864-black",
     "displaySize": "37",
+    "id": "prod-w-36-sg-f-1864-black",
     "sku": "SG-F-1864-BLACK",
     "name": "Article SG-F-1864-BLACK",
     "brand": "Zara",
@@ -936,8 +936,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-37-sg-f-1860-darkbrown",
     "displaySize": "38",
+    "id": "prod-w-37-sg-f-1860-darkbrown",
     "sku": "SG-F-1860-DARKBROWN",
     "name": "Article SG-F-1860-DARKBROWN",
     "brand": "Zara",
@@ -962,8 +962,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-38-sg-f-1860-platin",
     "displaySize": "37",
+    "id": "prod-w-38-sg-f-1860-platin",
     "sku": "SG-F-1860-PLATIN",
     "name": "Article SG-F-1860-PLATIN",
     "brand": "Zara",
@@ -988,8 +988,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-39-sg-f-1849-platin",
     "displaySize": "37",
+    "id": "prod-w-39-sg-f-1849-platin",
     "sku": "SG-F-1849-PLATIN",
     "name": "Article SG-F-1849-PLATIN",
     "brand": "Zara",
@@ -1014,8 +1014,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-40-sg-f-1861-darkbrown",
     "displaySize": "37",
+    "id": "prod-w-40-sg-f-1861-darkbrown",
     "sku": "SG-F-1861-DARKBROWN",
     "name": "Article SG-F-1861-DARKBROWN",
     "brand": "Zara",
@@ -1040,8 +1040,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-41-sg-f-1892-brown",
     "displaySize": "37",
+    "id": "prod-w-41-sg-f-1892-brown",
     "sku": "SG-F-1892-BROWN",
     "name": "Article SG-F-1892-BROWN",
     "brand": "Zara",
@@ -1066,8 +1066,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-42-sg-f-1865-tan",
     "displaySize": "37",
+    "id": "prod-w-42-sg-f-1865-tan",
     "sku": "SG-F-1865-TAN",
     "name": "Article SG-F-1865-TAN",
     "brand": "Zara",
@@ -1092,8 +1092,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-43-sg-f-1843-stone",
     "displaySize": "37",
+    "id": "prod-w-43-sg-f-1843-stone",
     "sku": "SG-F-1843-STONE",
     "name": "Article SG-F-1843-STONE",
     "brand": "Zara",
@@ -1118,8 +1118,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-44-sg-f-1825-black",
     "displaySize": "37",
+    "id": "prod-w-44-sg-f-1825-black",
     "sku": "SG-F-1825-BLACK",
     "name": "Article SG-F-1825-BLACK",
     "brand": "Zara",
@@ -1144,8 +1144,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-45-sg-f-1825-platin",
     "displaySize": "37",
+    "id": "prod-w-45-sg-f-1825-platin",
     "sku": "SG-F-1825-PLATIN",
     "name": "Article SG-F-1825-PLATIN",
     "brand": "Zara",
@@ -1170,8 +1170,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-46-sg-f-1983-black",
     "displaySize": "37",
+    "id": "prod-w-46-sg-f-1983-black",
     "sku": "SG-F-1983-BLACK",
     "name": "Article SG-F-1983-BLACK",
     "brand": "Zara",
@@ -1196,8 +1196,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-47-sg-f-1985-chestnut",
     "displaySize": "37",
+    "id": "prod-w-47-sg-f-1985-chestnut",
     "sku": "SG-F-1985-CHESTNUT",
     "name": "Article SG-F-1985-CHESTNUT",
     "brand": "Zara",
@@ -1222,8 +1222,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-48-sg-f-1951-brown",
     "displaySize": "37",
+    "id": "prod-w-48-sg-f-1951-brown",
     "sku": "SG-F-1951-BROWN",
     "name": "Article SG-F-1951-BROWN",
     "brand": "Zara",
@@ -1248,8 +1248,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-49-sg-f-1986-black",
     "displaySize": "37",
+    "id": "prod-w-49-sg-f-1986-black",
     "sku": "SG-F-1986-BLACK",
     "name": "Article SG-F-1986-BLACK",
     "brand": "Zara",
@@ -1274,8 +1274,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-50-sg-f-1924-black",
     "displaySize": "37",
+    "id": "prod-w-50-sg-f-1924-black",
     "sku": "SG-F-1924-BLACK",
     "name": "Article SG-F-1924-BLACK",
     "brand": "Zara",
@@ -1300,8 +1300,8 @@
     "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "id": "prod-w-51-sg-f-1859-black",
     "displaySize": "37",
+    "id": "prod-w-51-sg-f-1859-black",
     "sku": "SG-F-1859-BLACK",
     "name": "Article SG-F-1859-BLACK",
     "brand": "Zara",
@@ -1326,8 +1326,8 @@
     "updatedAt": "2026-11-02T17:26:58.447Z"
   },
   {
-    "id": "prod-w-52-sg-f-1874-turq",
     "displaySize": "37",
+    "id": "prod-w-52-sg-f-1874-turq",
     "sku": "SG-F-1874-TURQ",
     "name": "Article SG-F-1874-TURQ",
     "brand": "Zara",
@@ -1352,8 +1352,8 @@
     "updatedAt": "2026-11-02T17:26:58.447Z"
   },
   {
-    "id": "prod-w-53-sg-f-1531-platin",
     "displaySize": "37",
+    "id": "prod-w-53-sg-f-1531-platin",
     "sku": "SG-F-1531-PLATIN",
     "name": "Article SG-F-1531-PLATIN",
     "brand": "Zara",
@@ -1378,8 +1378,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-54-sg-f-1998-tan",
     "displaySize": "37",
+    "id": "prod-w-54-sg-f-1998-tan",
     "sku": "SG-F-1998-TAN",
     "name": "Article SG-F-1998-TAN",
     "brand": "Zara",
@@ -1404,8 +1404,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-55-sg-f-1846-platin",
     "displaySize": "37",
+    "id": "prod-w-55-sg-f-1846-platin",
     "sku": "SG-F-1846-PLATIN",
     "name": "Article SG-F-1846-PLATIN",
     "brand": "Zara",
@@ -1430,8 +1430,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-56-sg-f-1827-black",
     "displaySize": "37",
+    "id": "prod-w-56-sg-f-1827-black",
     "sku": "SG-F-1827-BLACK",
     "name": "Article SG-F-1827-BLACK",
     "brand": "Zara",
@@ -1456,8 +1456,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-57-sg-f-1904-platin",
     "displaySize": "37",
+    "id": "prod-w-57-sg-f-1904-platin",
     "sku": "SG-F-1904-PLATIN",
     "name": "Article SG-F-1904-PLATIN",
     "brand": "Zara",
@@ -1482,8 +1482,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-58-sg-f-1821-platin",
     "displaySize": "37",
+    "id": "prod-w-58-sg-f-1821-platin",
     "sku": "SG-F-1821-PLATIN",
     "name": "Article SG-F-1821-PLATIN",
     "brand": "Zara",
@@ -1508,8 +1508,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-59-sg-f-1826-black",
     "displaySize": "37",
+    "id": "prod-w-59-sg-f-1826-black",
     "sku": "SG-F-1826-BLACK",
     "name": "Article SG-F-1826-BLACK",
     "brand": "Zara",
@@ -1534,8 +1534,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-60-sg-f-1826-offwhite",
     "displaySize": "37",
+    "id": "prod-w-60-sg-f-1826-offwhite",
     "sku": "SG-F-1826-OFFWHITE",
     "name": "Article SG-F-1826-OFFWHITE",
     "brand": "Zara",
@@ -1560,8 +1560,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-61-sg-f-28-white",
     "displaySize": "37",
+    "id": "prod-w-61-sg-f-28-white",
     "sku": "SG-F-28-WHITE",
     "name": "Article SG-F-28-WHITE",
     "brand": "Zara",
@@ -1586,8 +1586,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-62-sg-f-1940-chestnut",
     "displaySize": "37",
+    "id": "prod-w-62-sg-f-1940-chestnut",
     "sku": "SG-F-1940-CHESTNUT",
     "name": "Article SG-F-1940-CHESTNUT",
     "brand": "Zara",
@@ -1612,8 +1612,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-63-sg-f-1935-brown",
     "displaySize": "37",
+    "id": "prod-w-63-sg-f-1935-brown",
     "sku": "SG-F-1935-BROWN",
     "name": "Article SG-F-1935-BROWN",
     "brand": "Zara",
@@ -1638,8 +1638,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-64-sg-f-1576-black",
     "displaySize": "37",
+    "id": "prod-w-64-sg-f-1576-black",
     "sku": "SG-F-1576-BLACK",
     "name": "Article SG-F-1576-BLACK",
     "brand": "Zara",
@@ -1664,8 +1664,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-65-sg-f-1576-portroyale",
     "displaySize": "37",
+    "id": "prod-w-65-sg-f-1576-portroyale",
     "sku": "SG-F-1576-PORTROYALE",
     "name": "Article SG-F-1576-PORTROYALE",
     "brand": "Zara",
@@ -1690,8 +1690,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-66-sg-f-1928-blue",
     "displaySize": "37",
+    "id": "prod-w-66-sg-f-1928-blue",
     "sku": "SG-F-1928-BLUE",
     "name": "Article SG-F-1928-BLUE",
     "brand": "Zara",
@@ -1716,8 +1716,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-67-sg-f-1928-white",
     "displaySize": "37",
+    "id": "prod-w-67-sg-f-1928-white",
     "sku": "SG-F-1928-WHITE",
     "name": "Article SG-F-1928-WHITE",
     "brand": "Zara",
@@ -1742,8 +1742,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-68-sg-f-1560-black",
     "displaySize": "37",
+    "id": "prod-w-68-sg-f-1560-black",
     "sku": "SG-F-1560-BLACK",
     "name": "Article SG-F-1560-BLACK",
     "brand": "Zara",
@@ -1768,8 +1768,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-69-sg-f-1560-tan",
     "displaySize": "37",
+    "id": "prod-w-69-sg-f-1560-tan",
     "sku": "SG-F-1560-TAN",
     "name": "Article SG-F-1560-TAN",
     "brand": "Zara",
@@ -1794,8 +1794,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-70-sg-f-1561-tan",
     "displaySize": "37",
+    "id": "prod-w-70-sg-f-1561-tan",
     "sku": "SG-F-1561-TAN",
     "name": "Article SG-F-1561-TAN",
     "brand": "Zara",
@@ -1820,8 +1820,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-71-sg-f-1561-black",
     "displaySize": "38",
+    "id": "prod-w-71-sg-f-1561-black",
     "sku": "SG-F-1561-BLACK",
     "name": "Article SG-F-1561-BLACK",
     "brand": "Zara",
@@ -1846,8 +1846,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-72-sg-f-1318-offwhite",
     "displaySize": "37",
+    "id": "prod-w-72-sg-f-1318-offwhite",
     "sku": "SG-F-1318-OFFWHITE",
     "name": "Article SG-F-1318-OFFWHITE",
     "brand": "Zara",
@@ -1872,8 +1872,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-73-sg-f-1318-black",
     "displaySize": "37",
+    "id": "prod-w-73-sg-f-1318-black",
     "sku": "SG-F-1318-BLACK",
     "name": "Article SG-F-1318-BLACK",
     "brand": "Zara",
@@ -1898,8 +1898,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-74-sg-f-1610-multi",
     "displaySize": "37",
+    "id": "prod-w-74-sg-f-1610-multi",
     "sku": "SG-F-1610-MULTI",
     "name": "Article SG-F-1610-MULTI",
     "brand": "Zara",
@@ -1924,8 +1924,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-75-sg-f-1610-platin",
     "displaySize": "37",
+    "id": "prod-w-75-sg-f-1610-platin",
     "sku": "SG-F-1610-PLATIN",
     "name": "Article SG-F-1610-PLATIN",
     "brand": "Zara",
@@ -1950,8 +1950,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-76-sg-f-1915-platin",
     "displaySize": "37",
+    "id": "prod-w-76-sg-f-1915-platin",
     "sku": "SG-F-1915-PLATIN",
     "name": "Article SG-F-1915-PLATIN",
     "brand": "Zara",
@@ -1976,8 +1976,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-77-sg-f-1915-black",
     "displaySize": "37",
+    "id": "prod-w-77-sg-f-1915-black",
     "sku": "SG-F-1915-BLACK",
     "name": "Article SG-F-1915-BLACK",
     "brand": "Zara",
@@ -2002,8 +2002,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-78-sg-f-1637-white",
     "displaySize": "37",
+    "id": "prod-w-78-sg-f-1637-white",
     "sku": "SG-F-1637-WHITE",
     "name": "Article SG-F-1637-WHITE",
     "brand": "Zara",
@@ -2028,8 +2028,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-79-sg-f-1820-tan",
     "displaySize": "37",
+    "id": "prod-w-79-sg-f-1820-tan",
     "sku": "SG-F-1820-TAN",
     "name": "Article SG-F-1820-TAN",
     "brand": "Zara",
@@ -2054,8 +2054,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-80-sg-f-1820-skyblue",
     "displaySize": "37",
+    "id": "prod-w-80-sg-f-1820-skyblue",
     "sku": "SG-F-1820-SKYBLUE",
     "name": "Article SG-F-1820-SKYBLUE",
     "brand": "Zara",
@@ -2080,8 +2080,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-81-sg-f-1917-black",
     "displaySize": "37",
+    "id": "prod-w-81-sg-f-1917-black",
     "sku": "SG-F-1917-BLACK",
     "name": "Article SG-F-1917-BLACK",
     "brand": "Zara",
@@ -2106,8 +2106,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-82-sg-f-1917-platin",
     "displaySize": "36",
+    "id": "prod-w-82-sg-f-1917-platin",
     "sku": "SG-F-1917-PLATIN",
     "name": "Article SG-F-1917-PLATIN",
     "brand": "Zara",
@@ -2132,8 +2132,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-83-sg-f-1932-silvermulti",
     "displaySize": "37",
+    "id": "prod-w-83-sg-f-1932-silvermulti",
     "sku": "SG-F-1932-SILVERMULTI",
     "name": "Article SG-F-1932-SILVERMULTI",
     "brand": "Zara",
@@ -2158,8 +2158,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-84-sg-f-1932-lightgold",
     "displaySize": "37",
+    "id": "prod-w-84-sg-f-1932-lightgold",
     "sku": "SG-F-1932-LIGHTGOLD",
     "name": "Article SG-F-1932-LIGHTGOLD",
     "brand": "Zara",
@@ -2184,8 +2184,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-85-sg-f-1918-silver",
     "displaySize": "37",
+    "id": "prod-w-85-sg-f-1918-silver",
     "sku": "SG-F-1918-SILVER",
     "name": "Article SG-F-1918-SILVER",
     "brand": "Zara",
@@ -2210,8 +2210,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-86-sg-f-1711-black",
     "displaySize": "37",
+    "id": "prod-w-86-sg-f-1711-black",
     "sku": "SG-F-1711-BLACK",
     "name": "Article SG-F-1711-BLACK",
     "brand": "Zara",
@@ -2236,8 +2236,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-87-sg-f-1824-black",
     "displaySize": "37",
+    "id": "prod-w-87-sg-f-1824-black",
     "sku": "SG-F-1824-BLACK",
     "name": "Article SG-F-1824-BLACK",
     "brand": "Zara",
@@ -2262,8 +2262,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-88-sg-f-1824-platin",
     "displaySize": "37",
+    "id": "prod-w-88-sg-f-1824-platin",
     "sku": "SG-F-1824-PLATIN",
     "name": "Article SG-F-1824-PLATIN",
     "brand": "Zara",
@@ -2288,8 +2288,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-89-sg-f-1893-black",
     "displaySize": "37",
+    "id": "prod-w-89-sg-f-1893-black",
     "sku": "SG-F-1893-BLACK",
     "name": "Article SG-F-1893-BLACK",
     "brand": "Zara",
@@ -2314,8 +2314,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-90-sg-f-1893-brown",
     "displaySize": "37",
+    "id": "prod-w-90-sg-f-1893-brown",
     "sku": "SG-F-1893-BROWN",
     "name": "Article SG-F-1893-BROWN",
     "brand": "Zara",
@@ -2340,8 +2340,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-91-sg-f-1892-black",
     "displaySize": "37",
+    "id": "prod-w-91-sg-f-1892-black",
     "sku": "SG-F-1892-BLACK",
     "name": "Article SG-F-1892-BLACK",
     "brand": "Zara",
@@ -2366,8 +2366,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-92-sg-f-1911-offwhite",
     "displaySize": "37",
+    "id": "prod-w-92-sg-f-1911-offwhite",
     "sku": "SG-F-1911-OFFWHITE",
     "name": "Article SG-F-1911-OFFWHITE",
     "brand": "Zara",
@@ -2392,8 +2392,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-93-sg-f-1911-platin",
     "displaySize": "37",
+    "id": "prod-w-93-sg-f-1911-platin",
     "sku": "SG-F-1911-PLATIN",
     "name": "Article SG-F-1911-PLATIN",
     "brand": "Zara",
@@ -2418,8 +2418,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-94-sg-f-1849-mais",
     "displaySize": "37",
+    "id": "prod-w-94-sg-f-1849-mais",
     "sku": "SG-F-1849-MAIS",
     "name": "Article SG-F-1849-MAIS",
     "brand": "Zara",
@@ -2444,8 +2444,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-95-sg-f-1376-platin",
     "displaySize": "37",
+    "id": "prod-w-95-sg-f-1376-platin",
     "sku": "SG-F-1376-PLATIN",
     "name": "Article SG-F-1376-PLATIN",
     "brand": "Zara",
@@ -2470,8 +2470,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-96-sg-f-1878-offwhite",
     "displaySize": "37",
+    "id": "prod-w-96-sg-f-1878-offwhite",
     "sku": "SG-F-1878-OFFWHITE",
     "name": "Article SG-F-1878-OFFWHITE",
     "brand": "Zara",
@@ -2496,8 +2496,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-97-sg-f-1878-black",
     "displaySize": "37",
+    "id": "prod-w-97-sg-f-1878-black",
     "sku": "SG-F-1878-BLACK",
     "name": "Article SG-F-1878-BLACK",
     "brand": "Zara",
@@ -2522,8 +2522,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-98-sg-f-1919-platin",
     "displaySize": "37",
+    "id": "prod-w-98-sg-f-1919-platin",
     "sku": "SG-F-1919-PLATIN",
     "name": "Article SG-F-1919-PLATIN",
     "brand": "Zara",
@@ -2548,8 +2548,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-99-sg-f-1876-tan",
     "displaySize": "37",
+    "id": "prod-w-99-sg-f-1876-tan",
     "sku": "SG-F-1876-TAN",
     "name": "Article SG-F-1876-TAN",
     "brand": "Zara",
@@ -2574,8 +2574,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-100-sg-f-1551-blue",
     "displaySize": "37",
+    "id": "prod-w-100-sg-f-1551-blue",
     "sku": "SG-F-1551-BLUE",
     "name": "Article SG-F-1551-BLUE",
     "brand": "Zara",
@@ -2600,8 +2600,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-101-sg-f-1855-oldgold",
     "displaySize": "37",
+    "id": "prod-w-101-sg-f-1855-oldgold",
     "sku": "SG-F-1855-OLDGOLD",
     "name": "Article SG-F-1855-OLDGOLD",
     "brand": "Zara",
@@ -2626,8 +2626,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-102-sg-f-1761-black",
     "displaySize": "37",
+    "id": "prod-w-102-sg-f-1761-black",
     "sku": "SG-F-1761-BLACK",
     "name": "Article SG-F-1761-BLACK",
     "brand": "Zara",
@@ -2652,8 +2652,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-103-sg-f-1942-chestnut",
     "displaySize": "37",
+    "id": "prod-w-103-sg-f-1942-chestnut",
     "sku": "SG-F-1942-CHESTNUT",
     "name": "Article SG-F-1942-CHESTNUT",
     "brand": "Zara",
@@ -2678,8 +2678,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-104-sg-f-1839-black",
     "displaySize": "37",
+    "id": "prod-w-104-sg-f-1839-black",
     "sku": "SG-F-1839-BLACK",
     "name": "Article SG-F-1839-BLACK",
     "brand": "Zara",
@@ -2704,8 +2704,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-105-sg-f-1931-lightgold",
     "displaySize": "37",
+    "id": "prod-w-105-sg-f-1931-lightgold",
     "sku": "SG-F-1931-LIGHTGOLD",
     "name": "Article SG-F-1931-LIGHTGOLD",
     "brand": "Zara",
@@ -2730,8 +2730,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-106-sg-f-1732-red",
     "displaySize": "37",
+    "id": "prod-w-106-sg-f-1732-red",
     "sku": "SG-F-1732-RED",
     "name": "Article SG-F-1732-RED",
     "brand": "Zara",
@@ -2756,8 +2756,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-107-sg-f-1732-white",
     "displaySize": "37",
+    "id": "prod-w-107-sg-f-1732-white",
     "sku": "SG-F-1732-WHITE",
     "name": "Article SG-F-1732-WHITE",
     "brand": "Zara",
@@ -2782,8 +2782,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-108-sg-f-1732-blue",
     "displaySize": "37",
+    "id": "prod-w-108-sg-f-1732-blue",
     "sku": "SG-F-1732-BLUE",
     "name": "Article SG-F-1732-BLUE",
     "brand": "Zara",
@@ -2808,8 +2808,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-109-sg-f-1443-offwhite",
     "displaySize": "37",
+    "id": "prod-w-109-sg-f-1443-offwhite",
     "sku": "SG-F-1443-OFFWHITE",
     "name": "Article SG-F-1443-OFFWHITE",
     "brand": "Zara",
@@ -2834,8 +2834,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-110-sg-f-1443-gold",
     "displaySize": "37",
+    "id": "prod-w-110-sg-f-1443-gold",
     "sku": "SG-F-1443-GOLD",
     "name": "Article SG-F-1443-GOLD",
     "brand": "Zara",
@@ -2860,8 +2860,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-111-sg-f-1905-oldgold",
     "displaySize": "37",
+    "id": "prod-w-111-sg-f-1905-oldgold",
     "sku": "SG-F-1905-OLDGOLD",
     "name": "Article SG-F-1905-OLDGOLD",
     "brand": "Zara",
@@ -2886,8 +2886,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-112-sg-f-160-platin",
     "displaySize": "37",
+    "id": "prod-w-112-sg-f-160-platin",
     "sku": "SG-F-160-PLATIN",
     "name": "Article SG-F-160-PLATIN",
     "brand": "Zara",
@@ -2912,8 +2912,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-113-sg-f-1920-platin",
     "displaySize": "37",
+    "id": "prod-w-113-sg-f-1920-platin",
     "sku": "SG-F-1920-PLATIN",
     "name": "Article SG-F-1920-PLATIN",
     "brand": "Zara",
@@ -2938,8 +2938,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-114-sg-f-1920-black",
     "displaySize": "37",
+    "id": "prod-w-114-sg-f-1920-black",
     "sku": "SG-F-1920-BLACK",
     "name": "Article SG-F-1920-BLACK",
     "brand": "Zara",
@@ -2964,8 +2964,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-115-sg-f-1544-white",
     "displaySize": "37",
+    "id": "prod-w-115-sg-f-1544-white",
     "sku": "SG-F-1544-WHITE",
     "name": "Article SG-F-1544-WHITE",
     "brand": "Zara",
@@ -2990,8 +2990,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-116-sg-f-1544-black",
     "displaySize": "37",
+    "id": "prod-w-116-sg-f-1544-black",
     "sku": "SG-F-1544-BLACK",
     "name": "Article SG-F-1544-BLACK",
     "brand": "Zara",
@@ -3016,8 +3016,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-117-sg-f-1985-black",
     "displaySize": "37",
+    "id": "prod-w-117-sg-f-1985-black",
     "sku": "SG-F-1985-BLACK",
     "name": "Article SG-F-1985-BLACK",
     "brand": "Zara",
@@ -3042,8 +3042,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-118-sg-f-1991-black",
     "displaySize": "37",
+    "id": "prod-w-118-sg-f-1991-black",
     "sku": "SG-F-1991-BLACK",
     "name": "Article SG-F-1991-BLACK",
     "brand": "Zara",
@@ -3068,8 +3068,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-119-sg-f-1669-black",
     "displaySize": "37",
+    "id": "prod-w-119-sg-f-1669-black",
     "sku": "SG-F-1669-BLACK",
     "name": "Article SG-F-1669-BLACK",
     "brand": "Zara",
@@ -3094,8 +3094,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-120-sg-f-1841-black",
     "displaySize": "36",
+    "id": "prod-w-120-sg-f-1841-black",
     "sku": "SG-F-1841-BLACK",
     "name": "Article SG-F-1841-BLACK",
     "brand": "Zara",
@@ -3120,8 +3120,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-121-sg-f-1885-brown",
     "displaySize": "37",
+    "id": "prod-w-121-sg-f-1885-brown",
     "sku": "SG-F-1885-BROWN",
     "name": "Article SG-F-1885-BROWN",
     "brand": "Zara",
@@ -3146,8 +3146,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-122-sg-f-1009-taupe",
     "displaySize": "37",
+    "id": "prod-w-122-sg-f-1009-taupe",
     "sku": "SG-F-1009-TAUPE",
     "name": "Article SG-F-1009-TAUPE",
     "brand": "Zara",
@@ -3172,8 +3172,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-123-sg-f-1585-black",
     "displaySize": "37",
+    "id": "prod-w-123-sg-f-1585-black",
     "sku": "SG-F-1585-BLACK",
     "name": "Article SG-F-1585-BLACK",
     "brand": "Zara",
@@ -3198,8 +3198,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-124-sg-f-790-black",
     "displaySize": "37",
+    "id": "prod-w-124-sg-f-790-black",
     "sku": "SG-F-790-BLACK",
     "name": "Article SG-F-790-BLACK",
     "brand": "Zara",
@@ -3224,8 +3224,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-125-sg-f-1649-bordo",
     "displaySize": "37",
+    "id": "prod-w-125-sg-f-1649-bordo",
     "sku": "SG-F-1649-BORDO",
     "name": "Article SG-F-1649-BORDO",
     "brand": "Zara",
@@ -3250,8 +3250,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-126-sg-f-1690-black",
     "displaySize": "37",
+    "id": "prod-w-126-sg-f-1690-black",
     "sku": "SG-F-1690-BLACK",
     "name": "Article SG-F-1690-BLACK",
     "brand": "Zara",
@@ -3276,8 +3276,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-127-sg-f-1151-brown",
     "displaySize": "37",
+    "id": "prod-w-127-sg-f-1151-brown",
     "sku": "SG-F-1151-BROWN",
     "name": "Article SG-F-1151-BROWN",
     "brand": "Zara",
@@ -3302,8 +3302,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-128-sg-f-1650-brown",
     "displaySize": "37",
+    "id": "prod-w-128-sg-f-1650-brown",
     "sku": "SG-F-1650-BROWN",
     "name": "Article SG-F-1650-BROWN",
     "brand": "Zara",
@@ -3328,8 +3328,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-129-sg-f-02-black",
     "displaySize": "37",
+    "id": "prod-w-129-sg-f-02-black",
     "sku": "SG-F-02-BLACK",
     "name": "Article SG-F-02-BLACK",
     "brand": "Zara",
@@ -3354,8 +3354,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-130-sg-f-1171-black",
     "displaySize": "37",
+    "id": "prod-w-130-sg-f-1171-black",
     "sku": "SG-F-1171-BLACK",
     "name": "Article SG-F-1171-BLACK",
     "brand": "Zara",
@@ -3380,8 +3380,8 @@
     "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "id": "prod-w-131-sg-f-1761-marron",
     "displaySize": "37",
+    "id": "prod-w-131-sg-f-1761-marron",
     "sku": "SG-F-1761-MARRON",
     "name": "Article SG-F-1761-MARRON",
     "brand": "Zara",
@@ -3406,8 +3406,8 @@
     "updatedAt": "2026-11-02T17:26:58.449Z"
   },
   {
-    "id": "prod-w-132-sg-f-1767-black",
     "displaySize": "37",
+    "id": "prod-w-132-sg-f-1767-black",
     "sku": "SG-F-1767-BLACK",
     "name": "Article SG-F-1767-BLACK",
     "brand": "Zara",
@@ -3432,8 +3432,8 @@
     "updatedAt": "2026-11-02T17:26:58.449Z"
   },
   {
-    "id": "prod-w-133-sg-f-1532-brown",
     "displaySize": "37",
+    "id": "prod-w-133-sg-f-1532-brown",
     "sku": "SG-F-1532-BROWN",
     "name": "Article SG-F-1532-BROWN",
     "brand": "Zara",
@@ -3458,8 +3458,8 @@
     "updatedAt": "2026-11-02T17:26:58.449Z"
   },
   {
-    "id": "prod-w-134-sg-f-1839-brown",
     "displaySize": "37",
+    "id": "prod-w-134-sg-f-1839-brown",
     "sku": "SG-F-1839_BROWN",
     "name": "Article SG-F-1839_BROWN",
     "brand": "Zara",
@@ -3484,8 +3484,8 @@
     "updatedAt": "2026-11-02T17:26:58.449Z"
   },
   {
-    "id": "prod-w-135-sg-f-1760-lighttaupe",
     "displaySize": "37",
+    "id": "prod-w-135-sg-f-1760-lighttaupe",
     "sku": "SG-F-1760-LIGHTTAUPE",
     "name": "Article SG-F-1760-LIGHTTAUPE",
     "brand": "Zara",
@@ -3510,8 +3510,8 @@
     "updatedAt": "2026-11-02T17:26:58.449Z"
   },
   {
-    "id": "prod-w-136-sg-f-1939-brodo",
     "displaySize": "37",
+    "id": "prod-w-136-sg-f-1939-brodo",
     "sku": "SG-F-1939-BRODO",
     "name": "Article SG-F-1939-BRODO",
     "brand": "Zara",
@@ -3536,8 +3536,8 @@
     "updatedAt": "2026-11-02T17:26:58.449Z"
   },
   {
-    "id": "prod-w-137-sg-f-1765-brown",
     "displaySize": "37",
+    "id": "prod-w-137-sg-f-1765-brown",
     "sku": "SG-F-1765-BROWN",
     "name": "Article SG-F-1765-BROWN",
     "brand": "Zara",
@@ -3562,8 +3562,8 @@
     "updatedAt": "2026-11-02T17:26:58.449Z"
   },
   {
-    "id": "prod-w-138-sg-f-103-brown",
     "displaySize": "37",
+    "id": "prod-w-138-sg-f-103-brown",
     "sku": "SG-F-103-BROWN",
     "name": "Article SG-F-103-BROWN",
     "brand": "Zara",
@@ -3588,8 +3588,8 @@
     "updatedAt": "2026-11-02T17:26:58.449Z"
   },
   {
-    "id": "prod-w-139-sg-f-1942-black",
     "displaySize": "37",
+    "id": "prod-w-139-sg-f-1942-black",
     "sku": "SG-F-1942-BLACK",
     "name": "Article SG-F-1942-BLACK",
     "brand": "Zara",
@@ -3614,8 +3614,8 @@
     "updatedAt": "2026-11-02T17:26:58.449Z"
   },
   {
-    "id": "prod-w-140-sg-f-1995-black",
     "displaySize": "37",
+    "id": "prod-w-140-sg-f-1995-black",
     "sku": "SG-F-1995-BLACK",
     "name": "Article SG-F-1995-BLACK",
     "brand": "Zara",
@@ -3640,8 +3640,8 @@
     "updatedAt": "2026-11-02T17:26:58.449Z"
   },
   {
-    "id": "prod-w-141-sg-f-1001-brown",
     "displaySize": "37",
+    "id": "prod-w-141-sg-f-1001-brown",
     "sku": "SG-F-1001-BROWN",
     "name": "Article SG-F-1001-BROWN",
     "brand": "Zara",
@@ -3666,8 +3666,8 @@
     "updatedAt": "2026-11-02T17:26:58.449Z"
   },
   {
-    "id": "prod-w-142-sg-f-1994-black",
     "displaySize": "37",
+    "id": "prod-w-142-sg-f-1994-black",
     "sku": "SG-F-1994-BLACK",
     "name": "Article SG-F-1994-BLACK",
     "brand": "Zara",
@@ -3734,6 +3734,7 @@
     "updatedAt": "2026-11-02T06:00:00.000Z"
   },
   {
+    "displaySize": "41",
     "id": "prod-men-sgm-12-black",
     "sku": "SGM-12-BLACK",
     "name": "Article SGM-12-BLACK",
@@ -3751,13 +3752,13 @@
       "44": 1,
       "45": 0
     },
-    "displaySize": "41",
     "imageUrl": "",
     "notes": "Batch added SGM-12-BLACK",
     "createdAt": "2026-11-02T17:03:16.582Z",
-    "updatedAt": "2026-11-02T17:03:16.582Z"
+    "updatedAt": "2026-11-02T18:58:10.632Z"
   },
   {
+    "displaySize": "41",
     "id": "prod-men-sgm-65-black",
     "sku": "SGM-65-BLACK",
     "name": "Article SGM-65-BLACK",
@@ -3775,13 +3776,13 @@
       "44": 1,
       "45": 0
     },
-    "displaySize": "41",
     "imageUrl": "",
     "notes": "Batch added SGM-65-BLACK",
     "createdAt": "2026-11-02T17:03:16.582Z",
     "updatedAt": "2026-11-02T17:03:16.582Z"
   },
   {
+    "displaySize": "41",
     "id": "prod-men-sgm-09-beige",
     "sku": "SGM-09-BEIGE",
     "name": "Article SGM-09-BEIGE",
@@ -3799,13 +3800,13 @@
       "44": 0,
       "45": 0
     },
-    "displaySize": "41",
     "imageUrl": "",
     "notes": "Batch added SGM-09-BEIGE",
     "createdAt": "2026-11-02T17:03:16.582Z",
     "updatedAt": "2026-11-02T17:03:16.582Z"
   },
   {
+    "displaySize": "41",
     "id": "prod-men-sgm-46-black",
     "sku": "SGM-46-BLACK",
     "name": "Article SGM-46-BLACK",
@@ -3823,13 +3824,13 @@
       "44": 1,
       "45": 0
     },
-    "displaySize": "41",
     "imageUrl": "",
     "notes": "Batch added SGM-46-BLACK",
     "createdAt": "2026-11-02T17:03:16.583Z",
     "updatedAt": "2026-11-02T17:03:16.583Z"
   },
   {
+    "displaySize": "41",
     "id": "prod-men-sgm-20-black",
     "sku": "SGM-20-BLACK",
     "name": "Article SGM-20-BLACK",
@@ -3847,13 +3848,13 @@
       "44": 0,
       "45": 0
     },
-    "displaySize": "41",
     "imageUrl": "",
     "notes": "Batch added SGM-20-BLACK",
     "createdAt": "2026-11-02T17:03:16.583Z",
     "updatedAt": "2026-11-02T17:03:16.583Z"
   },
   {
+    "displaySize": "41",
     "id": "prod-men-sgm-43-navy",
     "sku": "SGM-43-NAVY",
     "name": "Article SGM-43-NAVY",
@@ -3871,13 +3872,13 @@
       "44": 1,
       "45": 0
     },
-    "displaySize": "41",
     "imageUrl": "",
     "notes": "Batch added SGM-43-NAVY",
     "createdAt": "2026-11-02T17:03:16.583Z",
     "updatedAt": "2026-11-02T17:03:16.583Z"
   },
   {
+    "displaySize": "41",
     "id": "prod-men-sgm-43-black",
     "sku": "SGM-43-BLACK",
     "name": "Article SGM-43-BLACK",
@@ -3895,13 +3896,13 @@
       "44": 1,
       "45": 0
     },
-    "displaySize": "41",
     "imageUrl": "",
     "notes": "Batch added SGM-43-BLACK",
     "createdAt": "2026-11-02T17:03:16.583Z",
     "updatedAt": "2026-11-02T17:03:16.583Z"
   },
   {
+    "displaySize": "41",
     "id": "prod-men-sgm-41-brown",
     "sku": "SGM-41-BROWN",
     "name": "Article SGM-41-BROWN",
@@ -3919,13 +3920,13 @@
       "44": 0,
       "45": 0
     },
-    "displaySize": "41",
     "imageUrl": "",
     "notes": "Batch added SGM-41-BROWN",
     "createdAt": "2026-11-02T17:03:16.583Z",
     "updatedAt": "2026-11-02T17:03:16.583Z"
   },
   {
+    "displaySize": "41",
     "id": "prod-men-sgm-09-brown",
     "sku": "SGM-09-BROWN",
     "name": "Article SGM-09-BROWN",
@@ -3943,13 +3944,13 @@
       "44": 0,
       "45": 0
     },
-    "displaySize": "41",
     "imageUrl": "",
     "notes": "Batch added SGM-09-BROWN",
     "createdAt": "2026-11-02T17:03:16.583Z",
     "updatedAt": "2026-11-02T17:03:16.583Z"
   },
   {
+    "displaySize": "41",
     "id": "prod-men-sgm-22-brown",
     "sku": "SGM-22-BROWN",
     "name": "Article SGM-22-BROWN",
@@ -3967,13 +3968,13 @@
       "44": 0,
       "45": 0
     },
-    "displaySize": "41",
     "imageUrl": "",
     "notes": "Batch added SGM-22-BROWN",
     "createdAt": "2026-11-02T17:03:16.583Z",
     "updatedAt": "2026-11-02T17:03:16.583Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-men-jk-m-04-black",
     "sku": "JK-M-04-BLACK",
     "name": "Article JK-M-04-BLACK",
@@ -3990,13 +3991,13 @@
       "XL": 1,
       "XXL": 1
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-M-04-BLACK",
     "createdAt": "2026-11-02T17:03:16.583Z",
     "updatedAt": "2026-11-02T17:03:16.583Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-men-jk-m-01-black",
     "sku": "JK-M-01-BLACK",
     "name": "Article JK-M-01-BLACK",
@@ -4013,13 +4014,13 @@
       "XL": 1,
       "XXL": 1
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-M-01-BLACK",
     "createdAt": "2026-11-02T17:03:16.583Z",
     "updatedAt": "2026-11-02T17:03:16.583Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-men-jk-m-01-chocolate",
     "sku": "JK-M-01-CHOCOLATE",
     "name": "Article JK-M-01-CHOCOLATE",
@@ -4036,13 +4037,13 @@
       "XL": 0,
       "XXL": 1
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-M-01-CHOCOLATE",
     "createdAt": "2026-11-02T17:03:16.583Z",
     "updatedAt": "2026-11-02T17:03:16.583Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-men-jk-m-29-blue",
     "sku": "JK-M-29-BLUE",
     "name": "Article JK-M-29-BLUE",
@@ -4059,13 +4060,13 @@
       "XL": 1,
       "XXL": 1
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-M-29-BLUE",
     "createdAt": "2026-11-02T17:03:16.584Z",
     "updatedAt": "2026-11-02T17:03:16.584Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-men-jk-m-29-chocolate",
     "sku": "JK-M-29-CHOCOLATE",
     "name": "Article JK-M-29-CHOCOLATE",
@@ -4082,13 +4083,13 @@
       "XL": 2,
       "XXL": 2
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-M-29-CHOCOLATE",
     "createdAt": "2026-11-02T17:03:16.584Z",
     "updatedAt": "2026-11-02T17:03:16.584Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-men-jk-m-08-black",
     "sku": "JK-M-08-BLACK",
     "name": "Article JK-M-08-BLACK",
@@ -4105,13 +4106,13 @@
       "XL": 1,
       "XXL": 1
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-M-08-BLACK",
     "createdAt": "2026-11-02T17:03:16.584Z",
     "updatedAt": "2026-11-02T17:03:16.584Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-men-jk-m-34-black",
     "sku": "JK-M-34-BLACK",
     "name": "Article JK-M-34-BLACK",
@@ -4128,13 +4129,13 @@
       "XL": 1,
       "XXL": 1
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-M-34-BLACK",
     "createdAt": "2026-11-02T17:03:16.584Z",
     "updatedAt": "2026-11-02T17:03:16.584Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-men-jk-m-11-blackwhite",
     "sku": "JK-M-11-BLACKWHITE",
     "name": "Article JK-M-11-BLACKWHITE",
@@ -4151,13 +4152,13 @@
       "XL": 1,
       "XXL": 0
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-M-11-BLACKWHITE",
     "createdAt": "2026-11-02T17:03:16.585Z",
     "updatedAt": "2026-11-02T17:03:16.585Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-men-jk-m-07-tan",
     "sku": "JK-M-07-TAN",
     "name": "Article JK-M-07-TAN",
@@ -4174,13 +4175,13 @@
       "XL": 1,
       "XXL": 0
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-M-07-TAN",
     "createdAt": "2026-11-02T17:03:16.585Z",
     "updatedAt": "2026-11-02T17:03:16.585Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-men-jk-m-76-black",
     "sku": "JK-M-76-BLACK",
     "name": "Article JK-M-76-BLACK",
@@ -4197,13 +4198,13 @@
       "XL": 1,
       "XXL": 1
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-M-76-BLACK",
     "createdAt": "2026-11-02T17:03:16.585Z",
     "updatedAt": "2026-11-02T17:03:16.585Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-men-jk-m-78-brown",
     "sku": "JK-M-78-BROWN",
     "name": "Article JK-M-78-BROWN",
@@ -4220,13 +4221,13 @@
       "XL": 1,
       "XXL": 1
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-M-78-BROWN",
     "createdAt": "2026-11-02T17:03:16.585Z",
     "updatedAt": "2026-11-02T17:03:16.585Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-men-jk-m-81-brown",
     "sku": "JK-M-81-BROWN",
     "name": "Article JK-M-81-BROWN",
@@ -4243,13 +4244,13 @@
       "XL": 1,
       "XXL": 1
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-M-81-BROWN",
     "createdAt": "2026-11-02T17:03:16.585Z",
     "updatedAt": "2026-11-02T17:03:16.585Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-men-jk-m-36-darkgrey",
     "sku": "JK-M-36-DARKGREY",
     "name": "Article JK-M-36-DARKGREY",
@@ -4266,13 +4267,13 @@
       "XL": 1,
       "XXL": 1
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-M-36-DARKGREY",
     "createdAt": "2026-11-02T17:03:16.585Z",
     "updatedAt": "2026-11-02T17:03:16.585Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-men-jk-m-56-darktan",
     "sku": "JK-M-56-DARKTAN",
     "name": "Article JK-M-56-DARKTAN",
@@ -4289,13 +4290,13 @@
       "XL": 1,
       "XXL": 1
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-M-56-DARKTAN",
     "createdAt": "2026-11-02T17:03:16.585Z",
     "updatedAt": "2026-11-02T17:03:16.585Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-men-jk-m-23-black",
     "sku": "JK-M-23-BLACK",
     "name": "Article JK-M-23-BLACK",
@@ -4312,13 +4313,13 @@
       "XL": 1,
       "XXL": 1
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-M-23-BLACK",
     "createdAt": "2026-11-02T17:03:16.585Z",
     "updatedAt": "2026-11-02T17:03:16.585Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-men-jk-m-47-dark-grey",
     "sku": "JK-M-47-DARK-GREY",
     "name": "Article JK-M-47-DARK-GREY",
@@ -4335,13 +4336,13 @@
       "XL": 1,
       "XXL": 1
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-M-47-DARK-GREY",
     "createdAt": "2026-11-02T17:03:16.585Z",
     "updatedAt": "2026-11-02T17:03:16.585Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-men-jk-m-55-black",
     "sku": "JK-M-55-BLACK",
     "name": "Article JK-M-55-BLACK",
@@ -4358,13 +4359,13 @@
       "XL": 0,
       "XXL": 0
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-M-55-BLACK",
     "createdAt": "2026-11-02T17:03:16.585Z",
     "updatedAt": "2026-11-02T17:03:16.585Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-wom-jk-f-04-black",
     "sku": "JK-F-04-BLACK",
     "name": "Article JK-F-04-BLACK",
@@ -4381,13 +4382,13 @@
       "XL": 1,
       "XXL": 0
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-F-04-BLACK",
     "createdAt": "2026-11-02T17:03:16.585Z",
     "updatedAt": "2026-11-02T17:03:16.585Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-wom-jk-f-19-black",
     "sku": "JK-F-19-BLACK",
     "name": "Article JK-F-19-BLACK",
@@ -4404,13 +4405,13 @@
       "XL": 1,
       "XXL": 0
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-F-19-BLACK",
     "createdAt": "2026-11-02T17:03:16.585Z",
     "updatedAt": "2026-11-02T17:03:16.585Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-wom-jk-f-06-black",
     "sku": "JK-F-06-BLACK",
     "name": "Article JK-F-06-BLACK",
@@ -4427,13 +4428,13 @@
       "XL": 1,
       "XXL": 0
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-F-06-BLACK",
     "createdAt": "2026-11-02T17:03:16.585Z",
     "updatedAt": "2026-11-02T17:03:16.585Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-wom-jk-f-02-black",
     "sku": "JK-F-02-BLACK",
     "name": "Article JK-F-02-BLACK",
@@ -4450,13 +4451,13 @@
       "XL": 1,
       "XXL": 0
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-F-02-BLACK",
     "createdAt": "2026-11-02T17:03:16.586Z",
     "updatedAt": "2026-11-02T17:03:16.586Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-wom-jk-f-06-grey",
     "sku": "JK-F-06-GREY",
     "name": "Article JK-F-06-GREY",
@@ -4473,13 +4474,13 @@
       "XL": 1,
       "XXL": 0
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-F-06-GREY",
     "createdAt": "2026-11-02T17:03:16.586Z",
     "updatedAt": "2026-11-02T17:03:16.586Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-wom-jk-f-38-black",
     "sku": "JK-F-38-BLACK",
     "name": "Article JK-F-38-BLACK",
@@ -4496,13 +4497,13 @@
       "XL": 1,
       "XXL": 0
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-F-38-BLACK",
     "createdAt": "2026-11-02T17:03:16.586Z",
     "updatedAt": "2026-11-02T17:03:16.586Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-wom-jk-f-13-black",
     "sku": "JK-F-13-BLACK",
     "name": "Article JK-F-13-BLACK",
@@ -4519,13 +4520,13 @@
       "XL": 1,
       "XXL": 0
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-F-13-BLACK",
     "createdAt": "2026-11-02T17:03:16.586Z",
     "updatedAt": "2026-11-02T17:03:16.586Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-wom-jk-f-58-black",
     "sku": "JK-F-58-BLACK",
     "name": "Article JK-F-58-BLACK",
@@ -4542,13 +4543,13 @@
       "XL": 1,
       "XXL": 0
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-F-58-BLACK",
     "createdAt": "2026-11-02T17:03:16.586Z",
     "updatedAt": "2026-11-02T17:03:16.586Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-wom-jk-f-63-olive",
     "sku": "JK-F-63-OLIVE",
     "name": "Article JK-F-63-OLIVE",
@@ -4565,13 +4566,13 @@
       "XL": 1,
       "XXL": 0
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-F-63-OLIVE",
     "createdAt": "2026-11-02T17:03:16.586Z",
     "updatedAt": "2026-11-02T17:03:16.586Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-wom-jk-f-39-grey",
     "sku": "JK-F-39-GREY",
     "name": "Article JK-F-39-GREY",
@@ -4588,13 +4589,13 @@
       "XL": 0,
       "XXL": 0
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-F-39-GREY",
     "createdAt": "2026-11-02T17:03:16.586Z",
     "updatedAt": "2026-11-02T17:03:16.586Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-wom-jk-f-52-black",
     "sku": "JK-F-52-BLACK",
     "name": "Article JK-F-52-BLACK",
@@ -4611,13 +4612,13 @@
       "XL": 0,
       "XXL": 0
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-F-52-BLACK",
     "createdAt": "2026-11-02T17:03:16.586Z",
     "updatedAt": "2026-11-02T17:03:16.586Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-wom-jk-f-51-black",
     "sku": "JK-F-51-BLACK",
     "name": "Article JK-F-51-BLACK",
@@ -4634,13 +4635,13 @@
       "XL": 0,
       "XXL": 0
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-F-51-BLACK",
     "createdAt": "2026-11-02T17:03:16.586Z",
     "updatedAt": "2026-11-02T17:03:16.586Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-wom-jk-f-06-brown",
     "sku": "JK-F-06-BROWN",
     "name": "Article JK-F-06-BROWN",
@@ -4657,13 +4658,13 @@
       "XL": 0,
       "XXL": 0
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-F-06-BROWN",
     "createdAt": "2026-11-02T17:03:16.586Z",
     "updatedAt": "2026-11-02T17:03:16.586Z"
   },
   {
+    "displaySize": "M",
     "id": "prod-wom-jk-f-19-brown",
     "sku": "JK-F-19-BROWN",
     "name": "Article JK-F-19-BROWN",
@@ -4680,7 +4681,6 @@
       "XL": 0,
       "XXL": 0
     },
-    "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-F-19-BROWN",
     "createdAt": "2026-11-02T17:03:16.586Z",

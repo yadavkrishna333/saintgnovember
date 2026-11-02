@@ -29,8 +29,24 @@ export function DashboardView({ onOpenAddModal, onOpenQuickSale, onOpenReplenish
   // Sales View Tab: 'both' | 'daily' | 'monthly'
   const [salesTab, setSalesTab] = useState('both');
   
+  const formatCurrency = (val) => '₹' + Number(val || 0).toLocaleString('en-IN');
+  
+  const getLocalDateStr = (timestamp) => {
+    if (!timestamp) return '';
+    const d = new Date(timestamp);
+    if (isNaN(d.getTime())) return '';
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
   // Selected Month for Monthly Analytics (default: current month 'YYYY-MM')
-  const currentMonthStr = useMemo(() => new Date().toISOString().slice(0, 7), []);
+  const currentMonthStr = useMemo(() => {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+  }, []);
+
   const [selectedMonth, setSelectedMonth] = useState(currentMonthStr);
   const [selectedDayDetail, setSelectedDayDetail] = useState(null);
 
@@ -39,8 +55,10 @@ export function DashboardView({ onOpenAddModal, onOpenQuickSale, onOpenReplenish
   const [hotSellingCategory, setHotSellingCategory] = useState('all');
   const [hotSellingView, setHotSellingView] = useState('both'); // 'both' | 'style' | 'size'
 
-  const formatCurrency = (val) => '₹' + Number(val || 0).toLocaleString('en-IN');
-  const todayStr = useMemo(() => new Date().toISOString().slice(0, 10), []);
+  const todayStr = useMemo(() => {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  }, []);
 
   // Format month name (e.g. "November 2026")
   const formatMonthTitle = (mStr) => {
@@ -58,8 +76,9 @@ export function DashboardView({ onOpenAddModal, onOpenQuickSale, onOpenReplenish
     const monthsSet = new Set();
     monthsSet.add(currentMonthStr);
     sales.forEach(s => {
-      if (s.timestamp && s.timestamp.length >= 7) {
-        monthsSet.add(s.timestamp.slice(0, 7));
+      const dStr = getLocalDateStr(s.timestamp);
+      if (dStr && dStr.length >= 7) {
+        monthsSet.add(dStr.slice(0, 7));
       }
     });
     return Array.from(monthsSet).sort().reverse();
@@ -67,7 +86,7 @@ export function DashboardView({ onOpenAddModal, onOpenQuickSale, onOpenReplenish
 
   // 1. TODAY'S SALES ANALYTICS
   const todayAnalytics = useMemo(() => {
-    const todaySales = sales.filter(s => (s.timestamp || '').startsWith(todayStr));
+    const todaySales = sales.filter(s => getLocalDateStr(s.timestamp) === todayStr);
     const revenue = todaySales.reduce((acc, s) => acc + (Number(s.totalAmount) || 0), 0);
     const qty = todaySales.reduce((acc, s) => acc + (Number(s.quantity) || 0), 0);
     const orderCount = todaySales.length;
@@ -126,7 +145,7 @@ export function DashboardView({ onOpenAddModal, onOpenQuickSale, onOpenReplenish
     const year = parseInt(yearStr, 10);
     const month = parseInt(monthNumStr, 10);
 
-    const monthSales = sales.filter(s => (s.timestamp || '').startsWith(selectedMonth));
+    const monthSales = sales.filter(s => getLocalDateStr(s.timestamp).startsWith(selectedMonth));
     const revenue = monthSales.reduce((acc, s) => acc + (Number(s.totalAmount) || 0), 0);
     const qty = monthSales.reduce((acc, s) => acc + (Number(s.quantity) || 0), 0);
     const orderCount = monthSales.length;
@@ -143,7 +162,7 @@ export function DashboardView({ onOpenAddModal, onOpenQuickSale, onOpenReplenish
 
     for (let day = 1; day <= totalDaysInMonth; day++) {
       const dayStr = `${selectedMonth}-${String(day).padStart(2, '0')}`;
-      const daySales = monthSales.filter(s => (s.timestamp || '').startsWith(dayStr));
+      const daySales = monthSales.filter(s => getLocalDateStr(s.timestamp) === dayStr);
       const dayRevenue = daySales.reduce((acc, s) => acc + (Number(s.totalAmount) || 0), 0);
       const dayQty = daySales.reduce((acc, s) => acc + (Number(s.quantity) || 0), 0);
 

@@ -18,15 +18,18 @@ import {
   PackageCheck,
   Clock,
   Filter,
-  X
+  X,
+  CalendarPlus
 } from 'lucide-react';
 import { EditSaleModal } from '../components/EditSaleModal';
+import { ManualSaleModal } from '../components/ManualSaleModal';
 
 export function SoldProductsView() {
   const { sales, revertSale, inventory, stats } = useInventory();
   const [searchTerm, setSearchTerm] = useState('');
   const [revertingId, setRevertingId] = useState(null);
   const [editingSale, setEditingSale] = useState(null);
+  const [isManualSaleOpen, setIsManualSaleOpen] = useState(false);
   const [copiedSku, setCopiedSku] = useState(null);
 
   // Helper date strings (YYYY-MM-DD)
@@ -170,6 +173,34 @@ export function SoldProductsView() {
         </div>
       </div>
 
+      {/* Action Banner: Add Past / Manual Sale */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-lg">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+            <CalendarPlus className="w-5 h-5" />
+          </div>
+          <div>
+            <h3 className="text-sm font-black text-white flex items-center gap-2">
+              <span>Sold Articles Entry</span>
+              <span className="text-[10px] bg-amber-500/20 text-amber-300 border border-amber-500/40 px-2 py-0.5 rounded-full font-bold">
+                कल या पुरानी तारीख
+              </span>
+            </h3>
+            <p className="text-xs text-slate-400">
+              आर्टिकल कोड, साइज़, अमाउंट और तारीख डालकर पुरानी बिकी हुई आइटम को सीधे उस दिन की सेल में जोड़ें
+            </p>
+          </div>
+        </div>
+
+        <button
+          onClick={() => setIsManualSaleOpen(true)}
+          className="px-4 py-2.5 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-xs flex items-center justify-center gap-2 shadow-lg shadow-amber-500/25 active:scale-95 transition shrink-0"
+        >
+          <CalendarPlus className="w-4 h-4" />
+          <span>+ Add Past / Manual Sale (सेल जोड़ें)</span>
+        </button>
+      </div>
+
       {/* Date Filter Bar & Search */}
       <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-4 space-y-3 shadow-lg">
         {/* Quick Date Selector & Custom Date Picker */}
@@ -271,8 +302,19 @@ export function SoldProductsView() {
       {filteredSales.length === 0 ? (
         <div className="text-center py-16 bg-slate-900/40 border border-slate-800/80 rounded-3xl p-6 text-slate-500">
           <ShoppingBag className="w-12 h-12 mx-auto mb-2 opacity-30 text-slate-400" />
-          <h3 className="text-sm font-bold text-slate-300">No sold records found</h3>
-          <p className="text-xs mt-1">When an item is sold from the inventory, the transaction log appears here.</p>
+          <h3 className="text-sm font-bold text-slate-300">
+            {selectedDate ? `No sales recorded for ${selectedDate}` : 'No sold records found'}
+          </h3>
+          <p className="text-xs mt-1 text-slate-400">
+            Agar koi article bika tha aur add nahi ho paya, to aap use yahan add kar sakte hain.
+          </p>
+          <button
+            onClick={() => setIsManualSaleOpen(true)}
+            className="mt-4 px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs inline-flex items-center gap-2 shadow-lg shadow-amber-500/20 active:scale-95 transition"
+          >
+            <CalendarPlus className="w-4 h-4" />
+            <span>+ Add Past Sale (बिक्री जोड़ें)</span>
+          </button>
         </div>
       ) : (
         <div className="bg-slate-900/90 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl backdrop-blur-xl">
@@ -447,6 +489,15 @@ export function SoldProductsView() {
         isOpen={!!editingSale}
         onClose={() => setEditingSale(null)}
         saleToEdit={editingSale}
+      />
+
+      {/* Manual / Past Date Sale Modal */}
+      <ManualSaleModal
+        isOpen={isManualSaleOpen}
+        onClose={() => setIsManualSaleOpen(false)}
+        onSaleAdded={(dateAdded) => {
+          setSelectedDate(dateAdded);
+        }}
       />
 
     </div>

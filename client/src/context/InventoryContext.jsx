@@ -855,30 +855,35 @@ export function InventoryProvider({ children }) {
         } catch (err) {
           if (isSupabaseConfigured()) {
             try {
-              const targetProduct = inventory.find(p => p.id === saleData.productId);
+              const targetProduct = inventory.find(p => p.id === saleData.productId || (saleData.sku && p.sku?.trim().toLowerCase() === saleData.sku?.trim().toLowerCase()));
               const saleId = `sale-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
+              const saleTimestamp = saleData.timestamp ? new Date(saleData.timestamp).toISOString() : new Date().toISOString();
+              const unitPrice = saleData.unitPrice !== undefined ? Number(saleData.unitPrice) : (targetProduct?.sellingPrice || 0);
+              const qty = Number(saleData.quantity || 1);
+              const totalAmount = saleData.totalAmount !== undefined ? Number(saleData.totalAmount) : unitPrice * qty;
+
               const saleRecord = {
                 id: saleId,
                 userId: 'usr-krishan',
-                productId: saleData.productId,
-                sku: targetProduct?.sku || 'N/A',
+                productId: targetProduct?.id || saleData.productId || 'prod-custom',
+                sku: targetProduct?.sku || saleData.sku || 'N/A',
                 productName: targetProduct?.name || 'N/A',
-                styleCategory: targetProduct?.styleCategory || 'N/A',
+                styleCategory: targetProduct?.styleCategory || targetProduct?.name || 'N/A',
                 color: targetProduct?.color || 'N/A',
-                size: saleData.size,
-                quantity: saleData.quantity || 1,
-                unitPrice: saleData.unitPrice || targetProduct?.sellingPrice || 0,
-                totalAmount: (saleData.quantity || 1) * (saleData.unitPrice || targetProduct?.sellingPrice || 0),
+                size: String(saleData.size || ''),
+                quantity: qty,
+                unitPrice,
+                totalAmount,
                 paymentMode: saleData.paymentMode || 'Cash',
                 customerName: saleData.customerName || '',
-                timestamp: new Date().toISOString()
+                timestamp: saleTimestamp
               };
 
               await supabaseApi.insertSale(saleRecord, 'usr-krishan');
 
-              if (targetProduct) {
+              if (targetProduct && saleData.deductStock !== false) {
                 const currentQty = Number(targetProduct.sizes?.[saleData.size] || 0);
-                const newQty = Math.max(0, currentQty - (saleData.quantity || 1));
+                const newQty = Math.max(0, currentQty - qty);
                 const updatedProduct = {
                   ...targetProduct,
                   sizes: {
