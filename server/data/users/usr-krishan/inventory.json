@@ -1,7 +1,7 @@
 [
   {
-    "displaySize": "37",
     "id": "prod-w-1-sg-f-1852-silver",
+    "displaySize": "37",
     "sku": "SG-F-1852-SILVER",
     "name": "Article SG-F-1852-SILVER",
     "brand": "Zara",
@@ -10,7 +10,7 @@
     "color": "Silver",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234001",
+    "barcode": "8901230001",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -21,13 +21,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1852-SILVER",
+    "notes": "Master list item #1",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T13:16:54.701Z"
+    "updatedAt": "2026-11-02T17:26:58.443Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-2-sg-f-1867-black",
+    "displaySize": "37",
     "sku": "SG-F-1867-BLACK",
     "name": "Article SG-F-1867-BLACK",
     "brand": "Zara",
@@ -36,7 +36,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234002",
+    "barcode": "8901230002",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -47,13 +47,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1867-BLACK",
-    "createdAt": "2026-11-02T13:16:54.701Z",
-    "updatedAt": "2026-11-02T13:16:54.701Z"
+    "notes": "Master list item #2",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.445Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-3-sg-f-1867-offwhite",
+    "displaySize": "37",
     "sku": "SG-F-1867-OFFWHITE",
     "name": "Article SG-F-1867-OFFWHITE",
     "brand": "Zara",
@@ -62,7 +62,7 @@
     "color": "Off White",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234003",
+    "barcode": "8901230003",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -73,13 +73,13 @@
       "41": 2
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1867-OFFWHITE",
-    "createdAt": "2026-11-02T13:16:54.701Z",
-    "updatedAt": "2026-11-02T13:16:54.701Z"
+    "notes": "Master list item #3",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.445Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-4-sg-f-1929-black",
+    "displaySize": "37",
     "sku": "SG-F-1929-BLACK",
     "name": "Article SG-F-1929-BLACK",
     "brand": "Zara",
@@ -88,7 +88,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234004",
+    "barcode": "8901230004",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -99,13 +99,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1929-BLACK",
-    "createdAt": "2026-11-02T13:16:54.701Z",
-    "updatedAt": "2026-11-02T13:16:54.701Z"
+    "notes": "Master list item #4",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.445Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-5-sg-f-1869-platin",
+    "displaySize": "37",
     "sku": "SG-F-1869-PLATIN",
     "name": "Article SG-F-1869-PLATIN",
     "brand": "Zara",
@@ -114,7 +114,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234005",
+    "barcode": "8901230005",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -125,13 +125,13 @@
       "41": 0
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1869-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.701Z",
-    "updatedAt": "2026-11-02T13:16:54.701Z"
+    "notes": "Master list item #5",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.445Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-6-sg-f-1869-black",
+    "displaySize": "37",
     "sku": "SG-F-1869-BLACK",
     "name": "Article SG-F-1869-BLACK",
     "brand": "Zara",
@@ -140,7 +140,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234006",
+    "barcode": "8901230006",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -151,13 +151,13 @@
       "41": 0
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1869-BLACK",
-    "createdAt": "2026-11-02T13:16:54.701Z",
-    "updatedAt": "2026-11-02T13:16:54.701Z"
+    "notes": "Master list item #6",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.445Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-7-sg-f-1853-oldgold",
+    "displaySize": "37",
     "sku": "SG-F-1853-OLDGOLD",
     "name": "Article SG-F-1853-OLDGOLD",
     "brand": "Zara",
@@ -166,7 +166,7 @@
     "color": "Old Gold",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234007",
+    "barcode": "8901230007",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -177,13 +177,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1853-OLDGOLD",
-    "createdAt": "2026-11-02T13:16:54.701Z",
-    "updatedAt": "2026-11-02T13:16:54.701Z"
+    "notes": "Master list item #7",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.445Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-8-sg-f-1630-offwhite",
+    "displaySize": "37",
     "sku": "SG-F-1630-OFFWHITE",
     "name": "Article SG-F-1630-OFFWHITE",
     "brand": "Zara",
@@ -192,7 +192,7 @@
     "color": "Off White",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234008",
+    "barcode": "8901230008",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -203,13 +203,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1630-OFFWHITE",
-    "createdAt": "2026-11-02T13:16:54.701Z",
-    "updatedAt": "2026-11-02T13:16:54.702Z"
+    "notes": "Master list item #8",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-9-sg-f-1847-darkbrown",
+    "displaySize": "37",
     "sku": "SG-F-1847-DARKBROWN",
     "name": "Article SG-F-1847-DARKBROWN",
     "brand": "Zara",
@@ -218,7 +218,7 @@
     "color": "Dark Brown",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234009",
+    "barcode": "8901230009",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -229,13 +229,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1847-DARKBROWN",
-    "createdAt": "2026-11-02T13:16:54.702Z",
-    "updatedAt": "2026-11-02T13:16:54.702Z"
+    "notes": "Master list item #9",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-10-sg-f-1847-platin",
+    "displaySize": "37",
     "sku": "SG-F-1847-PLATIN",
     "name": "Article SG-F-1847-PLATIN",
     "brand": "Zara",
@@ -244,7 +244,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234010",
+    "barcode": "8901230010",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -255,13 +255,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1847-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.702Z",
-    "updatedAt": "2026-11-02T13:16:54.702Z"
+    "notes": "Master list item #10",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-11-sg-f-1844-black",
+    "displaySize": "37",
     "sku": "SG-F-1844-BLACK",
     "name": "Article SG-F-1844-BLACK",
     "brand": "Zara",
@@ -270,7 +270,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234011",
+    "barcode": "8901230011",
     "sizes": {
       "35": 1,
       "36": 1,
@@ -281,13 +281,13 @@
       "41": 0
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1844-BLACK",
-    "createdAt": "2026-11-02T13:16:54.702Z",
-    "updatedAt": "2026-11-02T13:16:54.702Z"
+    "notes": "Master list item #11",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-12-sg-f-1844-stone",
+    "displaySize": "37",
     "sku": "SG-F-1844-STONE",
     "name": "Article SG-F-1844-STONE",
     "brand": "Zara",
@@ -296,7 +296,7 @@
     "color": "Stone",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234012",
+    "barcode": "8901230012",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -307,13 +307,13 @@
       "41": 0
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1844-STONE",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #12",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-13-sg-f-1822-offwhite",
+    "displaySize": "37",
     "sku": "SG-F-1822-OFFWHITE",
     "name": "Article SG-F-1822-OFFWHITE",
     "brand": "Zara",
@@ -322,7 +322,7 @@
     "color": "Off White",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234013",
+    "barcode": "8901230013",
     "sizes": {
       "35": 0,
       "36": 0,
@@ -333,13 +333,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1822-OFFWHITE",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #13",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-14-sg-f-1845-coral",
+    "displaySize": "37",
     "sku": "SG-F-1845-CORAL",
     "name": "Article SG-F-1845-CORAL",
     "brand": "Zara",
@@ -348,7 +348,7 @@
     "color": "Coral",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234014",
+    "barcode": "8901230014",
     "sizes": {
       "35": 1,
       "36": 1,
@@ -359,13 +359,13 @@
       "41": 0
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1845-CORAL",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #14",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-15-sg-f-1909-black",
+    "displaySize": "37",
     "sku": "SG-F-1909-BLACK",
     "name": "Article SG-F-1909-BLACK",
     "brand": "Zara",
@@ -374,7 +374,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234015",
+    "barcode": "8901230015",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -385,13 +385,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1909-BLACK",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #15",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-16-sg-f-1856-oldgold",
+    "displaySize": "37",
     "sku": "SG-F-1856-OLDGOLD",
     "name": "Article SG-F-1856-OLDGOLD",
     "brand": "Zara",
@@ -400,7 +400,7 @@
     "color": "Old Gold",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234016",
+    "barcode": "8901230016",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -411,13 +411,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1856-OLDGOLD",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #16",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-17-sg-f-1874-coral",
+    "displaySize": "37",
     "sku": "SG-F-1874-CORAL",
     "name": "Article SG-F-1874-CORAL",
     "brand": "Zara",
@@ -426,7 +426,7 @@
     "color": "Coral",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234017",
+    "barcode": "8901230017",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -437,13 +437,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1874-CORAL",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #17",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-18-sg-f-1910-black",
+    "displaySize": "37",
     "sku": "SG-F-1910-BLACK",
     "name": "Article SG-F-1910-BLACK",
     "brand": "Zara",
@@ -452,7 +452,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234018",
+    "barcode": "8901230018",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -463,13 +463,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1910-BLACK",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #18",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-19-sg-f-1910-ivory",
+    "displaySize": "37",
     "sku": "SG-F-1910-IVORY",
     "name": "Article SG-F-1910-IVORY",
     "brand": "Zara",
@@ -478,7 +478,7 @@
     "color": "Ivory",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234019",
+    "barcode": "8901230019",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -489,13 +489,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1910-IVORY",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #19",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-20-sg-f-1822-platin",
+    "displaySize": "37",
     "sku": "SG-F-1822-PLATIN",
     "name": "Article SG-F-1822-PLATIN",
     "brand": "Zara",
@@ -504,7 +504,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234020",
+    "barcode": "8901230020",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -515,13 +515,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1822-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #20",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-21-sg-f-1864-platin",
+    "displaySize": "37",
     "sku": "SG-F-1864-PLATIN",
     "name": "Article SG-F-1864-PLATIN",
     "brand": "Zara",
@@ -530,7 +530,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234021",
+    "barcode": "8901230021",
     "sizes": {
       "35": 0,
       "36": 0,
@@ -541,13 +541,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1864-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #21",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-22-sg-f-1836-platin",
+    "displaySize": "37",
     "sku": "SG-F-1836-PLATIN",
     "name": "Article SG-F-1836-PLATIN",
     "brand": "Zara",
@@ -556,7 +556,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234022",
+    "barcode": "8901230022",
     "sizes": {
       "35": 0,
       "36": 0,
@@ -567,13 +567,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1836-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #22",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-23-sg-f-1836-black",
+    "displaySize": "37",
     "sku": "SG-F-1836-BLACK",
     "name": "Article SG-F-1836-BLACK",
     "brand": "Zara",
@@ -582,7 +582,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234023",
+    "barcode": "8901230023",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -593,13 +593,13 @@
       "41": 0
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1836-BLACK",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #23",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-24-sg-f-1616-brown",
+    "displaySize": "37",
     "sku": "SG-F-1616-BROWN",
     "name": "Article SG-F-1616-BROWN",
     "brand": "Zara",
@@ -608,7 +608,7 @@
     "color": "Brown",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234024",
+    "barcode": "8901230024",
     "sizes": {
       "35": 0,
       "36": 0,
@@ -619,13 +619,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1616-BROWN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #24",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-25-sg-f-1376-multi",
+    "displaySize": "37",
     "sku": "SG-F-1376-MULTI",
     "name": "Article SG-F-1376-MULTI",
     "brand": "Zara",
@@ -634,7 +634,7 @@
     "color": "Multi",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234025",
+    "barcode": "8901230025",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -645,13 +645,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1376-MULTI",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #25",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "38",
     "id": "prod-w-26-sg-f-1923-gold",
+    "displaySize": "38",
     "sku": "SG-F-1923-GOLD",
     "name": "Article SG-F-1923-GOLD",
     "brand": "Zara",
@@ -660,7 +660,7 @@
     "color": "Gold",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234026",
+    "barcode": "8901230026",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -671,13 +671,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1923-GOLD",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #26",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-27-sg-f-1842-offwhite",
+    "displaySize": "37",
     "sku": "SG-F-1842-OFFWHITE",
     "name": "Article SG-F-1842-OFFWHITE",
     "brand": "Zara",
@@ -686,7 +686,7 @@
     "color": "Off White",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234027",
+    "barcode": "8901230027",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -697,13 +697,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1842-OFFWHITE",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #27",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-28-sg-f-1842-tan",
+    "displaySize": "37",
     "sku": "SG-F-1842-TAN",
     "name": "Article SG-F-1842-TAN",
     "brand": "Zara",
@@ -712,7 +712,7 @@
     "color": "Tan",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234028",
+    "barcode": "8901230028",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -723,13 +723,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1842-TAN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #28",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-29-sg-f-1549-black",
+    "displaySize": "37",
     "sku": "SG-F-1549-BLACK",
     "name": "Article SG-F-1549-BLACK",
     "brand": "Zara",
@@ -738,7 +738,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234029",
+    "barcode": "8901230029",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -749,13 +749,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1549-BLACK",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #29",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-30-sg-f-1923-silver",
+    "displaySize": "37",
     "sku": "SG-F-1923-SILVER",
     "name": "Article SG-F-1923-SILVER",
     "brand": "Zara",
@@ -764,7 +764,7 @@
     "color": "Silver",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234030",
+    "barcode": "8901230030",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -775,13 +775,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1923-SILVER",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #30",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-31-sg-f-1930-lightgold",
+    "displaySize": "37",
     "sku": "SG-F-1930-LIGHTGOLD",
     "name": "Article SG-F-1930-LIGHTGOLD",
     "brand": "Zara",
@@ -790,7 +790,7 @@
     "color": "Light Gold",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234031",
+    "barcode": "8901230031",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -801,13 +801,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1930-LIGHTGOLD",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #31",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-32-sg-f-1885-taupe",
+    "displaySize": "37",
     "sku": "SG-F-1885-TAUPE",
     "name": "Article SG-F-1885-TAUPE",
     "brand": "Zara",
@@ -816,7 +816,7 @@
     "color": "Taupe",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234032",
+    "barcode": "8901230032",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -827,13 +827,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1885-TAUPE",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #32",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-33-sg-f-1885-darkbrown",
+    "displaySize": "37",
     "sku": "SG-F-1885-DARKBROWN",
     "name": "Article SG-F-1885-DARKBROWN",
     "brand": "Zara",
@@ -842,7 +842,7 @@
     "color": "Dark Brown",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234033",
+    "barcode": "8901230033",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -853,13 +853,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1885-DARKBROWN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #33",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-34-sg-f-1863-platin",
+    "displaySize": "37",
     "sku": "SG-F-1863-PLATIN",
     "name": "Article SG-F-1863-PLATIN",
     "brand": "Zara",
@@ -868,7 +868,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234034",
+    "barcode": "8901230034",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -879,13 +879,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1863-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #34",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-35-sg-f-1863-lightbeige",
+    "displaySize": "37",
     "sku": "SG-F-1863-LIGHTBEIGE",
     "name": "Article SG-F-1863-LIGHTBEIGE",
     "brand": "Zara",
@@ -894,7 +894,7 @@
     "color": "Light Beige",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234035",
+    "barcode": "8901230035",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -905,13 +905,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1863-LIGHTBEIGE",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #35",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-36-sg-f-1864-black",
+    "displaySize": "37",
     "sku": "SG-F-1864-BLACK",
     "name": "Article SG-F-1864-BLACK",
     "brand": "Zara",
@@ -920,7 +920,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234036",
+    "barcode": "8901230036",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -931,13 +931,13 @@
       "41": 0
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1864-BLACK",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #36",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "38",
     "id": "prod-w-37-sg-f-1860-darkbrown",
+    "displaySize": "38",
     "sku": "SG-F-1860-DARKBROWN",
     "name": "Article SG-F-1860-DARKBROWN",
     "brand": "Zara",
@@ -946,7 +946,7 @@
     "color": "Dark Brown",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234037",
+    "barcode": "8901230037",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -957,13 +957,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1860-DARKBROWN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #37",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-38-sg-f-1860-platin",
+    "displaySize": "37",
     "sku": "SG-F-1860-PLATIN",
     "name": "Article SG-F-1860-PLATIN",
     "brand": "Zara",
@@ -972,7 +972,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234038",
+    "barcode": "8901230038",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -983,13 +983,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1860-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #38",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-39-sg-f-1849-platin",
+    "displaySize": "37",
     "sku": "SG-F-1849-PLATIN",
     "name": "Article SG-F-1849-PLATIN",
     "brand": "Zara",
@@ -998,7 +998,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234039",
+    "barcode": "8901230039",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1009,13 +1009,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1849-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #39",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-40-sg-f-1861-darkbrown",
+    "displaySize": "37",
     "sku": "SG-F-1861-DARKBROWN",
     "name": "Article SG-F-1861-DARKBROWN",
     "brand": "Zara",
@@ -1024,7 +1024,7 @@
     "color": "Dark Brown",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234040",
+    "barcode": "8901230040",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1035,13 +1035,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1861-DARKBROWN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #40",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-41-sg-f-1892-brown",
+    "displaySize": "37",
     "sku": "SG-F-1892-BROWN",
     "name": "Article SG-F-1892-BROWN",
     "brand": "Zara",
@@ -1050,7 +1050,7 @@
     "color": "Brown",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234041",
+    "barcode": "8901230041",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1061,13 +1061,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1892-BROWN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #41",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-42-sg-f-1865-tan",
+    "displaySize": "37",
     "sku": "SG-F-1865-TAN",
     "name": "Article SG-F-1865-TAN",
     "brand": "Zara",
@@ -1076,7 +1076,7 @@
     "color": "Tan",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234042",
+    "barcode": "8901230042",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1087,13 +1087,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1865-TAN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #42",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-43-sg-f-1843-stone",
+    "displaySize": "37",
     "sku": "SG-F-1843-STONE",
     "name": "Article SG-F-1843-STONE",
     "brand": "Zara",
@@ -1102,7 +1102,7 @@
     "color": "Stone",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234043",
+    "barcode": "8901230043",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1113,13 +1113,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1843-STONE",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #43",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-44-sg-f-1825-black",
+    "displaySize": "37",
     "sku": "SG-F-1825-BLACK",
     "name": "Article SG-F-1825-BLACK",
     "brand": "Zara",
@@ -1128,7 +1128,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234044",
+    "barcode": "8901230044",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1139,13 +1139,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1825-BLACK",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #44",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-45-sg-f-1825-platin",
+    "displaySize": "37",
     "sku": "SG-F-1825-PLATIN",
     "name": "Article SG-F-1825-PLATIN",
     "brand": "Zara",
@@ -1154,7 +1154,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234045",
+    "barcode": "8901230045",
     "sizes": {
       "35": 0,
       "36": 0,
@@ -1165,13 +1165,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1825-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #45",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-46-sg-f-1983-black",
+    "displaySize": "37",
     "sku": "SG-F-1983-BLACK",
     "name": "Article SG-F-1983-BLACK",
     "brand": "Zara",
@@ -1180,7 +1180,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234046",
+    "barcode": "8901230046",
     "sizes": {
       "35": 0,
       "36": 0,
@@ -1191,13 +1191,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1983-BLACK",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #46",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-47-sg-f-1985-chestnut",
+    "displaySize": "37",
     "sku": "SG-F-1985-CHESTNUT",
     "name": "Article SG-F-1985-CHESTNUT",
     "brand": "Zara",
@@ -1206,7 +1206,7 @@
     "color": "Chestnut",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234047",
+    "barcode": "8901230047",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1217,13 +1217,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1985-CHESTNUT",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #47",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-48-sg-f-1951-brown",
+    "displaySize": "37",
     "sku": "SG-F-1951-BROWN",
     "name": "Article SG-F-1951-BROWN",
     "brand": "Zara",
@@ -1232,7 +1232,7 @@
     "color": "Brown",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234048",
+    "barcode": "8901230048",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1243,13 +1243,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1951-BROWN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #48",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-49-sg-f-1986-black",
+    "displaySize": "37",
     "sku": "SG-F-1986-BLACK",
     "name": "Article SG-F-1986-BLACK",
     "brand": "Zara",
@@ -1258,7 +1258,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234049",
+    "barcode": "8901230049",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1269,13 +1269,13 @@
       "41": 0
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1986-BLACK",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #49",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-50-sg-f-1924-black",
+    "displaySize": "37",
     "sku": "SG-F-1924-BLACK",
     "name": "Article SG-F-1924-BLACK",
     "brand": "Zara",
@@ -1284,7 +1284,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234050",
+    "barcode": "8901230050",
     "sizes": {
       "35": 0,
       "36": 0,
@@ -1295,13 +1295,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1924-BLACK",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #50",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.446Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-51-sg-f-1859-black",
+    "displaySize": "37",
     "sku": "SG-F-1859-BLACK",
     "name": "Article SG-F-1859-BLACK",
     "brand": "Zara",
@@ -1310,7 +1310,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234051",
+    "barcode": "8901230051",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1321,13 +1321,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1859-BLACK",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #51",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.447Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-52-sg-f-1874-turq",
+    "displaySize": "37",
     "sku": "SG-F-1874-TURQ",
     "name": "Article SG-F-1874-TURQ",
     "brand": "Zara",
@@ -1336,7 +1336,7 @@
     "color": "Turq",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234052",
+    "barcode": "8901230052",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1347,13 +1347,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1874-TURQ",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #52",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.447Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-53-sg-f-1531-platin",
+    "displaySize": "37",
     "sku": "SG-F-1531-PLATIN",
     "name": "Article SG-F-1531-PLATIN",
     "brand": "Zara",
@@ -1362,7 +1362,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234053",
+    "barcode": "8901230053",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1373,13 +1373,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1531-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #53",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-54-sg-f-1998-tan",
+    "displaySize": "37",
     "sku": "SG-F-1998-TAN",
     "name": "Article SG-F-1998-TAN",
     "brand": "Zara",
@@ -1388,7 +1388,7 @@
     "color": "Tan",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234054",
+    "barcode": "8901230054",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1399,13 +1399,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1998-TAN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #54",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-55-sg-f-1846-platin",
+    "displaySize": "37",
     "sku": "SG-F-1846-PLATIN",
     "name": "Article SG-F-1846-PLATIN",
     "brand": "Zara",
@@ -1414,7 +1414,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234055",
+    "barcode": "8901230055",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1425,13 +1425,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1846-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #55",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-56-sg-f-1827-black",
+    "displaySize": "37",
     "sku": "SG-F-1827-BLACK",
     "name": "Article SG-F-1827-BLACK",
     "brand": "Zara",
@@ -1440,7 +1440,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234056",
+    "barcode": "8901230056",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1451,13 +1451,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1827-BLACK",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #56",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-57-sg-f-1904-platin",
+    "displaySize": "37",
     "sku": "SG-F-1904-PLATIN",
     "name": "Article SG-F-1904-PLATIN",
     "brand": "Zara",
@@ -1466,7 +1466,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234057",
+    "barcode": "8901230057",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1477,13 +1477,13 @@
       "41": 0
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1904-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #57",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-58-sg-f-1821-platin",
+    "displaySize": "37",
     "sku": "SG-F-1821-PLATIN",
     "name": "Article SG-F-1821-PLATIN",
     "brand": "Zara",
@@ -1492,7 +1492,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234058",
+    "barcode": "8901230058",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1503,13 +1503,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1821-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #58",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-59-sg-f-1826-black",
+    "displaySize": "37",
     "sku": "SG-F-1826-BLACK",
     "name": "Article SG-F-1826-BLACK",
     "brand": "Zara",
@@ -1518,7 +1518,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234059",
+    "barcode": "8901230059",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1529,13 +1529,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1826-BLACK",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #59",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-60-sg-f-1826-offwhite",
+    "displaySize": "37",
     "sku": "SG-F-1826-OFFWHITE",
     "name": "Article SG-F-1826-OFFWHITE",
     "brand": "Zara",
@@ -1544,7 +1544,7 @@
     "color": "Off White",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234060",
+    "barcode": "8901230060",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1555,13 +1555,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1826-OFFWHITE",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #60",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-61-sg-f-28-white",
+    "displaySize": "37",
     "sku": "SG-F-28-WHITE",
     "name": "Article SG-F-28-WHITE",
     "brand": "Zara",
@@ -1570,7 +1570,7 @@
     "color": "White",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234061",
+    "barcode": "8901230061",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1581,13 +1581,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-28-WHITE",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #61",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-62-sg-f-1940-chestnut",
+    "displaySize": "37",
     "sku": "SG-F-1940-CHESTNUT",
     "name": "Article SG-F-1940-CHESTNUT",
     "brand": "Zara",
@@ -1596,7 +1596,7 @@
     "color": "Chestnut",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234062",
+    "barcode": "8901230062",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1607,13 +1607,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1940-CHESTNUT",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #62",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-63-sg-f-1935-brown",
+    "displaySize": "37",
     "sku": "SG-F-1935-BROWN",
     "name": "Article SG-F-1935-BROWN",
     "brand": "Zara",
@@ -1622,7 +1622,7 @@
     "color": "Brown",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234063",
+    "barcode": "8901230063",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1633,13 +1633,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1935-BROWN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #63",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-64-sg-f-1576-black",
+    "displaySize": "37",
     "sku": "SG-F-1576-BLACK",
     "name": "Article SG-F-1576-BLACK",
     "brand": "Zara",
@@ -1648,7 +1648,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234064",
+    "barcode": "8901230064",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1659,13 +1659,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1576-BLACK",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #64",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-65-sg-f-1576-portroyale",
+    "displaySize": "37",
     "sku": "SG-F-1576-PORTROYALE",
     "name": "Article SG-F-1576-PORTROYALE",
     "brand": "Zara",
@@ -1674,7 +1674,7 @@
     "color": "Port Royale",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234065",
+    "barcode": "8901230065",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1685,13 +1685,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1576-PORTROYALE",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #65",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-66-sg-f-1928-blue",
+    "displaySize": "37",
     "sku": "SG-F-1928-BLUE",
     "name": "Article SG-F-1928-BLUE",
     "brand": "Zara",
@@ -1700,7 +1700,7 @@
     "color": "Blue",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234066",
+    "barcode": "8901230066",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1711,13 +1711,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1928-BLUE",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #66",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-67-sg-f-1928-white",
+    "displaySize": "37",
     "sku": "SG-F-1928-WHITE",
     "name": "Article SG-F-1928-WHITE",
     "brand": "Zara",
@@ -1726,7 +1726,7 @@
     "color": "White",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234067",
+    "barcode": "8901230067",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1737,13 +1737,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1928-WHITE",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #67",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-68-sg-f-1560-black",
+    "displaySize": "37",
     "sku": "SG-F-1560-BLACK",
     "name": "Article SG-F-1560-BLACK",
     "brand": "Zara",
@@ -1752,7 +1752,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234068",
+    "barcode": "8901230068",
     "sizes": {
       "35": 0,
       "36": 0,
@@ -1763,22 +1763,22 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1560-BLACK",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #68",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
+    "id": "prod-w-69-sg-f-1560-tan",
     "displaySize": "37",
-    "id": "prod-w1",
     "sku": "SG-F-1560-TAN",
-    "name": "Classic Italian Block Heels",
+    "name": "Article SG-F-1560-TAN",
     "brand": "Zara",
     "category": "women_footwear",
     "styleCategory": "Block Heels",
     "color": "Tan",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234001",
+    "barcode": "8901230069",
     "sizes": {
       "35": 0,
       "36": 0,
@@ -1789,13 +1789,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Elegant block heel, comfortable all-day wear.",
-    "createdAt": "2026-11-02T06:00:00.000Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #69",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-70-sg-f-1561-tan",
+    "displaySize": "37",
     "sku": "SG-F-1561-TAN",
     "name": "Article SG-F-1561-TAN",
     "brand": "Zara",
@@ -1804,7 +1804,7 @@
     "color": "Tan",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234070",
+    "barcode": "8901230070",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1815,22 +1815,22 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1561-TAN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #70",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
+    "id": "prod-w-71-sg-f-1561-black",
     "displaySize": "38",
-    "id": "prod-w2",
     "sku": "SG-F-1561-BLACK",
-    "name": "Stiletto Pointed Pencil Heels",
-    "brand": "Aldo",
+    "name": "Article SG-F-1561-BLACK",
+    "brand": "Zara",
     "category": "women_footwear",
-    "styleCategory": "Pencil Heel",
+    "styleCategory": "Block Heels",
     "color": "Black",
-    "costPrice": 2800,
-    "sellingPrice": 5699,
-    "barcode": "8901234002",
+    "costPrice": 2200,
+    "sellingPrice": 4499,
+    "barcode": "8901230071",
     "sizes": {
       "35": 0,
       "36": 0,
@@ -1841,13 +1841,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?w=500&auto=format&fit=crop&q=80",
-    "notes": "Glossy finish 4-inch slender pencil heel.",
-    "createdAt": "2026-11-02T06:00:00.000Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #71",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-72-sg-f-1318-offwhite",
+    "displaySize": "37",
     "sku": "SG-F-1318-OFFWHITE",
     "name": "Article SG-F-1318-OFFWHITE",
     "brand": "Zara",
@@ -1856,7 +1856,7 @@
     "color": "Off White",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234072",
+    "barcode": "8901230072",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1867,13 +1867,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1318-OFFWHITE",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #72",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-73-sg-f-1318-black",
+    "displaySize": "37",
     "sku": "SG-F-1318-BLACK",
     "name": "Article SG-F-1318-BLACK",
     "brand": "Zara",
@@ -1882,7 +1882,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234073",
+    "barcode": "8901230073",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1893,13 +1893,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1318-BLACK",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #73",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-74-sg-f-1610-multi",
+    "displaySize": "37",
     "sku": "SG-F-1610-MULTI",
     "name": "Article SG-F-1610-MULTI",
     "brand": "Zara",
@@ -1908,7 +1908,7 @@
     "color": "Multi",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234074",
+    "barcode": "8901230074",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1919,13 +1919,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1610-MULTI",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #74",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-75-sg-f-1610-platin",
+    "displaySize": "37",
     "sku": "SG-F-1610-PLATIN",
     "name": "Article SG-F-1610-PLATIN",
     "brand": "Zara",
@@ -1934,7 +1934,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234075",
+    "barcode": "8901230075",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1945,13 +1945,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1610-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #75",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-76-sg-f-1915-platin",
+    "displaySize": "37",
     "sku": "SG-F-1915-PLATIN",
     "name": "Article SG-F-1915-PLATIN",
     "brand": "Zara",
@@ -1960,7 +1960,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234076",
+    "barcode": "8901230076",
     "sizes": {
       "35": 0,
       "36": 0,
@@ -1971,13 +1971,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1915-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #76",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-77-sg-f-1915-black",
+    "displaySize": "37",
     "sku": "SG-F-1915-BLACK",
     "name": "Article SG-F-1915-BLACK",
     "brand": "Zara",
@@ -1986,7 +1986,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234077",
+    "barcode": "8901230077",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -1997,13 +1997,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1915-BLACK",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #77",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-78-sg-f-1637-white",
+    "displaySize": "37",
     "sku": "SG-F-1637-WHITE",
     "name": "Article SG-F-1637-WHITE",
     "brand": "Zara",
@@ -2012,7 +2012,7 @@
     "color": "White",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234078",
+    "barcode": "8901230078",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2023,13 +2023,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1637-WHITE",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #78",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-79-sg-f-1820-tan",
+    "displaySize": "37",
     "sku": "SG-F-1820-TAN",
     "name": "Article SG-F-1820-TAN",
     "brand": "Zara",
@@ -2038,7 +2038,7 @@
     "color": "Tan",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234079",
+    "barcode": "8901230079",
     "sizes": {
       "35": 0,
       "36": 0,
@@ -2049,13 +2049,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1820-TAN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #79",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-80-sg-f-1820-skyblue",
+    "displaySize": "37",
     "sku": "SG-F-1820-SKYBLUE",
     "name": "Article SG-F-1820-SKYBLUE",
     "brand": "Zara",
@@ -2064,7 +2064,7 @@
     "color": "Sky Blue",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234080",
+    "barcode": "8901230080",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2075,13 +2075,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1820-SKYBLUE",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #80",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-81-sg-f-1917-black",
+    "displaySize": "37",
     "sku": "SG-F-1917-BLACK",
     "name": "Article SG-F-1917-BLACK",
     "brand": "Zara",
@@ -2090,7 +2090,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234081",
+    "barcode": "8901230081",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2101,13 +2101,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1917-BLACK",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #81",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "36",
     "id": "prod-w-82-sg-f-1917-platin",
+    "displaySize": "36",
     "sku": "SG-F-1917-PLATIN",
     "name": "Article SG-F-1917-PLATIN",
     "brand": "Zara",
@@ -2116,7 +2116,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234082",
+    "barcode": "8901230082",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2127,13 +2127,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1917-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #82",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-83-sg-f-1932-silvermulti",
+    "displaySize": "37",
     "sku": "SG-F-1932-SILVERMULTI",
     "name": "Article SG-F-1932-SILVERMULTI",
     "brand": "Zara",
@@ -2142,7 +2142,7 @@
     "color": "Silver Multi",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234083",
+    "barcode": "8901230083",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2153,13 +2153,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1932-SILVERMULTI",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #83",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-84-sg-f-1932-lightgold",
+    "displaySize": "37",
     "sku": "SG-F-1932-LIGHTGOLD",
     "name": "Article SG-F-1932-LIGHTGOLD",
     "brand": "Zara",
@@ -2168,7 +2168,7 @@
     "color": "Light Gold",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234084",
+    "barcode": "8901230084",
     "sizes": {
       "35": 0,
       "36": 0,
@@ -2179,13 +2179,13 @@
       "41": 0
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1932-LIGHTGOLD",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #84",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-85-sg-f-1918-silver",
+    "displaySize": "37",
     "sku": "SG-F-1918-SILVER",
     "name": "Article SG-F-1918-SILVER",
     "brand": "Zara",
@@ -2194,7 +2194,7 @@
     "color": "Silver",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234085",
+    "barcode": "8901230085",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2205,13 +2205,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1918-SILVER",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #85",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-86-sg-f-1711-black",
+    "displaySize": "37",
     "sku": "SG-F-1711-BLACK",
     "name": "Article SG-F-1711-BLACK",
     "brand": "Zara",
@@ -2220,7 +2220,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234086",
+    "barcode": "8901230086",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2231,13 +2231,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1711-BLACK",
-    "createdAt": "2026-11-02T13:16:54.703Z",
-    "updatedAt": "2026-11-02T13:16:54.703Z"
+    "notes": "Master list item #86",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-87-sg-f-1824-black",
+    "displaySize": "37",
     "sku": "SG-F-1824-BLACK",
     "name": "Article SG-F-1824-BLACK",
     "brand": "Zara",
@@ -2246,7 +2246,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234087",
+    "barcode": "8901230087",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2257,13 +2257,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1824-BLACK",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #87",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-88-sg-f-1824-platin",
+    "displaySize": "37",
     "sku": "SG-F-1824-PLATIN",
     "name": "Article SG-F-1824-PLATIN",
     "brand": "Zara",
@@ -2272,7 +2272,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234088",
+    "barcode": "8901230088",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2283,13 +2283,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1824-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #88",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-89-sg-f-1893-black",
+    "displaySize": "37",
     "sku": "SG-F-1893-BLACK",
     "name": "Article SG-F-1893-BLACK",
     "brand": "Zara",
@@ -2298,7 +2298,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234089",
+    "barcode": "8901230089",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2309,13 +2309,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1893-BLACK",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #89",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-90-sg-f-1893-brown",
+    "displaySize": "37",
     "sku": "SG-F-1893-BROWN",
     "name": "Article SG-F-1893-BROWN",
     "brand": "Zara",
@@ -2324,7 +2324,7 @@
     "color": "Brown",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234090",
+    "barcode": "8901230090",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2335,13 +2335,13 @@
       "41": 0
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1893-BROWN",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #90",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-91-sg-f-1892-black",
+    "displaySize": "37",
     "sku": "SG-F-1892-BLACK",
     "name": "Article SG-F-1892-BLACK",
     "brand": "Zara",
@@ -2350,7 +2350,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234091",
+    "barcode": "8901230091",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2361,13 +2361,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1892-BLACK",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #91",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-92-sg-f-1911-offwhite",
+    "displaySize": "37",
     "sku": "SG-F-1911-OFFWHITE",
     "name": "Article SG-F-1911-OFFWHITE",
     "brand": "Zara",
@@ -2376,7 +2376,7 @@
     "color": "Off White",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234092",
+    "barcode": "8901230092",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2387,13 +2387,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1911-OFFWHITE",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #92",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-93-sg-f-1911-platin",
+    "displaySize": "37",
     "sku": "SG-F-1911-PLATIN",
     "name": "Article SG-F-1911-PLATIN",
     "brand": "Zara",
@@ -2402,7 +2402,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234093",
+    "barcode": "8901230093",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2413,13 +2413,13 @@
       "41": 2
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1911-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #93",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-94-sg-f-1849-mais",
+    "displaySize": "37",
     "sku": "SG-F-1849-MAIS",
     "name": "Article SG-F-1849-MAIS",
     "brand": "Zara",
@@ -2428,7 +2428,7 @@
     "color": "Mais",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234094",
+    "barcode": "8901230094",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2439,13 +2439,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1849-MAIS",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #94",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-95-sg-f-1376-platin",
+    "displaySize": "37",
     "sku": "SG-F-1376-PLATIN",
     "name": "Article SG-F-1376-PLATIN",
     "brand": "Zara",
@@ -2454,7 +2454,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234095",
+    "barcode": "8901230095",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2465,13 +2465,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1376-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #95",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-96-sg-f-1878-offwhite",
+    "displaySize": "37",
     "sku": "SG-F-1878-OFFWHITE",
     "name": "Article SG-F-1878-OFFWHITE",
     "brand": "Zara",
@@ -2480,7 +2480,7 @@
     "color": "Off White",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234096",
+    "barcode": "8901230096",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2491,13 +2491,13 @@
       "41": 0
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1878-OFFWHITE",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #96",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-97-sg-f-1878-black",
+    "displaySize": "37",
     "sku": "SG-F-1878-BLACK",
     "name": "Article SG-F-1878-BLACK",
     "brand": "Zara",
@@ -2506,7 +2506,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234097",
+    "barcode": "8901230097",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2517,13 +2517,13 @@
       "41": 0
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1878-BLACK",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #97",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-98-sg-f-1919-platin",
+    "displaySize": "37",
     "sku": "SG-F-1919-PLATIN",
     "name": "Article SG-F-1919-PLATIN",
     "brand": "Zara",
@@ -2532,7 +2532,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234098",
+    "barcode": "8901230098",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2543,13 +2543,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1919-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #98",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-99-sg-f-1876-tan",
+    "displaySize": "37",
     "sku": "SG-F-1876-TAN",
     "name": "Article SG-F-1876-TAN",
     "brand": "Zara",
@@ -2558,7 +2558,7 @@
     "color": "Tan",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234099",
+    "barcode": "8901230099",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2569,13 +2569,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1876-TAN",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #99",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-100-sg-f-1551-blue",
+    "displaySize": "37",
     "sku": "SG-F-1551-BLUE",
     "name": "Article SG-F-1551-BLUE",
     "brand": "Zara",
@@ -2584,7 +2584,7 @@
     "color": "Blue",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234100",
+    "barcode": "8901230100",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2595,13 +2595,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1551-BLUE",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #100",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-101-sg-f-1855-oldgold",
+    "displaySize": "37",
     "sku": "SG-F-1855-OLDGOLD",
     "name": "Article SG-F-1855-OLDGOLD",
     "brand": "Zara",
@@ -2610,7 +2610,7 @@
     "color": "Old Gold",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234101",
+    "barcode": "8901230101",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2621,13 +2621,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1855-OLDGOLD",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #101",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-102-sg-f-1761-black",
+    "displaySize": "37",
     "sku": "SG-F-1761-BLACK",
     "name": "Article SG-F-1761-BLACK",
     "brand": "Zara",
@@ -2636,7 +2636,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234102",
+    "barcode": "8901230102",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2647,13 +2647,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1761-BLACK",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #102",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-103-sg-f-1942-chestnut",
+    "displaySize": "37",
     "sku": "SG-F-1942-CHESTNUT",
     "name": "Article SG-F-1942-CHESTNUT",
     "brand": "Zara",
@@ -2662,7 +2662,7 @@
     "color": "Chestnut",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234103",
+    "barcode": "8901230103",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2673,13 +2673,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1942-CHESTNUT",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #103",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-104-sg-f-1839-black",
+    "displaySize": "37",
     "sku": "SG-F-1839-BLACK",
     "name": "Article SG-F-1839-BLACK",
     "brand": "Zara",
@@ -2688,7 +2688,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234104",
+    "barcode": "8901230104",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2699,13 +2699,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1839-BLACK",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #104",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-105-sg-f-1931-lightgold",
+    "displaySize": "37",
     "sku": "SG-F-1931-LIGHTGOLD",
     "name": "Article SG-F-1931-LIGHTGOLD",
     "brand": "Zara",
@@ -2714,7 +2714,7 @@
     "color": "Light Gold",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234105",
+    "barcode": "8901230105",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2725,13 +2725,13 @@
       "41": 0
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1931-LIGHTGOLD",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #105",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-106-sg-f-1732-red",
+    "displaySize": "37",
     "sku": "SG-F-1732-RED",
     "name": "Article SG-F-1732-RED",
     "brand": "Zara",
@@ -2740,7 +2740,7 @@
     "color": "Red",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234106",
+    "barcode": "8901230106",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2751,13 +2751,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1732-RED",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #106",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-107-sg-f-1732-white",
+    "displaySize": "37",
     "sku": "SG-F-1732-WHITE",
     "name": "Article SG-F-1732-WHITE",
     "brand": "Zara",
@@ -2766,7 +2766,7 @@
     "color": "White",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234107",
+    "barcode": "8901230107",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2777,13 +2777,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1732-WHITE",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #107",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-108-sg-f-1732-blue",
+    "displaySize": "37",
     "sku": "SG-F-1732-BLUE",
     "name": "Article SG-F-1732-BLUE",
     "brand": "Zara",
@@ -2792,7 +2792,7 @@
     "color": "Blue",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234108",
+    "barcode": "8901230108",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2803,13 +2803,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1732-BLUE",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #108",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-109-sg-f-1443-offwhite",
+    "displaySize": "37",
     "sku": "SG-F-1443-OFFWHITE",
     "name": "Article SG-F-1443-OFFWHITE",
     "brand": "Zara",
@@ -2818,7 +2818,7 @@
     "color": "Off White",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234109",
+    "barcode": "8901230109",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2829,13 +2829,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1443-OFFWHITE",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #109",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-110-sg-f-1443-gold",
+    "displaySize": "37",
     "sku": "SG-F-1443-GOLD",
     "name": "Article SG-F-1443-GOLD",
     "brand": "Zara",
@@ -2844,7 +2844,7 @@
     "color": "Gold",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234110",
+    "barcode": "8901230110",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2855,13 +2855,13 @@
       "41": 0
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1443-GOLD",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #110",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-111-sg-f-1905-oldgold",
+    "displaySize": "37",
     "sku": "SG-F-1905-OLDGOLD",
     "name": "Article SG-F-1905-OLDGOLD",
     "brand": "Zara",
@@ -2870,7 +2870,7 @@
     "color": "Old Gold",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234111",
+    "barcode": "8901230111",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2881,13 +2881,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1905-OLDGOLD",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #111",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-112-sg-f-160-platin",
+    "displaySize": "37",
     "sku": "SG-F-160-PLATIN",
     "name": "Article SG-F-160-PLATIN",
     "brand": "Zara",
@@ -2896,7 +2896,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234112",
+    "barcode": "8901230112",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2907,13 +2907,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-160-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #112",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-113-sg-f-1920-platin",
+    "displaySize": "37",
     "sku": "SG-F-1920-PLATIN",
     "name": "Article SG-F-1920-PLATIN",
     "brand": "Zara",
@@ -2922,7 +2922,7 @@
     "color": "Platin",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234113",
+    "barcode": "8901230113",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2933,13 +2933,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1920-PLATIN",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #113",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-114-sg-f-1920-black",
+    "displaySize": "37",
     "sku": "SG-F-1920-BLACK",
     "name": "Article SG-F-1920-BLACK",
     "brand": "Zara",
@@ -2948,7 +2948,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234114",
+    "barcode": "8901230114",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -2959,13 +2959,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1920-BLACK",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #114",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-115-sg-f-1544-white",
+    "displaySize": "37",
     "sku": "SG-F-1544-WHITE",
     "name": "Article SG-F-1544-WHITE",
     "brand": "Zara",
@@ -2974,7 +2974,7 @@
     "color": "White",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234115",
+    "barcode": "8901230115",
     "sizes": {
       "35": 0,
       "36": 0,
@@ -2985,13 +2985,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1544-WHITE",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #115",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-116-sg-f-1544-black",
+    "displaySize": "37",
     "sku": "SG-F-1544-BLACK",
     "name": "Article SG-F-1544-BLACK",
     "brand": "Zara",
@@ -3000,7 +3000,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234116",
+    "barcode": "8901230116",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -3011,13 +3011,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1544-BLACK",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #116",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-117-sg-f-1985-black",
+    "displaySize": "37",
     "sku": "SG-F-1985-BLACK",
     "name": "Article SG-F-1985-BLACK",
     "brand": "Zara",
@@ -3026,7 +3026,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234117",
+    "barcode": "8901230117",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -3037,13 +3037,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1985-BLACK",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #117",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-118-sg-f-1991-black",
+    "displaySize": "37",
     "sku": "SG-F-1991-BLACK",
     "name": "Article SG-F-1991-BLACK",
     "brand": "Zara",
@@ -3052,7 +3052,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234118",
+    "barcode": "8901230118",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -3063,13 +3063,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1991-BLACK",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #118",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-119-sg-f-1669-black",
+    "displaySize": "37",
     "sku": "SG-F-1669-BLACK",
     "name": "Article SG-F-1669-BLACK",
     "brand": "Zara",
@@ -3078,7 +3078,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234119",
+    "barcode": "8901230119",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -3089,13 +3089,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1669-BLACK",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #119",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "36",
     "id": "prod-w-120-sg-f-1841-black",
+    "displaySize": "36",
     "sku": "SG-F-1841-BLACK",
     "name": "Article SG-F-1841-BLACK",
     "brand": "Zara",
@@ -3104,7 +3104,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234120",
+    "barcode": "8901230120",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -3115,13 +3115,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1841-BLACK",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:20:20.509Z"
+    "notes": "Master list item #120",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-121-sg-f-1885-brown",
+    "displaySize": "37",
     "sku": "SG-F-1885-BROWN",
     "name": "Article SG-F-1885-BROWN",
     "brand": "Zara",
@@ -3130,7 +3130,7 @@
     "color": "Brown",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234121",
+    "barcode": "8901230121",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -3141,13 +3141,13 @@
       "41": 0
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1885-BROWN",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #121",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-122-sg-f-1009-taupe",
+    "displaySize": "37",
     "sku": "SG-F-1009-TAUPE",
     "name": "Article SG-F-1009-TAUPE",
     "brand": "Zara",
@@ -3156,7 +3156,7 @@
     "color": "Taupe",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234122",
+    "barcode": "8901230122",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -3167,13 +3167,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1009-TAUPE",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #122",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-123-sg-f-1585-black",
+    "displaySize": "37",
     "sku": "SG-F-1585-BLACK",
     "name": "Article SG-F-1585-BLACK",
     "brand": "Zara",
@@ -3182,7 +3182,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234123",
+    "barcode": "8901230123",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -3193,13 +3193,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1585-BLACK",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #123",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-124-sg-f-790-black",
+    "displaySize": "37",
     "sku": "SG-F-790-BLACK",
     "name": "Article SG-F-790-BLACK",
     "brand": "Zara",
@@ -3208,7 +3208,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234124",
+    "barcode": "8901230124",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -3219,13 +3219,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-790-BLACK",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #124",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-125-sg-f-1649-bordo",
+    "displaySize": "37",
     "sku": "SG-F-1649-BORDO",
     "name": "Article SG-F-1649-BORDO",
     "brand": "Zara",
@@ -3234,7 +3234,7 @@
     "color": "Bordo",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234125",
+    "barcode": "8901230125",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -3245,13 +3245,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1649-BORDO",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #125",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-126-sg-f-1690-black",
+    "displaySize": "37",
     "sku": "SG-F-1690-BLACK",
     "name": "Article SG-F-1690-BLACK",
     "brand": "Zara",
@@ -3260,7 +3260,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234126",
+    "barcode": "8901230126",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -3271,13 +3271,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1690-BLACK",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #126",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-127-sg-f-1151-brown",
+    "displaySize": "37",
     "sku": "SG-F-1151-BROWN",
     "name": "Article SG-F-1151-BROWN",
     "brand": "Zara",
@@ -3286,7 +3286,7 @@
     "color": "Brown",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234127",
+    "barcode": "8901230127",
     "sizes": {
       "35": 0,
       "36": 0,
@@ -3297,13 +3297,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1151-BROWN",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #127",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-128-sg-f-1650-brown",
+    "displaySize": "37",
     "sku": "SG-F-1650-BROWN",
     "name": "Article SG-F-1650-BROWN",
     "brand": "Zara",
@@ -3312,7 +3312,7 @@
     "color": "Brown",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234128",
+    "barcode": "8901230128",
     "sizes": {
       "35": 0,
       "36": 0,
@@ -3323,13 +3323,13 @@
       "41": 0
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1650-BROWN",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #128",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-129-sg-f-02-black",
+    "displaySize": "37",
     "sku": "SG-F-02-BLACK",
     "name": "Article SG-F-02-BLACK",
     "brand": "Zara",
@@ -3338,7 +3338,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234129",
+    "barcode": "8901230129",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -3349,13 +3349,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-02-BLACK",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #129",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "37",
     "id": "prod-w-130-sg-f-1171-black",
+    "displaySize": "37",
     "sku": "SG-F-1171-BLACK",
     "name": "Article SG-F-1171-BLACK",
     "brand": "Zara",
@@ -3364,7 +3364,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234130",
+    "barcode": "8901230130",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -3375,13 +3375,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1171-BLACK",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #130",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.448Z"
   },
   {
-    "displaySize": "",
     "id": "prod-w-131-sg-f-1761-marron",
+    "displaySize": "37",
     "sku": "SG-F-1761-MARRON",
     "name": "Article SG-F-1761-MARRON",
     "brand": "Zara",
@@ -3390,7 +3390,7 @@
     "color": "Marron",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234131",
+    "barcode": "8901230131",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -3401,13 +3401,13 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1761-MARRON",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #131",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.449Z"
   },
   {
-    "displaySize": "",
     "id": "prod-w-132-sg-f-1767-black",
+    "displaySize": "37",
     "sku": "SG-F-1767-BLACK",
     "name": "Article SG-F-1767-BLACK",
     "brand": "Zara",
@@ -3416,7 +3416,7 @@
     "color": "Black",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234132",
+    "barcode": "8901230132",
     "sizes": {
       "35": 0,
       "36": 0,
@@ -3427,13 +3427,13 @@
       "41": 0
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1767-BLACK",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #132",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.449Z"
   },
   {
-    "displaySize": "",
     "id": "prod-w-133-sg-f-1532-brown",
+    "displaySize": "37",
     "sku": "SG-F-1532-BROWN",
     "name": "Article SG-F-1532-BROWN",
     "brand": "Zara",
@@ -3442,7 +3442,7 @@
     "color": "Brown",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234133",
+    "barcode": "8901230133",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -3453,22 +3453,22 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1532-BROWN",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #133",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.449Z"
   },
   {
-    "displaySize": "",
     "id": "prod-w-134-sg-f-1839-brown",
-    "sku": "SG-F-1839-BROWN",
-    "name": "Article SG-F-1839-BROWN",
+    "displaySize": "37",
+    "sku": "SG-F-1839_BROWN",
+    "name": "Article SG-F-1839_BROWN",
     "brand": "Zara",
     "category": "women_footwear",
     "styleCategory": "Block Heels",
     "color": "Brown",
     "costPrice": 2200,
     "sellingPrice": 4499,
-    "barcode": "8901234134",
+    "barcode": "8901230134",
     "sizes": {
       "35": 0,
       "36": 1,
@@ -3479,9 +3479,217 @@
       "41": 1
     },
     "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
-    "notes": "Imported stock batch - SG-F-1839-BROWN",
-    "createdAt": "2026-11-02T13:16:54.704Z",
-    "updatedAt": "2026-11-02T13:16:54.704Z"
+    "notes": "Master list item #134",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.449Z"
+  },
+  {
+    "id": "prod-w-135-sg-f-1760-lighttaupe",
+    "displaySize": "37",
+    "sku": "SG-F-1760-LIGHTTAUPE",
+    "name": "Article SG-F-1760-LIGHTTAUPE",
+    "brand": "Zara",
+    "category": "women_footwear",
+    "styleCategory": "Block Heels",
+    "color": "Light Taupe",
+    "costPrice": 2200,
+    "sellingPrice": 4499,
+    "barcode": "8901230135",
+    "sizes": {
+      "35": 0,
+      "36": 1,
+      "37": 1,
+      "38": 1,
+      "39": 1,
+      "40": 1,
+      "41": 1
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
+    "notes": "Master list item #135",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.449Z"
+  },
+  {
+    "id": "prod-w-136-sg-f-1939-brodo",
+    "displaySize": "37",
+    "sku": "SG-F-1939-BRODO",
+    "name": "Article SG-F-1939-BRODO",
+    "brand": "Zara",
+    "category": "women_footwear",
+    "styleCategory": "Block Heels",
+    "color": "Bordo",
+    "costPrice": 2200,
+    "sellingPrice": 4499,
+    "barcode": "8901230136",
+    "sizes": {
+      "35": 0,
+      "36": 1,
+      "37": 1,
+      "38": 1,
+      "39": 1,
+      "40": 1,
+      "41": 1
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
+    "notes": "Master list item #136",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.449Z"
+  },
+  {
+    "id": "prod-w-137-sg-f-1765-brown",
+    "displaySize": "37",
+    "sku": "SG-F-1765-BROWN",
+    "name": "Article SG-F-1765-BROWN",
+    "brand": "Zara",
+    "category": "women_footwear",
+    "styleCategory": "Block Heels",
+    "color": "Brown",
+    "costPrice": 2200,
+    "sellingPrice": 4499,
+    "barcode": "8901230137",
+    "sizes": {
+      "35": 0,
+      "36": 1,
+      "37": 1,
+      "38": 1,
+      "39": 1,
+      "40": 1,
+      "41": 1
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
+    "notes": "Master list item #137",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.449Z"
+  },
+  {
+    "id": "prod-w-138-sg-f-103-brown",
+    "displaySize": "37",
+    "sku": "SG-F-103-BROWN",
+    "name": "Article SG-F-103-BROWN",
+    "brand": "Zara",
+    "category": "women_footwear",
+    "styleCategory": "Block Heels",
+    "color": "Brown",
+    "costPrice": 2200,
+    "sellingPrice": 4499,
+    "barcode": "8901230138",
+    "sizes": {
+      "35": 0,
+      "36": 1,
+      "37": 1,
+      "38": 1,
+      "39": 0,
+      "40": 1,
+      "41": 1
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
+    "notes": "Master list item #138",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.449Z"
+  },
+  {
+    "id": "prod-w-139-sg-f-1942-black",
+    "displaySize": "37",
+    "sku": "SG-F-1942-BLACK",
+    "name": "Article SG-F-1942-BLACK",
+    "brand": "Zara",
+    "category": "women_footwear",
+    "styleCategory": "Block Heels",
+    "color": "Black",
+    "costPrice": 2200,
+    "sellingPrice": 4499,
+    "barcode": "8901230139",
+    "sizes": {
+      "35": 0,
+      "36": 1,
+      "37": 1,
+      "38": 1,
+      "39": 1,
+      "40": 1,
+      "41": 1
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
+    "notes": "Master list item #139",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.449Z"
+  },
+  {
+    "id": "prod-w-140-sg-f-1995-black",
+    "displaySize": "37",
+    "sku": "SG-F-1995-BLACK",
+    "name": "Article SG-F-1995-BLACK",
+    "brand": "Zara",
+    "category": "women_footwear",
+    "styleCategory": "Block Heels",
+    "color": "Black",
+    "costPrice": 2200,
+    "sellingPrice": 4499,
+    "barcode": "8901230140",
+    "sizes": {
+      "35": 0,
+      "36": 1,
+      "37": 1,
+      "38": 1,
+      "39": 1,
+      "40": 1,
+      "41": 1
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
+    "notes": "Master list item #140",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.449Z"
+  },
+  {
+    "id": "prod-w-141-sg-f-1001-brown",
+    "displaySize": "37",
+    "sku": "SG-F-1001-BROWN",
+    "name": "Article SG-F-1001-BROWN",
+    "brand": "Zara",
+    "category": "women_footwear",
+    "styleCategory": "Block Heels",
+    "color": "Brown",
+    "costPrice": 2200,
+    "sellingPrice": 4499,
+    "barcode": "8901230141",
+    "sizes": {
+      "35": 0,
+      "36": 1,
+      "37": 1,
+      "38": 1,
+      "39": 1,
+      "40": 1,
+      "41": 1
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
+    "notes": "Master list item #141",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.449Z"
+  },
+  {
+    "id": "prod-w-142-sg-f-1994-black",
+    "displaySize": "37",
+    "sku": "SG-F-1994-BLACK",
+    "name": "Article SG-F-1994-BLACK",
+    "brand": "Zara",
+    "category": "women_footwear",
+    "styleCategory": "Block Heels",
+    "color": "Black",
+    "costPrice": 2200,
+    "sellingPrice": 4499,
+    "barcode": "8901230142",
+    "sizes": {
+      "35": 0,
+      "36": 1,
+      "37": 1,
+      "38": 1,
+      "39": 1,
+      "40": 1,
+      "41": 1
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&auto=format&fit=crop&q=80",
+    "notes": "Master list item #142",
+    "createdAt": "2026-11-02T13:16:54.700Z",
+    "updatedAt": "2026-11-02T17:26:58.449Z"
   },
   {
     "displaySize": "",
@@ -3699,206 +3907,6 @@
     "notes": "Padded 15.6 inch compartment.",
     "createdAt": "2026-11-02T06:00:00.000Z",
     "updatedAt": "2026-11-02T06:00:00.000Z"
-  },
-  {
-    "id": "prod-wom-sg-f-1760-lighttaupe",
-    "sku": "SG-F-1760-LIGHTTAUPE",
-    "name": "Article SG-F-1760-LIGHTTAUPE",
-    "brand": "Saint G",
-    "category": "women_footwear",
-    "styleCategory": "Block Heels",
-    "color": "Light Taupe",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
-    "sizes": {
-      "35": 0,
-      "36": 1,
-      "37": 1,
-      "38": 1,
-      "39": 1,
-      "40": 1,
-      "41": 1
-    },
-    "displaySize": "37",
-    "imageUrl": "",
-    "notes": "Batch added SG-F-1760-LIGHTTAUPE",
-    "createdAt": "2026-11-02T17:03:16.581Z",
-    "updatedAt": "2026-11-02T17:03:16.581Z"
-  },
-  {
-    "id": "prod-wom-sg-f-1939-brodo",
-    "sku": "SG-F-1939-BRODO",
-    "name": "Article SG-F-1939-BRODO",
-    "brand": "Saint G",
-    "category": "women_footwear",
-    "styleCategory": "Block Heels",
-    "color": "Bordo",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
-    "sizes": {
-      "35": 0,
-      "36": 1,
-      "37": 1,
-      "38": 1,
-      "39": 1,
-      "40": 1,
-      "41": 1
-    },
-    "displaySize": "37",
-    "imageUrl": "",
-    "notes": "Batch added SG-F-1939-BRODO",
-    "createdAt": "2026-11-02T17:03:16.582Z",
-    "updatedAt": "2026-11-02T17:03:16.582Z"
-  },
-  {
-    "id": "prod-wom-sg-f-1765-brown",
-    "sku": "SG-F-1765-BROWN",
-    "name": "Article SG-F-1765-BROWN",
-    "brand": "Saint G",
-    "category": "women_footwear",
-    "styleCategory": "Block Heels",
-    "color": "Brown",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
-    "sizes": {
-      "35": 0,
-      "36": 1,
-      "37": 1,
-      "38": 1,
-      "39": 1,
-      "40": 1,
-      "41": 1
-    },
-    "displaySize": "37",
-    "imageUrl": "",
-    "notes": "Batch added SG-F-1765-BROWN",
-    "createdAt": "2026-11-02T17:03:16.582Z",
-    "updatedAt": "2026-11-02T17:03:16.582Z"
-  },
-  {
-    "id": "prod-wom-sg-f-103-brown",
-    "sku": "SG-F-103-BROWN",
-    "name": "Article SG-F-103-BROWN",
-    "brand": "Saint G",
-    "category": "women_footwear",
-    "styleCategory": "Block Heels",
-    "color": "Brown",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
-    "sizes": {
-      "35": 0,
-      "36": 1,
-      "37": 1,
-      "38": 1,
-      "39": 0,
-      "40": 1,
-      "41": 1
-    },
-    "displaySize": "37",
-    "imageUrl": "",
-    "notes": "Batch added SG-F-103-BROWN",
-    "createdAt": "2026-11-02T17:03:16.582Z",
-    "updatedAt": "2026-11-02T17:03:16.582Z"
-  },
-  {
-    "id": "prod-wom-sg-f-1942-black",
-    "sku": "SG-F-1942-BLACK",
-    "name": "Article SG-F-1942-BLACK",
-    "brand": "Saint G",
-    "category": "women_footwear",
-    "styleCategory": "Block Heels",
-    "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
-    "sizes": {
-      "35": 0,
-      "36": 1,
-      "37": 1,
-      "38": 1,
-      "39": 1,
-      "40": 1,
-      "41": 1
-    },
-    "displaySize": "37",
-    "imageUrl": "",
-    "notes": "Batch added SG-F-1942-BLACK",
-    "createdAt": "2026-11-02T17:03:16.582Z",
-    "updatedAt": "2026-11-02T17:03:16.582Z"
-  },
-  {
-    "id": "prod-wom-sg-f-1995-black",
-    "sku": "SG-F-1995-BLACK",
-    "name": "Article SG-F-1995-BLACK",
-    "brand": "Saint G",
-    "category": "women_footwear",
-    "styleCategory": "Block Heels",
-    "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
-    "sizes": {
-      "35": 0,
-      "36": 1,
-      "37": 1,
-      "38": 1,
-      "39": 1,
-      "40": 1,
-      "41": 1
-    },
-    "displaySize": "37",
-    "imageUrl": "",
-    "notes": "Batch added SG-F-1995-BLACK",
-    "createdAt": "2026-11-02T17:03:16.582Z",
-    "updatedAt": "2026-11-02T17:03:16.582Z"
-  },
-  {
-    "id": "prod-wom-sg-f-1001-brown",
-    "sku": "SG-F-1001-BROWN",
-    "name": "Article SG-F-1001-BROWN",
-    "brand": "Saint G",
-    "category": "women_footwear",
-    "styleCategory": "Block Heels",
-    "color": "Brown",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
-    "sizes": {
-      "35": 0,
-      "36": 1,
-      "37": 1,
-      "38": 1,
-      "39": 1,
-      "40": 1,
-      "41": 1
-    },
-    "displaySize": "37",
-    "imageUrl": "",
-    "notes": "Batch added SG-F-1001-BROWN",
-    "createdAt": "2026-11-02T17:03:16.582Z",
-    "updatedAt": "2026-11-02T17:03:16.582Z"
-  },
-  {
-    "id": "prod-wom-sg-f-1994-black",
-    "sku": "SG-F-1994-BLACK",
-    "name": "Article SG-F-1994-BLACK",
-    "brand": "Saint G",
-    "category": "women_footwear",
-    "styleCategory": "Block Heels",
-    "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
-    "sizes": {
-      "35": 0,
-      "36": 1,
-      "37": 1,
-      "38": 1,
-      "39": 1,
-      "40": 1,
-      "41": 1
-    },
-    "displaySize": "37",
-    "imageUrl": "",
-    "notes": "Batch added SG-F-1994-BLACK",
-    "createdAt": "2026-11-02T17:03:16.582Z",
-    "updatedAt": "2026-11-02T17:03:16.582Z"
   },
   {
     "id": "prod-men-sgm-12-black",

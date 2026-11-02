@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://pztpvqxadtjdtbkjdsai.supabase.co';
-const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY || '';
+const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY || 'sb_publishable_1KGx3KPNl2FQJ22Q3zH25w_t2_1M8xw';
 
 const headers = {
   'Content-Type': 'application/json',
