@@ -18,18 +18,61 @@ import {
   CheckCircle2,
   XCircle,
   ArrowRight,
-  Code
+  Code,
+  Play
 } from 'lucide-react';
 
 const TARGET_SHEET_URL = "https://docs.google.com/spreadsheets/d/1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE/edit?gid=0#gid=0";
 const TARGET_SHEET_ID = "1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE";
 
-const GOOGLE_APPS_SCRIPT_TEMPLATE = `function doPost(e) {
+const GOOGLE_APPS_SCRIPT_TEMPLATE = `// ==============================================================
+// KY INVENTORY -> GOOGLE SHEETS AUTO-SYNC SCRIPT
+// Target Spreadsheet: 1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE
+// ==============================================================
+
+// 1. MANUAL RUN: Select 'syncNow' and click 'Run' in Apps Script editor!
+function syncNow() {
+  var targetSheetId = "1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE";
+  var ss;
   try {
-    var raw = e.postData.contents;
-    var data = JSON.parse(raw);
+    ss = SpreadsheetApp.openById(targetSheetId);
+  } catch(errId) {
+    ss = SpreadsheetApp.getActiveSpreadsheet();
+  }
+
+  // Fetch directly from Cloud Database
+  var supabaseUrl = "https://pztpvqxadtjdtbkjdsai.supabase.co/rest/v1";
+  var supabaseKey = "sb_publishable_1KGx3KPNl2FQJ22Q3zH25w_t2_1M8xw";
+  var options = {
+    headers: {
+      "apikey": supabaseKey,
+      "Authorization": "Bearer " + supabaseKey
+    },
+    muteHttpExceptions: true
+  };
+
+  var invRes = UrlFetchApp.fetch(supabaseUrl + "/inventory?select=*&order=sku.asc", options);
+  var inventory = JSON.parse(invRes.getContentText()) || [];
+
+  var salesRes = UrlFetchApp.fetch(supabaseUrl + "/sales?select=*&order=timestamp.desc", options);
+  var sales = [];
+  try {
+    sales = JSON.parse(salesRes.getContentText()) || [];
+  } catch(e) {}
+
+  return populateSpreadsheet(ss, inventory, sales);
+}
+
+// 2. WEB APP / 1-CLICK SYNC FROM APP
+function doPost(e) {
+  try {
+    var raw = e && e.postData && e.postData.contents;
+    if (!raw) {
+      return ContentService.createTextOutput(JSON.stringify(syncNow()))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
     
-    // Target Google Spreadsheet ID
+    var data = JSON.parse(raw);
     var targetSheetId = "1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE";
     var ss;
     try {
@@ -41,136 +84,133 @@ const GOOGLE_APPS_SCRIPT_TEMPLATE = `function doPost(e) {
     var inventory = data.inventory || [];
     var sales = data.sales || [];
     
-    // Quick product lookup map for status checking
-    var productMap = {};
-    inventory.forEach(function(p) {
-      if (p.sku) productMap[p.sku.toUpperCase().trim()] = p;
-      if (p.id) productMap[p.id] = p;
-    });
-
-    // Helper to format category sheets exactly like reference
-    function buildCategorySheet(sheetName, categoryId, headerLabel, sizesList) {
-      var sheet = ss.getSheetByName(sheetName) || ss.insertSheet(sheetName);
-      sheet.clear();
-      
-      var items = inventory.filter(function(p) { return p.category === categoryId; });
-      var headers = [headerLabel, "SKU"].concat(sizesList).concat(["TOTAL"]);
-      sheet.appendRow(headers);
-      sheet.getRange(1, 1, 1, headers.length).setFontWeight("bold").setBackground("#f1f5f9");
-      
-      var sizeTotals = {};
-      sizesList.forEach(function(s) { sizeTotals[s] = 0; });
-      var grandTotal = 0;
-      
-      items.forEach(function(p, idx) {
-        var rowTotal = 0;
-        var row = [idx + 1, p.sku];
-        sizesList.forEach(function(s) {
-          var q = Number((p.sizes && p.sizes[s]) || 0);
-          row.push(q);
-          rowTotal += q;
-          sizeTotals[s] += q;
-        });
-        row.push(rowTotal);
-        grandTotal += rowTotal;
-        sheet.appendRow(row);
-      });
-      
-      // Total footer row
-      var totalRow = ["TOTAL", ""];
-      sizesList.forEach(function(s) {
-        totalRow.push(sizeTotals[s]);
-      });
-      totalRow.push(grandTotal);
-      sheet.appendRow(totalRow);
-      
-      var lastRow = sheet.getLastRow();
-      if (lastRow > 1) {
-        sheet.getRange(lastRow, 1, 1, headers.length).setFontWeight("bold").setBackground("#e2e8f0");
-        sheet.getRange(1, 1, lastRow, headers.length).setHorizontalAlignment("center");
-        sheet.getRange(2, 2, lastRow - 1, 1).setHorizontalAlignment("left");
-      }
-      sheet.autoResizeColumns(1, headers.length);
-    }
-
-    // 1. Women Footwear
-    buildCategorySheet("Women Footwear", "women_footwear", "VIVIBLU SHOP", [35, 36, 37, 38, 39, 40, 41]);
-
-    // 2. Mens Footwear
-    buildCategorySheet("Mens Footwear", "men_footwear", "Sr No.", [40, 41, 42, 43, 44, 45]);
-
-    // 3. Mens Jacket
-    buildCategorySheet("Mens Jacket", "men_jacket", "Sr No.", ["S", "M", "L", "XL", "XXL"]);
-
-    // 4. Womens jacket
-    buildCategorySheet("Womens jacket", "women_jacket", "Sr No.", ["S", "M", "L", "XL", "XXL"]);
-
-    // 5. Bags
-    buildCategorySheet("Bags", "bags", "Sr No.", ["One Size"]);
-
-    // 6. Sales History (Daily Sell & Replenishment Status)
-    var salesSheet = ss.getSheetByName("Sales History") || ss.insertSheet("Sales History");
-    salesSheet.clear();
-    
-    var salesHeaders = ["Sell Date", "SKU Code", "Color", "Size", "Status"];
-    salesSheet.appendRow(salesHeaders);
-    salesSheet.getRange(1, 1, 1, 5).setFontWeight("bold").setBackground("#1e293b").setFontColor("#ffffff");
-    
-    sales.forEach(function(s) {
-      var p = (s.sku && productMap[s.sku.toUpperCase().trim()]) || productMap[s.productId];
-      var pColor = s.color || (p && p.color) || "";
-      var pSku = s.sku || (p && p.sku) || "";
-      var pCat = s.category || (p && p.category) || "";
-      var sizeKey = String(s.size || "").trim();
-      var currentStock = Number((p && p.sizes && p.sizes[sizeKey]) || 0);
-      
-      // USER LOGIC:
-      // If currentStock === 0 -> NOT RECEIVED
-      // If size 37 and currentStock < 2 -> NOT RECEIVED
-      var isNotReceived = false;
-      if (!p || currentStock === 0) {
-        isNotReceived = true;
-      } else if ((pCat === "women_footwear" || sizeKey === "37") && sizeKey === "37" && currentStock < 2) {
-        isNotReceived = true;
-      }
-      
-      var status = isNotReceived ? "NOT RECEIVED" : "RECEIVED";
-      var d = s.timestamp ? new Date(s.timestamp) : new Date();
-      var dateStr = Utilities.formatDate(d, Session.getScriptTimeZone() || "GMT+5:30", "dd/MM/yyyy HH:mm");
-      
-      salesSheet.appendRow([dateStr, pSku, pColor, sizeKey, status]);
-    });
-
-    var salesLastRow = salesSheet.getLastRow();
-    if (salesLastRow > 1) {
-      salesSheet.getRange(1, 1, salesLastRow, 5).setHorizontalAlignment("center");
-      salesSheet.getRange(2, 2, salesLastRow - 1, 1).setHorizontalAlignment("left");
-      
-      // Apply Conditional Green & Red Background Colors
-      for (var r = 2; r <= salesLastRow; r++) {
-        var cell = salesSheet.getRange(r, 5);
-        var val = cell.getValue();
-        if (val === "NOT RECEIVED") {
-          cell.setBackground("#fee2e2").setFontColor("#b91c1c").setFontWeight("bold");
-        } else if (val === "RECEIVED") {
-          cell.setBackground("#dcfce7").setFontColor("#15803d").setFontWeight("bold");
-        }
-      }
-    }
-    salesSheet.autoResizeColumns(1, 5);
-
-    return ContentService.createTextOutput(JSON.stringify({
-      status: "success",
-      message: "Successfully updated Google Sheet 1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE!",
-      productsCount: inventory.length,
-      salesCount: sales.length,
-      timestamp: new Date().toISOString()
-    })).setMimeType(ContentService.MimeType.JSON);
-
+    var res = populateSpreadsheet(ss, inventory, sales);
+    return ContentService.createTextOutput(JSON.stringify(res))
+      .setMimeType(ContentService.MimeType.JSON);
   } catch(err) {
     return ContentService.createTextOutput(JSON.stringify({ status: "error", error: err.toString() }))
       .setMimeType(ContentService.MimeType.JSON);
   }
+}
+
+// 3. MASTER POPULATE FUNCTION (ALL 6 SHEETS)
+function populateSpreadsheet(ss, inventory, sales) {
+  var productMap = {};
+  inventory.forEach(function(p) {
+    if (p.sku) productMap[p.sku.toUpperCase().trim()] = p;
+    if (p.id) productMap[p.id] = p;
+  });
+
+  function buildCategorySheet(sheetName, categoryId, headerLabel, sizesList) {
+    var sheet = ss.getSheetByName(sheetName) || ss.insertSheet(sheetName);
+    sheet.clear();
+    
+    var items = inventory.filter(function(p) { return p.category === categoryId; });
+    var headers = [headerLabel, "SKU"].concat(sizesList).concat(["TOTAL"]);
+    sheet.appendRow(headers);
+    sheet.getRange(1, 1, 1, headers.length).setFontWeight("bold").setBackground("#f1f5f9");
+    
+    var sizeTotals = {};
+    sizesList.forEach(function(s) { sizeTotals[s] = 0; });
+    var grandTotal = 0;
+    
+    items.forEach(function(p, idx) {
+      var rowTotal = 0;
+      var row = [idx + 1, p.sku];
+      sizesList.forEach(function(s) {
+        var q = Number((p.sizes && p.sizes[s]) || 0);
+        row.push(q);
+        rowTotal += q;
+        sizeTotals[s] += q;
+      });
+      row.push(rowTotal);
+      grandTotal += rowTotal;
+      sheet.appendRow(row);
+    });
+    
+    var totalRow = ["TOTAL", ""];
+    sizesList.forEach(function(s) { totalRow.push(sizeTotals[s]); });
+    totalRow.push(grandTotal);
+    sheet.appendRow(totalRow);
+    
+    var lastRow = sheet.getLastRow();
+    if (lastRow > 1) {
+      sheet.getRange(lastRow, 1, 1, headers.length).setFontWeight("bold").setBackground("#e2e8f0");
+      sheet.getRange(1, 1, lastRow, headers.length).setHorizontalAlignment("center");
+      sheet.getRange(2, 2, lastRow - 1, 1).setHorizontalAlignment("left");
+    }
+    sheet.autoResizeColumns(1, headers.length);
+  }
+
+  // 1. Women Footwear
+  buildCategorySheet("Women Footwear", "women_footwear", "VIVIBLU SHOP", [35, 36, 37, 38, 39, 40, 41]);
+
+  // 2. Mens Footwear
+  buildCategorySheet("Mens Footwear", "men_footwear", "Sr No.", [40, 41, 42, 43, 44, 45]);
+
+  // 3. Mens Jacket
+  buildCategorySheet("Mens Jacket", "men_jacket", "Sr No.", ["S", "M", "L", "XL", "XXL"]);
+
+  // 4. Womens jacket
+  buildCategorySheet("Womens jacket", "women_jacket", "Sr No.", ["S", "M", "L", "XL", "XXL"]);
+
+  // 5. Bags
+  buildCategorySheet("Bags", "bags", "Sr No.", ["One Size"]);
+
+  // 6. Sales History (Daily Sell & Replenishment Status)
+  var salesSheet = ss.getSheetByName("Sales History") || ss.insertSheet("Sales History");
+  salesSheet.clear();
+  
+  var salesHeaders = ["Sell Date", "SKU Code", "Color", "Size", "Status"];
+  salesSheet.appendRow(salesHeaders);
+  salesSheet.getRange(1, 1, 1, 5).setFontWeight("bold").setBackground("#1e293b").setFontColor("#ffffff");
+  
+  sales.forEach(function(s) {
+    var p = (s.sku && productMap[s.sku.toUpperCase().trim()]) || productMap[s.productId];
+    var pColor = s.color || (p && p.color) || "";
+    var pSku = s.sku || (p && p.sku) || "";
+    var pCat = s.category || (p && p.category) || "";
+    var sizeKey = String(s.size || "").trim();
+    var currentStock = Number((p && p.sizes && p.sizes[sizeKey]) || 0);
+    
+    var isNotReceived = false;
+    if (!p || currentStock === 0) {
+      isNotReceived = true;
+    } else if ((pCat === "women_footwear" || sizeKey === "37") && sizeKey === "37" && currentStock < 2) {
+      isNotReceived = true;
+    }
+    
+    var status = isNotReceived ? "NOT RECEIVED" : "RECEIVED";
+    var d = s.timestamp ? new Date(s.timestamp) : new Date();
+    var dateStr = Utilities.formatDate(d, Session.getScriptTimeZone() || "GMT+5:30", "dd/MM/yyyy HH:mm");
+    
+    salesSheet.appendRow([dateStr, pSku, pColor, sizeKey, status]);
+  });
+
+  var salesLastRow = salesSheet.getLastRow();
+  if (salesLastRow > 1) {
+    salesSheet.getRange(1, 1, salesLastRow, 5).setHorizontalAlignment("center");
+    salesSheet.getRange(2, 2, salesLastRow - 1, 1).setHorizontalAlignment("left");
+    
+    for (var r = 2; r <= salesLastRow; r++) {
+      var cell = salesSheet.getRange(r, 5);
+      var val = cell.getValue();
+      if (val === "NOT RECEIVED") {
+        cell.setBackground("#fee2e2").setFontColor("#b91c1c").setFontWeight("bold");
+      } else if (val === "RECEIVED") {
+        cell.setBackground("#dcfce7").setFontColor("#15803d").setFontWeight("bold");
+      }
+    }
+  }
+  salesSheet.autoResizeColumns(1, 5);
+
+  return {
+    status: "success",
+    message: "Successfully updated Google Sheet 1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE!",
+    productsCount: inventory.length,
+    salesCount: sales.length,
+    timestamp: new Date().toISOString()
+  };
 }`;
 
 export function GoogleSheetsSyncModal({ isOpen, onClose }) {
@@ -730,10 +770,13 @@ export function GoogleSheetsSyncModal({ isOpen, onClose }) {
                   Purana text mita kar neeche diya hua code <strong>Paste</strong> karein aur <strong>Save (Ctrl+S)</strong> karein.
                 </li>
                 <li>
-                  Upar right me <strong>Deploy &gt; New deployment</strong> &gt; Select type: <strong>Web app</strong> &gt; Who has access: <strong>Anyone</strong> select karke <strong>Deploy</strong> karein.
+                  Editor me upar dropdown me <strong>syncNow</strong> select karke <strong>Run (चलाएं)</strong> par click karein (Pehli baar Authorization maangega, Review Permissions &gt; Allow kar dein).
                 </li>
                 <li>
-                  Mile hue Web App URL ko copy karke <strong>1-Click Sync tab</strong> me paste kar dein!
+                  <strong>Web App Deploy karein:</strong> Upar right me <strong>Deploy &gt; New deployment</strong> &gt; Select type: <strong>Web app</strong> &gt; Who has access: <strong>Anyone</strong> select karke <strong>Deploy</strong> karein.
+                </li>
+                <li>
+                  Mile hue Web App URL ko copy karke app ke <strong>1-Click Sync tab</strong> me paste kar dein!
                 </li>
               </ol>
             </div>
