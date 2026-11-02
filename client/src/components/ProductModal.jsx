@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useInventory } from '../context/InventoryContext';
-import { X, Check, AlertCircle } from 'lucide-react';
+import { X, Check, AlertCircle, Plus, Minus } from 'lucide-react';
 
 export function ProductModal({ isOpen, onClose, editProduct = null }) {
   const { addProduct, updateProduct, categories, sizesMap } = useInventory();
@@ -230,11 +230,11 @@ export function ProductModal({ isOpen, onClose, editProduct = null }) {
             </div>
           </div>
 
-          {/* 4. COMPULSORY: SIZES GRID */}
+          {/* 4. COMPULSORY: SIZES GRID (DIRECT INPUT OR + / - STEPPERS) */}
           <div className="p-3.5 bg-slate-950/80 rounded-2xl border border-amber-500/30">
             <div className="flex items-center justify-between mb-2">
               <label className="block text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1">
-                <span>4. Size Quantities</span>
+                <span>4. Size Quantities (Stock Add / Remove)</span>
                 <span className="text-rose-400 font-black">* (Compulsory)</span>
               </label>
               <span className="text-xs font-black text-emerald-400">
@@ -242,21 +242,43 @@ export function ProductModal({ isOpen, onClose, editProduct = null }) {
               </span>
             </div>
 
-            <div className="grid grid-cols-4 sm:grid-cols-7 gap-2">
-              {currentSizes.map((size) => (
-                <div key={size} className="bg-slate-900 border border-slate-800 rounded-xl p-2 text-center">
-                  <div className="text-xs font-black text-slate-300 mb-1">
-                    {size}
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-2">
+              {currentSizes.map((size) => {
+                const qty = Number(sizes[size] ?? 0);
+                return (
+                  <div key={size} className="bg-slate-900 border border-slate-800 rounded-xl p-2 flex flex-col items-center justify-between">
+                    <span className="text-xs font-black text-slate-300 mb-1.5">
+                      {size}
+                    </span>
+                    <div className="flex items-center gap-1 w-full justify-center">
+                      <button
+                        type="button"
+                        disabled={qty <= 0}
+                        onClick={() => handleSizeChange(size, Math.max(0, qty - 1))}
+                        className="w-7 h-7 rounded-lg bg-slate-800 hover:bg-slate-700 active:scale-90 disabled:opacity-20 flex items-center justify-center text-slate-300 transition"
+                        title={`Decrease size ${size}`}
+                      >
+                        <Minus className="w-3.5 h-3.5" />
+                      </button>
+                      <input
+                        type="number"
+                        min="0"
+                        value={sizes[size] ?? 0}
+                        onChange={(e) => handleSizeChange(size, e.target.value)}
+                        className="w-12 text-center py-1 rounded-lg bg-slate-950 border border-slate-700 text-emerald-400 font-mono font-black text-xs focus:outline-none focus:border-amber-500"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => handleSizeChange(size, qty + 1)}
+                        className="w-7 h-7 rounded-lg bg-slate-800 hover:bg-amber-500 hover:text-slate-950 active:scale-90 flex items-center justify-center text-slate-300 transition"
+                        title={`Increase size ${size}`}
+                      >
+                        <Plus className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
                   </div>
-                  <input
-                    type="number"
-                    min="0"
-                    value={sizes[size] ?? 0}
-                    onChange={(e) => handleSizeChange(size, e.target.value)}
-                    className="w-full text-center py-1 rounded-lg bg-slate-950 border border-slate-700 text-emerald-400 font-mono font-black text-xs focus:outline-none focus:border-amber-500"
-                  />
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 

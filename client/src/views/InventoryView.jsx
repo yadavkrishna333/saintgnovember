@@ -4,7 +4,6 @@ import { getColorDetails, formatColorName } from '../utils/colors';
 import { 
   Search, 
   Plus, 
-  Minus, 
   ShoppingCart, 
   Edit3, 
   Trash2, 
@@ -30,7 +29,6 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
     sizesMap, 
     searchQuery, 
     setSearchQuery, 
-    adjustStock, 
     updateDisplaySize, 
     deleteProduct 
   } = useInventory();
@@ -414,7 +412,7 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                                   </div>
                                 </td>
 
-                                {/* SIZES: 0 = RED, >0 = GREEN (COMPACT WITH + / -) */}
+                                {/* SIZES: 0 = RED, >0 = GREEN (CLEAN COMPACT) */}
                                 {categorySizes.map((size) => {
                                   const qty = Number(product.sizes?.[size] || 0);
                                   const isZero = qty === 0;
@@ -422,40 +420,18 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                                   return (
                                     <td 
                                       key={size}
-                                      className="py-1 px-1 text-center border-x border-slate-800/40 select-none"
+                                      className="py-1.5 px-1 text-center border-x border-slate-800/40 select-none"
                                     >
-                                      <div className="flex flex-col items-center justify-center gap-0.5">
-                                        <span 
-                                          className={`min-w-[26px] px-1.5 py-0.2 rounded-md text-[11px] font-black font-mono leading-tight ${
-                                            isZero
-                                              ? 'bg-rose-500/20 text-rose-400 border border-rose-500/40'
-                                              : 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40'
-                                          }`}
-                                          title={`Size ${size}: ${qty} left`}
-                                        >
-                                          {qty}
-                                        </span>
-
-                                        <div className="flex items-center gap-0.5 opacity-80 hover:opacity-100">
-                                          <button
-                                            type="button"
-                                            disabled={isZero}
-                                            onClick={() => adjustStock(product.id, size, -1)}
-                                            className="w-3.5 h-3.5 rounded bg-slate-800 hover:bg-slate-700 active:scale-90 disabled:opacity-20 flex items-center justify-center text-slate-300"
-                                            title={`-1 to Size ${size}`}
-                                          >
-                                            <Minus className="w-2 h-2" />
-                                          </button>
-                                          <button
-                                            type="button"
-                                            onClick={() => adjustStock(product.id, size, 1)}
-                                            className="w-3.5 h-3.5 rounded bg-slate-800 hover:bg-amber-500 hover:text-slate-950 active:scale-90 flex items-center justify-center text-slate-300"
-                                            title={`+1 to Size ${size}`}
-                                          >
-                                            <Plus className="w-2 h-2" />
-                                          </button>
-                                        </div>
-                                      </div>
+                                      <span 
+                                        className={`inline-block min-w-[28px] px-1.5 py-0.5 rounded-md text-[11px] font-black font-mono leading-tight ${
+                                          isZero
+                                            ? 'bg-rose-500/15 text-rose-400 border border-rose-500/30'
+                                            : 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40'
+                                        }`}
+                                        title={`Size ${size}: ${qty} in stock (Edit via Edit button)`}
+                                      >
+                                        {qty}
+                                      </span>
                                     </td>
                                   );
                                 })}
@@ -683,7 +659,6 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                           <div>
                             <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1.5 flex items-center justify-between">
                               <span>Stock by Size:</span>
-                              <span className="text-slate-500">0ms tap adjustment</span>
                             </div>
 
                             <div className="grid grid-cols-4 sm:grid-cols-7 gap-1.5">
@@ -694,35 +669,17 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                                 return (
                                   <div 
                                     key={size}
-                                    className="bg-slate-950 border border-slate-800 rounded-xl p-1.5 flex flex-col items-center justify-between"
+                                    className="bg-slate-950 border border-slate-800 rounded-xl p-1.5 flex flex-col items-center justify-center"
                                   >
-                                    <span className="text-[11px] font-black text-slate-300">{size}</span>
+                                    <span className="text-[10px] font-bold text-slate-400">{size}</span>
                                     
-                                    <span className={`my-1 text-xs font-black font-mono px-1.5 py-0.5 rounded-md min-w-[24px] text-center ${
+                                    <span className={`mt-0.5 text-xs font-black font-mono px-2 py-0.5 rounded-md min-w-[24px] text-center ${
                                       isZero 
                                         ? 'bg-rose-500/20 text-rose-400 border border-rose-500/40' 
                                         : 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40'
                                     }`}>
                                       {qty}
                                     </span>
-
-                                    <div className="flex items-center gap-1 w-full justify-center">
-                                      <button
-                                        type="button"
-                                        disabled={isZero}
-                                        onClick={() => adjustStock(product.id, size, -1)}
-                                        className="w-5 h-5 rounded bg-slate-800 hover:bg-slate-700 active:scale-90 disabled:opacity-20 flex items-center justify-center text-slate-300"
-                                      >
-                                        <Minus className="w-3 h-3" />
-                                      </button>
-                                      <button
-                                        type="button"
-                                        onClick={() => adjustStock(product.id, size, 1)}
-                                        className="w-5 h-5 rounded bg-slate-800 hover:bg-amber-500 hover:text-slate-950 active:scale-90 flex items-center justify-center text-slate-300"
-                                      >
-                                        <Plus className="w-3 h-3" />
-                                      </button>
-                                    </div>
                                   </div>
                                 );
                               })}
