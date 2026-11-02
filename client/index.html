@@ -11,6 +11,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      /* Immediately hide Netlify Drawer, Badge, or Feedback widgets */
+      #netlify-drawer,
+      .netlify-drawer,
+      [data-netlify-drawer],
+      [id*="netlify"],
+      [class*="netlify"],
+      iframe[id*="netlify"],
+      iframe[src*="netlify"],
+      a[href*="netlify.com"][target="_blank"],
+      .netlify-badge {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        height: 0 !important;
+        width: 0 !important;
+      }
+    </style>
   </head>
   <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-amber-500 selection:text-slate-950 min-h-screen">
     <div id="root"></div>

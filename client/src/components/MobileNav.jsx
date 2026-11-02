@@ -188,8 +188,8 @@ export function MobileNav({ onOpenAddModal, onOpenQrModal, onOpenScanner, onOpen
         </div>
       )}
 
-      {/* Mobile Floating Bottom Bar */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-slate-950/98 backdrop-blur-xl border-t border-slate-800/80 px-1 py-1.5 flex items-center justify-around select-none">
+      {/* Mobile Floating Bottom Bar (Highest z-index so no external widget or badge can hide it) */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-[9999] bg-slate-950/98 backdrop-blur-xl border-t border-slate-800/80 px-1 pt-1.5 pb-[calc(env(safe-area-inset-bottom,0px)+6px)] flex items-center justify-around select-none shadow-2xl">
         {bottomBarTabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
