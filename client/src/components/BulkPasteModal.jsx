@@ -213,7 +213,7 @@ SG-F-1867-OFFWHITE 1 2 1 1 1 2`;
             styleCategory: defaultCategory.includes('jacket') ? 'Standard' : 'Block Heels',
             color: row.guessedColor,
             category: defaultCategory,
-            brand: 'Zara',
+            brand: 'Saint G',
             costPrice: 0,
             sellingPrice: defaultCategory.includes('jacket') ? 4990 : 3990,
             sizes: initialSizes,

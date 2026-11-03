@@ -264,7 +264,7 @@ export function addProduct(userId, data) {
   const newProduct = {
     id: `prod-${crypto.randomUUID().slice(0, 8)}`,
     name: data.name?.trim() || "Untitled Product",
-    brand: data.brand?.trim() || "Brand",
+    brand: data.brand?.trim() || "Saint G",
     category,
     styleCategory: data.styleCategory?.trim() || data.name?.trim() || "Block Heels",
     color,

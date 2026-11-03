@@ -335,7 +335,7 @@ app.post('/api/sync/supabase', async (req, res) => {
       style_category: p.styleCategory || null,
       color: p.color || null,
       category: p.category || 'women_footwear',
-      brand: p.brand || 'Zara',
+      brand: p.brand || 'Saint G',
       cost_price: Number(p.costPrice || 0),
       selling_price: Number(p.sellingPrice || 0),
       sizes: p.sizes || {},

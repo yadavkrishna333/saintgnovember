@@ -49,7 +49,7 @@ export function ProductModal({ isOpen, onClose, editProduct = null }) {
       setCategory(defaultCat);
       setStyleCategory(stylePresets[defaultCat]?.[0] || 'Block Heels');
       setName('');
-      setBrand('');
+      setBrand('Saint G');
       setColor('Tan');
       setDisplaySize('');
       setMaterial('');
@@ -110,7 +110,7 @@ export function ProductModal({ isOpen, onClose, editProduct = null }) {
       const productData = {
         name: name.trim() || `${styleCategory} ${color}`.trim(),
         styleCategory: styleCategory.trim() || 'Block Heels',
-        brand: brand.trim(),
+        brand: brand.trim() || 'Saint G',
         category,
         color: color.trim(),
         displaySize: displaySize.trim(),
