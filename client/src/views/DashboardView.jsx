@@ -952,18 +952,28 @@ export function DashboardView({ onOpenAddModal, onOpenQuickSale, onOpenReplenish
                     className="p-3.5 rounded-2xl bg-slate-950/90 border border-slate-800/90 hover:border-amber-500/40 flex flex-col justify-between gap-3 transition shadow-md group"
                   >
                     <div>
-                      {/* Top Bar: SKU & Replenish button */}
+                      {/* Top Bar: SKU, Image & Replenish button */}
                       <div className="flex items-start justify-between gap-2">
-                        <div className="min-w-0">
-                          <span className="text-xs font-mono font-black text-amber-300 tracking-wide block truncate">
-                            {item.sku}
-                          </span>
-                          <span className="text-xs font-bold text-white block truncate">
-                            {item.styleCategory || item.name}
-                          </span>
-                          <span className="text-[11px] text-slate-400">
-                            {item.color} &bull; <span className="text-slate-300 font-semibold">{item.totalStock} pcs in store</span>
-                          </span>
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          {item.imageUrl && (
+                            <img
+                              src={item.imageUrl}
+                              alt={item.styleCategory || item.sku}
+                              className="w-12 h-12 rounded-xl object-cover border border-slate-700 bg-slate-900 flex-shrink-0"
+                              onError={(e) => { e.target.style.display = 'none'; }}
+                            />
+                          )}
+                          <div className="min-w-0">
+                            <span className="px-2 py-0.5 rounded-lg bg-slate-900 border border-sky-400 text-sky-200 text-xs font-mono font-black tracking-wide inline-block truncate select-all">
+                              {item.sku}
+                            </span>
+                            <span className="text-xs font-black text-white block truncate uppercase mt-0.5">
+                              {item.styleCategory || item.name}
+                            </span>
+                            <span className="text-[11px] text-slate-400">
+                              {item.color} &bull; <span className="text-slate-300 font-semibold">{item.totalStock} pcs in store</span>
+                            </span>
+                          </div>
                         </div>
 
                         <button

@@ -308,13 +308,13 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                         <thead className="sticky top-0 z-30 bg-slate-950 shadow-md">
                           <tr className="border-b border-slate-800 text-slate-400 font-extrabold uppercase tracking-wider text-[10px] select-none">
                             <th className="py-2 px-2 text-center w-12 sticky left-0 z-40 bg-slate-950 border-r border-slate-800/80 shadow-[2px_0_5px_rgba(0,0,0,0.5)]">SR</th>
-                            <th className="py-2 px-2 w-[205px] min-w-[205px] text-amber-300 font-black tracking-wider sticky left-[48px] z-40 bg-slate-950 border-r border-slate-800/80 shadow-[3px_0_8px_rgba(0,0,0,0.6)]">
-                              <div className="flex items-center gap-1">
+                            <th className="py-2 px-2 w-[210px] min-w-[210px] text-sky-300 font-black tracking-wider sticky left-[48px] z-40 bg-slate-950 border-r border-slate-800/80 shadow-[3px_0_8px_rgba(0,0,0,0.6)]">
+                              <div className="flex items-center gap-1.5">
                                 <span>SKU CODE</span>
-                                <span className="text-[8px] uppercase px-1 py-0.2 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">MAIN</span>
+                                <span className="text-[8px] uppercase px-1.5 py-0.2 rounded bg-sky-500/20 text-sky-300 border border-sky-500/30">MAIN</span>
                               </div>
                             </th>
-                            <th className="py-2 px-2.5 min-w-[180px]">STYLE CATEGORY</th>
+                            <th className="py-2 px-2.5 min-w-[220px]">STYLE & PRICE</th>
                             <th className="py-2 px-2 min-w-[120px] max-w-[150px]">COLOR</th>
 
                             {/* Size Columns */}
@@ -353,55 +353,55 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                               >
                                 
                                 {/* SR NO (STICKY LEFT) */}
-                                <td className="py-1.5 px-2 text-center font-mono font-bold text-slate-500 sticky left-0 z-20 bg-slate-950 border-r border-slate-800/80 shadow-[2px_0_5px_rgba(0,0,0,0.5)] text-[10px]">
+                                <td className="py-2 px-2 text-center font-mono font-bold text-slate-500 sticky left-0 z-20 bg-slate-950 border-r border-slate-800/80 shadow-[2px_0_5px_rgba(0,0,0,0.5)] text-[10px]">
                                   #{srNo}
                                 </td>
 
-                                {/* SKU CODE (COMPACT & UNIFORM FIXED SIZE) */}
-                                <td className="py-1.5 px-2 whitespace-nowrap w-[205px] sticky left-[48px] z-20 bg-slate-950 border-r border-slate-800/80 shadow-[3px_0_8px_rgba(0,0,0,0.6)]">
-                                  <div className="w-[190px] h-[30px] px-2 flex items-center justify-between rounded-lg bg-slate-950 border border-amber-500/60 font-mono font-black text-[11px] text-amber-300 shadow-sm tracking-wider">
-                                    <span className="truncate select-all font-extrabold" title={product.sku}>
+                                {/* SKU CODE (HIGH VISIBILITY BLUE/SKY BADGE WITH BACKGROUND) */}
+                                <td className="py-2 px-2 whitespace-nowrap w-[210px] sticky left-[48px] z-20 bg-slate-950 border-r border-slate-800/80 shadow-[3px_0_8px_rgba(0,0,0,0.6)]">
+                                  <div className="w-[195px] h-[34px] px-2.5 flex items-center justify-between rounded-xl bg-slate-900 border-2 border-sky-400/90 font-mono font-black text-[12px] text-sky-200 shadow-md tracking-wider">
+                                    <span className="truncate select-all font-black text-white" title={product.sku}>
                                       {product.sku}
                                     </span>
                                     <button
                                       onClick={() => handleCopySku(product.sku)}
                                       title="Copy SKU Code"
-                                      className="p-0.5 rounded hover:bg-slate-800 text-slate-400 hover:text-white flex-shrink-0 ml-1"
+                                      className="p-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex-shrink-0 ml-1.5 transition"
                                     >
                                       {copiedSku === product.sku ? (
-                                        <Check className="w-3 h-3 text-emerald-400 stroke-[3]" />
+                                        <Check className="w-3.5 h-3.5 text-emerald-400 stroke-[3]" />
                                       ) : (
-                                        <Copy className="w-3 h-3" />
+                                        <Copy className="w-3.5 h-3.5" />
                                       )}
                                     </button>
                                   </div>
                                 </td>
 
-                                {/* STYLE CATEGORY (COMPACT WITH SMALL PHOTO) */}
-                                <td className="py-1.5 px-2.5">
-                                  <div className="flex items-center gap-2">
-                                    {product.imageUrl && (
+                                {/* STYLE CATEGORY (LEFT: BIGGER IMAGE, RIGHT: STYLE CATEGORY & PRICE ONLY) */}
+                                <td className="py-2 px-2.5 min-w-[220px]">
+                                  <div className="flex items-center gap-3">
+                                    {product.imageUrl ? (
                                       <img
                                         src={product.imageUrl}
-                                        alt={product.name}
+                                        alt={product.styleCategory || product.sku}
                                         loading="lazy"
-                                        className="w-7 h-7 rounded-lg object-cover border border-slate-700 bg-slate-950 flex-shrink-0 shadow-sm"
+                                        className="w-14 h-14 rounded-xl object-cover border border-slate-600 bg-slate-950 flex-shrink-0 shadow-md"
                                         onError={(e) => { e.target.style.display = 'none'; }}
                                       />
+                                    ) : (
+                                      <div className="w-14 h-14 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-400 text-lg flex-shrink-0">
+                                        📦
+                                      </div>
                                     )}
 
-                                    <div className="min-w-0 leading-tight">
-                                      <div className="text-[11px] font-black text-amber-300 tracking-wide uppercase truncate max-w-[160px]">
-                                        {product.styleCategory || "Block Heels"}
+                                    <div className="min-w-0 leading-snug">
+                                      <div className="text-[13px] font-black text-white tracking-wide uppercase truncate max-w-[170px]" title={product.styleCategory}>
+                                        {product.styleCategory || "Footwear"}
                                       </div>
-                                      <div className="text-[10px] font-medium text-slate-400 truncate max-w-[150px]" title={product.name}>
-                                        {product.name}
-                                      </div>
-                                      <div className="flex items-center gap-1.5 mt-0.5">
-                                        <span className="text-[10px] font-black text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-1.5 py-0.2 rounded">
+                                      <div className="mt-1">
+                                        <span className="text-[12px] font-black text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-md inline-block">
                                           ₹{Number(product.sellingPrice || 0).toLocaleString('en-IN')}
                                         </span>
-                                        <span className="text-[9px] uppercase font-bold text-slate-500">{product.brand}</span>
                                       </div>
                                     </div>
                                   </div>
@@ -525,12 +525,12 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                         </tbody>
 
                         {/* CATEGORY TOTAL FOOTER ROW (STICKY BOTTOM + STICKY LEFT) */}
-                        <tfoot className="sticky bottom-0 z-30 bg-slate-950/98 backdrop-blur-md border-t-2 border-amber-500/40 text-[11px] font-black text-white shadow-[-1px_-4px_10px_rgba(0,0,0,0.5)]">
+                        <tfoot className="sticky bottom-0 z-30 bg-slate-950/98 backdrop-blur-md border-t-2 border-slate-700 text-[11px] font-black text-white shadow-[-1px_-4px_10px_rgba(0,0,0,0.5)]">
                           <tr>
-                            <td className="py-2 px-2 text-center font-mono text-amber-400 sticky left-0 z-40 bg-slate-950 border-r border-slate-800 shadow-[2px_0_5px_rgba(0,0,0,0.5)]">
+                            <td className="py-2 px-2 text-center font-mono text-slate-400 sticky left-0 z-40 bg-slate-950 border-r border-slate-800 shadow-[2px_0_5px_rgba(0,0,0,0.5)]">
                               TOTAL
                             </td>
-                            <td className="py-2 px-2 font-mono text-amber-300 uppercase tracking-wider sticky left-[48px] z-40 bg-slate-950 border-r border-slate-800 shadow-[3px_0_8px_rgba(0,0,0,0.6)]">
+                            <td className="py-2 px-2 font-mono text-sky-300 uppercase tracking-wider sticky left-[48px] z-40 bg-slate-950 border-r border-slate-800 shadow-[3px_0_8px_rgba(0,0,0,0.6)]">
                               {items.length} Models
                             </td>
                             <td className="py-2 px-2 text-slate-400 font-bold uppercase tracking-wide">
@@ -586,46 +586,47 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                             key={product.id}
                             className="bg-slate-900/95 border border-slate-800 rounded-3xl p-4 shadow-2xl space-y-3 relative overflow-hidden"
                           >
-                            {/* TOP PROMINENT SKU BANNER (PRIMARY FOCUS) */}
-                            <div className="flex items-center justify-between px-3.5 py-2 rounded-2xl bg-slate-950 border-2 border-amber-500/60 shadow-lg shadow-amber-500/10">
+                            {/* TOP PROMINENT SKU BANNER (PRIMARY FOCUS - HIGH VISIBILITY) */}
+                            <div className="flex items-center justify-between px-3.5 py-2.5 rounded-2xl bg-slate-950 border-2 border-sky-400 shadow-lg shadow-sky-500/10">
                               <div className="flex items-center gap-2">
-                                <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-amber-500 text-slate-950">SKU</span>
-                                <span className="font-mono text-sm sm:text-base font-black text-amber-300 tracking-wider select-all">{product.sku}</span>
+                                <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-sky-400 text-slate-950">SKU</span>
+                                <span className="font-mono text-sm sm:text-base font-black text-white tracking-wider select-all">{product.sku}</span>
                               </div>
                               <button
                                 onClick={() => handleCopySku(product.sku)}
-                                className="p-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white active:scale-95 transition"
+                                className="p-1.5 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 hover:text-white active:scale-95 transition"
                                 title="Copy SKU"
                               >
                                 {copiedSku === product.sku ? <Check className="w-4 h-4 text-emerald-400 stroke-[3]" /> : <Copy className="w-4 h-4" />}
                               </button>
                             </div>
 
-                            <div className="flex gap-3 items-center">
-                              {product.imageUrl && (
+                            {/* IMAGE ON LEFT, STYLE CATEGORY & PRICE ON RIGHT (NO ARTICLE NAME, NO BRAND) */}
+                            <div className="flex gap-4 items-center">
+                              {product.imageUrl ? (
                                 <img
                                   src={product.imageUrl}
-                                  alt={product.name}
+                                  alt={product.styleCategory || product.sku}
                                   loading="lazy"
-                                  className="w-20 h-20 rounded-2xl object-cover border border-slate-700 bg-slate-950 shadow-md flex-shrink-0"
+                                  className="w-24 h-24 rounded-2xl object-cover border-2 border-slate-700 bg-slate-950 shadow-lg flex-shrink-0"
                                   onError={(e) => { e.target.style.display = 'none'; }}
                                 />
+                              ) : (
+                                <div className="w-24 h-24 rounded-2xl bg-slate-800 border-2 border-slate-700 flex items-center justify-center text-slate-500 text-2xl flex-shrink-0">
+                                  📦
+                                </div>
                               )}
-                            <div className="flex-1 min-w-0">
-                              <div className="text-base font-black text-amber-300 uppercase tracking-wide">
-                                {product.styleCategory || "Block Heels"}
-                              </div>
-                              <div className="text-xs font-bold text-white truncate mt-0.5">
-                                {product.name}
-                              </div>
-                              <div className="mt-1 flex items-center gap-2">
-                                <span className="text-sm font-black text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-lg">
-                                  ₹{Number(product.sellingPrice || 0).toLocaleString('en-IN')}
-                                </span>
-                                <span className="text-xs text-slate-400 font-bold uppercase">{product.brand}</span>
+                              <div className="flex-1 min-w-0">
+                                <div className="text-base sm:text-lg font-black text-white uppercase tracking-wide">
+                                  {product.styleCategory || "Footwear"}
+                                </div>
+                                <div className="mt-2">
+                                  <span className="text-sm sm:text-base font-black text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 rounded-xl inline-block">
+                                    ₹{Number(product.sellingPrice || 0).toLocaleString('en-IN')}
+                                  </span>
+                                </div>
                               </div>
                             </div>
-                          </div>
 
                           {/* COLOR & DISPLAY ROW */}
                           <div className="p-2.5 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">

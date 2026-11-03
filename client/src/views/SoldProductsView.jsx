@@ -325,10 +325,10 @@ export function SoldProductsView() {
                   <th className="py-3.5 px-3 text-center w-14">SR NO</th>
                   <th className="py-3.5 px-3 min-w-[130px]">DATE & TIME</th>
                   {/* PROMINENT SKU CODE COLUMN */}
-                  <th className="py-3.5 px-3 min-w-[180px] text-amber-300 font-black">
+                  <th className="py-3.5 px-3 min-w-[180px] text-sky-300 font-black">
                     <div className="flex items-center gap-1.5">
                       <span>SKU CODE</span>
-                      <span className="text-[9px] uppercase px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">MAIN</span>
+                      <span className="text-[9px] uppercase px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-500/30">MAIN</span>
                     </div>
                   </th>
                   <th className="py-3.5 px-3 min-w-[180px]">PRODUCT / STYLE</th>
@@ -372,8 +372,8 @@ export function SoldProductsView() {
 
                       {/* PROMINENT SKU CODE */}
                       <td className="py-3 px-3 whitespace-nowrap">
-                        <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-950 border border-amber-500/50 font-mono font-black text-xs text-amber-300 shadow-sm group-hover:border-amber-400 transition">
-                          <span className="select-all font-bold">{skuCode}</span>
+                        <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 border-2 border-sky-400/90 font-mono font-black text-xs text-sky-200 shadow-md group-hover:border-sky-300 transition">
+                          <span className="select-all font-black text-white">{skuCode}</span>
                           <button
                             onClick={() => handleCopySku(skuCode)}
                             title="Copy SKU Code"

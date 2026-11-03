@@ -63,20 +63,13 @@ export function ProductCard({ product, onEdit, onQuickSale }) {
       
       {/* Top Section */}
       <div className="p-4">
-        {/* Brand, Category Badge & Stock status */}
-        <div className="flex items-center justify-between gap-2 mb-2">
+        {/* Top: SKU & Stock status */}
+        <div className="flex items-center justify-between gap-2 mb-3">
           <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="text-xs font-bold uppercase tracking-wider text-indigo-400">
-              {product.brand || 'Saint G'}
+            <span className="px-2.5 py-1 rounded-xl bg-slate-900 border-2 border-sky-400 text-sky-200 font-mono text-xs font-black tracking-wider shadow-sm select-all flex items-center gap-1">
+              <Barcode className="w-3.5 h-3.5 text-sky-400" />
+              {product.sku}
             </span>
-            <span className={`text-[11px] font-semibold px-2 py-0.5 rounded-md border ${categoryBadgeColors[product.category] || 'bg-slate-700 text-slate-300'}`}>
-              {categoryIcons[product.category] || product.category}
-            </span>
-            {product.styleCategory && (
-              <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-slate-700/60 text-amber-300 border border-slate-600/50">
-                {product.styleCategory}
-              </span>
-            )}
           </div>
 
           <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1 ${
@@ -90,46 +83,39 @@ export function ProductCard({ product, onEdit, onQuickSale }) {
           </span>
         </div>
 
-        {/* Product Name & Details */}
-        <div className="flex gap-3 items-start">
-          {product.imageUrl && (
+        {/* Product Details: Left Image, Right Style Category & Price Only */}
+        <div className="flex gap-3.5 items-center">
+          {product.imageUrl ? (
             <img 
               src={product.imageUrl} 
-              alt={product.name} 
-              className="w-16 h-16 rounded-xl object-cover border border-slate-700/80 bg-slate-900 flex-shrink-0"
+              alt={product.styleCategory || product.sku} 
+              className="w-20 h-20 rounded-2xl object-cover border-2 border-slate-700 bg-slate-900 flex-shrink-0 shadow-md"
               onError={(e) => { e.target.style.display = 'none'; }}
             />
+          ) : (
+            <div className="w-20 h-20 rounded-2xl bg-slate-900 border-2 border-slate-700 flex items-center justify-center text-slate-500 text-2xl flex-shrink-0">
+              📦
+            </div>
           )}
           <div className="flex-1 min-w-0">
-            <h3 className="font-bold text-white text-base leading-snug truncate" title={product.name}>
-              {product.name}
-            </h3>
-            <p className="text-xs text-slate-400 truncate mt-0.5">
-              {product.color && <span>{product.color}</span>}
-              {product.material && <span> &bull; {product.material}</span>}
-            </p>
-            {product.sku && (
-              <p className="text-[11px] font-mono text-slate-500 flex items-center gap-1 mt-0.5">
-                <Barcode className="w-3 h-3" /> {product.sku}
+            <div className="text-base font-black text-white uppercase tracking-wide truncate">
+              {product.styleCategory || 'Footwear'}
+            </div>
+            <div className="mt-2">
+              <span className="text-base font-black text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 rounded-xl inline-block">
+                ₹{Number(product.sellingPrice || 0).toLocaleString('en-IN')}
+              </span>
+            </div>
+            {product.color && (
+              <p className="text-[11px] text-slate-400 truncate mt-1">
+                Color: <span className="text-slate-200 font-semibold">{product.color}</span>
               </p>
             )}
           </div>
         </div>
 
-        {/* Pricing & Margin */}
-        <div className="mt-3.5 pt-3 border-t border-slate-700/50 flex items-center justify-between">
-          <div>
-            <div className="text-lg font-black text-white">
-              ₹{Number(product.sellingPrice || 0).toLocaleString('en-IN')}
-            </div>
-            <div className="text-[11px] text-slate-400 flex items-center gap-1.5">
-              <span>Cost: ₹{Number(product.costPrice || 0).toLocaleString('en-IN')}</span>
-              <span className="text-emerald-400 font-semibold bg-emerald-500/10 px-1.5 py-0.2 rounded">
-                +{profitMargin}% profit
-              </span>
-            </div>
-          </div>
-
+        {/* Bottom Actions */}
+        <div className="mt-3.5 pt-3 border-t border-slate-700/50 flex items-center justify-end">
           <div className="flex items-center gap-1">
             <button
               onClick={() => onEdit(product)}
