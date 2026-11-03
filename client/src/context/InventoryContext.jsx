@@ -1046,23 +1046,35 @@ export function InventoryProvider({ children }) {
 
     const host = window.location.hostname;
     const isLocalDev = window.location.port === '5173' || host === 'localhost' || host === '127.0.0.1';
-    const apiUrl = isLocalDev ? `http://${host}:5000` : '';
+    
+    // Priority order for sync endpoints (Express backend, Netlify function proxy, then direct fallback)
+    const syncEndpoints = [];
+    if (isLocalDev) {
+      syncEndpoints.push(`http://${host}:5000/api/sync/googlesheet`);
+    }
+    syncEndpoints.push('/api/sync/googlesheet');
+    syncEndpoints.push('/.netlify/functions/sync-sheets');
 
-    if (apiUrl) {
+    let syncError = null;
+    for (const endpoint of syncEndpoints) {
       try {
-        const res = await fetch(`${apiUrl}/api/sync/googlesheet`, {
+        const res = await fetch(endpoint, {
           method: 'POST',
           headers: getAuthHeaders(),
           body: JSON.stringify({ webhookUrl: cleanWebhookUrl, payload })
         });
-        const data = await res.json();
-        if (res.ok && !data.error) return data;
-      } catch (srvErr) {
-        console.warn('Backend sync failed, falling back to direct browser post:', srvErr);
+        if (res.ok) {
+          const data = await res.json();
+          if (data && !data.error) {
+            return data;
+          }
+        }
+      } catch (err) {
+        syncError = err;
       }
     }
 
-    // Direct browser post to Google Apps Script Webhook (works on Netlify and mobile)
+    // Direct browser fallback if proxy is unreachable
     try {
       await fetch(cleanWebhookUrl, {
         method: 'POST',
@@ -1070,9 +1082,9 @@ export function InventoryProvider({ children }) {
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(payload)
       });
-      return { success: true, message: 'Google Sheet updated successfully!' };
+      return { success: true, message: 'Google Sheet sync request sent directly to Apps Script!' };
     } catch (err) {
-      throw new Error('Google Sheet sync error: ' + err.message);
+      throw new Error('Google Sheet sync error: ' + (err.message || syncError?.message || 'Failed'));
     }
   }, [inventory, sales, warehouseSends, replenishments, getAuthHeaders]);
 

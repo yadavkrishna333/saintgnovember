@@ -779,8 +779,40 @@ export function getStats(userId) {
     totalStockCount += pStock;
     totalRetailValue += pStock * (p.sellingPrice || 0);
 
-    const isFootwear = p.category === 'women_footwear' || p.category === 'men_footwear';
-    if (isFootwear && pStock < 7) {
+    const cat = p.category || '';
+    let standardSizes = [];
+    if (cat === 'women_footwear') {
+      standardSizes = ['36', '37', '38', '39', '40', '41'];
+      if (Number(p.sizes?.['35'] || 0) > 0) standardSizes.unshift('35');
+    } else if (cat === 'men_footwear') {
+      standardSizes = ['40', '41', '42', '43', '44', '45'];
+    } else if (cat === 'men_jacket' || cat === 'women_jacket') {
+      standardSizes = ['S', 'M', 'L', 'XL', 'XXL'];
+    } else if (cat === 'bags') {
+      standardSizes = ['One Size'];
+    } else {
+      standardSizes = Object.keys(p.sizes || {});
+    }
+
+    const neededSizes = [];
+    standardSizes.forEach(s => {
+      const cur = Number(p.sizes?.[s] || 0);
+      let req = 1;
+      if (cat === 'women_footwear' && s === '37') req = 2;
+      else if (cat === 'men_footwear' && s === '41') req = 2;
+      else if ((cat === 'men_jacket' || cat === 'women_jacket') && s === 'M') req = 2;
+
+      if (cur < req) {
+        neededSizes.push({
+          size: s,
+          current: cur,
+          required: req,
+          deficit: req - cur
+        });
+      }
+    });
+
+    if (neededSizes.length > 0) {
       footwearLowAlertCount++;
       footwearAlertItems.push({
         id: p.id,
@@ -789,7 +821,8 @@ export function getStats(userId) {
         category: p.category,
         styleCategory: p.styleCategory || p.name,
         totalStock: pStock,
-        color: p.color
+        color: p.color,
+        neededSizes
       });
     }
   });

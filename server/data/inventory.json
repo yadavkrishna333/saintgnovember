@@ -4076,11 +4076,11 @@
     "costPrice": 4500,
     "sellingPrice": 8999,
     "sizes": {
-      "S": 2,
-      "M": 4,
-      "L": 2,
-      "XL": 2,
-      "XXL": 2
+      "S": 1,
+      "M": 2,
+      "L": 1,
+      "XL": 1,
+      "XXL": 1
     },
     "displaySize": "M",
     "imageUrl": "",
@@ -4338,29 +4338,6 @@
     "displaySize": "M",
     "imageUrl": "",
     "notes": "Batch added JK-M-47-DARK-GREY",
-    "createdAt": "2026-11-02T17:03:16.585Z",
-    "updatedAt": "2026-11-02T17:03:16.585Z"
-  },
-  {
-    "id": "prod-men-jk-m-55-black",
-    "sku": "JK-M-55-BLACK",
-    "name": "Article JK-M-55-BLACK",
-    "brand": "Saint G",
-    "category": "men_jacket",
-    "styleCategory": "Leather Jacket",
-    "color": "Black",
-    "costPrice": 4500,
-    "sellingPrice": 8999,
-    "sizes": {
-      "S": 0,
-      "M": 1,
-      "L": 0,
-      "XL": 0,
-      "XXL": 0
-    },
-    "displaySize": "M",
-    "imageUrl": "",
-    "notes": "Batch added JK-M-55-BLACK",
     "createdAt": "2026-11-02T17:03:16.585Z",
     "updatedAt": "2026-11-02T17:03:16.585Z"
   },

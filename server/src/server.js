@@ -317,36 +317,7 @@ app.delete('/api/sales/:id', (req, res) => {
   }
 });
 
-// Google Sheets Sync
-app.post('/api/sync/googlesheet', async (req, res) => {
-  const userId = extractUserId(req);
-  const { webhookUrl } = req.body;
-  if (!webhookUrl) return res.status(400).json({ error: 'Google Sheet Webhook URL is required' });
 
-  try {
-    const payload = req.body.payload || {
-      appName: "KY INVENTORY",
-      targetSpreadsheetId: "1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE",
-      syncedAt: new Date().toISOString(),
-      inventory: getAllProducts(userId),
-      sales: getAllSales(userId),
-      warehouseSends: getAllWarehouseSends(userId),
-      replenishments: getAllReplenishments(userId),
-      stats: getStats(userId)
-    };
-
-    const response = await fetch(webhookUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-
-    const responseText = await response.text();
-    res.json({ success: true, message: 'Synced to Google Sheet successfully', data: responseText });
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to sync to Google Sheet: ' + err.message });
-  }
-});
 
 // Supabase Cloud Sync
 app.post('/api/sync/supabase', async (req, res) => {
@@ -413,7 +384,10 @@ app.post('/api/sync/googlesheet', async (req, res) => {
       targetSpreadsheetId: '1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE',
       syncedAt: new Date().toISOString(),
       inventory: getAllProducts(userId),
-      sales: getAllSales(userId)
+      sales: getAllSales(userId),
+      warehouseSends: getAllWarehouseSends(userId),
+      replenishments: getAllReplenishments(userId),
+      stats: getStats(userId)
     };
 
     if (!cleanPayload.sales || cleanPayload.sales.length === 0) {
@@ -428,10 +402,13 @@ app.post('/api/sync/googlesheet', async (req, res) => {
       }];
     }
 
+    console.log(`[GoogleSheetSync] Sending ${cleanPayload.inventory?.length || 0} products & ${cleanPayload.sales?.length || 0} sales to Google Sheet...`);
+
     const gRes = await fetch(webhookUrl.trim(), {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(cleanPayload)
+      body: JSON.stringify(cleanPayload),
+      redirect: 'follow'
     });
 
     const text = await gRes.text();
@@ -442,10 +419,11 @@ app.post('/api/sync/googlesheet', async (req, res) => {
       data = { raw: text };
     }
 
+    console.log(`[GoogleSheetSync] Success! Status: ${gRes.status}, Response:`, JSON.stringify(data).slice(0, 150));
     res.json({ success: true, ...data });
   } catch (err) {
-    console.error('Google Sheet Sync Error:', err);
-    res.status(500).json({ error: err.message });
+    console.error('[GoogleSheetSync] Sync Error:', err);
+    res.status(500).json({ error: 'Failed to update Google Sheet: ' + err.message });
   }
 });
 

@@ -4,6 +4,12 @@
   publish = "dist"
 
 [[redirects]]
+  from = "/api/sync/googlesheet"
+  to = "/.netlify/functions/sync-sheets"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+

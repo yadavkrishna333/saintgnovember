@@ -65,6 +65,17 @@ function syncNow() {
 }
 
 // 2. WEB APP / 1-CLICK SYNC FROM APP
+function doGet(e) {
+  try {
+    var res = syncNow();
+    return ContentService.createTextOutput(JSON.stringify(res))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch(err) {
+    return ContentService.createTextOutput(JSON.stringify({ status: "error", error: err.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
 function doPost(e) {
   try {
     var raw = e && e.postData && e.postData.contents;
@@ -140,7 +151,13 @@ function populateSpreadsheet(ss, inventory, sales) {
     if (allRows.length > 2) {
       sheet.getRange(2, 2, allRows.length - 2, 1).setHorizontalAlignment("left");
     }
-    sheet.autoResizeColumns(1, headers.length);
+    
+    // Fast column widths instead of slow autoResizeColumns
+    sheet.setColumnWidth(1, 75);
+    sheet.setColumnWidth(2, 220);
+    for (var c = 3; c <= headers.length; c++) {
+      sheet.setColumnWidth(c, 60);
+    }
   }
 
   // 1. Women Footwear
@@ -195,19 +212,30 @@ function populateSpreadsheet(ss, inventory, sales) {
     salesSheet.getRange(1, 1, salesRows.length, 5).setHorizontalAlignment("center");
     salesSheet.getRange(2, 2, salesRows.length - 1, 1).setHorizontalAlignment("left");
     
-    for (var i = 0; i < statusColors.length; i++) {
-      var rowIdx = i + 2;
-      var bg = statusColors[i];
-      var fg = bg === "#fee2e2" ? "#b91c1c" : "#15803d";
-      salesSheet.getRange(rowIdx, 5).setBackground(bg).setFontColor(fg).setFontWeight("bold");
+    // Batch color formatting in one call
+    if (statusColors.length > 0) {
+      var bgMatrix = statusColors.map(function(c) { return [c]; });
+      var fgMatrix = statusColors.map(function(c) { return [c === "#fee2e2" ? "#b91c1c" : "#15803d"]; });
+      var statusRange = salesSheet.getRange(2, 5, statusColors.length, 1);
+      statusRange.setBackgrounds(bgMatrix);
+      statusRange.setFontColors(fgMatrix);
+      statusRange.setFontWeight("bold");
     }
-    salesSheet.autoResizeColumns(1, 5);
+    salesSheet.setColumnWidth(1, 150);
+    salesSheet.setColumnWidth(2, 220);
+    salesSheet.setColumnWidth(3, 110);
+    salesSheet.setColumnWidth(4, 70);
+    salesSheet.setColumnWidth(5, 140);
   } else {
     var placeholderRows = [salesHeaders, ["-", "No sales recorded yet", "-", "-", "-"]];
     salesSheet.getRange(1, 1, 2, 5).setValues(placeholderRows);
     salesSheet.getRange(1, 1, 1, 5).setFontWeight("bold").setBackground("#1e293b").setFontColor("#ffffff");
     salesSheet.getRange(1, 1, 2, 5).setHorizontalAlignment("center");
-    salesSheet.autoResizeColumns(1, 5);
+    salesSheet.setColumnWidth(1, 150);
+    salesSheet.setColumnWidth(2, 220);
+    salesSheet.setColumnWidth(3, 110);
+    salesSheet.setColumnWidth(4, 70);
+    salesSheet.setColumnWidth(5, 140);
   }
 
   return {

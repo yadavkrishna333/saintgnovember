@@ -20,7 +20,9 @@ import {
   Flame,
   Filter,
   CheckCircle2,
-  Sparkles
+  Sparkles,
+  Search,
+  AlertCircle
 } from 'lucide-react';
 
 export function DashboardView({ onOpenAddModal, onOpenQuickSale, onOpenReplenish }) {
@@ -322,13 +324,90 @@ export function DashboardView({ onOpenAddModal, onOpenQuickSale, onOpenReplenish
     };
   }, [targetSales]);
 
-  // Footwear items with less than 7 units
-  const footwearAlerts = inventory.filter(p => {
-    const isFootwear = p.category === 'women_footwear' || p.category === 'men_footwear';
-    if (!isFootwear) return false;
-    const total = Object.values(p.sizes || {}).reduce((s, q) => s + (Number(q) || 0), 0);
-    return total < 7;
-  });
+  // Filter controls for stock replenishment alert
+  const [stockAlertCategory, setStockAlertCategory] = useState('all');
+  const [stockAlertSearch, setStockAlertSearch] = useState('');
+
+  // Detailed stock requiring calculation (identifies exact missing/needed sizes)
+  // User Rule: Women 37 requires 2 pieces; all other footwear & standard sizes require 1 piece; Jackets M requires 2 pieces.
+  const stockRequiringItems = useMemo(() => {
+    return (inventory || []).map(p => {
+      const cat = p.category || '';
+      let standardSizes = [];
+
+      if (cat === 'women_footwear') {
+        // Standard set for women footwear: 36 to 41. (Size 35 checked only if item has size 35 in catalog)
+        standardSizes = ['36', '37', '38', '39', '40', '41'];
+        if (Number(p.sizes?.['35'] || 0) > 0) {
+          standardSizes.unshift('35');
+        }
+      } else if (cat === 'men_footwear') {
+        standardSizes = ['40', '41', '42', '43', '44', '45'];
+      } else if (cat === 'men_jacket' || cat === 'women_jacket') {
+        standardSizes = ['S', 'M', 'L', 'XL', 'XXL'];
+      } else if (cat === 'bags') {
+        standardSizes = ['One Size'];
+      } else {
+        standardSizes = Object.keys(p.sizes || {});
+      }
+
+      const neededSizes = [];
+      standardSizes.forEach(s => {
+        const cur = Number(p.sizes?.[s] || 0);
+        let req = 1;
+
+        // User explicit rule: 37 2 chiye hmesa yaad rkhna, 1 he to bhi require me dalo, 2 he to koi na
+        if (cat === 'women_footwear' && s === '37') {
+          req = 2;
+        } else if (cat === 'men_footwear' && s === '41') {
+          req = 2;
+        } else if ((cat === 'men_jacket' || cat === 'women_jacket') && s === 'M') {
+          req = 2;
+        }
+
+        if (cur < req) {
+          const deficit = req - cur;
+          neededSizes.push({
+            size: s,
+            current: cur,
+            required: req,
+            deficit,
+            label: req > 1 ? `${s} (Need ${deficit})` : `${s}`
+          });
+        }
+      });
+
+      const totalStock = Object.values(p.sizes || {}).reduce((sum, q) => sum + (Number(q) || 0), 0);
+
+      return {
+        ...p,
+        totalStock,
+        neededSizes,
+        hasMissingSizes: neededSizes.length > 0
+      };
+    }).filter(p => p.hasMissingSizes);
+  }, [inventory]);
+
+  // Filtered by category and search
+  const filteredStockAlerts = useMemo(() => {
+    return stockRequiringItems.filter(p => {
+      if (stockAlertCategory !== 'all' && p.category !== stockAlertCategory) return false;
+      if (stockAlertSearch.trim()) {
+        const q = stockAlertSearch.toLowerCase().trim();
+        return (
+          p.sku?.toLowerCase().includes(q) ||
+          p.styleCategory?.toLowerCase().includes(q) ||
+          p.name?.toLowerCase().includes(q) ||
+          p.color?.toLowerCase().includes(q) ||
+          p.neededSizes.some(ns => ns.size.toLowerCase().includes(q))
+        );
+      }
+      return true;
+    });
+  }, [stockRequiringItems, stockAlertCategory, stockAlertSearch]);
+
+  // Backward compatibility alias for any existing reference
+  const footwearAlerts = stockRequiringItems.filter(p => p.category === 'women_footwear' || p.category === 'men_footwear');
 
   return (
     <div className="space-y-6">
@@ -765,64 +844,160 @@ export function DashboardView({ onOpenAddModal, onOpenQuickSale, onOpenReplenish
             <p className="text-[11px] text-slate-500 mt-1">Live store retail valuation</p>
           </div>
 
-          {/* Footwear Alert */}
+          {/* Stock Requiring Alert Card */}
           <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 sm:p-5 relative overflow-hidden group hover:border-slate-700 transition">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Footwear Stock Alert</span>
+              <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Stock Requiring Alert</span>
               <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${
-                footwearAlerts.length > 0 ? 'bg-amber-500/20 border border-amber-500/40 text-amber-400' : 'bg-slate-800 text-slate-400'
+                stockRequiringItems.length > 0 ? 'bg-amber-500/20 border border-amber-500/40 text-amber-400' : 'bg-slate-800 text-slate-400'
               }`}>
                 <AlertTriangle className="w-5 h-5" />
               </div>
             </div>
             <div className="mt-3 flex items-baseline gap-2">
-              <span className="text-2xl sm:text-3xl font-black text-amber-300">{footwearAlerts.length}</span>
-              <span className="text-xs text-slate-400">models &lt; 7 left</span>
+              <span className="text-2xl sm:text-3xl font-black text-amber-300">{stockRequiringItems.length}</span>
+              <span className="text-xs text-slate-400">models need sizes</span>
             </div>
-            <p className="text-[11px] text-amber-400/80 mt-1 font-medium">Standard set is incomplete</p>
+            <p className="text-[11px] text-amber-400/80 mt-1 font-medium">Missing sizes / Size 37 &lt; 2</p>
           </div>
 
         </div>
 
-        {/* Footwear Urgent Replenishment Alert Box (< 7) */}
-        {footwearAlerts.length > 0 && (
-          <div className="bg-amber-950/20 border border-amber-500/30 rounded-3xl p-5 shadow-xl">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-3">
-              <div className="flex items-center gap-2">
-                <AlertTriangle className="w-5 h-5 text-amber-400" />
-                <h2 className="text-base font-black text-white">
-                  Footwear Requiring Stock Replenishment ({footwearAlerts.length} Models &lt; 7 units)
-                </h2>
+        {/* Stock Requiring Replenishment Box (Detailed Needed Sizes Display) */}
+        {stockRequiringItems.length > 0 && (
+          <div className="bg-amber-950/20 border border-amber-500/30 rounded-3xl p-4 sm:p-6 shadow-xl space-y-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <div className="flex items-center gap-2.5">
+                <div className="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 flex-shrink-0">
+                  <AlertTriangle className="w-5 h-5" />
+                </div>
+                <div>
+                  <h2 className="text-base sm:text-lg font-black text-white flex items-center gap-2">
+                    <span>Stock Requiring Replenishment</span>
+                    <span className="text-xs font-bold font-mono px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                      {filteredStockAlerts.length} Models
+                    </span>
+                  </h2>
+                  <p className="text-xs text-slate-400">
+                    आर्टिकल्स जिनके साइज़ इन्वेंटरी में खत्म या कम हैं (Rule: 37 के कम से कम 2 पीस चाहिए)
+                  </p>
+                </div>
               </div>
-              <span className="text-xs text-slate-400">
-                Baseline set: 36 (1), 37 (2), 38-41 (1 each)
-              </span>
+
+              {/* Quick Search inside Requiring Box */}
+              <div className="relative w-full sm:w-64">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
+                <input
+                  type="text"
+                  value={stockAlertSearch}
+                  onChange={(e) => setStockAlertSearch(e.target.value)}
+                  placeholder="Search code or size (e.g. 36, 37)..."
+                  className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs placeholder:text-slate-500 focus:outline-none focus:border-amber-500"
+                />
+                {stockAlertSearch && (
+                  <button
+                    onClick={() => setStockAlertSearch('')}
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] text-slate-400 hover:text-white"
+                  >
+                    ✕
+                  </button>
+                )}
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
-              {footwearAlerts.map(item => {
-                const total = Object.values(item.sizes || {}).reduce((s, q) => s + (Number(q) || 0), 0);
-                return (
-                  <div 
-                    key={item.id}
-                    className="p-3 rounded-2xl bg-slate-950/80 border border-slate-800 flex items-center justify-between gap-2"
-                  >
-                    <div className="min-w-0">
-                      <span className="text-xs font-mono font-bold text-amber-300 block">{item.sku}</span>
-                      <span className="text-xs font-black text-white truncate block">{item.styleCategory || item.name}</span>
-                      <span className="text-[11px] text-slate-400">{item.color} &bull; <strong className="text-rose-400">{total} pairs left</strong></span>
-                    </div>
+            {/* Category Filter Tabs */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar text-xs">
+              <button
+                onClick={() => setStockAlertCategory('all')}
+                className={`px-3 py-1.5 rounded-xl font-bold transition whitespace-nowrap flex items-center gap-1.5 ${
+                  stockAlertCategory === 'all'
+                    ? 'bg-amber-500 text-slate-950 shadow-md font-black'
+                    : 'bg-slate-900 border border-slate-800 text-slate-300 hover:text-white'
+                }`}
+              >
+                <span>All Required</span>
+                <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-slate-950/40">{stockRequiringItems.length}</span>
+              </button>
 
-                    <button
-                      onClick={() => onOpenReplenish(item)}
-                      className="px-2.5 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500 text-amber-400 hover:text-slate-950 text-xs font-bold border border-amber-500/30 transition active:scale-95 flex-shrink-0"
-                    >
-                      + Replenish
-                    </button>
-                  </div>
+              {categories.map(cat => {
+                const count = stockRequiringItems.filter(p => p.category === cat.id).length;
+                if (count === 0) return null;
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => setStockAlertCategory(cat.id)}
+                    className={`px-3 py-1.5 rounded-xl font-bold transition whitespace-nowrap flex items-center gap-1.5 ${
+                      stockAlertCategory === cat.id
+                        ? 'bg-amber-500 text-slate-950 shadow-md font-black'
+                        : 'bg-slate-900 border border-slate-800 text-slate-300 hover:text-white'
+                    }`}
+                  >
+                    <span>{cat.icon || '📦'} {cat.label}</span>
+                    <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-slate-950/40">{count}</span>
+                  </button>
                 );
               })}
             </div>
+
+            {/* Items Grid with Detailed Needed Sizes */}
+            {filteredStockAlerts.length === 0 ? (
+              <div className="p-6 text-center text-slate-500 bg-slate-950/60 rounded-2xl border border-slate-800 text-xs">
+                No items matching your search filter.
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {filteredStockAlerts.map(item => (
+                  <div 
+                    key={item.id}
+                    className="p-3.5 rounded-2xl bg-slate-950/90 border border-slate-800/90 hover:border-amber-500/40 flex flex-col justify-between gap-3 transition shadow-md group"
+                  >
+                    <div>
+                      {/* Top Bar: SKU & Replenish button */}
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="min-w-0">
+                          <span className="text-xs font-mono font-black text-amber-300 tracking-wide block truncate">
+                            {item.sku}
+                          </span>
+                          <span className="text-xs font-bold text-white block truncate">
+                            {item.styleCategory || item.name}
+                          </span>
+                          <span className="text-[11px] text-slate-400">
+                            {item.color} &bull; <span className="text-slate-300 font-semibold">{item.totalStock} pcs in store</span>
+                          </span>
+                        </div>
+
+                        <button
+                          onClick={() => onOpenReplenish(item)}
+                          className="px-2.5 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500 text-amber-400 hover:text-slate-950 text-xs font-black border border-amber-500/30 transition active:scale-95 flex-shrink-0"
+                          title="Stock Add / Replenish Karein"
+                        >
+                          + Replenish
+                        </button>
+                      </div>
+
+                      {/* Explicit Needed Sizes Tag List */}
+                      <div className="mt-3 pt-2.5 border-t border-slate-800/80">
+                        <div className="text-[11px] font-bold text-rose-400 mb-1.5 flex items-center gap-1">
+                          <AlertCircle className="w-3.5 h-3.5 text-rose-400 flex-shrink-0" />
+                          <span>Needed Sizes (साइज़ चाहिए):</span>
+                        </div>
+                        <div className="flex flex-wrap gap-1.5">
+                          {item.neededSizes.map(ns => (
+                            <span 
+                              key={ns.size} 
+                              className="px-2 py-0.5 rounded-lg text-xs font-mono font-black bg-rose-500/20 text-rose-300 border border-rose-500/40 shadow-sm flex items-center gap-1"
+                            >
+                              <span className="w-1.5 h-1.5 rounded-full bg-rose-400"></span>
+                              <span>{ns.label}</span>
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         )}
 
