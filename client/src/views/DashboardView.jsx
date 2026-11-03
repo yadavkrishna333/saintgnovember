@@ -952,38 +952,57 @@ export function DashboardView({ onOpenAddModal, onOpenQuickSale, onOpenReplenish
                     className="p-3.5 rounded-2xl bg-slate-950/90 border border-slate-800/90 hover:border-amber-500/40 flex flex-col justify-between gap-3 transition shadow-md group"
                   >
                     <div>
-                      {/* Top Bar: SKU, Image & Replenish button */}
-                      <div className="flex items-start justify-between gap-2">
-                        <div className="flex items-center gap-2.5 min-w-0">
-                          {item.imageUrl && (
-                            <img
-                              src={item.imageUrl}
-                              alt={item.styleCategory || item.sku}
-                              className="w-12 h-12 rounded-xl object-cover border border-slate-700 bg-slate-900 flex-shrink-0"
-                              onError={(e) => { e.target.style.display = 'none'; }}
-                            />
-                          )}
-                          <div className="min-w-0">
-                            <span className="px-2 py-0.5 rounded-lg bg-slate-900 border border-sky-400 text-sky-200 text-xs font-mono font-black tracking-wide inline-block truncate select-all">
-                              {item.sku}
-                            </span>
-                            <span className="text-xs font-black text-white block truncate uppercase mt-0.5">
-                              {item.styleCategory || item.name}
-                            </span>
-                            <span className="text-[11px] text-slate-400">
-                              {item.color} &bull; <span className="text-slate-300 font-semibold">{item.totalStock} pcs in store</span>
-                            </span>
-                          </div>
-                        </div>
+                      {/* Top Bar: SKU Badge & Replenish button */}
+                      <div className="flex items-center justify-between gap-2 mb-2.5">
+                        <span className="px-2.5 py-1 rounded-xl bg-slate-900 border-2 border-sky-400 text-sky-200 text-xs font-mono font-black tracking-wide inline-block truncate select-all shadow-sm">
+                          {item.sku}
+                        </span>
 
                         <button
                           onClick={() => onOpenReplenish(item)}
-                          className="px-2.5 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500 text-amber-400 hover:text-slate-950 text-xs font-black border border-amber-500/30 transition active:scale-95 flex-shrink-0"
+                          className="px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-black shadow-md transition active:scale-95 flex-shrink-0 flex items-center gap-1"
                           title="Stock Add / Replenish Karein"
                         >
                           + Replenish
                         </button>
                       </div>
+
+                      {/* Main Row: Big Wide Image (Like Inventory) on Left, Style Category & Info on Right */}
+                      <div className="flex gap-3.5 items-center">
+                        {item.imageUrl ? (
+                          <div className="w-28 sm:w-32 h-18 sm:h-20 rounded-2xl bg-slate-950 border border-slate-700/80 p-1 flex items-center justify-center flex-shrink-0 shadow-md overflow-hidden">
+                            <img
+                              src={item.imageUrl}
+                              alt={item.styleCategory || item.sku}
+                              loading="lazy"
+                              className="w-full h-full object-contain"
+                              onError={(e) => { e.target.style.display = 'none'; }}
+                            />
+                          </div>
+                        ) : (
+                          <div className="w-28 sm:w-32 h-18 sm:h-20 rounded-2xl bg-slate-900 border border-slate-700/80 flex items-center justify-center text-slate-500 text-xl flex-shrink-0">
+                            📦
+                          </div>
+                        )}
+
+                        <div className="min-w-0 flex-1 leading-snug">
+                          <div className="text-sm font-black text-white uppercase tracking-wide truncate">
+                            {item.styleCategory || item.name}
+                          </div>
+                          {item.sellingPrice ? (
+                            <div className="mt-1">
+                              <span className="text-[11px] font-black text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-md inline-block shadow-sm">
+                                ₹{Number(item.sellingPrice || 0).toLocaleString('en-IN')}
+                              </span>
+                            </div>
+                          ) : null}
+                          <div className="text-[11px] text-slate-400 mt-1 truncate">
+                            {item.color && <span>{item.color} &bull; </span>}
+                            <span className="text-slate-300 font-semibold">{item.totalStock} pcs in store</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
 
                       {/* Explicit Needed Sizes Tag List */}
                       <div className="mt-3 pt-2.5 border-t border-slate-800/80">
@@ -1004,8 +1023,7 @@ export function DashboardView({ onOpenAddModal, onOpenQuickSale, onOpenReplenish
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             )}
           </div>
