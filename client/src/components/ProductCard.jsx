@@ -33,13 +33,23 @@ export function ProductCard({ product, onEdit, onQuickSale }) {
   const categoryIcons = {
     men_footwear: '👟 Men',
     women_footwear: '👠 Women',
-    jacket: '🧥 Jacket'
+    men_jacket: '🧥 Men Jacket',
+    women_jacket: '🧥 Women Jacket',
+    jacket: '🧥 Jacket',
+    bags: '👜 Bags',
+    apparels: '👗 Apparels',
+    sunglasses: '🕶️ Sunglasses'
   };
 
   const categoryBadgeColors = {
     men_footwear: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
     women_footwear: 'bg-pink-500/10 text-pink-400 border-pink-500/20',
-    jacket: 'bg-amber-500/10 text-amber-400 border-amber-500/20'
+    men_jacket: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
+    women_jacket: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
+    jacket: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
+    bags: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
+    apparels: 'bg-violet-500/10 text-violet-400 border-violet-500/20',
+    sunglasses: 'bg-cyan-500/10 text-cyan-400 border-cyan-500/20'
   };
 
   const handleDelete = () => {
@@ -57,11 +67,16 @@ export function ProductCard({ product, onEdit, onQuickSale }) {
         <div className="flex items-center justify-between gap-2 mb-2">
           <div className="flex items-center gap-1.5 flex-wrap">
             <span className="text-xs font-bold uppercase tracking-wider text-indigo-400">
-              {product.brand || 'Brand'}
+              {product.brand || 'Saint G'}
             </span>
             <span className={`text-[11px] font-semibold px-2 py-0.5 rounded-md border ${categoryBadgeColors[product.category] || 'bg-slate-700 text-slate-300'}`}>
               {categoryIcons[product.category] || product.category}
             </span>
+            {product.styleCategory && (
+              <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-slate-700/60 text-amber-300 border border-slate-600/50">
+                {product.styleCategory}
+              </span>
+            )}
           </div>
 
           <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1 ${

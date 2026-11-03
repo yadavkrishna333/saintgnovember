@@ -53,7 +53,9 @@ export function InventoryProvider({ children }) {
     { id: 'men_footwear', label: 'Mens Footwear', sizes: ['40', '41', '42', '43', '44', '45'], icon: '👟', order: 2 },
     { id: 'men_jacket', label: 'Mens Jacket', sizes: ['S', 'M', 'L', 'XL', 'XXL'], icon: '🧥', order: 3 },
     { id: 'women_jacket', label: 'Women Jacket', sizes: ['S', 'M', 'L', 'XL', 'XXL'], icon: '🧥', order: 4 },
-    { id: 'bags', label: 'Bags', sizes: ['Standard'], icon: '👜', order: 5 }
+    { id: 'bags', label: 'Bags', sizes: ['Standard'], icon: '👜', order: 5 },
+    { id: 'apparels', label: 'Apparels', sizes: ['Free Size'], icon: '👗', order: 6 },
+    { id: 'sunglasses', label: 'Sunglasses', sizes: ['Standard'], icon: '🕶️', order: 7 }
   ]);
 
   const [sizesMap, setSizesMap] = useState({
@@ -61,7 +63,9 @@ export function InventoryProvider({ children }) {
     men_footwear: ['40', '41', '42', '43', '44', '45'],
     men_jacket: ['S', 'M', 'L', 'XL', 'XXL'],
     women_jacket: ['S', 'M', 'L', 'XL', 'XXL'],
-    bags: ['Standard']
+    bags: ['Standard'],
+    apparels: ['Free Size'],
+    sunglasses: ['Standard']
   });
 
   const [stats, setStats] = useState({

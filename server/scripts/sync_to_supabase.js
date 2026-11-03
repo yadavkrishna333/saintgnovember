@@ -37,7 +37,7 @@ async function syncAllToSupabase() {
     style_category: p.styleCategory || null,
     color: p.color || null,
     category: p.category || 'women_footwear',
-    brand: p.brand || 'Zara',
+    brand: p.brand || 'Saint G',
     cost_price: Number(p.costPrice || 0),
     selling_price: Number(p.sellingPrice || 0),
     sizes: p.sizes || {},
@@ -64,7 +64,7 @@ async function syncAllToSupabase() {
     console.log(`✅ Uploaded batch ${i + 1} to ${Math.min(i + chunkSize, formattedProducts.length)}`);
   }
 
-  console.log('🎉 All 143 items successfully synchronized to Supabase Cloud Database!');
+  console.log(`🎉 All ${formattedProducts.length} items successfully synchronized to Supabase Cloud Database!`);
 }
 
 syncAllToSupabase().catch(err => {

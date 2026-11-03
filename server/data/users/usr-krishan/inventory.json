@@ -6,10 +6,10 @@
     "name": "Article SG-F-1852-SILVER",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel Low",
     "color": "Silver",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 10500,
+    "sellingPrice": 6500,
     "barcode": "8901230001",
     "sizes": {
       "35": 0,
@@ -20,10 +20,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1852-SILVER.png",
     "notes": "Master list item #1",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.443Z"
+    "updatedAt": "2026-11-03T04:06:46.625Z"
   },
   {
     "displaySize": "37",
@@ -32,10 +32,10 @@
     "name": "Article SG-F-1867-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Ballerina",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 9500,
     "barcode": "8901230002",
     "sizes": {
       "35": 0,
@@ -46,10 +46,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1867-BLACK.png",
     "notes": "Master list item #2",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.445Z"
+    "updatedAt": "2026-11-03T04:06:46.628Z"
   },
   {
     "displaySize": "37",
@@ -58,10 +58,10 @@
     "name": "Article SG-F-1867-OFFWHITE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Ballerina",
     "color": "Off White",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 9500,
     "barcode": "8901230003",
     "sizes": {
       "35": 0,
@@ -72,10 +72,10 @@
       "40": 1,
       "41": 2
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1867-OFF-WHT.png",
     "notes": "Master list item #3",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.445Z"
+    "updatedAt": "2026-11-03T04:06:46.629Z"
   },
   {
     "displaySize": "37",
@@ -84,10 +84,10 @@
     "name": "Article SG-F-1929-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Flats",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 8900,
+    "sellingPrice": 6500,
     "barcode": "8901230004",
     "sizes": {
       "35": 0,
@@ -98,10 +98,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1929-BLACK.png",
     "notes": "Master list item #4",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.445Z"
+    "updatedAt": "2026-11-03T04:06:46.634Z"
   },
   {
     "displaySize": "37",
@@ -110,10 +110,10 @@
     "name": "Article SG-F-1869-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Footbed",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 11500,
+    "sellingPrice": 9000,
     "barcode": "8901230005",
     "sizes": {
       "35": 0,
@@ -124,10 +124,10 @@
       "40": 1,
       "41": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/sg-f-1869-platin.png",
     "notes": "Master list item #5",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.445Z"
+    "updatedAt": "2026-11-03T04:06:46.638Z"
   },
   {
     "displaySize": "37",
@@ -136,10 +136,10 @@
     "name": "Article SG-F-1869-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Footbed",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 11500,
+    "sellingPrice": 8000,
     "barcode": "8901230006",
     "sizes": {
       "35": 0,
@@ -150,10 +150,10 @@
       "40": 1,
       "41": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/sg-f-1869-BLACK.png",
     "notes": "Master list item #6",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.445Z"
+    "updatedAt": "2026-11-03T04:06:46.638Z"
   },
   {
     "displaySize": "37",
@@ -162,10 +162,10 @@
     "name": "Article SG-F-1853-OLDGOLD",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Weding collection",
     "color": "Old Gold",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 13500,
+    "sellingPrice": 9500,
     "barcode": "8901230007",
     "sizes": {
       "35": 0,
@@ -176,10 +176,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1853-N-GOLD.png",
     "notes": "Master list item #7",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.445Z"
+    "updatedAt": "2026-11-03T04:06:46.631Z"
   },
   {
     "displaySize": "37",
@@ -240,10 +240,10 @@
     "name": "Article SG-F-1847-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Flats",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 9500,
+    "sellingPrice": 6600,
     "barcode": "8901230010",
     "sizes": {
       "35": 0,
@@ -254,10 +254,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1847-PLATIN.png",
     "notes": "Master list item #10",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.633Z"
   },
   {
     "displaySize": "37",
@@ -266,10 +266,10 @@
     "name": "Article SG-F-1844-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Wedge Heel",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 10500,
     "barcode": "8901230011",
     "sizes": {
       "35": 1,
@@ -280,10 +280,10 @@
       "40": 1,
       "41": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1844-BLACK.png",
     "notes": "Master list item #11",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.629Z"
   },
   {
     "displaySize": "37",
@@ -292,10 +292,10 @@
     "name": "Article SG-F-1844-STONE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Wedge Heel",
     "color": "Stone",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 10500,
     "barcode": "8901230012",
     "sizes": {
       "35": 0,
@@ -306,10 +306,10 @@
       "40": 1,
       "41": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1844-STONE.png",
     "notes": "Master list item #12",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.629Z"
   },
   {
     "displaySize": "37",
@@ -318,10 +318,10 @@
     "name": "Article SG-F-1822-OFFWHITE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel High",
     "color": "Off White",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12900,
+    "sellingPrice": 9000,
     "barcode": "8901230013",
     "sizes": {
       "35": 0,
@@ -332,10 +332,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1822-OFF-WHITE.png",
     "notes": "Master list item #13",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.621Z"
   },
   {
     "displaySize": "37",
@@ -344,10 +344,10 @@
     "name": "Article SG-F-1845-CORAL",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Wedge Heel",
     "color": "Coral",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 13500,
+    "sellingPrice": 10500,
     "barcode": "8901230014",
     "sizes": {
       "35": 1,
@@ -358,10 +358,10 @@
       "40": 0,
       "41": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1845-CORAL.png",
     "notes": "Master list item #14",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.629Z"
   },
   {
     "displaySize": "37",
@@ -370,10 +370,10 @@
     "name": "Article SG-F-1909-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Weding collection",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 12500,
     "barcode": "8901230015",
     "sizes": {
       "35": 0,
@@ -384,10 +384,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1909-BLACK.png",
     "notes": "Master list item #15",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.633Z"
   },
   {
     "displaySize": "37",
@@ -396,10 +396,10 @@
     "name": "Article SG-F-1856-OLDGOLD",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Flats",
     "color": "Old Gold",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 8500,
+    "sellingPrice": 5900,
     "barcode": "8901230016",
     "sizes": {
       "35": 0,
@@ -410,10 +410,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1856-N-GOLD.png",
     "notes": "Master list item #16",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.634Z"
   },
   {
     "displaySize": "37",
@@ -422,10 +422,10 @@
     "name": "Article SG-F-1874-CORAL",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Flats",
     "color": "Coral",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 9000,
+    "sellingPrice": 6000,
     "barcode": "8901230017",
     "sizes": {
       "35": 0,
@@ -436,10 +436,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1874-CORAL.png",
     "notes": "Master list item #17",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.635Z"
   },
   {
     "displaySize": "37",
@@ -448,10 +448,10 @@
     "name": "Article SG-F-1910-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Stilettos",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 11500,
+    "sellingPrice": 8000,
     "barcode": "8901230018",
     "sizes": {
       "35": 0,
@@ -462,10 +462,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1910-black.png",
     "notes": "Master list item #18",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.629Z"
   },
   {
     "displaySize": "37",
@@ -474,10 +474,10 @@
     "name": "Article SG-F-1910-IVORY",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Stilettos",
     "color": "Ivory",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 11500,
+    "sellingPrice": 8000,
     "barcode": "8901230019",
     "sizes": {
       "35": 0,
@@ -488,10 +488,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1910-IVORY.png",
     "notes": "Master list item #19",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.629Z"
   },
   {
     "displaySize": "37",
@@ -500,10 +500,10 @@
     "name": "Article SG-F-1822-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel High",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12900,
+    "sellingPrice": 9000,
     "barcode": "8901230020",
     "sizes": {
       "35": 0,
@@ -514,10 +514,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1822-PLATIN.png",
     "notes": "Master list item #20",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.621Z"
   },
   {
     "displaySize": "37",
@@ -526,10 +526,10 @@
     "name": "Article SG-F-1864-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Flats",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 8900,
+    "sellingPrice": 8500,
     "barcode": "8901230021",
     "sizes": {
       "35": 0,
@@ -540,10 +540,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1864-PLATIN.png",
     "notes": "Master list item #21",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.635Z"
   },
   {
     "displaySize": "37",
@@ -552,10 +552,10 @@
     "name": "Article SG-F-1836-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel Low",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 10900,
+    "sellingPrice": 7500,
     "barcode": "8901230022",
     "sizes": {
       "35": 0,
@@ -566,10 +566,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1836-PLATIN.png",
     "notes": "Master list item #22",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.623Z"
   },
   {
     "displaySize": "37",
@@ -578,10 +578,10 @@
     "name": "Article SG-F-1836-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel Low",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 10900,
+    "sellingPrice": 6500,
     "barcode": "8901230023",
     "sizes": {
       "35": 0,
@@ -592,10 +592,10 @@
       "40": 1,
       "41": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1836-BLACK.png",
     "notes": "Master list item #23",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.623Z"
   },
   {
     "displaySize": "37",
@@ -604,10 +604,10 @@
     "name": "Article SG-F-1616-BROWN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Flats",
     "color": "Brown",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 8500,
+    "sellingPrice": 8500,
     "barcode": "8901230024",
     "sizes": {
       "35": 0,
@@ -618,10 +618,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1616-BROWN.png",
     "notes": "Master list item #24",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.635Z"
   },
   {
     "displaySize": "37",
@@ -630,10 +630,10 @@
     "name": "Article SG-F-1376-MULTI",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel Low",
     "color": "Multi",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 10900,
+    "sellingPrice": 9500,
     "barcode": "8901230025",
     "sizes": {
       "35": 0,
@@ -644,10 +644,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1376-MULTI.png",
     "notes": "Master list item #25",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.621Z"
   },
   {
     "displaySize": "38",
@@ -656,10 +656,10 @@
     "name": "Article SG-F-1923-GOLD",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Weding collection",
     "color": "Gold",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 10900,
+    "sellingPrice": 7600,
     "barcode": "8901230026",
     "sizes": {
       "35": 0,
@@ -670,10 +670,10 @@
       "40": 0,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1923-GOLD.png",
     "notes": "Master list item #26",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.631Z"
   },
   {
     "displaySize": "37",
@@ -682,10 +682,10 @@
     "name": "Article SG-F-1842-OFFWHITE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel Low",
     "color": "Off White",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 8700,
     "barcode": "8901230027",
     "sizes": {
       "35": 0,
@@ -696,10 +696,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1842-OFF-WHT.png",
     "notes": "Master list item #27",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.622Z"
   },
   {
     "displaySize": "37",
@@ -708,10 +708,10 @@
     "name": "Article SG-F-1842-TAN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel Low",
     "color": "Tan",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 8700,
     "barcode": "8901230028",
     "sizes": {
       "35": 0,
@@ -722,10 +722,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1842-TAN.png",
     "notes": "Master list item #28",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.622Z"
   },
   {
     "displaySize": "37",
@@ -734,10 +734,10 @@
     "name": "Article SG-F-1549-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Pumps",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 14500,
+    "sellingPrice": 10900,
     "barcode": "8901230029",
     "sizes": {
       "35": 0,
@@ -748,10 +748,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1549-BLACK.png",
     "notes": "Master list item #29",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.628Z"
   },
   {
     "displaySize": "37",
@@ -760,10 +760,10 @@
     "name": "Article SG-F-1923-SILVER",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Weding collection",
     "color": "Silver",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 10900,
+    "sellingPrice": 8000,
     "barcode": "8901230030",
     "sizes": {
       "35": 0,
@@ -774,10 +774,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1923-SILVER.png",
     "notes": "Master list item #30",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.631Z"
   },
   {
     "displaySize": "37",
@@ -812,10 +812,10 @@
     "name": "Article SG-F-1885-TAUPE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel High",
     "color": "Taupe",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 14000,
+    "sellingPrice": 9800,
     "barcode": "8901230032",
     "sizes": {
       "35": 0,
@@ -826,10 +826,10 @@
       "40": 0,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1885-TAUPE.png",
     "notes": "Master list item #32",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.621Z"
   },
   {
     "displaySize": "37",
@@ -864,10 +864,10 @@
     "name": "Article SG-F-1863-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel Low",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 10900,
+    "sellingPrice": 7500,
     "barcode": "8901230034",
     "sizes": {
       "35": 0,
@@ -878,10 +878,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1863-PLATIN.png",
     "notes": "Master list item #34",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.622Z"
   },
   {
     "displaySize": "37",
@@ -890,10 +890,10 @@
     "name": "Article SG-F-1863-LIGHTBEIGE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel Low",
     "color": "Light Beige",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 10900,
+    "sellingPrice": 7500,
     "barcode": "8901230035",
     "sizes": {
       "35": 0,
@@ -904,10 +904,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1863-L-BEIGE.png",
     "notes": "Master list item #35",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.622Z"
   },
   {
     "displaySize": "37",
@@ -916,10 +916,10 @@
     "name": "Article SG-F-1864-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Flats",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 8900,
+    "sellingPrice": 8000,
     "barcode": "8901230036",
     "sizes": {
       "35": 0,
@@ -930,10 +930,10 @@
       "40": 1,
       "41": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1864-BLACK.png",
     "notes": "Master list item #36",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.635Z"
   },
   {
     "displaySize": "38",
@@ -942,10 +942,10 @@
     "name": "Article SG-F-1860-DARKBROWN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Flats",
     "color": "Dark Brown",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 9000,
+    "sellingPrice": 9000,
     "barcode": "8901230037",
     "sizes": {
       "35": 0,
@@ -956,10 +956,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1860-DRK-BROWN.png",
     "notes": "Master list item #37",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.635Z"
   },
   {
     "displaySize": "37",
@@ -968,10 +968,10 @@
     "name": "Article SG-F-1860-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Flats",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 9000,
+    "sellingPrice": 9000,
     "barcode": "8901230038",
     "sizes": {
       "35": 0,
@@ -982,10 +982,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1860-PLATIN.png",
     "notes": "Master list item #38",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.635Z"
   },
   {
     "displaySize": "37",
@@ -994,10 +994,10 @@
     "name": "Article SG-F-1849-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Footbed",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 11500,
+    "sellingPrice": 11500,
     "barcode": "8901230039",
     "sizes": {
       "35": 0,
@@ -1008,10 +1008,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1849-PLATIN.png",
     "notes": "Master list item #39",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.635Z"
   },
   {
     "displaySize": "37",
@@ -1020,10 +1020,10 @@
     "name": "Article SG-F-1861-DARKBROWN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel High",
     "color": "Dark Brown",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 13900,
+    "sellingPrice": 9700,
     "barcode": "8901230040",
     "sizes": {
       "35": 0,
@@ -1034,10 +1034,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1861-DRK-BROWN.png",
     "notes": "Master list item #40",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.620Z"
   },
   {
     "displaySize": "37",
@@ -1046,10 +1046,10 @@
     "name": "Article SG-F-1892-BROWN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Flats",
     "color": "Brown",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 10900,
+    "sellingPrice": 9000,
     "barcode": "8901230041",
     "sizes": {
       "35": 0,
@@ -1060,10 +1060,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1892-BROWN.png",
     "notes": "Master list item #41",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.635Z"
   },
   {
     "displaySize": "37",
@@ -1072,10 +1072,10 @@
     "name": "Article SG-F-1865-TAN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Flats",
     "color": "Tan",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 8500,
+    "sellingPrice": 5900,
     "barcode": "8901230042",
     "sizes": {
       "35": 0,
@@ -1086,10 +1086,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1865-TAN.png",
     "notes": "Master list item #42",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.634Z"
   },
   {
     "displaySize": "37",
@@ -1098,10 +1098,10 @@
     "name": "Article SG-F-1843-STONE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Stilettos",
     "color": "Stone",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 11500,
+    "sellingPrice": 9000,
     "barcode": "8901230043",
     "sizes": {
       "35": 0,
@@ -1112,10 +1112,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1843-STONE.png",
     "notes": "Master list item #43",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.629Z"
   },
   {
     "displaySize": "37",
@@ -1124,10 +1124,10 @@
     "name": "Article SG-F-1825-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Pumps",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 14500,
+    "sellingPrice": 10000,
     "barcode": "8901230044",
     "sizes": {
       "35": 0,
@@ -1138,10 +1138,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1825-BLACK.png",
     "notes": "Master list item #44",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.628Z"
   },
   {
     "displaySize": "37",
@@ -1150,10 +1150,10 @@
     "name": "Article SG-F-1825-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Pumps",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 14500,
+    "sellingPrice": 10000,
     "barcode": "8901230045",
     "sizes": {
       "35": 0,
@@ -1164,10 +1164,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1825-PLATIN.png",
     "notes": "Master list item #45",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.628Z"
   },
   {
     "displaySize": "37",
@@ -1176,10 +1176,10 @@
     "name": "Article SG-F-1983-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Ankle Boot",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12900,
+    "sellingPrice": 10500,
     "barcode": "8901230046",
     "sizes": {
       "35": 0,
@@ -1190,10 +1190,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1983-BLACK.png",
     "notes": "Master list item #46",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -1202,10 +1202,10 @@
     "name": "Article SG-F-1985-CHESTNUT",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Ankle Boot",
     "color": "Chestnut",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12900,
+    "sellingPrice": 10900,
     "barcode": "8901230047",
     "sizes": {
       "35": 0,
@@ -1216,10 +1216,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1985-CHESTNUT.png",
     "notes": "Master list item #47",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -1228,10 +1228,10 @@
     "name": "Article SG-F-1951-BROWN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Ankle Boot",
     "color": "Brown",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 10500,
     "barcode": "8901230048",
     "sizes": {
       "35": 0,
@@ -1242,10 +1242,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1951-BROWN.png",
     "notes": "Master list item #48",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -1254,10 +1254,10 @@
     "name": "Article SG-F-1986-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "High Ankle",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 14500,
+    "sellingPrice": 12500,
     "barcode": "8901230049",
     "sizes": {
       "35": 0,
@@ -1268,10 +1268,10 @@
       "40": 1,
       "41": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1986-BLACK.png",
     "notes": "Master list item #49",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -1280,10 +1280,10 @@
     "name": "Article SG-F-1924-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Flats",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 9000,
+    "sellingPrice": 7000,
     "barcode": "8901230050",
     "sizes": {
       "35": 0,
@@ -1294,10 +1294,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1924-BLACK.png",
     "notes": "Master list item #50",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.446Z"
+    "updatedAt": "2026-11-03T04:06:46.634Z"
   },
   {
     "displaySize": "37",
@@ -1306,10 +1306,10 @@
     "name": "Article SG-F-1859-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel Low",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12900,
+    "sellingPrice": 9000,
     "barcode": "8901230051",
     "sizes": {
       "35": 0,
@@ -1320,10 +1320,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1859-BLACK.png",
     "notes": "Master list item #51",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.447Z"
+    "updatedAt": "2026-11-03T04:06:46.626Z"
   },
   {
     "displaySize": "37",
@@ -1332,10 +1332,10 @@
     "name": "Article SG-F-1874-TURQ",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Flats",
     "color": "Turq",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 9000,
+    "sellingPrice": 6300,
     "barcode": "8901230052",
     "sizes": {
       "35": 0,
@@ -1346,10 +1346,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1874-TURQ.png",
     "notes": "Master list item #52",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.447Z"
+    "updatedAt": "2026-11-03T04:06:46.635Z"
   },
   {
     "displaySize": "37",
@@ -1358,10 +1358,10 @@
     "name": "Article SG-F-1531-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Pumps",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 9500,
     "barcode": "8901230053",
     "sizes": {
       "35": 0,
@@ -1372,10 +1372,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1531-PLATIN.png",
     "notes": "Master list item #53",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.628Z"
   },
   {
     "displaySize": "37",
@@ -1410,10 +1410,10 @@
     "name": "Article SG-F-1846-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel High",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 13500,
+    "sellingPrice": 9000,
     "barcode": "8901230055",
     "sizes": {
       "35": 0,
@@ -1424,10 +1424,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1846-PLATIN.png",
     "notes": "Master list item #55",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.621Z"
   },
   {
     "displaySize": "37",
@@ -1436,10 +1436,10 @@
     "name": "Article SG-F-1827-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Weding collection",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 10500,
+    "sellingPrice": 6500,
     "barcode": "8901230056",
     "sizes": {
       "35": 0,
@@ -1450,10 +1450,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1827-BLACK.png",
     "notes": "Master list item #56",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.631Z"
   },
   {
     "displaySize": "37",
@@ -1462,10 +1462,10 @@
     "name": "Article SG-F-1904-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Stilettos",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12000,
+    "sellingPrice": 7500,
     "barcode": "8901230057",
     "sizes": {
       "35": 0,
@@ -1476,10 +1476,10 @@
       "40": 1,
       "41": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1904-PLATIN.png",
     "notes": "Master list item #57",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.630Z"
   },
   {
     "displaySize": "37",
@@ -1488,10 +1488,10 @@
     "name": "Article SG-F-1821-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel Low",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 11500,
+    "sellingPrice": 8000,
     "barcode": "8901230058",
     "sizes": {
       "35": 0,
@@ -1502,10 +1502,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1821-PLATIN.png",
     "notes": "Master list item #58",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.622Z"
   },
   {
     "displaySize": "37",
@@ -1514,10 +1514,10 @@
     "name": "Article SG-F-1826-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Footbed",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 12500,
     "barcode": "8901230059",
     "sizes": {
       "35": 0,
@@ -1528,10 +1528,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1826-BLACK.png",
     "notes": "Master list item #59",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.638Z"
   },
   {
     "displaySize": "37",
@@ -1540,10 +1540,10 @@
     "name": "Article SG-F-1826-OFFWHITE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Footbed",
     "color": "Off White",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 12500,
     "barcode": "8901230060",
     "sizes": {
       "35": 0,
@@ -1554,10 +1554,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1826-OFF-WHITE.png",
     "notes": "Master list item #60",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.638Z"
   },
   {
     "displaySize": "37",
@@ -1566,10 +1566,10 @@
     "name": "Article SG-F-28-WHITE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel High",
     "color": "White",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 14500,
+    "sellingPrice": 10500,
     "barcode": "8901230061",
     "sizes": {
       "35": 0,
@@ -1580,10 +1580,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-28-WHITE.png",
     "notes": "Master list item #61",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.621Z"
   },
   {
     "displaySize": "37",
@@ -1592,10 +1592,10 @@
     "name": "Article SG-F-1940-CHESTNUT",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Ankle Boot",
     "color": "Chestnut",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 10000,
     "barcode": "8901230062",
     "sizes": {
       "35": 0,
@@ -1606,10 +1606,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1940-CHESTNUT.png",
     "notes": "Master list item #62",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -1618,10 +1618,10 @@
     "name": "Article SG-F-1935-BROWN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Ankle Boot",
     "color": "Brown",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 10500,
     "barcode": "8901230063",
     "sizes": {
       "35": 0,
@@ -1632,10 +1632,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1935-BROWN.png",
     "notes": "Master list item #63",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -1644,10 +1644,10 @@
     "name": "Article SG-F-1576-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Footbed",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 11500,
+    "sellingPrice": 8000,
     "barcode": "8901230064",
     "sizes": {
       "35": 0,
@@ -1658,10 +1658,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1576-BLACK.png",
     "notes": "Master list item #64",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.638Z"
   },
   {
     "displaySize": "37",
@@ -1670,10 +1670,10 @@
     "name": "Article SG-F-1576-PORTROYALE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Footbed",
     "color": "Port Royale",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 11500,
+    "sellingPrice": 10500,
     "barcode": "8901230065",
     "sizes": {
       "35": 0,
@@ -1684,10 +1684,10 @@
       "40": 0,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1576-P-ROYAL.png",
     "notes": "Master list item #65",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.638Z"
   },
   {
     "displaySize": "37",
@@ -1696,10 +1696,10 @@
     "name": "Article SG-F-1928-BLUE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Footbed",
     "color": "Blue",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 11500,
+    "sellingPrice": 9500,
     "barcode": "8901230066",
     "sizes": {
       "35": 0,
@@ -1710,10 +1710,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1928-NAVYBLUE.png",
     "notes": "Master list item #66",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.638Z"
   },
   {
     "displaySize": "37",
@@ -1722,10 +1722,10 @@
     "name": "Article SG-F-1928-WHITE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Footbed",
     "color": "White",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 11500,
+    "sellingPrice": 10500,
     "barcode": "8901230067",
     "sizes": {
       "35": 0,
@@ -1736,10 +1736,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1928-WHITE.png",
     "notes": "Master list item #67",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.638Z"
   },
   {
     "displaySize": "37",
@@ -1748,10 +1748,10 @@
     "name": "Article SG-F-1560-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Pumps",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 11900,
+    "sellingPrice": 9000,
     "barcode": "8901230068",
     "sizes": {
       "35": 0,
@@ -1762,10 +1762,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1560-BLACK.png",
     "notes": "Master list item #68",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.628Z"
   },
   {
     "displaySize": "37",
@@ -1774,10 +1774,10 @@
     "name": "Article SG-F-1560-TAN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Pumps",
     "color": "Tan",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 11900,
+    "sellingPrice": 9900,
     "barcode": "8901230069",
     "sizes": {
       "35": 0,
@@ -1788,10 +1788,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1560-TAN.png",
     "notes": "Master list item #69",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.628Z"
   },
   {
     "displaySize": "37",
@@ -1800,10 +1800,10 @@
     "name": "Article SG-F-1561-TAN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Pumps",
     "color": "Tan",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 9000,
     "barcode": "8901230070",
     "sizes": {
       "35": 0,
@@ -1814,10 +1814,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1561-TAN.png",
     "notes": "Master list item #70",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.628Z"
   },
   {
     "displaySize": "38",
@@ -1826,10 +1826,10 @@
     "name": "Article SG-F-1561-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Pumps",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 9000,
     "barcode": "8901230071",
     "sizes": {
       "35": 0,
@@ -1840,10 +1840,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1561-BLACK.png",
     "notes": "Master list item #71",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.628Z"
   },
   {
     "displaySize": "37",
@@ -1852,10 +1852,10 @@
     "name": "Article SG-F-1318-OFFWHITE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Pumps",
     "color": "Off White",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 14500,
+    "sellingPrice": 7000,
     "barcode": "8901230072",
     "sizes": {
       "35": 0,
@@ -1866,10 +1866,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1318-OFFWHITE.png",
     "notes": "Master list item #72",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.626Z"
   },
   {
     "displaySize": "37",
@@ -1878,10 +1878,10 @@
     "name": "Article SG-F-1318-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Pumps",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 14500,
+    "sellingPrice": 7000,
     "barcode": "8901230073",
     "sizes": {
       "35": 0,
@@ -1892,10 +1892,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1318-BLACK.png",
     "notes": "Master list item #73",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.626Z"
   },
   {
     "displaySize": "37",
@@ -1904,10 +1904,10 @@
     "name": "Article SG-F-1610-MULTI",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Footbed",
     "color": "Multi",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 12500,
     "barcode": "8901230074",
     "sizes": {
       "35": 0,
@@ -1918,10 +1918,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1610-MULTI.png",
     "notes": "Master list item #74",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.637Z"
   },
   {
     "displaySize": "37",
@@ -1930,10 +1930,10 @@
     "name": "Article SG-F-1610-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Footbed",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 12500,
     "barcode": "8901230075",
     "sizes": {
       "35": 0,
@@ -1944,10 +1944,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1610-PLATIN.png",
     "notes": "Master list item #75",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.637Z"
   },
   {
     "displaySize": "37",
@@ -1956,10 +1956,10 @@
     "name": "Article SG-F-1915-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Stilettos",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12900,
+    "sellingPrice": 7700,
     "barcode": "8901230076",
     "sizes": {
       "35": 0,
@@ -1970,10 +1970,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1915-PLATIN.png",
     "notes": "Master list item #76",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.629Z"
   },
   {
     "displaySize": "37",
@@ -1982,10 +1982,10 @@
     "name": "Article SG-F-1915-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Stilettos",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12900,
+    "sellingPrice": 8500,
     "barcode": "8901230077",
     "sizes": {
       "35": 0,
@@ -1996,10 +1996,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1915-BLACK.png",
     "notes": "Master list item #77",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.629Z"
   },
   {
     "displaySize": "37",
@@ -2008,10 +2008,10 @@
     "name": "Article SG-F-1637-WHITE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Weding collection",
     "color": "White",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 11500,
+    "sellingPrice": 11500,
     "barcode": "8901230078",
     "sizes": {
       "35": 0,
@@ -2022,10 +2022,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1637-WHITE.png",
     "notes": "Master list item #78",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.633Z"
   },
   {
     "displaySize": "37",
@@ -2034,10 +2034,10 @@
     "name": "Article SG-F-1820-TAN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel Low",
     "color": "Tan",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 10900,
+    "sellingPrice": 7900,
     "barcode": "8901230079",
     "sizes": {
       "35": 0,
@@ -2048,10 +2048,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1820-TAN.png",
     "notes": "Master list item #79",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.623Z"
   },
   {
     "displaySize": "37",
@@ -2060,10 +2060,10 @@
     "name": "Article SG-F-1820-SKYBLUE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel Low",
     "color": "Sky Blue",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 10900,
+    "sellingPrice": 7900,
     "barcode": "8901230080",
     "sizes": {
       "35": 0,
@@ -2074,10 +2074,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1820-SKYBLUE.png",
     "notes": "Master list item #80",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.623Z"
   },
   {
     "displaySize": "37",
@@ -2086,10 +2086,10 @@
     "name": "Article SG-F-1917-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel High",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 13900,
+    "sellingPrice": 9700,
     "barcode": "8901230081",
     "sizes": {
       "35": 0,
@@ -2100,10 +2100,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1917-BLACK.png",
     "notes": "Master list item #81",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.621Z"
   },
   {
     "displaySize": "36",
@@ -2112,10 +2112,10 @@
     "name": "Article SG-F-1917-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel High",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 13900,
+    "sellingPrice": 9700,
     "barcode": "8901230082",
     "sizes": {
       "35": 0,
@@ -2126,10 +2126,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1917-PLATIN.png",
     "notes": "Master list item #82",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.621Z"
   },
   {
     "displaySize": "37",
@@ -2138,10 +2138,10 @@
     "name": "Article SG-F-1932-SILVERMULTI",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Weding collection",
     "color": "Silver Multi",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 14500,
+    "sellingPrice": 10000,
     "barcode": "8901230083",
     "sizes": {
       "35": 0,
@@ -2152,10 +2152,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1932-SILVER.png",
     "notes": "Master list item #83",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.633Z"
   },
   {
     "displaySize": "37",
@@ -2164,10 +2164,10 @@
     "name": "Article SG-F-1932-LIGHTGOLD",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Weding collection",
     "color": "Light Gold",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 14500,
+    "sellingPrice": 10000,
     "barcode": "8901230084",
     "sizes": {
       "35": 0,
@@ -2178,10 +2178,10 @@
       "40": 1,
       "41": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1932-GOLD.png",
     "notes": "Master list item #84",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.633Z"
   },
   {
     "displaySize": "37",
@@ -2190,10 +2190,10 @@
     "name": "Article SG-F-1918-SILVER",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Weding collection",
     "color": "Silver",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 11500,
+    "sellingPrice": 9000,
     "barcode": "8901230085",
     "sizes": {
       "35": 0,
@@ -2204,10 +2204,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1918-SILVER.png",
     "notes": "Master list item #85",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.632Z"
   },
   {
     "displaySize": "37",
@@ -2216,10 +2216,10 @@
     "name": "Article SG-F-1711-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Ballerina",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 6900,
     "barcode": "8901230086",
     "sizes": {
       "35": 0,
@@ -2230,10 +2230,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1711-BLACK.png",
     "notes": "Master list item #86",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.628Z"
   },
   {
     "displaySize": "37",
@@ -2242,10 +2242,10 @@
     "name": "Article SG-F-1824-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Stilettos",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12900,
+    "sellingPrice": 8500,
     "barcode": "8901230087",
     "sizes": {
       "35": 0,
@@ -2256,10 +2256,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1824-BLACK.png",
     "notes": "Master list item #87",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.630Z"
   },
   {
     "displaySize": "37",
@@ -2268,10 +2268,10 @@
     "name": "Article SG-F-1824-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Stilettos",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12900,
+    "sellingPrice": 9600,
     "barcode": "8901230088",
     "sizes": {
       "35": 0,
@@ -2282,10 +2282,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1824-PLATIN.png",
     "notes": "Master list item #88",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.629Z"
   },
   {
     "displaySize": "37",
@@ -2294,10 +2294,10 @@
     "name": "Article SG-F-1893-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel Low",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12900,
+    "sellingPrice": 9000,
     "barcode": "8901230089",
     "sizes": {
       "35": 0,
@@ -2308,10 +2308,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1893-BLACK.png",
     "notes": "Master list item #89",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.623Z"
   },
   {
     "displaySize": "37",
@@ -2320,10 +2320,10 @@
     "name": "Article SG-F-1893-BROWN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel Low",
     "color": "Brown",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12900,
+    "sellingPrice": 9000,
     "barcode": "8901230090",
     "sizes": {
       "35": 0,
@@ -2334,10 +2334,10 @@
       "40": 1,
       "41": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1893-BROWN.png",
     "notes": "Master list item #90",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.623Z"
   },
   {
     "displaySize": "37",
@@ -2346,10 +2346,10 @@
     "name": "Article SG-F-1892-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Flats",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 10900,
+    "sellingPrice": 9000,
     "barcode": "8901230091",
     "sizes": {
       "35": 0,
@@ -2360,10 +2360,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1892-BLACK.png",
     "notes": "Master list item #91",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.635Z"
   },
   {
     "displaySize": "37",
@@ -2372,10 +2372,10 @@
     "name": "Article SG-F-1911-OFFWHITE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Stilettos",
     "color": "Off White",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 11900,
+    "sellingPrice": 7100,
     "barcode": "8901230092",
     "sizes": {
       "35": 0,
@@ -2386,10 +2386,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1911-OFF-WHITE.png",
     "notes": "Master list item #92",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.629Z"
   },
   {
     "displaySize": "37",
@@ -2398,10 +2398,10 @@
     "name": "Article SG-F-1911-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Stilettos",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 11900,
+    "sellingPrice": 7100,
     "barcode": "8901230093",
     "sizes": {
       "35": 0,
@@ -2412,10 +2412,10 @@
       "40": 1,
       "41": 2
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1911-PLATIN.png",
     "notes": "Master list item #93",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.629Z"
   },
   {
     "displaySize": "37",
@@ -2424,10 +2424,10 @@
     "name": "Article SG-F-1849-MAIS",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Footbed",
     "color": "Mais",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 11500,
+    "sellingPrice": 10500,
     "barcode": "8901230094",
     "sizes": {
       "35": 0,
@@ -2438,10 +2438,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1849-MAIS.png",
     "notes": "Master list item #94",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.635Z"
   },
   {
     "displaySize": "37",
@@ -2450,10 +2450,10 @@
     "name": "Article SG-F-1376-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel Low",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 10900,
+    "sellingPrice": 9500,
     "barcode": "8901230095",
     "sizes": {
       "35": 0,
@@ -2464,10 +2464,10 @@
       "40": 0,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1376-PLATIN.png",
     "notes": "Master list item #95",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.622Z"
   },
   {
     "displaySize": "37",
@@ -2476,10 +2476,10 @@
     "name": "Article SG-F-1878-OFFWHITE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Flats",
     "color": "Off White",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 10500,
+    "sellingPrice": 7300,
     "barcode": "8901230096",
     "sizes": {
       "35": 0,
@@ -2490,10 +2490,10 @@
       "40": 1,
       "41": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1878-OFF-WHT.png",
     "notes": "Master list item #96",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.634Z"
   },
   {
     "displaySize": "37",
@@ -2502,10 +2502,10 @@
     "name": "Article SG-F-1878-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Flats",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 10500,
+    "sellingPrice": 7300,
     "barcode": "8901230097",
     "sizes": {
       "35": 0,
@@ -2516,10 +2516,10 @@
       "40": 1,
       "41": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1878-BLACK.png",
     "notes": "Master list item #97",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.634Z"
   },
   {
     "displaySize": "37",
@@ -2528,10 +2528,10 @@
     "name": "Article SG-F-1919-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Stilettos",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 13500,
+    "sellingPrice": 9500,
     "barcode": "8901230098",
     "sizes": {
       "35": 0,
@@ -2542,10 +2542,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1919-PLATIN.png",
     "notes": "Master list item #98",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.629Z"
   },
   {
     "displaySize": "37",
@@ -2554,10 +2554,10 @@
     "name": "Article SG-F-1876-TAN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Footbed",
     "color": "Tan",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 11500,
+    "sellingPrice": 8000,
     "barcode": "8901230099",
     "sizes": {
       "35": 0,
@@ -2568,10 +2568,10 @@
       "40": 0,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1876-TAN.png",
     "notes": "Master list item #99",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.638Z"
   },
   {
     "displaySize": "37",
@@ -2580,10 +2580,10 @@
     "name": "Article SG-F-1551-BLUE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Pumps",
     "color": "Blue",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 9000,
     "barcode": "8901230100",
     "sizes": {
       "35": 0,
@@ -2594,10 +2594,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1551-BLUE.png",
     "notes": "Master list item #100",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.628Z"
   },
   {
     "displaySize": "37",
@@ -2606,10 +2606,10 @@
     "name": "Article SG-F-1855-OLDGOLD",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel Low",
     "color": "Old Gold",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 11500,
+    "sellingPrice": 9000,
     "barcode": "8901230101",
     "sizes": {
       "35": 0,
@@ -2620,10 +2620,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1855-N-GOLD.png",
     "notes": "Master list item #101",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.623Z"
   },
   {
     "displaySize": "37",
@@ -2632,10 +2632,10 @@
     "name": "Article SG-F-1761-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Thigh High boot",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 18500,
+    "sellingPrice": 14000,
     "barcode": "8901230102",
     "sizes": {
       "35": 0,
@@ -2646,10 +2646,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1761-BLACK.png",
     "notes": "Master list item #102",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -2658,10 +2658,10 @@
     "name": "Article SG-F-1942-CHESTNUT",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Long Boot",
     "color": "Chestnut",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 17900,
+    "sellingPrice": 16000,
     "barcode": "8901230103",
     "sizes": {
       "35": 0,
@@ -2672,10 +2672,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1942-CHESTNUT.png",
     "notes": "Master list item #103",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -2684,10 +2684,10 @@
     "name": "Article SG-F-1839-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Calf Boot",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 26500,
+    "sellingPrice": 21000,
     "barcode": "8901230104",
     "sizes": {
       "35": 0,
@@ -2698,10 +2698,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1839-BLACK.png",
     "notes": "Master list item #104",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -2710,10 +2710,10 @@
     "name": "Article SG-F-1931-LIGHTGOLD",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Weding collection",
     "color": "Light Gold",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 14500,
+    "sellingPrice": 10000,
     "barcode": "8901230105",
     "sizes": {
       "35": 0,
@@ -2724,10 +2724,10 @@
       "40": 1,
       "41": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1931-GOLD.png",
     "notes": "Master list item #105",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.632Z"
   },
   {
     "displaySize": "37",
@@ -2736,10 +2736,10 @@
     "name": "Article SG-F-1732-RED",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Weding collection",
     "color": "Red",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 10500,
+    "sellingPrice": 6500,
     "barcode": "8901230106",
     "sizes": {
       "35": 0,
@@ -2750,10 +2750,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1732-RED.png",
     "notes": "Master list item #106",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.631Z"
   },
   {
     "displaySize": "37",
@@ -2762,10 +2762,10 @@
     "name": "Article SG-F-1732-WHITE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Weding collection",
     "color": "White",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 10500,
+    "sellingPrice": 8500,
     "barcode": "8901230107",
     "sizes": {
       "35": 0,
@@ -2776,10 +2776,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1732-WHITE.png",
     "notes": "Master list item #107",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.631Z"
   },
   {
     "displaySize": "37",
@@ -2788,10 +2788,10 @@
     "name": "Article SG-F-1732-BLUE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Weding collection",
     "color": "Blue",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 10500,
+    "sellingPrice": 6000,
     "barcode": "8901230108",
     "sizes": {
       "35": 0,
@@ -2802,10 +2802,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1732-BLUE.png",
     "notes": "Master list item #108",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.631Z"
   },
   {
     "displaySize": "37",
@@ -2814,10 +2814,10 @@
     "name": "Article SG-F-1443-OFFWHITE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Flats",
     "color": "Off White",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 8500,
+    "sellingPrice": 5500,
     "barcode": "8901230109",
     "sizes": {
       "35": 0,
@@ -2828,10 +2828,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1443-OFFWHITE.png",
     "notes": "Master list item #109",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.634Z"
   },
   {
     "displaySize": "37",
@@ -2840,10 +2840,10 @@
     "name": "Article SG-F-1443-GOLD",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Flats",
     "color": "Gold",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 8500,
+    "sellingPrice": 5500,
     "barcode": "8901230110",
     "sizes": {
       "35": 0,
@@ -2854,10 +2854,10 @@
       "40": 1,
       "41": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1443-GOLD.png",
     "notes": "Master list item #110",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.634Z"
   },
   {
     "displaySize": "37",
@@ -2866,10 +2866,10 @@
     "name": "Article SG-F-1905-OLDGOLD",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Weding collection",
     "color": "Old Gold",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 11500,
+    "sellingPrice": 10000,
     "barcode": "8901230111",
     "sizes": {
       "35": 0,
@@ -2880,10 +2880,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1905-N-GOLD.png",
     "notes": "Master list item #111",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.633Z"
   },
   {
     "displaySize": "37",
@@ -2892,10 +2892,10 @@
     "name": "Article SG-F-160-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Flats",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 8900,
+    "sellingPrice": 7500,
     "barcode": "8901230112",
     "sizes": {
       "35": 0,
@@ -2906,10 +2906,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-160-PLATIN.png",
     "notes": "Master list item #112",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.633Z"
   },
   {
     "displaySize": "37",
@@ -2918,10 +2918,10 @@
     "name": "Article SG-F-1920-PLATIN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Weding collection",
     "color": "Platin",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 13500,
+    "sellingPrice": 9500,
     "barcode": "8901230113",
     "sizes": {
       "35": 0,
@@ -2932,10 +2932,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1920-PLATIN.png",
     "notes": "Master list item #113",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.630Z"
   },
   {
     "displaySize": "37",
@@ -2944,10 +2944,10 @@
     "name": "Article SG-F-1920-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Weding collection",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 13500,
+    "sellingPrice": 9500,
     "barcode": "8901230114",
     "sizes": {
       "35": 0,
@@ -2958,10 +2958,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1920-BLACK.png",
     "notes": "Master list item #114",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.630Z"
   },
   {
     "displaySize": "37",
@@ -2970,10 +2970,10 @@
     "name": "Article SG-F-1544-WHITE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Pumps",
     "color": "White",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 9500,
     "barcode": "8901230115",
     "sizes": {
       "35": 0,
@@ -2984,10 +2984,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1544-WHITE.png",
     "notes": "Master list item #115",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.627Z"
   },
   {
     "displaySize": "37",
@@ -2996,10 +2996,10 @@
     "name": "Article SG-F-1544-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Pumps",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 7500,
     "barcode": "8901230116",
     "sizes": {
       "35": 0,
@@ -3010,10 +3010,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1544-BLACK.png",
     "notes": "Master list item #116",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.627Z"
   },
   {
     "displaySize": "37",
@@ -3022,10 +3022,10 @@
     "name": "Article SG-F-1985-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Ankle Boot",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12900,
+    "sellingPrice": 10900,
     "barcode": "8901230117",
     "sizes": {
       "35": 0,
@@ -3036,10 +3036,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1985-BLACK.png",
     "notes": "Master list item #117",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -3048,10 +3048,10 @@
     "name": "Article SG-F-1991-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Ankle Boot",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12900,
+    "sellingPrice": 10900,
     "barcode": "8901230118",
     "sizes": {
       "35": 0,
@@ -3062,10 +3062,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1991-BLACK.png",
     "notes": "Master list item #118",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -3074,10 +3074,10 @@
     "name": "Article SG-F-1669-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Calf Boot",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 16500,
+    "sellingPrice": 13500,
     "barcode": "8901230119",
     "sizes": {
       "35": 0,
@@ -3088,10 +3088,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1669-BLACK.png",
     "notes": "Master list item #119",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "36",
@@ -3100,10 +3100,10 @@
     "name": "Article SG-F-1841-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Ankle Boot",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 16500,
+    "sellingPrice": 14000,
     "barcode": "8901230120",
     "sizes": {
       "35": 0,
@@ -3114,10 +3114,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1841-BLACK.png",
     "notes": "Master list item #120",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.639Z"
   },
   {
     "displaySize": "37",
@@ -3126,10 +3126,10 @@
     "name": "Article SG-F-1885-BROWN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Block Heel High",
     "color": "Brown",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 14000,
+    "sellingPrice": 9800,
     "barcode": "8901230121",
     "sizes": {
       "35": 0,
@@ -3140,10 +3140,10 @@
       "40": 1,
       "41": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1885-DRK-BROWN.png",
     "notes": "Master list item #121",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.621Z"
   },
   {
     "displaySize": "37",
@@ -3152,10 +3152,10 @@
     "name": "Article SG-F-1009-TAUPE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Ankle Boot",
     "color": "Taupe",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 10900,
+    "sellingPrice": 7500,
     "barcode": "8901230122",
     "sizes": {
       "35": 0,
@@ -3166,10 +3166,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1009-TAUPE.png",
     "notes": "Master list item #122",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.639Z"
   },
   {
     "displaySize": "37",
@@ -3178,10 +3178,10 @@
     "name": "Article SG-F-1585-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Ankle Boot",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12500,
+    "sellingPrice": 10000,
     "barcode": "8901230123",
     "sizes": {
       "35": 0,
@@ -3192,10 +3192,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1585-BLACK.png",
     "notes": "Master list item #123",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.639Z"
   },
   {
     "displaySize": "37",
@@ -3204,10 +3204,10 @@
     "name": "Article SG-F-790-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Ankle Boot",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12000,
+    "sellingPrice": 9000,
     "barcode": "8901230124",
     "sizes": {
       "35": 0,
@@ -3218,10 +3218,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-790-black.png",
     "notes": "Master list item #124",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.639Z"
   },
   {
     "displaySize": "37",
@@ -3230,10 +3230,10 @@
     "name": "Article SG-F-1649-BORDO",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Ankle Boot",
     "color": "Bordo",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 13500,
+    "sellingPrice": 9400,
     "barcode": "8901230125",
     "sizes": {
       "35": 0,
@@ -3244,10 +3244,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1649-BORDO.png",
     "notes": "Master list item #125",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.639Z"
   },
   {
     "displaySize": "37",
@@ -3256,10 +3256,10 @@
     "name": "Article SG-F-1690-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Long Boot",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 34000,
+    "sellingPrice": 24000,
     "barcode": "8901230126",
     "sizes": {
       "35": 0,
@@ -3270,10 +3270,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1690-BLACK.png",
     "notes": "Master list item #126",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -3282,10 +3282,10 @@
     "name": "Article SG-F-1151-BROWN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Long Boot",
     "color": "Brown",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 16900,
+    "sellingPrice": 12900,
     "barcode": "8901230127",
     "sizes": {
       "35": 0,
@@ -3296,10 +3296,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1151-BROWN.png",
     "notes": "Master list item #127",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -3308,10 +3308,10 @@
     "name": "Article SG-F-1650-BROWN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Ankle Boot",
     "color": "Brown",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12900,
+    "sellingPrice": 10500,
     "barcode": "8901230128",
     "sizes": {
       "35": 0,
@@ -3322,10 +3322,10 @@
       "40": 1,
       "41": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1650-BROWN.png",
     "notes": "Master list item #128",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.639Z"
   },
   {
     "displaySize": "37",
@@ -3334,10 +3334,10 @@
     "name": "Article SG-F-02-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "High Ankle",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 13900,
+    "sellingPrice": 9500,
     "barcode": "8901230129",
     "sizes": {
       "35": 0,
@@ -3348,10 +3348,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-02-BLACK.png",
     "notes": "Master list item #129",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -3360,10 +3360,10 @@
     "name": "Article SG-F-1171-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Ankle Boot",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 12900,
+    "sellingPrice": 12000,
     "barcode": "8901230130",
     "sizes": {
       "35": 0,
@@ -3374,10 +3374,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1171-BLACK.png",
     "notes": "Master list item #130",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.448Z"
+    "updatedAt": "2026-11-03T04:06:46.639Z"
   },
   {
     "displaySize": "37",
@@ -3386,10 +3386,10 @@
     "name": "Article SG-F-1761-MARRON",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Thigh High boot",
     "color": "Marron",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 18500,
+    "sellingPrice": 14000,
     "barcode": "8901230131",
     "sizes": {
       "35": 0,
@@ -3400,10 +3400,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1761-MAROON.png",
     "notes": "Master list item #131",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.449Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -3490,10 +3490,10 @@
     "name": "Article SG-F-1760-LIGHTTAUPE",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Thigh High boot",
     "color": "Light Taupe",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 17500,
+    "sellingPrice": 12500,
     "barcode": "8901230135",
     "sizes": {
       "35": 0,
@@ -3504,10 +3504,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1760-TAUPE.png",
     "notes": "Master list item #135",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.449Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -3516,10 +3516,10 @@
     "name": "Article SG-F-1939-BRODO",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Thigh High boot",
     "color": "Bordo",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 18900,
+    "sellingPrice": 16000,
     "barcode": "8901230136",
     "sizes": {
       "35": 0,
@@ -3530,10 +3530,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1939-BORDO.png",
     "notes": "Master list item #136",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.449Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -3542,10 +3542,10 @@
     "name": "Article SG-F-1765-BROWN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Thigh High boot",
     "color": "Brown",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 18500,
+    "sellingPrice": 12500,
     "barcode": "8901230137",
     "sizes": {
       "35": 0,
@@ -3556,10 +3556,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1765-BROWN.png",
     "notes": "Master list item #137",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.449Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -3568,10 +3568,10 @@
     "name": "Article SG-F-103-BROWN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Thigh High boot",
     "color": "Brown",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 20500,
+    "sellingPrice": 13900,
     "barcode": "8901230138",
     "sizes": {
       "35": 0,
@@ -3582,10 +3582,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-103-BROWN.png",
     "notes": "Master list item #138",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.449Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -3594,10 +3594,10 @@
     "name": "Article SG-F-1942-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Long Boot",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 17900,
+    "sellingPrice": 16000,
     "barcode": "8901230139",
     "sizes": {
       "35": 0,
@@ -3608,10 +3608,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1942-BLACK.png",
     "notes": "Master list item #139",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.449Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -3620,10 +3620,10 @@
     "name": "Article SG-F-1995-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Thigh High boot",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 19500,
+    "sellingPrice": 18000,
     "barcode": "8901230140",
     "sizes": {
       "35": 0,
@@ -3634,10 +3634,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1995-BLACK.png",
     "notes": "Master list item #140",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.449Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -3646,10 +3646,10 @@
     "name": "Article SG-F-1001-BROWN",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Thigh High boot",
     "color": "Brown",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 17500,
+    "sellingPrice": 10500,
     "barcode": "8901230141",
     "sizes": {
       "35": 0,
@@ -3660,10 +3660,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1001-BROWN.png",
     "notes": "Master list item #141",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.449Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "37",
@@ -3672,10 +3672,10 @@
     "name": "Article SG-F-1994-BLACK",
     "brand": "Saint G",
     "category": "women_footwear",
-    "styleCategory": "Block Heels",
+    "styleCategory": "Thigh High boot",
     "color": "Black",
-    "costPrice": 2200,
-    "sellingPrice": 4499,
+    "costPrice": 19500,
+    "sellingPrice": 17500,
     "barcode": "8901230142",
     "sizes": {
       "35": 0,
@@ -3686,10 +3686,10 @@
       "40": 1,
       "41": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SG-F-1994-BLACK.png",
     "notes": "Master list item #142",
     "createdAt": "2026-11-02T13:16:54.700Z",
-    "updatedAt": "2026-11-02T17:26:58.449Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "",
@@ -3740,10 +3740,10 @@
     "name": "Article SGM-12-BLACK",
     "brand": "Saint G",
     "category": "men_footwear",
-    "styleCategory": "Leather Shoes",
+    "styleCategory": "Mens Boot",
     "color": "Black",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 17500,
+    "sellingPrice": 10000,
     "sizes": {
       "40": 1,
       "41": 1,
@@ -3752,10 +3752,10 @@
       "44": 1,
       "45": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SGM-12-BLACK.png",
     "notes": "Batch added SGM-12-BLACK",
     "createdAt": "2026-11-02T17:03:16.582Z",
-    "updatedAt": "2026-11-02T18:58:10.632Z"
+    "updatedAt": "2026-11-03T04:06:46.641Z"
   },
   {
     "displaySize": "41",
@@ -3788,10 +3788,10 @@
     "name": "Article SGM-09-BEIGE",
     "brand": "Saint G",
     "category": "men_footwear",
-    "styleCategory": "Leather Shoes",
+    "styleCategory": "Mens Boot",
     "color": "Beige",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 16500,
+    "sellingPrice": 14000,
     "sizes": {
       "40": 1,
       "41": 1,
@@ -3800,10 +3800,10 @@
       "44": 0,
       "45": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SGM-09-BEIGE.png",
     "notes": "Batch added SGM-09-BEIGE",
     "createdAt": "2026-11-02T17:03:16.582Z",
-    "updatedAt": "2026-11-02T17:03:16.582Z"
+    "updatedAt": "2026-11-03T04:06:46.641Z"
   },
   {
     "displaySize": "41",
@@ -3812,10 +3812,10 @@
     "name": "Article SGM-46-BLACK",
     "brand": "Saint G",
     "category": "men_footwear",
-    "styleCategory": "Leather Shoes",
+    "styleCategory": "Mens Boot",
     "color": "Black",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 18500,
+    "sellingPrice": 15000,
     "sizes": {
       "40": 1,
       "41": 1,
@@ -3824,10 +3824,10 @@
       "44": 1,
       "45": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SGM-46-BLACK.png",
     "notes": "Batch added SGM-46-BLACK",
     "createdAt": "2026-11-02T17:03:16.583Z",
-    "updatedAt": "2026-11-02T17:03:16.583Z"
+    "updatedAt": "2026-11-03T04:06:46.641Z"
   },
   {
     "displaySize": "41",
@@ -3836,10 +3836,10 @@
     "name": "Article SGM-20-BLACK",
     "brand": "Saint G",
     "category": "men_footwear",
-    "styleCategory": "Leather Shoes",
+    "styleCategory": "Mens Boot",
     "color": "Black",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 18900,
+    "sellingPrice": 11000,
     "sizes": {
       "40": 0,
       "41": 1,
@@ -3848,10 +3848,10 @@
       "44": 0,
       "45": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SGM-20-BLACK.png",
     "notes": "Batch added SGM-20-BLACK",
     "createdAt": "2026-11-02T17:03:16.583Z",
-    "updatedAt": "2026-11-02T17:03:16.583Z"
+    "updatedAt": "2026-11-03T04:06:46.641Z"
   },
   {
     "displaySize": "41",
@@ -3860,10 +3860,10 @@
     "name": "Article SGM-43-NAVY",
     "brand": "Saint G",
     "category": "men_footwear",
-    "styleCategory": "Leather Shoes",
+    "styleCategory": "Mens Boot",
     "color": "Navy",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 17500,
+    "sellingPrice": 11000,
     "sizes": {
       "40": 1,
       "41": 0,
@@ -3872,10 +3872,10 @@
       "44": 1,
       "45": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SGM-43-NAVY.png",
     "notes": "Batch added SGM-43-NAVY",
     "createdAt": "2026-11-02T17:03:16.583Z",
-    "updatedAt": "2026-11-02T17:03:16.583Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "41",
@@ -3884,10 +3884,10 @@
     "name": "Article SGM-43-BLACK",
     "brand": "Saint G",
     "category": "men_footwear",
-    "styleCategory": "Leather Shoes",
+    "styleCategory": "Mens Boot",
     "color": "Black",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 16500,
+    "sellingPrice": 10500,
     "sizes": {
       "40": 1,
       "41": 1,
@@ -3896,10 +3896,10 @@
       "44": 1,
       "45": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SGM-43-BLACK.png",
     "notes": "Batch added SGM-43-BLACK",
     "createdAt": "2026-11-02T17:03:16.583Z",
-    "updatedAt": "2026-11-02T17:03:16.583Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "41",
@@ -3908,10 +3908,10 @@
     "name": "Article SGM-41-BROWN",
     "brand": "Saint G",
     "category": "men_footwear",
-    "styleCategory": "Leather Shoes",
+    "styleCategory": "Mens Boot",
     "color": "Brown",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 16900,
+    "sellingPrice": 10500,
     "sizes": {
       "40": 0,
       "41": 1,
@@ -3920,10 +3920,10 @@
       "44": 0,
       "45": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SGM-41-BROWN.png",
     "notes": "Batch added SGM-41-BROWN",
     "createdAt": "2026-11-02T17:03:16.583Z",
-    "updatedAt": "2026-11-02T17:03:16.583Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "41",
@@ -3932,10 +3932,10 @@
     "name": "Article SGM-09-BROWN",
     "brand": "Saint G",
     "category": "men_footwear",
-    "styleCategory": "Leather Shoes",
+    "styleCategory": "Mens Boot",
     "color": "Brown",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 16500,
+    "sellingPrice": 10500,
     "sizes": {
       "40": 0,
       "41": 2,
@@ -3944,10 +3944,10 @@
       "44": 0,
       "45": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SGM-09-BROWN.png",
     "notes": "Batch added SGM-09-BROWN",
     "createdAt": "2026-11-02T17:03:16.583Z",
-    "updatedAt": "2026-11-02T17:03:16.583Z"
+    "updatedAt": "2026-11-03T04:06:46.640Z"
   },
   {
     "displaySize": "41",
@@ -3956,10 +3956,10 @@
     "name": "Article SGM-22-BROWN",
     "brand": "Saint G",
     "category": "men_footwear",
-    "styleCategory": "Leather Shoes",
+    "styleCategory": "Mens Boot",
     "color": "Brown",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 18900,
+    "sellingPrice": 11000,
     "sizes": {
       "40": 1,
       "41": 2,
@@ -3968,10 +3968,10 @@
       "44": 0,
       "45": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/SGM-22-BROWN.png",
     "notes": "Batch added SGM-22-BROWN",
     "createdAt": "2026-11-02T17:03:16.583Z",
-    "updatedAt": "2026-11-02T17:03:16.583Z"
+    "updatedAt": "2026-11-03T04:06:46.641Z"
   },
   {
     "displaySize": "M",
@@ -3980,10 +3980,10 @@
     "name": "Article JK-M-04-BLACK",
     "brand": "Saint G",
     "category": "men_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "MENS JACKET",
     "color": "Black",
-    "costPrice": 4500,
-    "sellingPrice": 8999,
+    "costPrice": 36500,
+    "sellingPrice": 28000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -3991,10 +3991,10 @@
       "XL": 1,
       "XXL": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-M-04-BLACK.png",
     "notes": "Batch added JK-M-04-BLACK",
     "createdAt": "2026-11-02T17:03:16.583Z",
-    "updatedAt": "2026-11-02T17:03:16.583Z"
+    "updatedAt": "2026-11-03T04:06:46.641Z"
   },
   {
     "displaySize": "M",
@@ -4003,10 +4003,10 @@
     "name": "Article JK-M-01-BLACK",
     "brand": "Saint G",
     "category": "men_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "MENS JACKET",
     "color": "Black",
-    "costPrice": 4500,
-    "sellingPrice": 8999,
+    "costPrice": 38500,
+    "sellingPrice": 32000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4014,10 +4014,10 @@
       "XL": 1,
       "XXL": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-M-01-BLACK.jpeg",
     "notes": "Batch added JK-M-01-BLACK",
     "createdAt": "2026-11-02T17:03:16.583Z",
-    "updatedAt": "2026-11-02T17:03:16.583Z"
+    "updatedAt": "2026-11-03T04:06:46.641Z"
   },
   {
     "displaySize": "M",
@@ -4026,10 +4026,10 @@
     "name": "Article JK-M-01-CHOCOLATE",
     "brand": "Saint G",
     "category": "men_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "MENS JACKET",
     "color": "Chocolate",
-    "costPrice": 4500,
-    "sellingPrice": 8999,
+    "costPrice": 38500,
+    "sellingPrice": 32000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4037,10 +4037,10 @@
       "XL": 0,
       "XXL": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-M-01-CHOCOLATE.jpeg",
     "notes": "Batch added JK-M-01-CHOCOLATE",
     "createdAt": "2026-11-02T17:03:16.583Z",
-    "updatedAt": "2026-11-02T17:03:16.583Z"
+    "updatedAt": "2026-11-03T04:06:46.641Z"
   },
   {
     "displaySize": "M",
@@ -4049,10 +4049,10 @@
     "name": "Article JK-M-29-BLUE",
     "brand": "Saint G",
     "category": "men_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "MENS JACKET",
     "color": "Blue",
-    "costPrice": 4500,
-    "sellingPrice": 8999,
+    "costPrice": 32000,
+    "sellingPrice": 28000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4060,10 +4060,10 @@
       "XL": 1,
       "XXL": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-M-29-BLUE.png",
     "notes": "Batch added JK-M-29-BLUE",
     "createdAt": "2026-11-02T17:03:16.584Z",
-    "updatedAt": "2026-11-02T17:03:16.584Z"
+    "updatedAt": "2026-11-03T04:06:46.641Z"
   },
   {
     "displaySize": "M",
@@ -4072,10 +4072,10 @@
     "name": "Article JK-M-29-CHOCOLATE",
     "brand": "Saint G",
     "category": "men_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "MENS JACKET",
     "color": "Chocolate",
-    "costPrice": 4500,
-    "sellingPrice": 8999,
+    "costPrice": 32000,
+    "sellingPrice": 28000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4083,10 +4083,10 @@
       "XL": 1,
       "XXL": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-M-29-CHOCOLATE.png",
     "notes": "Batch added JK-M-29-CHOCOLATE",
     "createdAt": "2026-11-02T17:03:16.584Z",
-    "updatedAt": "2026-11-02T17:03:16.584Z"
+    "updatedAt": "2026-11-03T04:06:46.641Z"
   },
   {
     "displaySize": "M",
@@ -4095,10 +4095,10 @@
     "name": "Article JK-M-08-BLACK",
     "brand": "Saint G",
     "category": "men_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "MENS JACKET",
     "color": "Black",
-    "costPrice": 4500,
-    "sellingPrice": 8999,
+    "costPrice": 38500,
+    "sellingPrice": 32000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4106,10 +4106,10 @@
       "XL": 1,
       "XXL": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-M-08-BLACK.png",
     "notes": "Batch added JK-M-08-BLACK",
     "createdAt": "2026-11-02T17:03:16.584Z",
-    "updatedAt": "2026-11-02T17:03:16.584Z"
+    "updatedAt": "2026-11-03T04:06:46.641Z"
   },
   {
     "displaySize": "M",
@@ -4118,10 +4118,10 @@
     "name": "Article JK-M-34-BLACK",
     "brand": "Saint G",
     "category": "men_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "MENS JACKET",
     "color": "Black",
-    "costPrice": 4500,
-    "sellingPrice": 8999,
+    "costPrice": 35000,
+    "sellingPrice": 32000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4129,10 +4129,10 @@
       "XL": 1,
       "XXL": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-M-34-BLACK.jpeg",
     "notes": "Batch added JK-M-34-BLACK",
     "createdAt": "2026-11-02T17:03:16.584Z",
-    "updatedAt": "2026-11-02T17:03:16.584Z"
+    "updatedAt": "2026-11-03T04:06:46.641Z"
   },
   {
     "displaySize": "M",
@@ -4141,10 +4141,10 @@
     "name": "Article JK-M-11-BLACKWHITE",
     "brand": "Saint G",
     "category": "men_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "MENS JACKET",
     "color": "Black White",
-    "costPrice": 4500,
-    "sellingPrice": 8999,
+    "costPrice": 36500,
+    "sellingPrice": 25000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4152,10 +4152,10 @@
       "XL": 1,
       "XXL": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-M-11-BLACKWHITE.png",
     "notes": "Batch added JK-M-11-BLACKWHITE",
     "createdAt": "2026-11-02T17:03:16.585Z",
-    "updatedAt": "2026-11-02T17:03:16.585Z"
+    "updatedAt": "2026-11-03T04:06:46.641Z"
   },
   {
     "displaySize": "M",
@@ -4164,10 +4164,10 @@
     "name": "Article JK-M-07-TAN",
     "brand": "Saint G",
     "category": "men_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "MENS JACKET",
     "color": "Tan",
-    "costPrice": 4500,
-    "sellingPrice": 8999,
+    "costPrice": 35500,
+    "sellingPrice": 28000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4175,10 +4175,10 @@
       "XL": 1,
       "XXL": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-M-07-TAN.png",
     "notes": "Batch added JK-M-07-TAN",
     "createdAt": "2026-11-02T17:03:16.585Z",
-    "updatedAt": "2026-11-02T17:03:16.585Z"
+    "updatedAt": "2026-11-03T04:06:46.641Z"
   },
   {
     "displaySize": "M",
@@ -4187,10 +4187,10 @@
     "name": "Article JK-M-76-BLACK",
     "brand": "Saint G",
     "category": "men_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "MENS JACKET",
     "color": "Black",
-    "costPrice": 4500,
-    "sellingPrice": 8999,
+    "costPrice": 39000,
+    "sellingPrice": 39000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4198,10 +4198,10 @@
       "XL": 1,
       "XXL": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-M-76-BLACK.png",
     "notes": "Batch added JK-M-76-BLACK",
     "createdAt": "2026-11-02T17:03:16.585Z",
-    "updatedAt": "2026-11-02T17:03:16.585Z"
+    "updatedAt": "2026-11-03T04:06:46.642Z"
   },
   {
     "displaySize": "M",
@@ -4210,10 +4210,10 @@
     "name": "Article JK-M-78-BROWN",
     "brand": "Saint G",
     "category": "men_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "MENS JACKET",
     "color": "Brown",
-    "costPrice": 4500,
-    "sellingPrice": 8999,
+    "costPrice": 39000,
+    "sellingPrice": 39000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4221,10 +4221,10 @@
       "XL": 1,
       "XXL": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-M-78-BROWN.png",
     "notes": "Batch added JK-M-78-BROWN",
     "createdAt": "2026-11-02T17:03:16.585Z",
-    "updatedAt": "2026-11-02T17:03:16.585Z"
+    "updatedAt": "2026-11-03T04:06:46.642Z"
   },
   {
     "displaySize": "M",
@@ -4233,10 +4233,10 @@
     "name": "Article JK-M-81-BROWN",
     "brand": "Saint G",
     "category": "men_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "MENS JACKET",
     "color": "Brown",
-    "costPrice": 4500,
-    "sellingPrice": 8999,
+    "costPrice": 39000,
+    "sellingPrice": 39000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4244,10 +4244,10 @@
       "XL": 1,
       "XXL": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-M-81-BROWN.png",
     "notes": "Batch added JK-M-81-BROWN",
     "createdAt": "2026-11-02T17:03:16.585Z",
-    "updatedAt": "2026-11-02T17:03:16.585Z"
+    "updatedAt": "2026-11-03T04:06:46.642Z"
   },
   {
     "displaySize": "M",
@@ -4256,10 +4256,10 @@
     "name": "Article JK-M-36-DARKGREY",
     "brand": "Saint G",
     "category": "men_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "MENS JACKET",
     "color": "Dark Grey",
-    "costPrice": 4500,
-    "sellingPrice": 8999,
+    "costPrice": 32000,
+    "sellingPrice": 28000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4267,10 +4267,10 @@
       "XL": 1,
       "XXL": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-M-36-DRK-GREY.png",
     "notes": "Batch added JK-M-36-DARKGREY",
     "createdAt": "2026-11-02T17:03:16.585Z",
-    "updatedAt": "2026-11-02T17:03:16.585Z"
+    "updatedAt": "2026-11-03T04:06:46.642Z"
   },
   {
     "displaySize": "M",
@@ -4279,10 +4279,10 @@
     "name": "Article JK-M-56-DARKTAN",
     "brand": "Saint G",
     "category": "men_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "MENS JACKET",
     "color": "Dark Tan",
-    "costPrice": 4500,
-    "sellingPrice": 8999,
+    "costPrice": 37500,
+    "sellingPrice": 37500,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4290,10 +4290,10 @@
       "XL": 1,
       "XXL": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-M-56-DRK-TAN.png",
     "notes": "Batch added JK-M-56-DARKTAN",
     "createdAt": "2026-11-02T17:03:16.585Z",
-    "updatedAt": "2026-11-02T17:03:16.585Z"
+    "updatedAt": "2026-11-03T04:06:46.642Z"
   },
   {
     "displaySize": "M",
@@ -4302,10 +4302,10 @@
     "name": "Article JK-M-23-BLACK",
     "brand": "Saint G",
     "category": "men_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "MENS JACKET",
     "color": "Black",
-    "costPrice": 4500,
-    "sellingPrice": 8999,
+    "costPrice": 40000,
+    "sellingPrice": 35000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4313,10 +4313,10 @@
       "XL": 1,
       "XXL": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-M-23-BLACK.png",
     "notes": "Batch added JK-M-23-BLACK",
     "createdAt": "2026-11-02T17:03:16.585Z",
-    "updatedAt": "2026-11-02T17:03:16.585Z"
+    "updatedAt": "2026-11-03T04:06:46.643Z"
   },
   {
     "displaySize": "M",
@@ -4325,10 +4325,10 @@
     "name": "Article JK-M-47-DARK-GREY",
     "brand": "Saint G",
     "category": "men_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "MENS JACKET",
     "color": "Dark Grey",
-    "costPrice": 4500,
-    "sellingPrice": 8999,
+    "costPrice": 35000,
+    "sellingPrice": 35000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4336,10 +4336,10 @@
       "XL": 1,
       "XXL": 1
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-M-47-DARK-GREY.png",
     "notes": "Batch added JK-M-47-DARK-GREY",
     "createdAt": "2026-11-02T17:03:16.585Z",
-    "updatedAt": "2026-11-02T17:03:16.585Z"
+    "updatedAt": "2026-11-03T04:06:46.642Z"
   },
   {
     "displaySize": "M",
@@ -4348,10 +4348,10 @@
     "name": "Article JK-F-04-BLACK",
     "brand": "Saint G",
     "category": "women_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "WOMENS JACKET",
     "color": "Black",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 34500,
+    "sellingPrice": 25600,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4359,10 +4359,10 @@
       "XL": 1,
       "XXL": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-F-04-BLACK.png",
     "notes": "Batch added JK-F-04-BLACK",
     "createdAt": "2026-11-02T17:03:16.585Z",
-    "updatedAt": "2026-11-02T17:03:16.585Z"
+    "updatedAt": "2026-11-03T04:06:46.643Z"
   },
   {
     "displaySize": "M",
@@ -4371,10 +4371,10 @@
     "name": "Article JK-F-19-BLACK",
     "brand": "Saint G",
     "category": "women_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "WOMENS JACKET",
     "color": "Black",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 32500,
+    "sellingPrice": 26000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4382,10 +4382,10 @@
       "XL": 1,
       "XXL": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-F-19-BLACK.png",
     "notes": "Batch added JK-F-19-BLACK",
     "createdAt": "2026-11-02T17:03:16.585Z",
-    "updatedAt": "2026-11-02T17:03:16.585Z"
+    "updatedAt": "2026-11-03T04:06:46.643Z"
   },
   {
     "displaySize": "M",
@@ -4394,10 +4394,10 @@
     "name": "Article JK-F-06-BLACK",
     "brand": "Saint G",
     "category": "women_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "WOMENS JACKET",
     "color": "Black",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 32000,
+    "sellingPrice": 26000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4405,10 +4405,10 @@
       "XL": 1,
       "XXL": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-F-06-BLACK.png",
     "notes": "Batch added JK-F-06-BLACK",
     "createdAt": "2026-11-02T17:03:16.585Z",
-    "updatedAt": "2026-11-02T17:03:16.585Z"
+    "updatedAt": "2026-11-03T04:06:46.643Z"
   },
   {
     "displaySize": "M",
@@ -4417,10 +4417,10 @@
     "name": "Article JK-F-02-BLACK",
     "brand": "Saint G",
     "category": "women_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "WOMENS JACKET",
     "color": "Black",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 34000,
+    "sellingPrice": 24000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4428,10 +4428,10 @@
       "XL": 1,
       "XXL": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-F-02-BLACK.png",
     "notes": "Batch added JK-F-02-BLACK",
     "createdAt": "2026-11-02T17:03:16.586Z",
-    "updatedAt": "2026-11-02T17:03:16.586Z"
+    "updatedAt": "2026-11-03T04:06:46.643Z"
   },
   {
     "displaySize": "M",
@@ -4440,10 +4440,10 @@
     "name": "Article JK-F-06-GREY",
     "brand": "Saint G",
     "category": "women_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "WOMENS JACKET",
     "color": "Grey",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 32000,
+    "sellingPrice": 26000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4451,10 +4451,10 @@
       "XL": 1,
       "XXL": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-F-06-GREY.jpeg",
     "notes": "Batch added JK-F-06-GREY",
     "createdAt": "2026-11-02T17:03:16.586Z",
-    "updatedAt": "2026-11-02T17:03:16.586Z"
+    "updatedAt": "2026-11-03T04:06:46.643Z"
   },
   {
     "displaySize": "M",
@@ -4463,10 +4463,10 @@
     "name": "Article JK-F-38-BLACK",
     "brand": "Saint G",
     "category": "women_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "WOMENS JACKET",
     "color": "Black",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 36500,
+    "sellingPrice": 28000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4474,10 +4474,10 @@
       "XL": 1,
       "XXL": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-F-38-BLACK.png",
     "notes": "Batch added JK-F-38-BLACK",
     "createdAt": "2026-11-02T17:03:16.586Z",
-    "updatedAt": "2026-11-02T17:03:16.586Z"
+    "updatedAt": "2026-11-03T04:06:46.643Z"
   },
   {
     "displaySize": "M",
@@ -4486,10 +4486,10 @@
     "name": "Article JK-F-13-BLACK",
     "brand": "Saint G",
     "category": "women_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "WOMENS JACKET",
     "color": "Black",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 28500,
+    "sellingPrice": 18000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4497,10 +4497,10 @@
       "XL": 1,
       "XXL": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-F-13-BLACK.png",
     "notes": "Batch added JK-F-13-BLACK",
     "createdAt": "2026-11-02T17:03:16.586Z",
-    "updatedAt": "2026-11-02T17:03:16.586Z"
+    "updatedAt": "2026-11-03T04:06:46.643Z"
   },
   {
     "displaySize": "M",
@@ -4509,10 +4509,10 @@
     "name": "Article JK-F-58-BLACK",
     "brand": "Saint G",
     "category": "women_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "WOMENS JACKET",
     "color": "Black",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 35500,
+    "sellingPrice": 28000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4520,10 +4520,10 @@
       "XL": 1,
       "XXL": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-F-58-BLACK.png",
     "notes": "Batch added JK-F-58-BLACK",
     "createdAt": "2026-11-02T17:03:16.586Z",
-    "updatedAt": "2026-11-02T17:03:16.586Z"
+    "updatedAt": "2026-11-03T04:06:46.643Z"
   },
   {
     "displaySize": "M",
@@ -4532,10 +4532,10 @@
     "name": "Article JK-F-63-OLIVE",
     "brand": "Saint G",
     "category": "women_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "WOMENS JACKET",
     "color": "Olive",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 35500,
+    "sellingPrice": 35500,
     "sizes": {
       "S": 1,
       "M": 1,
@@ -4543,10 +4543,10 @@
       "XL": 1,
       "XXL": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-F-63-OLIVE.png",
     "notes": "Batch added JK-F-63-OLIVE",
     "createdAt": "2026-11-02T17:03:16.586Z",
-    "updatedAt": "2026-11-02T17:03:16.586Z"
+    "updatedAt": "2026-11-03T04:06:46.643Z"
   },
   {
     "displaySize": "M",
@@ -4555,10 +4555,10 @@
     "name": "Article JK-F-39-GREY",
     "brand": "Saint G",
     "category": "women_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "WOMENS JACKET",
     "color": "Grey",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 30000,
+    "sellingPrice": 24000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4566,10 +4566,10 @@
       "XL": 0,
       "XXL": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-F-39-GREY.png",
     "notes": "Batch added JK-F-39-GREY",
     "createdAt": "2026-11-02T17:03:16.586Z",
-    "updatedAt": "2026-11-02T17:03:16.586Z"
+    "updatedAt": "2026-11-03T04:06:46.643Z"
   },
   {
     "displaySize": "M",
@@ -4578,10 +4578,10 @@
     "name": "Article JK-F-52-BLACK",
     "brand": "Saint G",
     "category": "women_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "WOMENS JACKET",
     "color": "Black",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 85000,
+    "sellingPrice": 85000,
     "sizes": {
       "S": 0,
       "M": 1,
@@ -4589,10 +4589,10 @@
       "XL": 0,
       "XXL": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-F-52-BLACK.png",
     "notes": "Batch added JK-F-52-BLACK",
     "createdAt": "2026-11-02T17:03:16.586Z",
-    "updatedAt": "2026-11-02T17:03:16.586Z"
+    "updatedAt": "2026-11-03T04:06:46.643Z"
   },
   {
     "displaySize": "M",
@@ -4601,10 +4601,10 @@
     "name": "Article JK-F-51-BLACK",
     "brand": "Saint G",
     "category": "women_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "WOMENS JACKET",
     "color": "Black",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 28000,
+    "sellingPrice": 24000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4612,10 +4612,10 @@
       "XL": 0,
       "XXL": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-F-51-BLACK.png",
     "notes": "Batch added JK-F-51-BLACK",
     "createdAt": "2026-11-02T17:03:16.586Z",
-    "updatedAt": "2026-11-02T17:03:16.586Z"
+    "updatedAt": "2026-11-03T04:06:46.643Z"
   },
   {
     "displaySize": "M",
@@ -4624,10 +4624,10 @@
     "name": "Article JK-F-06-BROWN",
     "brand": "Saint G",
     "category": "women_jacket",
-    "styleCategory": "Leather Jacket",
+    "styleCategory": "WOMENS JACKET",
     "color": "Brown",
-    "costPrice": 3800,
-    "sellingPrice": 7499,
+    "costPrice": 32000,
+    "sellingPrice": 28000,
     "sizes": {
       "S": 1,
       "M": 2,
@@ -4635,10 +4635,10 @@
       "XL": 0,
       "XXL": 0
     },
-    "imageUrl": "",
+    "imageUrl": "/products/JK-F-06-BROWN.png",
     "notes": "Batch added JK-F-06-BROWN",
     "createdAt": "2026-11-02T17:03:16.586Z",
-    "updatedAt": "2026-11-02T17:03:16.586Z"
+    "updatedAt": "2026-11-03T04:06:46.643Z"
   },
   {
     "displaySize": "M",
@@ -4662,5 +4662,1268 @@
     "notes": "Batch added JK-F-19-BROWN",
     "createdAt": "2026-11-02T17:03:16.586Z",
     "updatedAt": "2026-11-02T17:03:16.586Z"
+  },
+  {
+    "id": "prod-mg-sg-f-1630-beige",
+    "sku": "SG-F-1630-BEIGE",
+    "name": "Article SG-F-1630-BEIGE",
+    "brand": "Saint G",
+    "category": "women_footwear",
+    "styleCategory": "Block Heel Low",
+    "color": "BEIGE",
+    "costPrice": 11500,
+    "sellingPrice": 8000,
+    "sizes": {
+      "35": 0,
+      "36": 0,
+      "37": 0,
+      "38": 0,
+      "39": 0,
+      "40": 0,
+      "41": 0
+    },
+    "imageUrl": "/products/SG-F-1630-BEIGE.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.625Z",
+    "updatedAt": "2026-11-03T04:06:46.625Z"
+  },
+  {
+    "id": "prod-mg-sg-f-1898-tan",
+    "sku": "SG-F-1898-TAN",
+    "name": "Article SG-F-1898-TAN",
+    "brand": "Saint G",
+    "category": "women_footwear",
+    "styleCategory": "Block Heel Low",
+    "color": "TAN",
+    "costPrice": 11500,
+    "sellingPrice": 8000,
+    "sizes": {
+      "35": 0,
+      "36": 0,
+      "37": 0,
+      "38": 0,
+      "39": 0,
+      "40": 0,
+      "41": 0
+    },
+    "imageUrl": "/products/SG-F-1898-TAN.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.626Z",
+    "updatedAt": "2026-11-03T04:06:46.626Z"
+  },
+  {
+    "id": "prod-mg-sg-f-38-tan",
+    "sku": "SG-F-38-TAN",
+    "name": "Article SG-F-38-TAN",
+    "brand": "Saint G",
+    "category": "women_footwear",
+    "styleCategory": "Pumps",
+    "color": "TAN",
+    "costPrice": 11500,
+    "sellingPrice": 11500,
+    "sizes": {
+      "35": 0,
+      "36": 0,
+      "37": 0,
+      "38": 0,
+      "39": 0,
+      "40": 0,
+      "41": 0
+    },
+    "imageUrl": "/products/SG-F-38-TAN.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.628Z",
+    "updatedAt": "2026-11-03T04:06:46.628Z"
+  },
+  {
+    "id": "prod-mg-sg-f-1930-gold",
+    "sku": "SG-F-1930-GOLD",
+    "name": "Article SG-F-1930-GOLD",
+    "brand": "Saint G",
+    "category": "women_footwear",
+    "styleCategory": "Weding collection",
+    "color": "GOLD",
+    "costPrice": 14500,
+    "sellingPrice": 10000,
+    "sizes": {
+      "35": 0,
+      "36": 0,
+      "37": 0,
+      "38": 0,
+      "39": 0,
+      "40": 0,
+      "41": 0
+    },
+    "imageUrl": "/products/SG-F-1930-GOLD.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.631Z",
+    "updatedAt": "2026-11-03T04:06:46.631Z"
+  },
+  {
+    "id": "prod-mg-sg-f-1925-platin",
+    "sku": "SG-F-1925-PLATIN",
+    "name": "Article SG-F-1925-PLATIN",
+    "brand": "Saint G",
+    "category": "women_footwear",
+    "styleCategory": "Footbed",
+    "color": "PLATIN",
+    "costPrice": 12500,
+    "sellingPrice": 10500,
+    "sizes": {
+      "35": 0,
+      "36": 0,
+      "37": 0,
+      "38": 0,
+      "39": 0,
+      "40": 0,
+      "41": 0
+    },
+    "imageUrl": "/products/SG-F-1925-PLATIN.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.636Z",
+    "updatedAt": "2026-11-03T04:06:46.636Z"
+  },
+  {
+    "id": "prod-mg-sg-f-1927-offwhite",
+    "sku": "SG-F-1927-OFFWHITE",
+    "name": "Article SG-F-1927-OFFWHITE",
+    "brand": "Saint G",
+    "category": "women_footwear",
+    "styleCategory": "Footbed",
+    "color": "OFFWHITE",
+    "costPrice": 12900,
+    "sellingPrice": 10900,
+    "sizes": {
+      "35": 0,
+      "36": 0,
+      "37": 0,
+      "38": 0,
+      "39": 0,
+      "40": 0,
+      "41": 0
+    },
+    "imageUrl": "/products/SG-F-1927-OFFWHITE.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.636Z",
+    "updatedAt": "2026-11-03T04:06:46.636Z"
+  },
+  {
+    "id": "prod-mg-sg-f-1899-turq",
+    "sku": "SG-F-1899-TURQ",
+    "name": "Article SG-F-1899-TURQ",
+    "brand": "Saint G",
+    "category": "women_footwear",
+    "styleCategory": "Footbed",
+    "color": "TURQ",
+    "costPrice": 12900,
+    "sellingPrice": 12900,
+    "sizes": {
+      "35": 0,
+      "36": 0,
+      "37": 0,
+      "38": 0,
+      "39": 0,
+      "40": 0,
+      "41": 0
+    },
+    "imageUrl": "/products/SG-F-1899-TURQ.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.637Z",
+    "updatedAt": "2026-11-03T04:06:46.637Z"
+  },
+  {
+    "id": "prod-mg-sg-f-1899-coral",
+    "sku": "SG-F-1899-CORAL",
+    "name": "Article SG-F-1899-CORAL",
+    "brand": "Saint G",
+    "category": "women_footwear",
+    "styleCategory": "Footbed",
+    "color": "CORAL",
+    "costPrice": 12900,
+    "sellingPrice": 12900,
+    "sizes": {
+      "35": 0,
+      "36": 0,
+      "37": 0,
+      "38": 0,
+      "39": 0,
+      "40": 0,
+      "41": 0
+    },
+    "imageUrl": "/products/SG-F-1899-CORAL.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.638Z",
+    "updatedAt": "2026-11-03T04:06:46.638Z"
+  },
+  {
+    "id": "prod-mg-sg-f-1875-off-wht",
+    "sku": "SG-F-1875-OFF-WHT",
+    "name": "Article SG-F-1875-OFF-WHT",
+    "brand": "Saint G",
+    "category": "women_footwear",
+    "styleCategory": "Footbed",
+    "color": "WHT",
+    "costPrice": 10900,
+    "sellingPrice": 7500,
+    "sizes": {
+      "35": 0,
+      "36": 0,
+      "37": 0,
+      "38": 0,
+      "39": 0,
+      "40": 0,
+      "41": 0
+    },
+    "imageUrl": "/products/SG-F-1875-OFF-WHT.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.639Z",
+    "updatedAt": "2026-11-03T04:06:46.639Z"
+  },
+  {
+    "id": "prod-mg-sg-f-1933-natural",
+    "sku": "SG-F-1933-NATURAL",
+    "name": "Article SG-F-1933-NATURAL",
+    "brand": "Saint G",
+    "category": "women_footwear",
+    "styleCategory": "Footbed",
+    "color": "NATURAL",
+    "costPrice": 13900,
+    "sellingPrice": 10900,
+    "sizes": {
+      "35": 0,
+      "36": 0,
+      "37": 0,
+      "38": 0,
+      "39": 0,
+      "40": 0,
+      "41": 0
+    },
+    "imageUrl": "/products/SG-F-1933-NATURAL.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.639Z",
+    "updatedAt": "2026-11-03T04:06:46.639Z"
+  },
+  {
+    "id": "prod-mg-sgm-56-black",
+    "sku": "SGM-56-BLACK",
+    "name": "Article SGM-56-BLACK",
+    "brand": "Saint G",
+    "category": "men_footwear",
+    "styleCategory": "Mens Boot",
+    "color": "BLACK",
+    "costPrice": 16500,
+    "sellingPrice": 13500,
+    "sizes": {
+      "40": 0,
+      "41": 0,
+      "42": 0,
+      "43": 0,
+      "44": 0,
+      "45": 0
+    },
+    "imageUrl": "/products/SGM-56-BLACK.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.641Z",
+    "updatedAt": "2026-11-03T04:06:46.641Z"
+  },
+  {
+    "id": "prod-mg-jk-m-34-olive",
+    "sku": "JK-M-34-OLIVE",
+    "name": "Article JK-M-34-OLIVE",
+    "brand": "Saint G",
+    "category": "men_jacket",
+    "styleCategory": "MENS JACKET",
+    "color": "OLIVE",
+    "costPrice": 35000,
+    "sellingPrice": 28000,
+    "sizes": {
+      "S": 0,
+      "M": 0,
+      "L": 0,
+      "XL": 0,
+      "XXL": 0
+    },
+    "imageUrl": "/products/JK-M-34-OLIVE.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.641Z",
+    "updatedAt": "2026-11-03T04:06:46.642Z"
+  },
+  {
+    "id": "prod-mg-jk-m-78-black",
+    "sku": "JK-M-78-BLACK",
+    "name": "Article JK-M-78-BLACK",
+    "brand": "Saint G",
+    "category": "men_jacket",
+    "styleCategory": "MENS JACKET",
+    "color": "BLACK",
+    "costPrice": 39000,
+    "sellingPrice": 39000,
+    "sizes": {
+      "S": 0,
+      "M": 0,
+      "L": 0,
+      "XL": 0,
+      "XXL": 0
+    },
+    "imageUrl": "/products/JK-M-78-BLACK.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.642Z",
+    "updatedAt": "2026-11-03T04:06:46.642Z"
+  },
+  {
+    "id": "prod-mg-jk-m-29-chocolate",
+    "sku": "JK-M-29-CHOCOLATE",
+    "name": "Article JK-M-29-CHOCOLATE",
+    "brand": "Saint G",
+    "category": "men_jacket",
+    "styleCategory": "MENS JACKET",
+    "color": "CHOCOLATE",
+    "costPrice": 35000,
+    "sellingPrice": 35000,
+    "sizes": {
+      "S": 0,
+      "M": 0,
+      "L": 0,
+      "XL": 0,
+      "XXL": 0
+    },
+    "imageUrl": "/products/JK-M-29-CHOCOLATE.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.643Z",
+    "updatedAt": "2026-11-03T04:06:46.643Z"
+  },
+  {
+    "id": "prod-mg-jk-m-55-black",
+    "sku": "JK-M-55-BLACK",
+    "name": "Article JK-M-55-BLACK",
+    "brand": "Saint G",
+    "category": "men_jacket",
+    "styleCategory": "MENS JACKET",
+    "color": "BLACK",
+    "costPrice": 100000,
+    "sellingPrice": 100000,
+    "sizes": {
+      "S": 0,
+      "M": 0,
+      "L": 0,
+      "XL": 0,
+      "XXL": 0
+    },
+    "imageUrl": "/products/JK-M-55-BLACK.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.643Z",
+    "updatedAt": "2026-11-03T04:06:46.643Z"
+  },
+  {
+    "id": "prod-mg-jk-f-19-tan",
+    "sku": "JK-F-19-TAN",
+    "name": "Article JK-F-19-TAN",
+    "brand": "Saint G",
+    "category": "women_jacket",
+    "styleCategory": "WOMENS JACKET",
+    "color": "TAN",
+    "costPrice": 28500,
+    "sellingPrice": 22000,
+    "sizes": {
+      "S": 0,
+      "M": 0,
+      "L": 0,
+      "XL": 0,
+      "XXL": 0
+    },
+    "imageUrl": "/products/JK-F-19-TAN.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.643Z",
+    "updatedAt": "2026-11-03T04:06:46.643Z"
+  },
+  {
+    "id": "prod-mg-sa-f-134-beige",
+    "sku": "SA-F-134-BEIGE",
+    "name": "Article SA-F-134-BEIGE",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "BEIGE",
+    "costPrice": 14900,
+    "sellingPrice": 12900,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-134-BEIGE.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.644Z",
+    "updatedAt": "2026-11-03T04:06:46.644Z"
+  },
+  {
+    "id": "prod-mg-sa-f-114-green",
+    "sku": "SA-F-114-GREEN",
+    "name": "Article SA-F-114-GREEN",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "GREEN",
+    "costPrice": 14000,
+    "sellingPrice": 10500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-114-GREEN.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.644Z",
+    "updatedAt": "2026-11-03T04:06:46.644Z"
+  },
+  {
+    "id": "prod-mg-sa-f-150-skybue",
+    "sku": "SA-F-150-SKYBUE",
+    "name": "Article SA-F-150-SKYBUE",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "SKYBUE",
+    "costPrice": 13500,
+    "sellingPrice": 13500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-150-SKYBUE.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.644Z",
+    "updatedAt": "2026-11-03T04:06:46.644Z"
+  },
+  {
+    "id": "prod-mg-sa-f-144-ivory",
+    "sku": "SA-F-144-IVORY",
+    "name": "Article SA-F-144-IVORY",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "IVORY",
+    "costPrice": 10500,
+    "sellingPrice": 10500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-144-IVORY.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.644Z",
+    "updatedAt": "2026-11-03T04:06:46.644Z"
+  },
+  {
+    "id": "prod-mg-sa-f-135-ivory",
+    "sku": "SA-F-135-IVORY",
+    "name": "Article SA-F-135-IVORY",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "IVORY",
+    "costPrice": 13500,
+    "sellingPrice": 13500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-135-IVORY.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.645Z",
+    "updatedAt": "2026-11-03T04:06:46.645Z"
+  },
+  {
+    "id": "prod-mg-sa-f-118-ivory",
+    "sku": "SA-F-118-IVORY",
+    "name": "Article SA-F-118-IVORY",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "IVORY",
+    "costPrice": 15000,
+    "sellingPrice": 15000,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-118-IVORY.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.645Z",
+    "updatedAt": "2026-11-03T04:06:46.645Z"
+  },
+  {
+    "id": "prod-mg-sa-f-147-ivory",
+    "sku": "SA-F-147-IVORY",
+    "name": "Article SA-F-147-IVORY",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "IVORY",
+    "costPrice": 15000,
+    "sellingPrice": 15000,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-147-IVORY.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.645Z",
+    "updatedAt": "2026-11-03T04:06:46.645Z"
+  },
+  {
+    "id": "prod-mg-sa-f-12-purple",
+    "sku": "SA-F-12-PURPLE",
+    "name": "Article SA-F-12-PURPLE",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "PURPLE",
+    "costPrice": 12500,
+    "sellingPrice": 8500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-12-PURPLE.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.645Z",
+    "updatedAt": "2026-11-03T04:06:46.645Z"
+  },
+  {
+    "id": "prod-mg-sa-f-131-yellow",
+    "sku": "SA-F-131-YELLOW",
+    "name": "Article SA-F-131-YELLOW",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "YELLOW",
+    "costPrice": 12000,
+    "sellingPrice": 8500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-131-YELLOW.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.645Z",
+    "updatedAt": "2026-11-03T04:06:46.645Z"
+  },
+  {
+    "id": "prod-mg-sa-f-136-green",
+    "sku": "SA-F-136-GREEN",
+    "name": "Article SA-F-136-GREEN",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "GREEN",
+    "costPrice": 12000,
+    "sellingPrice": 8500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-136-GREEN.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.646Z",
+    "updatedAt": "2026-11-03T04:06:46.646Z"
+  },
+  {
+    "id": "prod-mg-sa-f-143-orange",
+    "sku": "SA-F-143-ORANGE",
+    "name": "Article SA-F-143-ORANGE",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "ORANGE",
+    "costPrice": 11500,
+    "sellingPrice": 7900,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-143-ORANGE.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.646Z",
+    "updatedAt": "2026-11-03T04:06:46.646Z"
+  },
+  {
+    "id": "prod-mg-sa-f-151-black",
+    "sku": "SA-F-151-BLACK",
+    "name": "Article SA-F-151-BLACK",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "BLACK",
+    "costPrice": 14900,
+    "sellingPrice": 10500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-151-BLACK.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.646Z",
+    "updatedAt": "2026-11-03T04:06:46.646Z"
+  },
+  {
+    "id": "prod-mg-sa-f-152-green",
+    "sku": "SA-F-152-GREEN",
+    "name": "Article SA-F-152-GREEN",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "GREEN",
+    "costPrice": 14900,
+    "sellingPrice": 9500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-152-GREEN.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.646Z",
+    "updatedAt": "2026-11-03T04:06:46.646Z"
+  },
+  {
+    "id": "prod-mg-sa-f-155-white",
+    "sku": "SA-F-155-WHITE",
+    "name": "Article SA-F-155-WHITE",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "WHITE",
+    "costPrice": 12500,
+    "sellingPrice": 12500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-155-WHITE.jpeg",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.646Z",
+    "updatedAt": "2026-11-03T04:06:46.646Z"
+  },
+  {
+    "id": "prod-mg-sa-f-27-white",
+    "sku": "SA-F-27-WHITE",
+    "name": "Article SA-F-27-WHITE",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "WHITE",
+    "costPrice": 7900,
+    "sellingPrice": 7900,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-27-WHITE.jpeg",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.646Z",
+    "updatedAt": "2026-11-03T04:06:46.646Z"
+  },
+  {
+    "id": "prod-mg-sa-f-37-white",
+    "sku": "SA-F-37-WHITE",
+    "name": "Article SA-F-37-WHITE",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "WHITE",
+    "costPrice": 12900,
+    "sellingPrice": 10500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-37-WHITE.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.647Z",
+    "updatedAt": "2026-11-03T04:06:46.647Z"
+  },
+  {
+    "id": "prod-mg-sa-f-87-blue",
+    "sku": "SA-F-87-BLUE",
+    "name": "Article SA-F-87-BLUE",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "BLUE",
+    "costPrice": 12900,
+    "sellingPrice": 9500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-87-BLUE.jpeg",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.647Z",
+    "updatedAt": "2026-11-03T04:06:46.647Z"
+  },
+  {
+    "id": "prod-mg-sa-f-111-olive",
+    "sku": "SA-F-111-OLIVE",
+    "name": "Article SA-F-111-OLIVE",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "OLIVE",
+    "costPrice": 10500,
+    "sellingPrice": 8500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-111-OLIVE.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.647Z",
+    "updatedAt": "2026-11-03T04:06:46.647Z"
+  },
+  {
+    "id": "prod-mg-sa-f-115-multi",
+    "sku": "SA-F-115-MULTI",
+    "name": "Article SA-F-115-MULTI",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "MULTI",
+    "costPrice": 10500,
+    "sellingPrice": 9000,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-115-MULTI.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.647Z",
+    "updatedAt": "2026-11-03T04:06:46.647Z"
+  },
+  {
+    "id": "prod-mg-sa-f-126-ivoryred",
+    "sku": "SA-F-126-IVORYRED",
+    "name": "Article SA-F-126-IVORYRED",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "IVORYRED",
+    "costPrice": 12500,
+    "sellingPrice": 9500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-126-IVORYRED.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.647Z",
+    "updatedAt": "2026-11-03T04:06:46.647Z"
+  },
+  {
+    "id": "prod-mg-sa-f-141-ivory",
+    "sku": "SA-F-141-IVORY",
+    "name": "Article SA-F-141-IVORY",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "IVORY",
+    "costPrice": 12500,
+    "sellingPrice": 9000,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-141-IVORY.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.647Z",
+    "updatedAt": "2026-11-03T04:06:46.647Z"
+  },
+  {
+    "id": "prod-mg-sa-f-142-yellow",
+    "sku": "SA-F-142-YELLOW",
+    "name": "Article SA-F-142-YELLOW",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "YELLOW",
+    "costPrice": 12500,
+    "sellingPrice": 9000,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-142-YELLOW.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.648Z",
+    "updatedAt": "2026-11-03T04:06:46.648Z"
+  },
+  {
+    "id": "prod-mg-sa-f-148-green",
+    "sku": "SA-F-148-Green",
+    "name": "Article SA-F-148-Green",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "Green",
+    "costPrice": 11500,
+    "sellingPrice": 9500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-148-Green.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.651Z",
+    "updatedAt": "2026-11-03T04:06:46.651Z"
+  },
+  {
+    "id": "prod-mg-sa-f-102-green",
+    "sku": "sa-f-102-green",
+    "name": "Article sa-f-102-green",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "green",
+    "costPrice": 8500,
+    "sellingPrice": 6500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/sa-f-102-green.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.651Z",
+    "updatedAt": "2026-11-03T04:06:46.651Z"
+  },
+  {
+    "id": "prod-mg-sa-f-103-green",
+    "sku": "sa-f-103-green",
+    "name": "Article sa-f-103-green",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "green",
+    "costPrice": 8500,
+    "sellingPrice": 5500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.652Z",
+    "updatedAt": "2026-11-03T04:06:46.652Z"
+  },
+  {
+    "id": "prod-mg-sa-f-116-green",
+    "sku": "sa-f-116-green",
+    "name": "Article sa-f-116-green",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "green",
+    "costPrice": 12500,
+    "sellingPrice": 9500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/sa-f-116-green.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.652Z",
+    "updatedAt": "2026-11-03T04:06:46.652Z"
+  },
+  {
+    "id": "prod-mg-sa-f-117-ivoryred",
+    "sku": "SA-F-117-IVORYRED",
+    "name": "Article SA-F-117-IVORYRED",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "IVORYRED",
+    "costPrice": 12500,
+    "sellingPrice": 9500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-117-IVORYRED.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.652Z",
+    "updatedAt": "2026-11-03T04:06:46.652Z"
+  },
+  {
+    "id": "prod-mg-sa-f-125-blue",
+    "sku": "SA-F-125-BLUE",
+    "name": "Article SA-F-125-BLUE",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "BLUE",
+    "costPrice": 12500,
+    "sellingPrice": 9500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-125-BLUE.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.653Z",
+    "updatedAt": "2026-11-03T04:06:46.653Z"
+  },
+  {
+    "id": "prod-mg-sa-f-127-blue",
+    "sku": "SA-F-127-BLUE",
+    "name": "Article SA-F-127-BLUE",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "BLUE",
+    "costPrice": 12500,
+    "sellingPrice": 9500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-127-BLUE.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.653Z",
+    "updatedAt": "2026-11-03T04:06:46.653Z"
+  },
+  {
+    "id": "prod-mg-sa-f-128-ivory",
+    "sku": "SA-F-128-IVORY",
+    "name": "Article SA-F-128-IVORY",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "IVORY",
+    "costPrice": 12500,
+    "sellingPrice": 9500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/SA-F-128-IVORY.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.653Z",
+    "updatedAt": "2026-11-03T04:06:46.653Z"
+  },
+  {
+    "id": "prod-mg-sa-f-84-multi",
+    "sku": "sa-f-84-multi",
+    "name": "Article sa-f-84-multi",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "multi",
+    "costPrice": 10500,
+    "sellingPrice": 9000,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/sa-f-84-multi.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.653Z",
+    "updatedAt": "2026-11-03T04:06:46.653Z"
+  },
+  {
+    "id": "prod-mg-sa-f-88-red",
+    "sku": "sa-f-88-red",
+    "name": "Article sa-f-88-red",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "red",
+    "costPrice": 12500,
+    "sellingPrice": 10000,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/sa-f-88-red.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.653Z",
+    "updatedAt": "2026-11-03T04:06:46.653Z"
+  },
+  {
+    "id": "prod-mg-sa-f-99-white",
+    "sku": "sa-f-99-white",
+    "name": "Article sa-f-99-white",
+    "brand": "Saint G",
+    "category": "apparels",
+    "styleCategory": "Apparels",
+    "color": "white",
+    "costPrice": 7500,
+    "sellingPrice": 6500,
+    "sizes": {
+      "Free Size": 0
+    },
+    "imageUrl": "/products/sa-f-99-white.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.653Z",
+    "updatedAt": "2026-11-03T04:06:46.653Z"
+  },
+  {
+    "id": "prod-mg-sp-un-301-black",
+    "sku": "SP-UN-301-BLACK",
+    "name": "Article SP-UN-301-BLACK",
+    "brand": "Saint G",
+    "category": "sunglasses",
+    "styleCategory": "Sunglasses",
+    "color": "BLACK",
+    "costPrice": 9500,
+    "sellingPrice": 9500,
+    "sizes": {
+      "Standard": 0
+    },
+    "imageUrl": "/products/SP-UN-301-BLACK.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.653Z",
+    "updatedAt": "2026-11-03T04:06:46.653Z"
+  },
+  {
+    "id": "prod-mg-sp-un-311-black",
+    "sku": "SP-UN-311-BLACK",
+    "name": "Article SP-UN-311-BLACK",
+    "brand": "Saint G",
+    "category": "sunglasses",
+    "styleCategory": "Sunglasses",
+    "color": "BLACK",
+    "costPrice": 12500,
+    "sellingPrice": 9000,
+    "sizes": {
+      "Standard": 0
+    },
+    "imageUrl": "/products/SP-UN-311-BLACK.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.654Z",
+    "updatedAt": "2026-11-03T04:06:46.654Z"
+  },
+  {
+    "id": "prod-mg-sp-un-303-brown",
+    "sku": "SP-UN-303-BROWN",
+    "name": "Article SP-UN-303-BROWN",
+    "brand": "Saint G",
+    "category": "sunglasses",
+    "styleCategory": "Sunglasses",
+    "color": "BROWN",
+    "costPrice": 12500,
+    "sellingPrice": 10000,
+    "sizes": {
+      "Standard": 0
+    },
+    "imageUrl": "/products/SP-UN-303-BROWN.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.654Z",
+    "updatedAt": "2026-11-03T04:06:46.654Z"
+  },
+  {
+    "id": "prod-mg-sp-un-307-clay",
+    "sku": "SP-UN-307-CLAY",
+    "name": "Article SP-UN-307-CLAY",
+    "brand": "Saint G",
+    "category": "sunglasses",
+    "styleCategory": "Sunglasses",
+    "color": "CLAY",
+    "costPrice": 12500,
+    "sellingPrice": 9500,
+    "sizes": {
+      "Standard": 0
+    },
+    "imageUrl": "/products/SP-UN-307-CLAY.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.654Z",
+    "updatedAt": "2026-11-03T04:06:46.654Z"
+  },
+  {
+    "id": "prod-mg-sp-un-308-black",
+    "sku": "SP-UN-308-BLACK",
+    "name": "Article SP-UN-308-BLACK",
+    "brand": "Saint G",
+    "category": "sunglasses",
+    "styleCategory": "Sunglasses",
+    "color": "BLACK",
+    "costPrice": 12500,
+    "sellingPrice": 12500,
+    "sizes": {
+      "Standard": 0
+    },
+    "imageUrl": "/products/SP-UN-308-BLACK.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.654Z",
+    "updatedAt": "2026-11-03T04:06:46.654Z"
+  },
+  {
+    "id": "prod-mg-sp-un-314-black",
+    "sku": "SP-UN-314-BLACK",
+    "name": "Article SP-UN-314-BLACK",
+    "brand": "Saint G",
+    "category": "sunglasses",
+    "styleCategory": "Sunglasses",
+    "color": "BLACK",
+    "costPrice": 9500,
+    "sellingPrice": 7000,
+    "sizes": {
+      "Standard": 0
+    },
+    "imageUrl": "/products/SP-UN-314-BLACK.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.654Z",
+    "updatedAt": "2026-11-03T04:06:46.654Z"
+  },
+  {
+    "id": "prod-mg-sp-un-318-blush",
+    "sku": "SP-UN-318-BLUSH",
+    "name": "Article SP-UN-318-BLUSH",
+    "brand": "Saint G",
+    "category": "sunglasses",
+    "styleCategory": "Sunglasses",
+    "color": "BLUSH",
+    "costPrice": 12500,
+    "sellingPrice": 8000,
+    "sizes": {
+      "Standard": 0
+    },
+    "imageUrl": "/products/SP-UN-318-BLUSH.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.654Z",
+    "updatedAt": "2026-11-03T04:06:46.654Z"
+  },
+  {
+    "id": "prod-mg-sp-un-316-crystal",
+    "sku": "SP-UN-316-CRYSTAL",
+    "name": "Article SP-UN-316-CRYSTAL",
+    "brand": "Saint G",
+    "category": "sunglasses",
+    "styleCategory": "Sunglasses",
+    "color": "CRYSTAL",
+    "costPrice": 9500,
+    "sellingPrice": 6800,
+    "sizes": {
+      "Standard": 0
+    },
+    "imageUrl": "/products/SP-UN-316-CRYSTAL.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.657Z",
+    "updatedAt": "2026-11-03T04:06:46.657Z"
+  },
+  {
+    "id": "prod-mg-sp-un-309-red",
+    "sku": "SP-UN-309-RED",
+    "name": "Article SP-UN-309-RED",
+    "brand": "Saint G",
+    "category": "sunglasses",
+    "styleCategory": "Sunglasses",
+    "color": "RED",
+    "costPrice": 11500,
+    "sellingPrice": 7500,
+    "sizes": {
+      "Standard": 0
+    },
+    "imageUrl": "/products/SP-UN-309-RED.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.657Z",
+    "updatedAt": "2026-11-03T04:06:46.657Z"
+  },
+  {
+    "id": "prod-mg-sp-un-304-ivory",
+    "sku": "SP-UN-304-IVORY",
+    "name": "Article SP-UN-304-IVORY",
+    "brand": "Saint G",
+    "category": "sunglasses",
+    "styleCategory": "Sunglasses",
+    "color": "IVORY",
+    "costPrice": 10500,
+    "sellingPrice": 7500,
+    "sizes": {
+      "Standard": 0
+    },
+    "imageUrl": "/products/SP-UN-304-IVORY.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.657Z",
+    "updatedAt": "2026-11-03T04:06:46.657Z"
+  },
+  {
+    "id": "prod-mg-sp-un-310-amber",
+    "sku": "SP-UN-310-AMBER",
+    "name": "Article SP-UN-310-AMBER",
+    "brand": "Saint G",
+    "category": "sunglasses",
+    "styleCategory": "Sunglasses",
+    "color": "AMBER",
+    "costPrice": 7000,
+    "sellingPrice": 7000,
+    "sizes": {
+      "Standard": 0
+    },
+    "imageUrl": "/products/SP-UN-310-AMBER.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.657Z",
+    "updatedAt": "2026-11-03T04:06:46.657Z"
+  },
+  {
+    "id": "prod-mg-sp-un-317-black",
+    "sku": "SP-UN-317-BLACK",
+    "name": "Article SP-UN-317-BLACK",
+    "brand": "Saint G",
+    "category": "sunglasses",
+    "styleCategory": "Sunglasses",
+    "color": "BLACK",
+    "costPrice": 10500,
+    "sellingPrice": 9500,
+    "sizes": {
+      "Standard": 0
+    },
+    "imageUrl": "/products/SP-UN-317-BLACK.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.658Z",
+    "updatedAt": "2026-11-03T04:06:46.658Z"
+  },
+  {
+    "id": "prod-mg-sp-un-319-black",
+    "sku": "SP-UN-319-BLACK",
+    "name": "Article SP-UN-319-BLACK",
+    "brand": "Saint G",
+    "category": "sunglasses",
+    "styleCategory": "Sunglasses",
+    "color": "BLACK",
+    "costPrice": 10500,
+    "sellingPrice": 9500,
+    "sizes": {
+      "Standard": 0
+    },
+    "imageUrl": "/products/SP-UN-319-BLACK.png",
+    "displaySize": null,
+    "notes": "",
+    "createdAt": "2026-11-03T04:06:46.658Z",
+    "updatedAt": "2026-11-03T04:06:46.658Z"
   }
 ]

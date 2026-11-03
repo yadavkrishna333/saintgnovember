@@ -130,6 +130,8 @@ export function ReplenishmentView({ preselectedProduct = null }) {
           else if (upperSku.startsWith('JK-M-')) detectedCategory = 'men_jacket';
           else if (upperSku.startsWith('JK-F-')) detectedCategory = 'women_jacket';
           else if (upperSku.startsWith('BG-')) detectedCategory = 'bags';
+          else if (upperSku.startsWith('SA-F-') || upperSku.startsWith('SA-')) detectedCategory = 'apparels';
+          else if (upperSku.startsWith('SP-UN-') || upperSku.startsWith('SP-')) detectedCategory = 'sunglasses';
 
           extracted.push({
             sku: cleanSku || `ART-${Date.now().toString().slice(-4)}`,

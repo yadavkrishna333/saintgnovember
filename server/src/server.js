@@ -35,6 +35,12 @@ import {
 } from './auth.js';
 import { getLocalIpAddress } from './network.js';
 
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 const server = http.createServer(app);
 
@@ -47,6 +53,7 @@ const io = new SocketIOServer(server, {
 
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
+app.use('/products', express.static(path.join(__dirname, '../../client/public/products')));
 
 const PORT = process.env.PORT || 5000;
 let connectedDevicesCount = 0;

@@ -175,7 +175,13 @@ function populateSpreadsheet(ss, inventory, sales) {
   // 5. Bags
   buildCategorySheet("Bags", "bags", "Sr No.", ["One Size"]);
 
-  // 6. Sales History (Daily Sell & Replenishment Status)
+  // 6. Apparels
+  buildCategorySheet("Apparels", "apparels", "Sr No.", ["Free Size"]);
+
+  // 7. Sunglasses
+  buildCategorySheet("Sunglasses", "sunglasses", "Sr No.", ["Standard"]);
+
+  // 8. Sales History (Daily Sell & Replenishment Status)
   var salesSheet = ss.getSheetByName("Sales History") || ss.insertSheet("Sales History");
   salesSheet.clear();
   
@@ -612,6 +618,12 @@ export function GoogleSheetsSyncModal({ isOpen, onClose }) {
                 </span>
                 <span className="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700 text-slate-300 text-xs font-semibold">
                   👜 Bags ({inventory.filter(p => p.category === 'bags').length})
+                </span>
+                <span className="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700 text-slate-300 text-xs font-semibold">
+                  👗 Apparels ({inventory.filter(p => p.category === 'apparels').length})
+                </span>
+                <span className="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700 text-slate-300 text-xs font-semibold">
+                  🕶️ Sunglasses ({inventory.filter(p => p.category === 'sunglasses').length})
                 </span>
                 <span className="px-2.5 py-1 rounded-lg bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-xs font-black">
                   📊 Sales History (Red/Green Status)

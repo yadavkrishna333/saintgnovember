@@ -22,11 +22,13 @@ export function ProductModal({ isOpen, onClose, editProduct = null }) {
   const [error, setError] = useState('');
 
   const stylePresets = {
-    women_footwear: ['Block Heels', 'Pencil Heel', 'Pumps', 'Flats', 'Stiletto', 'Platform'],
-    men_footwear: ['Sneakers', 'Running Shoes', 'Loafers', 'Formal Oxford', 'Boots', 'Slip-on'],
-    men_jacket: ['Biker Leather', 'Down Puffer', 'Bomber', 'Varsity', 'Denim Jacket'],
-    women_jacket: ['Cropped Trench', 'Teddy Bomber', 'Biker Leather', 'Puffer', 'Blazer'],
-    bags: ['Satchel Handbag', 'Tote Bag', 'Backpack', 'Crossbody Bag', 'Duffle']
+    women_footwear: ['Block Heel High', 'Block Heel Low', 'Pumps', 'Ballerina', 'Wedge Heel', 'Stilettos', 'Weding collection', 'Flats', 'Footbed', 'Ankle Boot', 'High Ankle', 'Calf Boot', 'Long Boot', 'Thigh High boot'],
+    men_footwear: ['Mens Boot', 'Sneakers', 'Running Shoes', 'Loafers', 'Formal Oxford', 'Slip-on'],
+    men_jacket: ['MENS JACKET', 'Biker Leather', 'Down Puffer', 'Bomber', 'Varsity', 'Denim Jacket'],
+    women_jacket: ['WOMENS JACKET', 'Cropped Trench', 'Teddy Bomber', 'Biker Leather', 'Puffer', 'Blazer'],
+    bags: ['Satchel Handbag', 'Tote Bag', 'Backpack', 'Crossbody Bag', 'Duffle'],
+    apparels: ['Apparels', 'Co-ord Set', 'Dress', 'Top', 'Bottom'],
+    sunglasses: ['Sunglasses', 'Aviator', 'Wayfarer', 'Round', 'Cat Eye']
   };
 
   useEffect(() => {
