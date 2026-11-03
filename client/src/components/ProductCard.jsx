@@ -83,17 +83,19 @@ export function ProductCard({ product, onEdit, onQuickSale }) {
           </span>
         </div>
 
-        {/* Product Details: Left Image, Right Style Category & Price Only */}
-        <div className="flex gap-3.5 items-center">
+        {/* Product Details: Left Image (Wide Rectangle), Right Style Category & Price */}
+        <div className="flex gap-4 items-center">
           {product.imageUrl ? (
-            <img 
-              src={product.imageUrl} 
-              alt={product.styleCategory || product.sku} 
-              className="w-20 h-20 rounded-2xl object-cover border-2 border-slate-700 bg-slate-900 flex-shrink-0 shadow-md"
-              onError={(e) => { e.target.style.display = 'none'; }}
-            />
+            <div className="w-32 h-20 rounded-2xl bg-slate-950 border-2 border-slate-700/80 p-1 flex items-center justify-center flex-shrink-0 shadow-md overflow-hidden">
+              <img 
+                src={product.imageUrl} 
+                alt={product.styleCategory || product.sku} 
+                className="w-full h-full object-contain"
+                onError={(e) => { e.target.style.display = 'none'; }}
+              />
+            </div>
           ) : (
-            <div className="w-20 h-20 rounded-2xl bg-slate-900 border-2 border-slate-700 flex items-center justify-center text-slate-500 text-2xl flex-shrink-0">
+            <div className="w-32 h-20 rounded-2xl bg-slate-900 border-2 border-slate-700/80 flex items-center justify-center text-slate-500 text-2xl flex-shrink-0">
               📦
             </div>
           )}

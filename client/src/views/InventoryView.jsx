@@ -314,7 +314,7 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                                 <span className="text-[8px] uppercase px-1.5 py-0.2 rounded bg-sky-500/20 text-sky-300 border border-sky-500/30">MAIN</span>
                               </div>
                             </th>
-                            <th className="py-2 px-2.5 min-w-[220px]">STYLE & PRICE</th>
+                            <th className="py-2 px-3 w-[300px] min-w-[300px]">STYLE & PRICE</th>
                             <th className="py-2 px-2 min-w-[120px] max-w-[150px]">COLOR</th>
 
                             {/* Size Columns */}
@@ -377,29 +377,31 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                                   </div>
                                 </td>
 
-                                {/* STYLE CATEGORY (LEFT: BIGGER IMAGE, RIGHT: STYLE CATEGORY & PRICE ONLY) */}
-                                <td className="py-2 px-2.5 min-w-[220px]">
-                                  <div className="flex items-center gap-3">
+                                {/* STYLE CATEGORY (LEFT: WIDE IMAGE SHOWING FULL PRODUCT, RIGHT: STYLE CATEGORY & PRICE) */}
+                                <td className="py-2 px-3 w-[300px] min-w-[300px]">
+                                  <div className="flex items-center gap-3.5">
                                     {product.imageUrl ? (
-                                      <img
-                                        src={product.imageUrl}
-                                        alt={product.styleCategory || product.sku}
-                                        loading="lazy"
-                                        className="w-14 h-14 rounded-xl object-cover border border-slate-600 bg-slate-950 flex-shrink-0 shadow-md"
-                                        onError={(e) => { e.target.style.display = 'none'; }}
-                                      />
+                                      <div className="w-28 h-16 rounded-xl bg-slate-950 border border-slate-700/80 p-1 flex items-center justify-center flex-shrink-0 shadow-md overflow-hidden">
+                                        <img
+                                          src={product.imageUrl}
+                                          alt={product.styleCategory || product.sku}
+                                          loading="lazy"
+                                          className="w-full h-full object-contain"
+                                          onError={(e) => { e.target.style.display = 'none'; }}
+                                        />
+                                      </div>
                                     ) : (
-                                      <div className="w-14 h-14 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-400 text-lg flex-shrink-0">
+                                      <div className="w-28 h-16 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-400 text-lg flex-shrink-0">
                                         📦
                                       </div>
                                     )}
 
-                                    <div className="min-w-0 leading-snug">
-                                      <div className="text-[13px] font-black text-white tracking-wide uppercase truncate max-w-[170px]" title={product.styleCategory}>
+                                    <div className="min-w-0 flex-1 leading-snug">
+                                      <div className="text-[13px] font-black text-white tracking-wide uppercase truncate" title={product.styleCategory}>
                                         {product.styleCategory || "Footwear"}
                                       </div>
-                                      <div className="mt-1">
-                                        <span className="text-[12px] font-black text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-md inline-block">
+                                      <div className="mt-1.5">
+                                        <span className="text-[12px] font-black text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-2.5 py-0.5 rounded-lg inline-block shadow-sm">
                                           ₹{Number(product.sellingPrice || 0).toLocaleString('en-IN')}
                                         </span>
                                       </div>
@@ -601,18 +603,20 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                               </button>
                             </div>
 
-                            {/* IMAGE ON LEFT, STYLE CATEGORY & PRICE ON RIGHT (NO ARTICLE NAME, NO BRAND) */}
+                            {/* IMAGE ON LEFT (WIDE RECTANGLE SHOWING FULL ARTICLE), STYLE CATEGORY & PRICE SHIFTED RIGHT */}
                             <div className="flex gap-4 items-center">
                               {product.imageUrl ? (
-                                <img
-                                  src={product.imageUrl}
-                                  alt={product.styleCategory || product.sku}
-                                  loading="lazy"
-                                  className="w-24 h-24 rounded-2xl object-cover border-2 border-slate-700 bg-slate-950 shadow-lg flex-shrink-0"
-                                  onError={(e) => { e.target.style.display = 'none'; }}
-                                />
+                                <div className="w-36 sm:w-40 h-24 rounded-2xl bg-slate-950 border-2 border-slate-700/80 p-1.5 flex items-center justify-center flex-shrink-0 shadow-lg overflow-hidden">
+                                  <img
+                                    src={product.imageUrl}
+                                    alt={product.styleCategory || product.sku}
+                                    loading="lazy"
+                                    className="w-full h-full object-contain"
+                                    onError={(e) => { e.target.style.display = 'none'; }}
+                                  />
+                                </div>
                               ) : (
-                                <div className="w-24 h-24 rounded-2xl bg-slate-800 border-2 border-slate-700 flex items-center justify-center text-slate-500 text-2xl flex-shrink-0">
+                                <div className="w-36 sm:w-40 h-24 rounded-2xl bg-slate-800 border-2 border-slate-700 flex items-center justify-center text-slate-500 text-2xl flex-shrink-0">
                                   📦
                                 </div>
                               )}
@@ -620,8 +624,8 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                                 <div className="text-base sm:text-lg font-black text-white uppercase tracking-wide">
                                   {product.styleCategory || "Footwear"}
                                 </div>
-                                <div className="mt-2">
-                                  <span className="text-sm sm:text-base font-black text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 rounded-xl inline-block">
+                                <div className="mt-2.5">
+                                  <span className="text-sm sm:text-base font-black text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 rounded-xl inline-block shadow-sm">
                                     ₹{Number(product.sellingPrice || 0).toLocaleString('en-IN')}
                                   </span>
                                 </div>
