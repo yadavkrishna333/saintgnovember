@@ -23,6 +23,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Data backups
+server/data/*backup*.json
+server/data/users/*/*backup*.json
+
 # Editor directories
 .vscode/
 .idea/

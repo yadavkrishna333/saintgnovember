@@ -90,8 +90,13 @@ export function ProductCard({ product, onEdit, onQuickSale }) {
               <img 
                 src={product.imageUrl} 
                 alt={product.styleCategory || product.sku} 
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-contain"
-                onError={(e) => { e.target.style.display = 'none'; }}
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.parentElement.innerHTML = '<span class="text-slate-500 text-xl select-none">📦</span>';
+                }}
               />
             </div>
           ) : (

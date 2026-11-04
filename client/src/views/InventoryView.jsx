@@ -385,9 +385,13 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                                         <img
                                           src={product.imageUrl}
                                           alt={product.styleCategory || product.sku}
-                                          loading="lazy"
-                                          className="w-full h-full object-contain"
-                                          onError={(e) => { e.target.style.display = 'none'; }}
+                                          loading={idx < 15 ? "eager" : "lazy"}
+                                          decoding="async"
+                                          className="w-full h-full object-contain transition-opacity duration-150"
+                                          onError={(e) => {
+                                            e.currentTarget.onerror = null;
+                                            e.currentTarget.parentElement.innerHTML = '<span class="text-slate-500 text-lg select-none">📦</span>';
+                                          }}
                                         />
                                       </div>
                                     ) : (
@@ -579,7 +583,7 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                   {/* ================= PHONE / MOBILE SNAP CARD VIEW ================= */}
                   {showCards && (
                     <div className="space-y-4">
-                      {items.map((product) => {
+                      {items.map((product, idx) => {
                         const colorInfo = getColorDetails(product.color);
                         const totalStock = Object.values(product.sizes || {}).reduce((s, v) => s + (Number(v) || 0), 0);
 
@@ -610,9 +614,13 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
                                   <img
                                     src={product.imageUrl}
                                     alt={product.styleCategory || product.sku}
-                                    loading="lazy"
-                                    className="w-full h-full object-contain"
-                                    onError={(e) => { e.target.style.display = 'none'; }}
+                                    loading={idx < 10 ? "eager" : "lazy"}
+                                    decoding="async"
+                                    className="w-full h-full object-contain transition-opacity duration-150"
+                                    onError={(e) => {
+                                      e.currentTarget.onerror = null;
+                                      e.currentTarget.parentElement.innerHTML = '<span class="text-slate-500 text-xl select-none">📦</span>';
+                                    }}
                                   />
                                 </div>
                               ) : (

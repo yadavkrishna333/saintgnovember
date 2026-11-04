@@ -1211,8 +1211,12 @@ export function DashboardView({ onOpenAddModal, onOpenQuickSale, onOpenReplenish
                               src={item.imageUrl}
                               alt={item.styleCategory || item.sku}
                               loading="lazy"
+                              decoding="async"
                               className="w-full h-full object-contain"
-                              onError={(e) => { e.target.style.display = 'none'; }}
+                              onError={(e) => {
+                                e.currentTarget.onerror = null;
+                                e.currentTarget.parentElement.innerHTML = '<span class="text-slate-500 text-xl select-none">📦</span>';
+                              }}
                             />
                           </div>
                         ) : (
