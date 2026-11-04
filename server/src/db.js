@@ -706,6 +706,14 @@ export function updateSale(userId, saleId, updates) {
 
   t.saveInventory();
 
+  let saleTimestamp = oldSale.timestamp;
+  if (updates.timestamp) {
+    const parsed = new Date(updates.timestamp);
+    if (!isNaN(parsed.getTime())) {
+      saleTimestamp = parsed.toISOString();
+    }
+  }
+
   // Step 4: Update sale record
   const updatedSale = {
     ...oldSale,
@@ -722,6 +730,7 @@ export function updateSale(userId, saleId, updates) {
     totalAmount: newUnitPrice * newQuantity,
     paymentMode: newPaymentMode,
     customerName: newCustomerName,
+    timestamp: saleTimestamp,
     updatedAt: new Date().toISOString()
   };
 

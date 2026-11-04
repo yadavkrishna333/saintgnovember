@@ -612,11 +612,35 @@ export function InventoryProvider({ children }) {
   }, [socket, getAuthHeaders]);
 
   const updateProduct = useCallback(async (id, updates) => {
-    return new Promise((resolve, reject) => {
+    // 1. Optimistic UI update immediately
+    let updatedProduct = null;
+    setInventory(prev => prev.map(p => {
+      if (p.id === id) {
+        updatedProduct = {
+          ...p,
+          ...updates,
+          updatedAt: new Date().toISOString()
+        };
+        return updatedProduct;
+      }
+      return p;
+    }));
+    playTone(600, 'sine', 0.08);
+
+    // 2. Sync to Supabase Cloud Database immediately
+    if (isSupabaseConfigured() && updatedProduct) {
+      try {
+        await supabaseApi.upsertProduct(updatedProduct, 'usr-krishan');
+      } catch (supErr) {
+        console.warn('Supabase updateProduct warning:', supErr);
+      }
+    }
+
+    // 3. Sync to Node Backend if available
+    return new Promise((resolve) => {
       if (socket && socket.connected) {
         socket.emit('product:update', { id, updates }, (res) => {
-          if (res?.success) resolve(res.product);
-          else reject(new Error(res?.error || 'Failed to update'));
+          resolve(res?.product || updatedProduct);
         });
       } else {
         const host = window.location.hostname;
@@ -626,12 +650,16 @@ export function InventoryProvider({ children }) {
           headers: getAuthHeaders(),
           body: JSON.stringify(updates)
         })
-          .then(res => res.json())
-          .then(resolve)
-          .catch(reject);
+          .then(res => {
+            const ct = res.headers.get('content-type') || '';
+            if (ct.includes('application/json')) return res.json();
+            return updatedProduct;
+          })
+          .then(data => resolve(data && !data.error ? data : updatedProduct))
+          .catch(() => resolve(updatedProduct));
       }
     });
-  }, [socket, getAuthHeaders]);
+  }, [socket, getAuthHeaders, setInventory]);
 
   const deleteProduct = useCallback(async (id) => {
     // 1. Immediately remove from local inventory state (0ms instant response)
@@ -914,11 +942,90 @@ export function InventoryProvider({ children }) {
   }, [socket, getAuthHeaders, inventory]);
 
   const updateSaleRecord = useCallback(async (id, updates) => {
-    return new Promise((resolve, reject) => {
+    const oldSale = (sales || []).find(s => s.id === id);
+    const targetProductId = updates.productId || oldSale?.productId;
+    const targetProduct = inventory.find(p => p.id === targetProductId);
+
+    const newSize = String(updates.size !== undefined ? updates.size : (oldSale?.size || ''));
+    const newQuantity = Number(updates.quantity !== undefined ? updates.quantity : (oldSale?.quantity || 1));
+    const newUnitPrice = Number(updates.unitPrice !== undefined ? updates.unitPrice : (oldSale?.unitPrice || 0));
+    const newPaymentMode = updates.paymentMode || oldSale?.paymentMode || 'Cash';
+    const newCustomerName = updates.customerName !== undefined ? updates.customerName.trim() : (oldSale?.customerName || '');
+    const newTimestamp = updates.timestamp ? new Date(updates.timestamp).toISOString() : (oldSale?.timestamp || new Date().toISOString());
+
+    // Adjust inventory stock if product, size, or quantity changed
+    const isStockChanged = oldSale && (oldSale.productId !== targetProductId || String(oldSale.size) !== newSize || Number(oldSale.quantity) !== newQuantity);
+    const updatedProductsToSync = [];
+
+    if (isStockChanged) {
+      const oldProduct = inventory.find(p => p.id === oldSale.productId);
+
+      if (oldProduct && targetProduct && oldProduct.id === targetProduct.id) {
+        const prodCopy = { ...oldProduct, sizes: { ...(oldProduct.sizes || {}) } };
+        prodCopy.sizes[oldSale.size] = (Number(prodCopy.sizes[oldSale.size]) || 0) + Number(oldSale.quantity);
+        prodCopy.sizes[newSize] = Math.max(0, (Number(prodCopy.sizes[newSize]) || 0) - newQuantity);
+        prodCopy.updatedAt = new Date().toISOString();
+        updatedProductsToSync.push(prodCopy);
+        setInventory(prev => prev.map(p => p.id === prodCopy.id ? prodCopy : p));
+      } else {
+        if (oldProduct) {
+          const oldCopy = { ...oldProduct, sizes: { ...(oldProduct.sizes || {}) } };
+          oldCopy.sizes[oldSale.size] = (Number(oldCopy.sizes[oldSale.size]) || 0) + Number(oldSale.quantity);
+          oldCopy.updatedAt = new Date().toISOString();
+          updatedProductsToSync.push(oldCopy);
+          setInventory(prev => prev.map(p => p.id === oldCopy.id ? oldCopy : p));
+        }
+        if (targetProduct) {
+          const newCopy = { ...targetProduct, sizes: { ...(targetProduct.sizes || {}) } };
+          newCopy.sizes[newSize] = Math.max(0, (Number(newCopy.sizes[newSize]) || 0) - newQuantity);
+          newCopy.updatedAt = new Date().toISOString();
+          updatedProductsToSync.push(newCopy);
+          setInventory(prev => prev.map(p => p.id === newCopy.id ? newCopy : p));
+        }
+      }
+    }
+
+    const updatedSale = {
+      ...(oldSale || {}),
+      id,
+      productId: targetProduct?.id || targetProductId,
+      sku: targetProduct?.sku || updates.sku || oldSale?.sku || 'N/A',
+      productName: targetProduct?.name || updates.productName || oldSale?.productName || 'N/A',
+      styleCategory: targetProduct?.styleCategory || updates.styleCategory || oldSale?.styleCategory || 'Standard',
+      color: targetProduct?.color || updates.color || oldSale?.color || 'Standard',
+      brand: targetProduct?.brand || oldSale?.brand || 'Saint G',
+      category: targetProduct?.category || oldSale?.category || 'women_footwear',
+      size: newSize,
+      quantity: newQuantity,
+      unitPrice: newUnitPrice,
+      totalAmount: newUnitPrice * newQuantity,
+      paymentMode: newPaymentMode,
+      customerName: newCustomerName,
+      timestamp: newTimestamp,
+      updatedAt: new Date().toISOString()
+    };
+
+    // 1. Optimistic UI update immediately
+    setSales(prev => prev.map(s => s.id === id ? updatedSale : s));
+    playTone(850, 'triangle', 0.12);
+
+    // 2. Sync to Supabase Cloud Database immediately
+    if (isSupabaseConfigured()) {
+      try {
+        await supabaseApi.updateSale(id, updatedSale);
+        for (const p of updatedProductsToSync) {
+          await supabaseApi.upsertProduct(p, 'usr-krishan');
+        }
+      } catch (supErr) {
+        console.warn('Supabase updateSaleRecord warning:', supErr);
+      }
+    }
+
+    // 3. Sync to Node Backend if available
+    return new Promise((resolve) => {
       if (socket && socket.connected) {
-        socket.emit('sale:update', { id, updates }, (res) => {
-          if (res?.success) resolve(res);
-          else reject(new Error(res?.error || 'Failed to update sale'));
+        socket.emit('sale:update', { id, updates: { ...updates, timestamp: newTimestamp } }, (res) => {
+          resolve(res?.updatedSale || updatedSale);
         });
       } else {
         const host = window.location.hostname;
@@ -926,14 +1033,18 @@ export function InventoryProvider({ children }) {
         fetch(`${apiUrl}/api/sales/${id}`, {
           method: 'PUT',
           headers: getAuthHeaders(),
-          body: JSON.stringify(updates)
+          body: JSON.stringify({ ...updates, timestamp: newTimestamp })
         })
-          .then(res => res.json())
-          .then(res => res.error ? reject(new Error(res.error)) : resolve(res))
-          .catch(reject);
+          .then(res => {
+            const ct = res.headers.get('content-type') || '';
+            if (ct.includes('application/json')) return res.json();
+            return { success: true, updatedSale };
+          })
+          .then(res => resolve(res?.updatedSale || updatedSale))
+          .catch(() => resolve(updatedSale));
       }
     });
-  }, [socket, getAuthHeaders]);
+  }, [socket, getAuthHeaders, sales, inventory, setSales, setInventory]);
 
   const revertSale = useCallback(async (saleId) => {
     return new Promise(async (resolve, reject) => {

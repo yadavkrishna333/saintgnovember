@@ -22,8 +22,12 @@ import {
   CheckCircle2,
   Sparkles,
   Search,
-  AlertCircle
+  AlertCircle,
+  FileSpreadsheet,
+  Printer,
+  Download
 } from 'lucide-react';
+import * as XLSX from 'xlsx';
 
 export function DashboardView({ onOpenAddModal, onOpenQuickSale, onOpenReplenish }) {
   const { stats, inventory, categories, sales, setActiveTab } = useInventory();
@@ -408,6 +412,217 @@ export function DashboardView({ onOpenAddModal, onOpenQuickSale, onOpenReplenish
 
   // Backward compatibility alias for any existing reference
   const footwearAlerts = stockRequiringItems.filter(p => p.category === 'women_footwear' || p.category === 'men_footwear');
+
+  // Export Stock Requiring to Excel (.xlsx)
+  const handleExportStockRequiringExcel = () => {
+    try {
+      const itemsToExport = filteredStockAlerts.length > 0 ? filteredStockAlerts : stockRequiringItems;
+      const wb = XLSX.utils.book_new();
+
+      const headers = ['Sr No', 'Image', 'SKU Code', 'Color', 'Size'];
+      const rows = [headers];
+
+      itemsToExport.forEach((item, idx) => {
+        const neededStr = (item.neededSizes || []).map(n => n.label).join(', ') || 'Out of Stock';
+        const imgPath = item.imageUrl || (item.sku ? `/products/${item.sku}.png` : '');
+        rows.push([
+          idx + 1,
+          imgPath,
+          item.sku || 'N/A',
+          item.color || 'Standard',
+          neededStr
+        ]);
+      });
+
+      const ws = XLSX.utils.aoa_to_sheet(rows);
+      ws['!cols'] = [
+        { wch: 8 },  // Sr No
+        { wch: 35 }, // Image
+        { wch: 22 }, // SKU Code
+        { wch: 15 }, // Color
+        { wch: 35 }  // Size
+      ];
+
+      XLSX.utils.book_append_sheet(wb, ws, 'Stock Requiring');
+      const dateStr = new Date().toISOString().slice(0, 10);
+      XLSX.writeFile(wb, `SaintG_Stock_Requiring_${dateStr}.xlsx`);
+    } catch (err) {
+      console.error('Failed to export Excel:', err);
+      alert('Failed to export Excel: ' + err.message);
+    }
+  };
+
+  // Export Stock Requiring to PDF / Printable Sheet
+  const handleExportStockRequiringPDF = () => {
+    try {
+      const itemsToExport = filteredStockAlerts.length > 0 ? filteredStockAlerts : stockRequiringItems;
+      const printWindow = window.open('', '_blank');
+      if (!printWindow) {
+        alert('Please allow popups to open the PDF printable view.');
+        return;
+      }
+
+      const dateStr = new Date().toLocaleDateString('en-IN', {
+        day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit'
+      });
+
+      const htmlRows = itemsToExport.map((item, idx) => {
+        const neededBadges = (item.neededSizes || []).map(n => {
+          return `<span style="display:inline-block;padding:3px 8px;margin:2px;font-size:12px;font-weight:700;border-radius:6px;background:#fee2e2;color:#b91c1c;border:1px solid #fca5a5;">${n.label}</span>`;
+        }).join('');
+
+        const imgSrc = item.imageUrl || (item.sku ? `/products/${encodeURIComponent(item.sku)}.png` : '');
+
+        return `
+          <tr style="border-bottom: 1px solid #e2e8f0;">
+            <td style="padding: 10px; text-align: center; font-weight: 700; color: #64748b; font-size: 13px;">${idx + 1}</td>
+            <td style="padding: 8px 10px; text-align: center; vertical-align: middle;">
+              ${imgSrc ? `<img src="${imgSrc}" alt="${item.sku}" style="height: 52px; width: 85px; object-fit: contain; border-radius: 6px; border: 1px solid #cbd5e1; background: #ffffff; padding: 2px;" onerror="this.style.display='none'" />` : '<span style="color:#94a3b8;font-size:11px;">No Image</span>'}
+            </td>
+            <td style="padding: 10px; font-weight: 900; font-family: monospace; font-size: 14px; color: #0284c7;">
+              ${item.sku || 'N/A'}
+              <div style="font-size: 11px; font-weight: 600; font-family: sans-serif; color: #64748b; margin-top: 2px;">${item.styleCategory || ''}</div>
+            </td>
+            <td style="padding: 10px; font-size: 13px; font-weight: 700; color: #334155;">${item.color || 'Standard'}</td>
+            <td style="padding: 10px; font-size: 13px;">
+              ${neededBadges || '<span style="color:#ef4444;font-weight:bold;">Out of Stock</span>'}
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Stock Requiring Replacement - Saint G</title>
+          <style>
+            @page {
+              size: A4 portrait;
+              margin: 12mm;
+            }
+            body {
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+              margin: 0;
+              padding: 16px;
+              color: #0f172a;
+              background: #ffffff;
+            }
+            .header {
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-end;
+              border-bottom: 2px solid #0f172a;
+              padding-bottom: 12px;
+              margin-bottom: 16px;
+            }
+            .title {
+              font-size: 22px;
+              font-weight: 900;
+              letter-spacing: -0.5px;
+              color: #0f172a;
+              margin: 0;
+            }
+            .subtitle {
+              font-size: 12px;
+              color: #64748b;
+              margin-top: 4px;
+            }
+            .meta {
+              text-align: right;
+              font-size: 11px;
+              color: #64748b;
+            }
+            .badge-count {
+              display: inline-block;
+              background: #fef3c7;
+              color: #92400e;
+              font-weight: 700;
+              padding: 3px 10px;
+              border-radius: 999px;
+              border: 1px solid #fcd34d;
+              margin-top: 4px;
+              font-size: 12px;
+            }
+            table {
+              width: 100%;
+              border-collapse: collapse;
+              margin-top: 8px;
+            }
+            th {
+              background: #0f172a;
+              color: #ffffff;
+              font-size: 12px;
+              font-weight: 800;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              padding: 10px;
+            }
+            @media print {
+              .no-print {
+                display: none !important;
+              }
+              body {
+                padding: 0;
+              }
+              tr {
+                page-break-inside: avoid;
+              }
+            }
+          </style>
+        </head>
+        <body>
+          <div class="no-print" style="margin-bottom: 16px; display: flex; gap: 8px;">
+            <button onclick="window.print()" style="background: #0f172a; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 13px;">
+              🖨️ Print / Save as PDF
+            </button>
+            <button onclick="window.close()" style="background: #e2e8f0; color: #334155; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 13px;">
+              Close
+            </button>
+          </div>
+
+          <div class="header">
+            <div>
+              <h1 class="title">SAINT G &bull; STOCK REQUIRING REPLACEMENT</h1>
+              <div class="subtitle">Required Models &amp; Missing Sizes for Store Restocking</div>
+            </div>
+            <div class="meta">
+              <div>Printed: <strong>${dateStr}</strong></div>
+              <div class="badge-count">${itemsToExport.length} Articles Need Stock</div>
+            </div>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 50px; text-align: center;">Sr No</th>
+                <th style="width: 100px; text-align: center;">Image</th>
+                <th style="width: 200px; text-align: left;">SKU Code</th>
+                <th style="width: 120px; text-align: left;">Color</th>
+                <th style="text-align: left;">Size</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${htmlRows}
+            </tbody>
+          </table>
+
+          <script>
+            window.onload = function() {
+              setTimeout(function() {
+                window.print();
+              }, 400);
+            };
+          </script>
+        </body>
+        </html>
+      `);
+      printWindow.document.close();
+    } catch (err) {
+      console.error('Failed to generate PDF view:', err);
+      alert('Failed to generate PDF view: ' + err.message);
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -884,24 +1099,45 @@ export function DashboardView({ onOpenAddModal, onOpenQuickSale, onOpenReplenish
                 </div>
               </div>
 
-              {/* Quick Search inside Requiring Box */}
-              <div className="relative w-full sm:w-64">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
-                <input
-                  type="text"
-                  value={stockAlertSearch}
-                  onChange={(e) => setStockAlertSearch(e.target.value)}
-                  placeholder="Search code or size (e.g. 36, 37)..."
-                  className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs placeholder:text-slate-500 focus:outline-none focus:border-amber-500"
-                />
-                {stockAlertSearch && (
-                  <button
-                    onClick={() => setStockAlertSearch('')}
-                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] text-slate-400 hover:text-white"
-                  >
-                    ✕
-                  </button>
-                )}
+              {/* Actions & Search inside Requiring Box */}
+              <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+                <button
+                  onClick={handleExportStockRequiringExcel}
+                  className="px-3 py-1.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/40 text-xs font-bold transition flex items-center gap-1.5 active:scale-95 shadow-sm"
+                  title="Download Stock Requiring Excel (.xlsx)"
+                >
+                  <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Excel (.xlsx)</span>
+                </button>
+
+                <button
+                  onClick={handleExportStockRequiringPDF}
+                  className="px-3 py-1.5 rounded-xl bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/40 text-xs font-bold transition flex items-center gap-1.5 active:scale-95 shadow-sm"
+                  title="Download PDF or Print Stock Requiring Sheet"
+                >
+                  <Printer className="w-3.5 h-3.5 text-sky-400" />
+                  <span>PDF / Print</span>
+                </button>
+
+                {/* Quick Search */}
+                <div className="relative flex-1 sm:w-56">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
+                  <input
+                    type="text"
+                    value={stockAlertSearch}
+                    onChange={(e) => setStockAlertSearch(e.target.value)}
+                    placeholder="Search code or size..."
+                    className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs placeholder:text-slate-500 focus:outline-none focus:border-amber-500"
+                  />
+                  {stockAlertSearch && (
+                    <button
+                      onClick={() => setStockAlertSearch('')}
+                      className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] text-slate-400 hover:text-white"
+                    >
+                      ✕
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
 

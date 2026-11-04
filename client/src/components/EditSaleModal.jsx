@@ -9,7 +9,8 @@ import {
   CreditCard, 
   ShoppingBag, 
   Search,
-  RefreshCw
+  RefreshCw,
+  Calendar
 } from 'lucide-react';
 import { getColorDetails } from '../utils/colors';
 
@@ -22,6 +23,7 @@ export function EditSaleModal({ isOpen, onClose, saleToEdit }) {
   const [sellingPrice, setSellingPrice] = useState(0);
   const [paymentMode, setPaymentMode] = useState('Cash');
   const [customerName, setCustomerName] = useState('');
+  const [saleDate, setSaleDate] = useState('');
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
@@ -36,6 +38,12 @@ export function EditSaleModal({ isOpen, onClose, saleToEdit }) {
       setSellingPrice(Number(saleToEdit.unitPrice || (saleToEdit.totalAmount ? saleToEdit.totalAmount / (saleToEdit.quantity || 1) : 0)));
       setPaymentMode(saleToEdit.paymentMode || 'Cash');
       setCustomerName(saleToEdit.customerName || '');
+      
+      const d = saleToEdit.timestamp ? new Date(saleToEdit.timestamp) : new Date();
+      const tzOffset = d.getTimezoneOffset() * 60000;
+      const localISOTime = (new Date(d.getTime() - tzOffset)).toISOString().slice(0, 16);
+      setSaleDate(localISOTime);
+
       setErrorMsg('');
       setSearchTerm('');
     }
@@ -104,7 +112,8 @@ export function EditSaleModal({ isOpen, onClose, saleToEdit }) {
         quantity: Number(quantity),
         unitPrice: Number(sellingPrice),
         paymentMode,
-        customerName: customerName.trim()
+        customerName: customerName.trim(),
+        timestamp: saleDate ? new Date(saleDate).toISOString() : saleToEdit.timestamp
       });
 
       onClose();
@@ -296,6 +305,20 @@ export function EditSaleModal({ isOpen, onClose, saleToEdit }) {
                 className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm font-black text-emerald-400 focus:outline-none focus:border-amber-500"
               />
             </div>
+          </div>
+
+          {/* Sale Date & Time */}
+          <div>
+            <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+              <Calendar className="w-3.5 h-3.5 text-amber-400" />
+              <span>Sale Date & Time (बिक्री की तारीख / समय)</span>
+            </label>
+            <input
+              type="datetime-local"
+              value={saleDate}
+              onChange={(e) => setSaleDate(e.target.value)}
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500 font-mono"
+            />
           </div>
 
           {/* Payment Mode & Customer Name */}

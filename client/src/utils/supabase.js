@@ -118,6 +118,42 @@ export const supabaseApi = {
     return res.json();
   },
 
+  async updateSale(saleId, updates) {
+    if (!isSupabaseConfigured()) return null;
+    const body = {};
+    if (updates.quantity !== undefined) body.quantity = Number(updates.quantity) || 1;
+    if (updates.unitPrice !== undefined) body.unit_price = Number(updates.unitPrice) || 0;
+    if (updates.totalAmount !== undefined) body.total_amount = Number(updates.totalAmount) || 0;
+    if (updates.paymentMode !== undefined) body.payment_mode = updates.paymentMode;
+    if (updates.customerName !== undefined) body.customer_name = updates.customerName;
+    if (updates.timestamp !== undefined) body.timestamp = updates.timestamp;
+    if (updates.size !== undefined) body.size = String(updates.size);
+    if (updates.color !== undefined) body.color = updates.color;
+    if (updates.sku !== undefined) body.sku = updates.sku;
+    if (updates.productName !== undefined) body.product_name = updates.productName;
+    if (updates.styleCategory !== undefined) body.style_category = updates.styleCategory;
+    if (updates.productId !== undefined) body.product_id = updates.productId;
+
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/sales?id=eq.${saleId}`, {
+        method: 'PATCH',
+        headers: {
+          ...getHeaders(),
+          'Prefer': 'return=representation'
+        },
+        body: JSON.stringify(body)
+      });
+      if (!res.ok) {
+        console.warn('Supabase updateSale warning:', await res.text());
+        return null;
+      }
+      return res.json();
+    } catch (e) {
+      console.warn('Supabase updateSale exception:', e);
+      return null;
+    }
+  },
+
   async deleteSale(saleId) {
     if (!isSupabaseConfigured()) return null;
     const res = await fetch(`${SUPABASE_URL}/rest/v1/sales?id=eq.${saleId}`, {
