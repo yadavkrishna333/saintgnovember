@@ -24,6 +24,8 @@ export function BulkPasteModal({ isOpen, onClose }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [importReport, setImportReport] = useState(null);
+  const [copiedUnmatched, setCopiedUnmatched] = useState(false);
 
   // Sample templates to help the user
   const sample1 = `SG-F-1732-RED 37
@@ -160,6 +162,8 @@ SG-F-1867-OFFWHITE 1 2 1 1 1 2`;
     try {
       let updatedCount = 0;
       let createdCount = 0;
+      const matchedList = [];
+      const unmatchedList = [];
 
       for (const row of parsedRows) {
         if (row.product) {
@@ -195,6 +199,13 @@ SG-F-1867-OFFWHITE 1 2 1 1 1 2`;
             }
           }
           updatedCount++;
+          matchedList.push({
+            sku: row.sku,
+            styleCategory: row.product.styleCategory || row.product.name,
+            color: row.product.color,
+            sizes: row.parsedSizes,
+            totalQty: row.totalQty
+          });
         } else {
           // Create new product
           const newId = `prod-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
@@ -233,6 +244,12 @@ SG-F-1867-OFFWHITE 1 2 1 1 1 2`;
             }
           }
           createdCount++;
+          unmatchedList.push({
+            sku: row.sku,
+            guessedColor: row.guessedColor,
+            sizes: row.parsedSizes,
+            totalQty: row.totalQty
+          });
         }
       }
 
@@ -242,11 +259,14 @@ SG-F-1867-OFFWHITE 1 2 1 1 1 2`;
         origin: { y: 0.6 }
       });
 
-      setSuccessMessage(`✅ Safalta! ${updatedCount} articles updated aur ${createdCount} naye articles add ho gaye!`);
-      setTimeout(() => {
-        setRawText('');
-        onClose();
-      }, 1200);
+      setImportReport({
+        updatedCount,
+        createdCount,
+        totalQty: totalParsedPieces,
+        matchedList,
+        unmatchedList
+      });
+      setSuccessMessage(`✅ Process complete: ${updatedCount} matched & updated, ${createdCount} not matched (added as new).`);
     } catch (err) {
       setErrorMessage(err.message || 'Bulk add failed');
     } finally {
@@ -299,6 +319,78 @@ SG-F-1867-OFFWHITE 1 2 1 1 1 2`;
             <div className="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs flex items-center gap-2 font-bold">
               <Check className="w-4 h-4 flex-shrink-0" />
               <span>{successMessage}</span>
+            </div>
+          )}
+
+          {importReport && (
+            <div className="p-4 rounded-3xl bg-slate-950 border-2 border-emerald-500/40 space-y-3.5 shadow-xl">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2 text-emerald-400 font-black text-sm">
+                  <Check className="w-5 h-5" />
+                  <span>Import Summary Report</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setImportReport(null)}
+                  className="text-xs text-slate-400 hover:text-white underline"
+                >
+                  Clear & Paste Another Batch
+                </button>
+              </div>
+
+              {/* Matched box */}
+              <div className="p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 space-y-2">
+                <div className="flex items-center justify-between text-xs font-bold text-emerald-300">
+                  <span>✅ Matched in Inventory ({importReport.matchedList.length} articles):</span>
+                  <span>{importReport.matchedList.reduce((s, m) => s + m.totalQty, 0)} units added</span>
+                </div>
+                {importReport.matchedList.length > 0 ? (
+                  <div className="max-h-28 overflow-y-auto space-y-1 font-mono text-[11px]">
+                    {importReport.matchedList.map((m, i) => (
+                      <div key={i} className="flex items-center justify-between text-slate-300 bg-slate-900/60 px-2 py-1 rounded">
+                        <span className="font-bold text-emerald-400">{m.sku}</span>
+                        <span className="text-slate-400 truncate max-w-[150px]">{m.styleCategory}</span>
+                        <span className="font-black text-white">+{m.totalQty}</span>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-[11px] text-slate-400">None matched existing catalog.</p>
+                )}
+              </div>
+
+              {/* Unmatched box */}
+              {importReport.unmatchedList.length > 0 ? (
+                <div className="p-3 rounded-2xl bg-amber-500/10 border border-amber-500/30 space-y-2">
+                  <div className="flex items-center justify-between text-xs font-bold text-amber-300">
+                    <span>⚠️ NOT in Catalog / Unmatched ({importReport.unmatchedList.length} articles):</span>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const txt = importReport.unmatchedList.map(u => `${u.sku} ${Object.entries(u.sizes).map(([sz, q]) => `${sz}:${q}`).join(' ')}`).join('\n');
+                        navigator.clipboard.writeText(txt);
+                        setCopiedUnmatched(true);
+                        setTimeout(() => setCopiedUnmatched(false), 2000);
+                      }}
+                      className="px-2 py-0.5 rounded bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 text-[10px] transition font-mono flex items-center gap-1 font-bold"
+                    >
+                      {copiedUnmatched ? 'Copied!' : 'Copy Unmatched SKUs'}
+                    </button>
+                  </div>
+                  <p className="text-[11px] text-slate-400">
+                    Yeh articles catalog me pehle se nahi the. Inka stock new entry banakar add kiya gaya hai:
+                  </p>
+                  <div className="max-h-28 overflow-y-auto space-y-1 font-mono text-[11px]">
+                    {importReport.unmatchedList.map((u, i) => (
+                      <div key={i} className="flex items-center justify-between text-slate-300 bg-slate-900/60 px-2 py-1 rounded">
+                        <span className="font-bold text-amber-400">{u.sku}</span>
+                        <span className="text-slate-400">Color: {u.guessedColor}</span>
+                        <span className="font-black text-amber-200">+{u.totalQty}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
             </div>
           )}
 

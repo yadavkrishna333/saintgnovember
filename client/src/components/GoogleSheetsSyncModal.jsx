@@ -28,20 +28,33 @@ const DEFAULT_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzh5BnwfJzI
 
 const GOOGLE_APPS_SCRIPT_TEMPLATE = `// ==============================================================
 // KY INVENTORY -> GOOGLE SHEETS ULTRA-FAST AUTO-SYNC SCRIPT
-// Target Spreadsheet: 1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE
+// Fetches Inventory Stock, Replenishments & Sales from Cloud Database
 // ==============================================================
 
-// 1. MANUAL RUN: Select 'syncNow' and click 'Run' in Apps Script editor!
+// 1. AUTOMATIC CUSTOM MENU WHEN OPENING SPREADSHEET
+function onOpen() {
+  SpreadsheetApp.getUi()
+    .createMenu("⚡ KY Inventory")
+    .addItem("🔄 Sync Now (Fetch Latest Stock & Sales)", "syncNow")
+    .addToUi();
+}
+
+// 2. MASTER SYNC FUNCTION: Run this anytime to fetch live data!
 function syncNow() {
-  var targetSheetId = "1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE";
-  var ss;
-  try {
-    ss = SpreadsheetApp.openById(targetSheetId);
-  } catch(errId) {
-    ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  if (!ss) {
+    var targetSheetId = "1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE";
+    try {
+      ss = SpreadsheetApp.openById(targetSheetId);
+    } catch(err) {
+      throw new Error("Spreadsheet not found. Please open your Google Sheet and run this script via Extensions > Apps Script.");
+    }
   }
 
-  // Fetch directly from Cloud Database
+  try {
+    ss.toast("Connecting to Supabase Cloud Database...", "⚡ KY Inventory", 3);
+  } catch(e) {}
+
   var supabaseUrl = "https://pztpvqxadtjdtbkjdsai.supabase.co/rest/v1";
   var supabaseKey = "sb_publishable_1KGx3KPNl2FQJ22Q3zH25w_t2_1M8xw";
   var options = {
@@ -52,19 +65,34 @@ function syncNow() {
     muteHttpExceptions: true
   };
 
-  var invRes = UrlFetchApp.fetch(supabaseUrl + "/inventory?select=*&order=sku.asc", options);
+  // 1. Fetch Inventory Stock (up to 10,000 models)
+  var invRes = UrlFetchApp.fetch(supabaseUrl + "/inventory?select=*&order=sku.asc&limit=10000", options);
   var inventory = JSON.parse(invRes.getContentText()) || [];
 
-  var salesRes = UrlFetchApp.fetch(supabaseUrl + "/sales?select=*&order=timestamp.desc", options);
+  // 2. Fetch Sales History (up to 10,000 sales)
+  var salesRes = UrlFetchApp.fetch(supabaseUrl + "/sales?select=*&order=timestamp.desc&limit=10000", options);
   var sales = [];
   try {
     sales = JSON.parse(salesRes.getContentText()) || [];
   } catch(e) {}
 
-  return populateSpreadsheet(ss, inventory, sales);
+  // 3. Fetch Replenishments Received Stock
+  var repRes = UrlFetchApp.fetch(supabaseUrl + "/replenishments?select=*&order=timestamp.desc&limit=10000", options);
+  var replenishments = [];
+  try {
+    replenishments = JSON.parse(repRes.getContentText()) || [];
+  } catch(e) {}
+
+  var res = populateSpreadsheet(ss, inventory, sales, replenishments);
+
+  try {
+    ss.toast("✅ Sync Complete: " + inventory.length + " Models, " + sales.length + " Sales, " + res.totalReceivedUnits + " Received Units Updated!", "⚡ KY Inventory", 7);
+  } catch(e) {}
+
+  return res;
 }
 
-// 2. WEB APP / 1-CLICK SYNC FROM APP
+// 3. WEB APP HOOKS (Optional)
 function doGet(e) {
   try {
     var res = syncNow();
@@ -85,18 +113,19 @@ function doPost(e) {
     }
     
     var data = JSON.parse(raw);
-    var targetSheetId = "1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE";
-    var ss;
-    try {
-      ss = SpreadsheetApp.openById(targetSheetId);
-    } catch(errId) {
-      ss = SpreadsheetApp.getActiveSpreadsheet();
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    if (!ss) {
+      var targetSheetId = "1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE";
+      try {
+        ss = SpreadsheetApp.openById(targetSheetId);
+      } catch(errId) {}
     }
     
     var inventory = data.inventory || [];
     var sales = data.sales || [];
+    var replenishments = data.replenishments || [];
     
-    var res = populateSpreadsheet(ss, inventory, sales);
+    var res = populateSpreadsheet(ss, inventory, sales, replenishments);
     return ContentService.createTextOutput(JSON.stringify(res))
       .setMimeType(ContentService.MimeType.JSON);
   } catch(err) {
@@ -105,8 +134,8 @@ function doPost(e) {
   }
 }
 
-// 3. MASTER POPULATE FUNCTION (ALL 6 SHEETS IN BATCH - 1 SECOND)
-function populateSpreadsheet(ss, inventory, sales) {
+// 4. MASTER POPULATE FUNCTION: CATEGORIES + REPLENISHMENT + SALES
+function populateSpreadsheet(ss, inventory, sales, replenishments) {
   var productMap = {};
   inventory.forEach(function(p) {
     if (p.sku) productMap[p.sku.toUpperCase().trim()] = p;
@@ -126,10 +155,12 @@ function populateSpreadsheet(ss, inventory, sales) {
     var grandTotal = 0;
     
     items.forEach(function(p, idx) {
+      var sizesObj = typeof p.sizes === 'string' ? JSON.parse(p.sizes) : (p.sizes || {});
       var rowTotal = 0;
       var row = [idx + 1, p.sku];
       sizesList.forEach(function(s) {
-        var q = Number((p.sizes && p.sizes[s]) || 0);
+        var sStr = String(s);
+        var q = Number(sizesObj[s] !== undefined ? sizesObj[s] : (sizesObj[sStr] !== undefined ? sizesObj[sStr] : 0));
         row.push(q);
         rowTotal += q;
         sizeTotals[s] += q;
@@ -152,7 +183,6 @@ function populateSpreadsheet(ss, inventory, sales) {
       sheet.getRange(2, 2, allRows.length - 2, 1).setHorizontalAlignment("left");
     }
     
-    // Fast column widths instead of slow autoResizeColumns
     sheet.setColumnWidth(1, 75);
     sheet.setColumnWidth(2, 220);
     for (var c = 3; c <= headers.length; c++) {
@@ -161,10 +191,10 @@ function populateSpreadsheet(ss, inventory, sales) {
   }
 
   // 1. Women Footwear
-  buildCategorySheet("Women Footwear", "women_footwear", "SR NO", [35, 36, 37, 38, 39, 40, 41]);
+  buildCategorySheet("Women Footwear", "women_footwear", "SR NO", ["35", "36", "37", "38", "39", "40", "41"]);
 
   // 2. Mens Footwear
-  buildCategorySheet("Mens Footwear", "men_footwear", "Sr No.", [40, 41, 42, 43, 44, 45]);
+  buildCategorySheet("Mens Footwear", "men_footwear", "Sr No.", ["40", "41", "42", "43", "44", "45"]);
 
   // 3. Mens Jacket
   buildCategorySheet("Mens Jacket", "men_jacket", "Sr No.", ["S", "M", "L", "XL", "XXL"]);
@@ -181,7 +211,86 @@ function populateSpreadsheet(ss, inventory, sales) {
   // 7. Sunglasses
   buildCategorySheet("Sunglasses", "sunglasses", "Sr No.", ["Standard"]);
 
-  // 8. Sales History (Daily Sell & Replenishment Status)
+  // 8. Replenishment Received (Inward Stock History)
+  var repSheet = ss.getSheetByName("Replenishment Received") || ss.insertSheet("Replenishment Received");
+  repSheet.clear();
+  var repHeaders = ["Receipt Date", "Bill / Invoice No", "Supplier", "SKU Code", "Article Name", "Size", "Quantity", "Notes"];
+  var repRows = [repHeaders];
+  var totalReceivedUnits = 0;
+
+  (replenishments || []).forEach(function(r) {
+    var d = r.timestamp ? new Date(r.timestamp) : new Date();
+    var dateStr = Utilities.formatDate(d, Session.getScriptTimeZone() || "GMT+5:30", "dd/MM/yyyy HH:mm");
+    var itemsList = [];
+
+    if (Array.isArray(r.items)) {
+      itemsList = r.items;
+    } else if (r.items && typeof r.items === "object") {
+      Object.entries(r.items).forEach(function([sz, qty]) {
+        itemsList.push({
+          sku: r.sku || "N/A",
+          articleName: r.product_name || r.style_category || "-",
+          size: sz,
+          qty: qty
+        });
+      });
+    }
+
+    if (itemsList.length === 0) {
+      var singleQty = Number(r.total_count) || 1;
+      totalReceivedUnits += singleQty;
+      repRows.push([
+        dateStr,
+        r.invoice_no || "N/A",
+        r.supplier || "-",
+        r.sku || "-",
+        r.product_name || r.style_category || "-",
+        "-",
+        singleQty,
+        r.notes || ""
+      ]);
+    } else {
+      itemsList.forEach(function(it) {
+        var itQty = Number(it.qty) || 1;
+        totalReceivedUnits += itQty;
+        repRows.push([
+          dateStr,
+          r.invoice_no || "N/A",
+          r.supplier || "-",
+          it.sku || r.sku || "-",
+          it.articleName || it.name || r.product_name || "-",
+          String(it.size || "-"),
+          itQty,
+          r.notes || ""
+        ]);
+      });
+    }
+  });
+
+  if (repRows.length > 1) {
+    var repTotalRow = ["TOTAL", "", "", "", "", "", totalReceivedUnits, ""];
+    repRows.push(repTotalRow);
+    repSheet.getRange(1, 1, repRows.length, 8).setValues(repRows);
+    repSheet.getRange(1, 1, 1, 8).setFontWeight("bold").setBackground("#065f46").setFontColor("#ffffff");
+    repSheet.getRange(repRows.length, 1, 1, 8).setFontWeight("bold").setBackground("#d1fae5").setFontColor("#065f46");
+    repSheet.getRange(1, 1, repRows.length, 8).setHorizontalAlignment("center");
+    repSheet.getRange(2, 4, repRows.length - 1, 2).setHorizontalAlignment("left");
+    repSheet.setColumnWidth(1, 140);
+    repSheet.setColumnWidth(2, 140);
+    repSheet.setColumnWidth(3, 140);
+    repSheet.setColumnWidth(4, 200);
+    repSheet.setColumnWidth(5, 180);
+    repSheet.setColumnWidth(6, 70);
+    repSheet.setColumnWidth(7, 80);
+    repSheet.setColumnWidth(8, 180);
+  } else {
+    var repPlaceholder = [repHeaders, ["-", "No replenishments recorded yet", "-", "-", "-", "-", 0, "-"]];
+    repSheet.getRange(1, 1, 2, 8).setValues(repPlaceholder);
+    repSheet.getRange(1, 1, 1, 8).setFontWeight("bold").setBackground("#065f46").setFontColor("#ffffff");
+    repSheet.getRange(1, 1, 2, 8).setHorizontalAlignment("center");
+  }
+
+  // 9. Sales History (Daily Sell & Replenishment Status)
   var salesSheet = ss.getSheetByName("Sales History") || ss.insertSheet("Sales History");
   salesSheet.clear();
   
@@ -189,13 +298,14 @@ function populateSpreadsheet(ss, inventory, sales) {
   var salesRows = [salesHeaders];
   var statusColors = [];
   
-  sales.forEach(function(s) {
-    var p = (s.sku && productMap[s.sku.toUpperCase().trim()]) || productMap[s.productId];
+  (sales || []).forEach(function(s) {
+    var p = (s.sku && productMap[s.sku.toUpperCase().trim()]) || productMap[s.product_id || s.productId];
     var pColor = s.color || (p && p.color) || "";
     var pSku = s.sku || (p && p.sku) || "";
     var pCat = s.category || (p && p.category) || "";
     var sizeKey = String(s.size || "").trim();
-    var currentStock = Number((p && p.sizes && p.sizes[sizeKey]) || 0);
+    var sizesObj = p && (typeof p.sizes === 'string' ? JSON.parse(p.sizes) : p.sizes);
+    var currentStock = Number((sizesObj && sizesObj[sizeKey]) || 0);
     
     var isNotReceived = false;
     if (!p || currentStock === 0) {
@@ -218,7 +328,6 @@ function populateSpreadsheet(ss, inventory, sales) {
     salesSheet.getRange(1, 1, salesRows.length, 5).setHorizontalAlignment("center");
     salesSheet.getRange(2, 2, salesRows.length - 1, 1).setHorizontalAlignment("left");
     
-    // Batch color formatting in one call
     if (statusColors.length > 0) {
       var bgMatrix = statusColors.map(function(c) { return [c]; });
       var fgMatrix = statusColors.map(function(c) { return [c === "#fee2e2" ? "#b91c1c" : "#15803d"]; });
@@ -249,9 +358,11 @@ function populateSpreadsheet(ss, inventory, sales) {
     message: "Synced to Google Sheet!",
     productsCount: inventory.length,
     salesCount: sales.length,
+    totalReceivedUnits: totalReceivedUnits,
     timestamp: new Date().toISOString()
   };
-}`;
+}
+`;
 
 export function GoogleSheetsSyncModal({ isOpen, onClose }) {
   const { 

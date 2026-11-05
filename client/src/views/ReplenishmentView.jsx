@@ -13,7 +13,8 @@ import {
   Barcode,
   Search,
   Sparkles,
-  FileText
+  FileText,
+  Copy
 } from 'lucide-react';
 
 export function ReplenishmentView({ preselectedProduct = null }) {
@@ -50,6 +51,8 @@ export function ReplenishmentView({ preselectedProduct = null }) {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [statusMsg, setStatusMsg] = useState({ type: '', text: '' });
+  const [importReport, setImportReport] = useState(null);
+  const [copiedUnmatched, setCopiedUnmatched] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
   // ---------------- EXCEL FILE PARSING ----------------
@@ -218,11 +221,19 @@ export function ReplenishmentView({ preselectedProduct = null }) {
     setParsedTextItems(parsed);
   };
 
+  // Helper to test if SKU exists in inventory
+  const checkSkuMatch = (rawSku) => {
+    if (!rawSku) return false;
+    const target = rawSku.toLowerCase().trim();
+    return inventory.some(p => p.sku && (p.sku.toLowerCase() === target || target.startsWith(p.sku.toLowerCase())));
+  };
+
   // ---------------- SUBMIT HANDLERS ----------------
   const handleCommitExcel = async () => {
     if (parsedItems.length === 0) return;
     setIsSubmitting(true);
     setStatusMsg({ type: '', text: '' });
+    setImportReport(null);
 
     try {
       const res = await bulkReplenishStock({
@@ -233,9 +244,17 @@ export function ReplenishmentView({ preselectedProduct = null }) {
         notes: `Excel Import: ${excelFileName} ${notes}`
       });
 
+      setImportReport({
+        totalIntakeCount: res.totalIntakeCount || parsedItems.reduce((s, i) => s + i.qty, 0),
+        matchedCount: res.matchedCount || 0,
+        matchedItems: res.matchedItems || [],
+        unmatchedCount: res.unmatchedCount || 0,
+        unmatchedItems: res.unmatchedItems || []
+      });
+
       setStatusMsg({
         type: 'success',
-        text: `Success! Added ${res.totalIntakeCount} units across ${parsedItems.length} lines into inventory.`
+        text: `Success! Added ${res.totalIntakeCount || 0} units across ${parsedItems.length} lines into inventory.`
       });
       setParsedItems([]);
       setExcelFileName('');
@@ -251,6 +270,7 @@ export function ReplenishmentView({ preselectedProduct = null }) {
     if (parsedTextItems.length === 0) return;
     setIsSubmitting(true);
     setStatusMsg({ type: '', text: '' });
+    setImportReport(null);
 
     try {
       const res = await bulkReplenishStock({
@@ -261,9 +281,17 @@ export function ReplenishmentView({ preselectedProduct = null }) {
         notes: `Quick Text Entry: ${notes}`
       });
 
+      setImportReport({
+        totalIntakeCount: res.totalIntakeCount || parsedTextItems.reduce((s, i) => s + i.qty, 0),
+        matchedCount: res.matchedCount || 0,
+        matchedItems: res.matchedItems || [],
+        unmatchedCount: res.unmatchedCount || 0,
+        unmatchedItems: res.unmatchedItems || []
+      });
+
       setStatusMsg({
         type: 'success',
-        text: `Success! Received ${res.totalIntakeCount} units into inventory.`
+        text: `Success! Received ${res.totalIntakeCount || 0} units into inventory.`
       });
       setQuickTextInput('');
       setParsedTextItems([]);
@@ -415,6 +443,83 @@ export function ReplenishmentView({ preselectedProduct = null }) {
         </div>
       )}
 
+      {/* IMPORT REPORT / MATCHED VS UNMATCHED OUTCOME CARD */}
+      {importReport && (
+        <div className="p-4 sm:p-5 rounded-3xl bg-slate-950 border-2 border-emerald-500/40 space-y-4 shadow-2xl animate-fade-in">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2 text-emerald-400 font-black text-sm sm:text-base">
+              <Check className="w-5 h-5" />
+              <span>Replenishment Intake Report ({importReport.totalIntakeCount} units received)</span>
+            </div>
+            <button
+              type="button"
+              onClick={() => setImportReport(null)}
+              className="text-xs text-slate-400 hover:text-white underline cursor-pointer"
+            >
+              Dismiss Report
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {/* Matched Box */}
+            <div className="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 space-y-2">
+              <div className="flex items-center justify-between text-xs font-bold text-emerald-300">
+                <span>✅ Matched In Existing Inventory ({importReport.matchedCount} lines):</span>
+                <span className="font-mono font-black">{importReport.matchedItems.reduce((s, m) => s + (m.qty || 1), 0)} units</span>
+              </div>
+              {importReport.matchedItems.length > 0 ? (
+                <div className="max-h-40 overflow-y-auto space-y-1 font-mono text-[11px] pr-1">
+                  {importReport.matchedItems.map((m, i) => (
+                    <div key={i} className="flex items-center justify-between text-slate-300 bg-slate-900/80 px-2.5 py-1.5 rounded-lg border border-emerald-500/20">
+                      <span className="font-bold text-emerald-400">{m.sku} (Sz {m.size})</span>
+                      <span className="text-slate-400 truncate max-w-[120px] text-[10px]">{m.articleName}</span>
+                      <span className="font-black text-white">+{m.qty}</span>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-[11px] text-slate-400">None matched existing catalog.</p>
+              )}
+            </div>
+
+            {/* Unmatched Box */}
+            <div className="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 space-y-2">
+              <div className="flex items-center justify-between text-xs font-bold text-amber-300">
+                <span>⚠️ Not in Catalog / Created As New ({importReport.unmatchedCount} lines):</span>
+                {importReport.unmatchedItems.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const txt = importReport.unmatchedItems.map(u => `${u.sku} ${u.size} ${u.qty}`).join('\n');
+                      navigator.clipboard.writeText(txt);
+                      setCopiedUnmatched(true);
+                      setTimeout(() => setCopiedUnmatched(false), 2500);
+                    }}
+                    className="text-[10px] px-2 py-0.5 rounded bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 font-mono transition flex items-center gap-1 cursor-pointer"
+                  >
+                    <Copy className="w-3 h-3" />
+                    <span>{copiedUnmatched ? '✓ Copied!' : 'Copy Unmatched SKUs'}</span>
+                  </button>
+                )}
+              </div>
+              {importReport.unmatchedItems.length > 0 ? (
+                <div className="max-h-40 overflow-y-auto space-y-1 font-mono text-[11px] pr-1">
+                  {importReport.unmatchedItems.map((u, i) => (
+                    <div key={i} className="flex items-center justify-between text-slate-300 bg-slate-900/80 px-2.5 py-1.5 rounded-lg border border-amber-500/20">
+                      <span className="font-bold text-amber-400">{u.sku} (Sz {u.size})</span>
+                      <span className="text-amber-300/70 text-[10px]">New Article Added</span>
+                      <span className="font-black text-white">+{u.qty}</span>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-[11px] text-emerald-400 font-bold">✨ All incoming items matched existing inventory articles!</p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* ---------------- MODE 1: EXCEL / CSV UPLOAD ---------------- */}
       {tabMode === 'excel' && (
         <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-5 sm:p-6 space-y-4">
@@ -454,6 +559,7 @@ export function ReplenishmentView({ preselectedProduct = null }) {
                 <table className="w-full text-left text-xs">
                   <thead className="bg-slate-950 sticky top-0 text-slate-400 font-bold uppercase text-[10px]">
                     <tr>
+                      <th className="p-2.5">Match Status</th>
                       <th className="p-2.5">EAN / SKU</th>
                       <th className="p-2.5">Article Name</th>
                       <th className="p-2.5 text-center">Color</th>
@@ -462,15 +568,29 @@ export function ReplenishmentView({ preselectedProduct = null }) {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-800 bg-slate-900/60">
-                    {parsedItems.map((item, idx) => (
-                      <tr key={idx} className="hover:bg-slate-800/40">
-                        <td className="p-2.5 font-mono font-bold text-amber-300">{item.sku}</td>
-                        <td className="p-2.5 font-bold text-white">{item.articleName}</td>
-                        <td className="p-2.5 text-center text-slate-300">{item.color}</td>
-                        <td className="p-2.5 text-center font-mono font-black text-white">{item.size}</td>
-                        <td className="p-2.5 text-center font-mono font-black text-emerald-400">+{item.qty}</td>
-                      </tr>
-                    ))}
+                    {parsedItems.map((item, idx) => {
+                      const isMatched = checkSkuMatch(item.sku);
+                      return (
+                        <tr key={idx} className="hover:bg-slate-800/40">
+                          <td className="p-2.5">
+                            {isMatched ? (
+                              <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[10px] font-bold">
+                                MATCHED
+                              </span>
+                            ) : (
+                              <span className="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] font-bold">
+                                NEW / UNMATCHED
+                              </span>
+                            )}
+                          </td>
+                          <td className="p-2.5 font-mono font-bold text-amber-300">{item.sku}</td>
+                          <td className="p-2.5 font-bold text-white">{item.articleName}</td>
+                          <td className="p-2.5 text-center text-slate-300">{item.color}</td>
+                          <td className="p-2.5 text-center font-mono font-black text-white">{item.size}</td>
+                          <td className="p-2.5 text-center font-mono font-black text-emerald-400">+{item.qty}</td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
@@ -540,11 +660,21 @@ export function ReplenishmentView({ preselectedProduct = null }) {
               </div>
 
               <div className="flex flex-wrap gap-2">
-                {parsedTextItems.map((item, idx) => (
-                  <span key={idx} className="px-2.5 py-1 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono">
-                    <strong className="text-amber-300">{item.sku}</strong> &bull; Size {item.size} &bull; <strong className="text-emerald-400">+{item.qty}</strong>
-                  </span>
-                ))}
+                {parsedTextItems.map((item, idx) => {
+                  const isMatched = checkSkuMatch(item.sku);
+                  return (
+                    <span 
+                      key={idx} 
+                      className={`px-2.5 py-1 rounded-xl bg-slate-950 border text-xs font-mono flex items-center gap-1.5 ${
+                        isMatched ? 'border-emerald-500/40 text-emerald-300' : 'border-amber-500/40 text-amber-300'
+                      }`}
+                    >
+                      <span className={`w-1.5 h-1.5 rounded-full ${isMatched ? 'bg-emerald-400' : 'bg-amber-400'}`} />
+                      <strong>{item.sku}</strong> &bull; Size {item.size} &bull; <strong className="text-white">+{item.qty}</strong>
+                      <span className="text-[9px] opacity-75">{isMatched ? '(MATCHED)' : '(NEW)'}</span>
+                    </span>
+                  );
+                })}
               </div>
             </div>
           )}

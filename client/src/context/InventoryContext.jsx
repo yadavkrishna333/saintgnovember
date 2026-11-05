@@ -893,6 +893,8 @@ export function InventoryProvider({ children }) {
         const updatedInventoryMap = new Map(inventory.map(p => [p.id, { ...p, sizes: { ...(p.sizes || {}) } }]));
         const updatedProductsList = [];
         const results = [];
+        const matchedItems = [];
+        const unmatchedItems = [];
         let totalIntakeCount = 0;
 
         for (const item of items) {
@@ -902,7 +904,7 @@ export function InventoryProvider({ children }) {
           const articleName = (item.articleName || item.name || '').trim();
           const category = item.category || 'women_footwear';
 
-          // Match by SKU
+          // Match by SKU in existing inventory
           let matched = null;
           for (const prod of updatedInventoryMap.values()) {
             if (prod.sku && (prod.sku.toLowerCase() === rawSku.toLowerCase() || rawSku.toLowerCase().startsWith(prod.sku.toLowerCase()))) {
@@ -912,6 +914,13 @@ export function InventoryProvider({ children }) {
           }
 
           if (!matched) {
+            unmatchedItems.push({
+              sku: rawSku,
+              size,
+              qty,
+              articleName: articleName || 'Not found in catalog'
+            });
+
             const parts = rawSku.split('-');
             const extractedColor = parts.length > 2 ? parts[parts.length - 1] : 'Black';
             const newProd = {
@@ -933,6 +942,13 @@ export function InventoryProvider({ children }) {
             matched = newProd;
             updatedProductsList.push(newProd);
           } else {
+            matchedItems.push({
+              sku: rawSku,
+              size,
+              qty,
+              articleName: matched.styleCategory || matched.name
+            });
+
             matched.sizes[size] = (Number(matched.sizes[size]) || 0) + qty;
             matched.updatedAt = new Date().toISOString();
             if (!updatedProductsList.some(p => p.id === matched.id)) {
@@ -977,7 +993,14 @@ export function InventoryProvider({ children }) {
               setInventory(Array.from(updatedInventoryMap.values()));
               setReplenishments(prev => [finalRec, ...prev]);
               playTone(880, 'triangle', 0.15);
-              resolve(res);
+              resolve({
+                ...res,
+                totalIntakeCount,
+                matchedCount: matchedItems.length,
+                matchedItems,
+                unmatchedCount: unmatchedItems.length,
+                unmatchedItems
+              });
             } else {
               reject(new Error(res?.error || 'Bulk replenishment failed'));
             }
@@ -1022,11 +1045,16 @@ export function InventoryProvider({ children }) {
         setReplenishments(prev => [finalBulkRecord, ...prev]);
         playTone(880, 'triangle', 0.15);
 
-        resolve(serverResult || {
+        resolve({
+          ...(serverResult || {}),
           success: true,
           bulkRecord: finalBulkRecord,
           updatedProducts: finalProducts,
-          totalIntakeCount
+          totalIntakeCount,
+          matchedCount: matchedItems.length,
+          matchedItems,
+          unmatchedCount: unmatchedItems.length,
+          unmatchedItems
         });
       } catch (err) {
         reject(err);
