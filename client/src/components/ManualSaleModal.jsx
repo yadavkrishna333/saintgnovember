@@ -41,6 +41,7 @@ export function ManualSaleModal({ isOpen, onClose, onSaleAdded }) {
   };
 
   // Form states
+  const [source, setSource] = useState('store'); // 'store' | 'warehouse'
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState('');
@@ -59,6 +60,7 @@ export function ManualSaleModal({ isOpen, onClose, onSaleAdded }) {
   // Reset form when modal opens
   useEffect(() => {
     if (isOpen) {
+      setSource('store');
       setSearchTerm('');
       setSelectedProduct(null);
       setSelectedSize('');
@@ -93,6 +95,28 @@ export function ManualSaleModal({ isOpen, onClose, onSaleAdded }) {
     setErrorMsg('');
   };
 
+  // When user enters an SKU that is not in inventory
+  const handleSelectUnlisted = (sku) => {
+    const cleanSku = (sku || searchTerm).toUpperCase().trim();
+    if (!cleanSku) return;
+    setSelectedProduct({
+      id: `prod-wh-${Date.now().toString(36)}`,
+      sku: cleanSku,
+      name: `Article ${cleanSku}`,
+      styleCategory: 'Warehouse Item',
+      color: 'Standard',
+      category: 'women_footwear',
+      sellingPrice: 0,
+      sizes: {},
+      isWarehouseOnly: true
+    });
+    setSource('warehouse');
+    setSearchTerm('');
+    setSelectedSize('37');
+    setUnitPrice('');
+    setErrorMsg('');
+  };
+
   // Filter products for search autocomplete
   const filteredProducts = useMemo(() => {
     if (!searchTerm.trim()) return [];
@@ -109,12 +133,15 @@ export function ManualSaleModal({ isOpen, onClose, onSaleAdded }) {
   // Allowed sizes for selected product
   const allowedSizes = useMemo(() => {
     if (!selectedProduct) return [];
+    if (selectedProduct.isWarehouseOnly) {
+      return ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', 'S', 'M', 'L', 'XL', 'XXL', 'One Size', 'Standard'];
+    }
     return sizesMap[selectedProduct.category] || ['Standard'];
   }, [selectedProduct, sizesMap]);
 
   // Current stock for selected size
   const currentStockForSize = useMemo(() => {
-    if (!selectedProduct || !selectedSize) return 0;
+    if (!selectedProduct || !selectedSize || selectedProduct.isWarehouseOnly) return 0;
     return Number(selectedProduct.sizes?.[selectedSize] || 0);
   }, [selectedProduct, selectedSize]);
 
@@ -154,9 +181,13 @@ export function ManualSaleModal({ isOpen, onClose, onSaleAdded }) {
     setSuccessMsg('');
 
     try {
+      const isWarehouse = source === 'warehouse';
       const salePayload = {
         productId: selectedProduct.id,
         sku: selectedProduct.sku,
+        productName: selectedProduct.name,
+        styleCategory: selectedProduct.styleCategory || 'Warehouse Item',
+        color: selectedProduct.color || 'Standard',
         size: selectedSize,
         quantity: Number(quantity),
         unitPrice: numPrice,
@@ -164,11 +195,12 @@ export function ManualSaleModal({ isOpen, onClose, onSaleAdded }) {
         paymentMode,
         customerName: customerName.trim(),
         timestamp: targetDateObj.toISOString(),
-        deductStock
+        source: isWarehouse ? 'warehouse' : 'store',
+        deductStock: !isWarehouse
       };
 
       const result = await recordSale(salePayload);
-      setSuccessMsg(`✓ आर्टिकल ${selectedProduct.sku} (साइज़ ${selectedSize}) की पिछली बिक्री दर्ज हुई!`);
+      setSuccessMsg(`✓ आर्टिकल ${selectedProduct.sku} (साइज़ ${selectedSize}) की बिक्री [${isWarehouse ? '🏭 WAREHOUSE' : '🏬 STORE'}] दर्ज हुई!`);
 
       if (typeof onSaleAdded === 'function') {
         onSaleAdded(saleDate, result?.sale);
@@ -234,6 +266,48 @@ export function ManualSaleModal({ isOpen, onClose, onSaleAdded }) {
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="mt-4 space-y-4">
+
+          {/* SOURCE SELECTION: STORE VS WAREHOUSE */}
+          <div>
+            <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">
+              Selling Source (बिक्री कहाँ से हुई)*:
+            </label>
+            <div className="bg-slate-950 p-1 rounded-2xl border border-slate-800 flex items-center gap-1.5">
+              <button
+                type="button"
+                onClick={() => setSource('store')}
+                className={`flex-1 py-2 px-3 rounded-xl font-black text-xs flex items-center justify-center gap-2 border transition cursor-pointer ${
+                  source === 'store'
+                    ? 'bg-amber-500 text-slate-950 border-amber-500 shadow-md shadow-amber-500/20'
+                    : 'bg-transparent text-slate-400 border-transparent hover:text-white'
+                }`}
+              >
+                <span>🏬</span>
+                <span>Store (दुकान से - Minus Stock)</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setSource('warehouse')}
+                className={`flex-1 py-2 px-3 rounded-xl font-black text-xs flex items-center justify-center gap-2 border transition cursor-pointer ${
+                  source === 'warehouse'
+                    ? 'bg-purple-600 text-white border-purple-500 shadow-md shadow-purple-600/30'
+                    : 'bg-transparent text-slate-400 border-transparent hover:text-white'
+                }`}
+              >
+                <span>🏭</span>
+                <span>Warehouse (गोदाम से - No Minus)</span>
+              </button>
+            </div>
+            {source === 'warehouse' && (
+              <div className="mt-1.5 p-2 rounded-xl bg-purple-950/40 border border-purple-500/30 text-purple-300 text-[11px] flex items-center gap-2 font-medium">
+                <span>🏭</span>
+                <span>
+                  <strong>Warehouse Mode:</strong> Store inventory se stock minus nahi hoga. Sold Products table me <strong>"Sold from Warehouse"</strong> highlight hoga.
+                </span>
+              </div>
+            )}
+          </div>
           
           {/* 1. ARTICLE SEARCH / SKU SELECTION */}
           <div>
@@ -257,49 +331,58 @@ export function ManualSaleModal({ isOpen, onClose, onSaleAdded }) {
 
                 {/* Autocomplete Dropdown */}
                 {searchTerm.trim() && (
-                  <div className="absolute top-full left-0 right-0 mt-1 max-h-56 overflow-y-auto bg-slate-950 border border-slate-700 rounded-2xl shadow-2xl z-20 divide-y divide-slate-800/80">
-                    {filteredProducts.length === 0 ? (
-                      <div className="p-3 text-xs text-slate-500 text-center">
-                        Koi article match nahi hua. Check spelling or SKU.
-                      </div>
-                    ) : (
-                      filteredProducts.map((p) => {
-                        const colorInfo = getColorDetails(p.color);
-                        const totalStock = Object.values(p.sizes || {}).reduce((sum, q) => sum + (Number(q) || 0), 0);
+                  <div className="absolute top-full left-0 right-0 mt-1 max-h-64 overflow-y-auto bg-slate-950 border border-slate-700 rounded-2xl shadow-2xl z-20 divide-y divide-slate-800/80">
+                    {filteredProducts.map((p) => {
+                      const colorInfo = getColorDetails(p.color);
+                      const totalStock = Object.values(p.sizes || {}).reduce((sum, q) => sum + (Number(q) || 0), 0);
 
-                        return (
-                          <div
-                            key={p.id}
-                            onClick={() => handleSelectProduct(p)}
-                            className="p-2.5 hover:bg-slate-900 cursor-pointer flex items-center justify-between gap-3 transition"
-                          >
-                            <div className="flex items-center gap-2.5 min-w-0">
-                              <span 
-                                className="w-3.5 h-3.5 rounded-full shrink-0 border border-white/20"
-                                style={{ backgroundColor: colorInfo.hex }}
-                              />
-                              <div className="min-w-0">
-                                <div className="text-xs font-mono font-black text-amber-300 truncate">
-                                  {p.sku}
-                                </div>
-                                <div className="text-[11px] text-slate-400 truncate">
-                                  {p.styleCategory || p.name} &bull; {p.color}
-                                </div>
+                      return (
+                        <div
+                          key={p.id}
+                          onClick={() => handleSelectProduct(p)}
+                          className="p-2.5 hover:bg-slate-900 cursor-pointer flex items-center justify-between gap-3 transition"
+                        >
+                          <div className="flex items-center gap-2.5 min-w-0">
+                            <span 
+                              className="w-3.5 h-3.5 rounded-full shrink-0 border border-white/20"
+                              style={{ backgroundColor: colorInfo.hex }}
+                            />
+                            <div className="min-w-0">
+                              <div className="text-xs font-mono font-black text-amber-300 truncate">
+                                {p.sku}
+                              </div>
+                              <div className="text-[11px] text-slate-400 truncate">
+                                {p.styleCategory || p.name} &bull; {p.color}
                               </div>
                             </div>
-
-                            <div className="text-right shrink-0">
-                              <span className="text-xs font-black text-emerald-400 block font-mono">
-                                ₹{Number(p.sellingPrice || 0).toLocaleString('en-IN')}
-                              </span>
-                              <span className="text-[10px] text-slate-500">
-                                {totalStock} in stock
-                              </span>
-                            </div>
                           </div>
-                        );
-                      })
-                    )}
+
+                          <div className="text-right shrink-0">
+                            <span className="text-xs font-black text-emerald-400 block font-mono">
+                              ₹{Number(p.sellingPrice || 0).toLocaleString('en-IN')}
+                            </span>
+                            <span className="text-[10px] text-slate-500">
+                              {totalStock} in stock
+                            </span>
+                          </div>
+                        </div>
+                      );
+                    })}
+
+                    {/* Unlisted / Warehouse Article option */}
+                    <div className="p-3 bg-purple-950/40 border-t border-purple-500/30 flex items-center justify-between gap-2">
+                      <div className="text-[11px] text-purple-200 truncate">
+                        Article store catalog me nahi hai?
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => handleSelectUnlisted(searchTerm)}
+                        className="px-3 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs inline-flex items-center gap-1.5 transition shadow-sm cursor-pointer shrink-0"
+                      >
+                        <span>🏭</span>
+                        <span>Add as Warehouse Sale</span>
+                      </button>
+                    </div>
                   </div>
                 )}
               </div>

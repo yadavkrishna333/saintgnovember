@@ -307,6 +307,16 @@ function populateSpreadsheet(ss, inventory, sales, replenishments) {
     var sizesObj = p && (typeof p.sizes === 'string' ? JSON.parse(p.sizes) : p.sizes);
     var currentStock = Number((sizesObj && sizesObj[sizeKey]) || 0);
     
+    var isWarehouse = s.source === "warehouse" || s.isWarehouse === true;
+    var d = s.timestamp ? new Date(s.timestamp) : new Date();
+    var dateStr = Utilities.formatDate(d, Session.getScriptTimeZone() || "GMT+5:30", "dd/MM/yyyy HH:mm");
+    
+    if (isWarehouse) {
+      salesRows.push([dateStr, pSku, pColor, sizeKey, "SOLD FROM WAREHOUSE"]);
+      statusColors.push("#ede9fe");
+      return;
+    }
+
     var isNotReceived = false;
     if (!p || currentStock === 0) {
       isNotReceived = true;
@@ -315,9 +325,6 @@ function populateSpreadsheet(ss, inventory, sales, replenishments) {
     }
     
     var status = isNotReceived ? "NOT RECEIVED" : "RECEIVED";
-    var d = s.timestamp ? new Date(s.timestamp) : new Date();
-    var dateStr = Utilities.formatDate(d, Session.getScriptTimeZone() || "GMT+5:30", "dd/MM/yyyy HH:mm");
-    
     salesRows.push([dateStr, pSku, pColor, sizeKey, status]);
     statusColors.push(isNotReceived ? "#fee2e2" : "#dcfce7");
   });
@@ -330,7 +337,11 @@ function populateSpreadsheet(ss, inventory, sales, replenishments) {
     
     if (statusColors.length > 0) {
       var bgMatrix = statusColors.map(function(c) { return [c]; });
-      var fgMatrix = statusColors.map(function(c) { return [c === "#fee2e2" ? "#b91c1c" : "#15803d"]; });
+      var fgMatrix = statusColors.map(function(c) { 
+        if (c === "#fee2e2") return ["#b91c1c"];
+        if (c === "#ede9fe") return ["#6b21a8"];
+        return ["#15803d"];
+      });
       var statusRange = salesSheet.getRange(2, 5, statusColors.length, 1);
       statusRange.setBackgrounds(bgMatrix);
       statusRange.setFontColors(fgMatrix);
@@ -399,12 +410,27 @@ export function GoogleSheetsSyncModal({ isOpen, onClose }) {
   // Enriched daily sales list with status & reason
   const enrichedSalesList = useMemo(() => {
     return (sales || []).map(s => {
+      const isWarehouse = s.source === 'warehouse' || s.isWarehouse === true || s.deductStock === false;
       const p = (s.sku && productMap[s.sku.toUpperCase().trim()]) || productMap[s.productId];
       const pSku = s.sku || p?.sku || 'Unknown SKU';
       const pColor = s.color || p?.color || '-';
       const pCat = s.category || p?.category || '';
       const sizeKey = String(s.size || '').trim();
       const currentStock = Number(p?.sizes?.[sizeKey] || 0);
+
+      if (isWarehouse) {
+        return {
+          ...s,
+          sku: pSku,
+          color: pColor,
+          size: sizeKey,
+          currentStock: 0,
+          isNotReceived: false,
+          isWarehouse: true,
+          status: 'SOLD FROM WAREHOUSE',
+          reason: 'Warehouse sale (Store inventory unaffected)'
+        };
+      }
 
       let isNotReceived = false;
       let reason = 'Stock available in store';

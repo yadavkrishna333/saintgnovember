@@ -61,10 +61,15 @@ export function SoldProductsView() {
   // Jackets (Men & Women): size M requires 2 pcs, all other sizes 1 pc.
   // Bags: 1 pc.
   const getReplenishmentStatus = (sale) => {
+    const isWarehouse = sale.source === 'warehouse' || sale.deductStock === false;
+    if (isWarehouse) {
+      return { isWarehouse: true, isReceived: false, currentStock: 0, requiredBaseline: 0 };
+    }
+
     // Find matching product in current inventory
     const product = inventory.find(p => p.id === sale.productId || (sale.sku && p.sku === sale.sku));
     if (!product) {
-      return { isReceived: false, currentStock: 0, requiredBaseline: 1 };
+      return { isWarehouse: false, isReceived: false, currentStock: 0, requiredBaseline: 1 };
     }
 
     const category = product.category || sale.category;
@@ -84,7 +89,7 @@ export function SoldProductsView() {
     const currentStock = Number(product.sizes?.[sale.size] || 0);
     const isReceived = currentStock >= requiredBaseline;
 
-    return { isReceived, currentStock, requiredBaseline };
+    return { isWarehouse: false, isReceived, currentStock, requiredBaseline };
   };
 
   const filteredSales = useMemo(() => {
@@ -354,7 +359,7 @@ export function SoldProductsView() {
                   const skuCode = sale.sku || inventory.find(p => p.id === sale.productId)?.sku || 'N/A';
 
                   // Replenishment status calculation
-                  const { isReceived, currentStock, requiredBaseline } = getReplenishmentStatus(sale);
+                  const { isWarehouse, isReceived, currentStock, requiredBaseline } = getReplenishmentStatus(sale);
 
                   return (
                     <tr key={sale.id} className="hover:bg-slate-800/40 transition-colors group">
@@ -372,19 +377,30 @@ export function SoldProductsView() {
 
                       {/* PROMINENT SKU CODE */}
                       <td className="py-3 px-3 whitespace-nowrap">
-                        <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 border-2 border-sky-400/90 font-mono font-black text-xs text-sky-200 shadow-md group-hover:border-sky-300 transition">
-                          <span className="select-all font-black text-white">{skuCode}</span>
-                          <button
-                            onClick={() => handleCopySku(skuCode)}
-                            title="Copy SKU Code"
-                            className="text-slate-500 hover:text-white transition ml-0.5"
-                          >
-                            {copiedSku === skuCode ? (
-                              <Check className="w-3.5 h-3.5 text-emerald-400 stroke-[3]" />
-                            ) : (
-                              <Copy className="w-3.5 h-3.5" />
-                            )}
-                          </button>
+                        <div className="flex items-center gap-1.5">
+                          <div className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 border-2 font-mono font-black text-xs shadow-md transition ${
+                            isWarehouse 
+                              ? 'border-purple-500/80 text-purple-200' 
+                              : 'border-sky-400/90 text-sky-200 group-hover:border-sky-300'
+                          }`}>
+                            <span className="select-all font-black text-white">{skuCode}</span>
+                            <button
+                              onClick={() => handleCopySku(skuCode)}
+                              title="Copy SKU Code"
+                              className="text-slate-500 hover:text-white transition ml-0.5"
+                            >
+                              {copiedSku === skuCode ? (
+                                <Check className="w-3.5 h-3.5 text-emerald-400 stroke-[3]" />
+                              ) : (
+                                <Copy className="w-3.5 h-3.5" />
+                              )}
+                            </button>
+                          </div>
+                          {isWarehouse && (
+                            <span className="text-[9px] uppercase font-black px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/40">
+                              WAREHOUSE
+                            </span>
+                          )}
                         </div>
                       </td>
 
@@ -423,9 +439,19 @@ export function SoldProductsView() {
                         {sale.customerName || <span className="text-slate-600 italic">Walk-in</span>}
                       </td>
 
-                      {/* REPLENISHMENT STATUS (GREEN / RED) */}
+                      {/* REPLENISHMENT STATUS (GREEN / RED / WAREHOUSE) */}
                       <td className="py-3 px-3 text-center bg-slate-950/40 border-x border-slate-800">
-                        {isReceived ? (
+                        {isWarehouse ? (
+                          <div className="inline-flex flex-col items-center">
+                            <span className="px-3 py-1 rounded-full text-[11px] font-black bg-purple-500/20 text-purple-300 border border-purple-500/50 shadow-sm shadow-purple-500/20 flex items-center gap-1">
+                              <span>🏭</span>
+                              <span>Sold from Warehouse</span>
+                            </span>
+                            <span className="text-[9px] text-purple-400/80 font-mono mt-0.5 font-semibold">
+                              Direct Warehouse Sale
+                            </span>
+                          </div>
+                        ) : isReceived ? (
                           <div className="inline-flex flex-col items-center">
                             <span className="px-2.5 py-1 rounded-full text-[11px] font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-sm shadow-emerald-500/10 flex items-center gap-1">
                               <CheckCircle2 className="w-3.5 h-3.5" />

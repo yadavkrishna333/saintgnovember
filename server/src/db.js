@@ -609,17 +609,37 @@ export function getAllWarehouseSends(userId) {
 }
 
 // ---------------- Sales & Billing ----------------
-export function recordSale(userId, { productId, sku, size, quantity = 1, unitPrice, paymentMode = 'Cash', customerName = '', timestamp, deductStock = true }) {
+export function recordSale(userId, { productId, sku, size, quantity = 1, unitPrice, paymentMode = 'Cash', customerName = '', timestamp, deductStock = true, source = 'store', productName, styleCategory, color, category }) {
   const t = getTenant(userId);
+  const isWarehouse = source === 'warehouse' || deductStock === false;
+
   let product = t.inventory.find(p => p.id === productId);
   if (!product && sku) {
     const cleanSku = String(sku).trim().toLowerCase();
     product = t.inventory.find(p => p.sku && p.sku.trim().toLowerCase() === cleanSku);
   }
-  if (!product) throw new Error("Product not found in inventory");
+
+  // If warehouse sale and product not found, create a lightweight representation
+  if (!product) {
+    if (isWarehouse) {
+      product = {
+        id: `prod-wh-${Date.now().toString(36)}`,
+        sku: sku || 'WH-ITEM',
+        name: productName || (sku ? `Article ${sku}` : 'Warehouse Article'),
+        styleCategory: styleCategory || 'Warehouse Item',
+        color: color || 'Standard',
+        brand: 'Saint G',
+        category: category || 'general',
+        sellingPrice: Number(unitPrice) || 0,
+        sizes: {}
+      };
+    } else {
+      throw new Error("Product not found in inventory. Agar ye warehouse se bika he to 'Warehouse' select karein.");
+    }
+  }
 
   const currentQty = Number(product.sizes?.[size] || 0);
-  if (deductStock !== false) {
+  if (!isWarehouse) {
     if (currentQty < quantity) {
       throw new Error(`Insufficient stock for Size ${size}! Available: ${currentQty}, Requested: ${quantity}`);
     }
@@ -628,7 +648,7 @@ export function recordSale(userId, { productId, sku, size, quantity = 1, unitPri
     t.saveInventory();
   }
 
-  const price = unitPrice !== undefined ? Number(unitPrice) : product.sellingPrice;
+  const price = unitPrice !== undefined ? Number(unitPrice) : (product.sellingPrice || 0);
   const totalAmount = price * quantity;
 
   let saleTimestamp = new Date().toISOString();
@@ -642,13 +662,14 @@ export function recordSale(userId, { productId, sku, size, quantity = 1, unitPri
   const saleRecord = {
     id: `sale-${crypto.randomUUID().slice(0, 8)}`,
     type: 'sale',
+    source: isWarehouse ? 'warehouse' : 'store',
     productId: product.id,
     sku: product.sku,
     productName: product.name,
     styleCategory: product.styleCategory || product.name,
     color: product.color || 'Standard',
-    brand: product.brand,
-    category: product.category,
+    brand: product.brand || 'Saint G',
+    category: product.category || 'general',
     size: String(size),
     quantity: Number(quantity),
     unitPrice: price,
@@ -662,7 +683,7 @@ export function recordSale(userId, { productId, sku, size, quantity = 1, unitPri
   if (t.sales.length > 2000) t.sales = t.sales.slice(0, 2000);
   t.saveSales();
 
-  return { sale: saleRecord, updatedProduct: product };
+  return { sale: saleRecord, updatedProduct: isWarehouse ? null : product };
 }
 
 export function updateSale(userId, saleId, updates) {
@@ -751,8 +772,9 @@ export function revertSale(userId, saleId) {
   if (saleIndex === -1) throw new Error("Sale record not found");
 
   const sale = t.sales[saleIndex];
+  const isWarehouse = sale.source === 'warehouse' || sale.deductStock === false;
   const product = t.inventory.find(p => p.id === sale.productId);
-  if (product && product.sizes) {
+  if (!isWarehouse && product && product.sizes) {
     product.sizes[sale.size] = (Number(product.sizes[sale.size] || 0)) + sale.quantity;
     product.updatedAt = new Date().toISOString();
     t.saveInventory();
@@ -761,7 +783,7 @@ export function revertSale(userId, saleId) {
   t.sales.splice(saleIndex, 1);
   t.saveSales();
 
-  return { saleId, restoredProduct: product };
+  return { saleId, restoredProduct: isWarehouse ? null : product };
 }
 
 export function getAllSales(userId) {

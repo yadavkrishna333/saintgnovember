@@ -24,6 +24,7 @@ export function EditSaleModal({ isOpen, onClose, saleToEdit }) {
   const [paymentMode, setPaymentMode] = useState('Cash');
   const [customerName, setCustomerName] = useState('');
   const [saleDate, setSaleDate] = useState('');
+  const [source, setSource] = useState('store'); // 'store' | 'warehouse'
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
@@ -38,6 +39,7 @@ export function EditSaleModal({ isOpen, onClose, saleToEdit }) {
       setSellingPrice(Number(saleToEdit.unitPrice || (saleToEdit.totalAmount ? saleToEdit.totalAmount / (saleToEdit.quantity || 1) : 0)));
       setPaymentMode(saleToEdit.paymentMode || 'Cash');
       setCustomerName(saleToEdit.customerName || '');
+      setSource(saleToEdit.source || 'store');
       
       const d = saleToEdit.timestamp ? new Date(saleToEdit.timestamp) : new Date();
       const tzOffset = d.getTimezoneOffset() * 60000;
@@ -85,7 +87,7 @@ export function EditSaleModal({ isOpen, onClose, saleToEdit }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!selectedProductId) {
+    if (!selectedProductId && !saleToEdit.sku) {
       setErrorMsg('Please select a product');
       return;
     }
@@ -97,7 +99,7 @@ export function EditSaleModal({ isOpen, onClose, saleToEdit }) {
       setErrorMsg('Quantity must be at least 1');
       return;
     }
-    if (quantity > availableStockForSize) {
+    if (source !== 'warehouse' && quantity > availableStockForSize) {
       setErrorMsg(`Only ${availableStockForSize} pieces available in stock for Size ${selectedSize}`);
       return;
     }
@@ -113,6 +115,7 @@ export function EditSaleModal({ isOpen, onClose, saleToEdit }) {
         unitPrice: Number(sellingPrice),
         paymentMode,
         customerName: customerName.trim(),
+        source,
         timestamp: saleDate ? new Date(saleDate).toISOString() : saleToEdit.timestamp
       });
 
@@ -162,6 +165,35 @@ export function EditSaleModal({ isOpen, onClose, saleToEdit }) {
 
         <form onSubmit={handleSubmit} className="mt-4 space-y-4">
           
+          {/* SOURCE SELECTION: STORE VS WAREHOUSE */}
+          <div className="bg-slate-950 p-1 rounded-2xl border border-slate-800 flex items-center gap-1.5">
+            <button
+              type="button"
+              onClick={() => setSource('store')}
+              className={`flex-1 py-1.5 px-2 rounded-xl font-black text-xs flex items-center justify-center gap-1.5 border transition cursor-pointer ${
+                source === 'store'
+                  ? 'bg-amber-500 text-slate-950 border-amber-500 shadow-md shadow-amber-500/20'
+                  : 'bg-transparent text-slate-400 border-transparent hover:text-white'
+              }`}
+            >
+              <span>🏬</span>
+              <span>Store (Minus Stock)</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setSource('warehouse')}
+              className={`flex-1 py-1.5 px-2 rounded-xl font-black text-xs flex items-center justify-center gap-1.5 border transition cursor-pointer ${
+                source === 'warehouse'
+                  ? 'bg-purple-600 text-white border-purple-500 shadow-md shadow-purple-600/30'
+                  : 'bg-transparent text-slate-400 border-transparent hover:text-white'
+              }`}
+            >
+              <span>🏭</span>
+              <span>Warehouse (No Minus)</span>
+            </button>
+          </div>
+
           {/* Select Product */}
           <div>
             <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">

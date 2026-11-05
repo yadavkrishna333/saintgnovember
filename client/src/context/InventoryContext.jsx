@@ -1188,81 +1188,97 @@ export function InventoryProvider({ children }) {
   // Sales Actions
   const recordSale = useCallback(async (saleData) => {
     return new Promise(async (resolve, reject) => {
+      const isWarehouse = saleData.source === 'warehouse' || saleData.deductStock === false;
+      const targetProduct = inventory.find(p => p.id === saleData.productId || (saleData.sku && p.sku?.trim().toLowerCase() === saleData.sku?.trim().toLowerCase()));
+
+      const finalSalePayload = {
+        ...saleData,
+        source: isWarehouse ? 'warehouse' : 'store',
+        deductStock: !isWarehouse
+      };
+
       if (socket && socket.connected) {
-        socket.emit('sale:record', saleData, (res) => {
+        socket.emit('sale:record', finalSalePayload, (res) => {
           if (res?.success) resolve(res);
           else reject(new Error(res?.error || 'Sale failed'));
         });
       } else {
         const host = window.location.hostname;
         const apiUrl = window.location.port === '5173' ? `http://${host}:5000` : '';
+        let serverResult = null;
         try {
           const res = await fetch(`${apiUrl}/api/sales`, {
             method: 'POST',
             headers: getAuthHeaders(),
-            body: JSON.stringify(saleData)
+            body: JSON.stringify(finalSalePayload)
           });
-          const data = await res.json();
-          if (res.ok && !data.error) {
-            return resolve(data);
-          }
-          throw new Error(data.error || 'API failed');
-        } catch (err) {
-          if (isSupabaseConfigured()) {
-            try {
-              const targetProduct = inventory.find(p => p.id === saleData.productId || (saleData.sku && p.sku?.trim().toLowerCase() === saleData.sku?.trim().toLowerCase()));
-              const saleId = `sale-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
-              const saleTimestamp = saleData.timestamp ? new Date(saleData.timestamp).toISOString() : new Date().toISOString();
-              const unitPrice = saleData.unitPrice !== undefined ? Number(saleData.unitPrice) : (targetProduct?.sellingPrice || 0);
-              const qty = Number(saleData.quantity || 1);
-              const totalAmount = saleData.totalAmount !== undefined ? Number(saleData.totalAmount) : unitPrice * qty;
-
-              const saleRecord = {
-                id: saleId,
-                userId: 'usr-krishan',
-                productId: targetProduct?.id || saleData.productId || 'prod-custom',
-                sku: targetProduct?.sku || saleData.sku || 'N/A',
-                productName: targetProduct?.name || 'N/A',
-                styleCategory: targetProduct?.styleCategory || targetProduct?.name || 'N/A',
-                color: targetProduct?.color || 'N/A',
-                size: String(saleData.size || ''),
-                quantity: qty,
-                unitPrice,
-                totalAmount,
-                paymentMode: saleData.paymentMode || 'Cash',
-                customerName: saleData.customerName || '',
-                timestamp: saleTimestamp
-              };
-
-              await supabaseApi.insertSale(saleRecord, 'usr-krishan');
-
-              if (targetProduct && saleData.deductStock !== false) {
-                const currentQty = Number(targetProduct.sizes?.[saleData.size] || 0);
-                const newQty = Math.max(0, currentQty - qty);
-                const updatedProduct = {
-                  ...targetProduct,
-                  sizes: {
-                    ...(targetProduct.sizes || {}),
-                    [saleData.size]: newQty
-                  },
-                  updatedAt: new Date().toISOString()
-                };
-                await supabaseApi.upsertProduct(updatedProduct, 'usr-krishan');
-                setInventory(prev => prev.map(p => p.id === targetProduct.id ? updatedProduct : p));
-              }
-
-              setSales(prev => [saleRecord, ...prev]);
-              playTone(950, 'triangle', 0.15);
-              return resolve({ success: true, sale: saleRecord });
-            } catch (supErr) {
-              return reject(supErr);
+          const ct = res.headers.get('content-type') || '';
+          if (ct.includes('application/json')) {
+            const data = await res.json();
+            if (res.ok && !data.error) {
+              serverResult = data;
             }
           }
-          reject(err);
+        } catch {}
+
+        if (serverResult) {
+          return resolve(serverResult);
         }
+
+        if (isSupabaseConfigured()) {
+          try {
+            const saleId = `sale-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
+            const saleTimestamp = saleData.timestamp ? new Date(saleData.timestamp).toISOString() : new Date().toISOString();
+            const unitPrice = saleData.unitPrice !== undefined ? Number(saleData.unitPrice) : (targetProduct?.sellingPrice || 0);
+            const qty = Number(saleData.quantity || 1);
+            const totalAmount = saleData.totalAmount !== undefined ? Number(saleData.totalAmount) : unitPrice * qty;
+
+            const saleRecord = {
+              id: saleId,
+              userId: 'usr-krishan',
+              source: isWarehouse ? 'warehouse' : 'store',
+              productId: targetProduct?.id || saleData.productId || 'prod-warehouse',
+              sku: targetProduct?.sku || saleData.sku || 'N/A',
+              productName: targetProduct?.name || saleData.productName || (saleData.sku ? `Article ${saleData.sku}` : 'Warehouse Article'),
+              styleCategory: targetProduct?.styleCategory || saleData.styleCategory || targetProduct?.name || 'Warehouse Item',
+              color: targetProduct?.color || saleData.color || 'Standard',
+              size: String(saleData.size || ''),
+              quantity: qty,
+              unitPrice,
+              totalAmount,
+              paymentMode: saleData.paymentMode || 'Cash',
+              customerName: saleData.customerName || '',
+              timestamp: saleTimestamp
+            };
+
+            await supabaseApi.insertSale(saleRecord, 'usr-krishan');
+
+            if (!isWarehouse && targetProduct) {
+              const currentQty = Number(targetProduct.sizes?.[saleData.size] || 0);
+              const newQty = Math.max(0, currentQty - qty);
+              const updatedProduct = {
+                ...targetProduct,
+                sizes: {
+                  ...(targetProduct.sizes || {}),
+                  [saleData.size]: newQty
+                },
+                updatedAt: new Date().toISOString()
+              };
+              await supabaseApi.upsertProduct(updatedProduct, 'usr-krishan');
+              setInventory(prev => prev.map(p => p.id === targetProduct.id ? updatedProduct : p));
+            }
+
+            setSales(prev => [saleRecord, ...prev]);
+            playTone(950, 'triangle', 0.15);
+            return resolve({ success: true, sale: saleRecord });
+          } catch (supErr) {
+            return reject(supErr);
+          }
+        }
+        reject(new Error('Failed to record sale'));
       }
     });
-  }, [socket, getAuthHeaders, inventory]);
+  }, [socket, getAuthHeaders, inventory, setInventory, setSales]);
 
   const updateSaleRecord = useCallback(async (id, updates) => {
     const oldSale = (sales || []).find(s => s.id === id);
@@ -1391,8 +1407,9 @@ export function InventoryProvider({ children }) {
           if (isSupabaseConfigured()) {
             try {
               const saleToDelete = sales.find(s => s.id === saleId);
+              const isWarehouse = saleToDelete?.source === 'warehouse' || saleToDelete?.deductStock === false;
               await supabaseApi.deleteSale(saleId);
-              if (saleToDelete) {
+              if (saleToDelete && !isWarehouse) {
                 const targetProduct = inventory.find(p => p.id === saleToDelete.productId);
                 if (targetProduct) {
                   const currentQty = Number(targetProduct.sizes?.[saleToDelete.size] || 0);
