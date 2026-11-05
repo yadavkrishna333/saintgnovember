@@ -164,6 +164,58 @@ export const supabaseApi = {
     return true;
   },
 
+  // Replenishments
+  async getReplenishments(userId = 'usr-krishan') {
+    if (!isSupabaseConfigured()) return null;
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/replenishments?user_id=eq.${userId}&order=timestamp.desc&select=*`, {
+        headers: getHeaders()
+      });
+      if (!res.ok) return null;
+      return res.json();
+    } catch {
+      return null;
+    }
+  },
+
+  async insertReplenishment(record, userId = 'usr-krishan') {
+    if (!isSupabaseConfigured()) return null;
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/replenishments`, {
+        method: 'POST',
+        headers: getHeaders(),
+        body: JSON.stringify({
+          id: record.id,
+          user_id: userId,
+          invoice_no: record.invoiceNo || null,
+          supplier: record.supplier || null,
+          notes: record.notes || null,
+          total_count: Number(record.totalCount) || 0,
+          items: record.receivedItems || record.items || [],
+          timestamp: record.timestamp || new Date().toISOString()
+        })
+      });
+      if (res.ok) return await res.json();
+    } catch (e) {
+      console.warn('Supabase insertReplenishment error:', e);
+    }
+    return null;
+  },
+
+  // Warehouse Sends
+  async getWarehouseSends(userId = 'usr-krishan') {
+    if (!isSupabaseConfigured()) return null;
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/warehouse_sends?user_id=eq.${userId}&order=timestamp.desc&select=*`, {
+        headers: getHeaders()
+      });
+      if (!res.ok) return null;
+      return res.json();
+    } catch {
+      return null;
+    }
+  },
+
   async insertWarehouseSend(record, userId = 'usr-krishan') {
     if (!isSupabaseConfigured()) return null;
     try {
@@ -173,22 +225,18 @@ export const supabaseApi = {
         body: JSON.stringify({
           id: record.id,
           user_id: userId,
-          product_id: record.productId,
-          sku: record.sku,
-          product_name: record.productName,
-          style_category: record.styleCategory,
           dispatch_no: record.dispatchNo,
           destination: record.destination,
           reason: record.reason,
           notes: record.notes,
-          sent_items: record.sentItems,
-          total_count: record.totalCount,
+          sent_items: record.sentItems || {},
+          total_count: Number(record.totalCount) || 0,
           timestamp: record.timestamp || new Date().toISOString()
         })
       });
       if (res.ok) return await res.json();
     } catch (e) {
-      // Optional logging table in Supabase
+      console.warn('Supabase insertWarehouseSend error:', e);
     }
     return null;
   }

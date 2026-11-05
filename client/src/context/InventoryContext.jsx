@@ -215,8 +215,52 @@ export function InventoryProvider({ children }) {
         }
       }
 
-      if (Array.isArray(repRes)) setReplenishments(repRes);
-      if (Array.isArray(whRes)) setWarehouseSends(whRes);
+      if (Array.isArray(repRes) && repRes.length > 0) {
+        setReplenishments(repRes);
+      } else if (isSupabaseConfigured()) {
+        try {
+          const cloudReps = await supabaseApi.getReplenishments(targetUserId);
+          if (Array.isArray(cloudReps) && cloudReps.length > 0) {
+            const mappedReps = cloudReps.map(r => ({
+              id: r.id,
+              userId: r.user_id,
+              invoiceNo: r.invoice_no,
+              supplier: r.supplier,
+              notes: r.notes,
+              totalCount: Number(r.total_count) || 0,
+              items: typeof r.items === 'string' ? JSON.parse(r.items) : (r.items || []),
+              timestamp: r.timestamp
+            }));
+            setReplenishments(mappedReps);
+          }
+        } catch (sErr) {
+          console.warn('Supabase fallback replenishments error:', sErr);
+        }
+      }
+
+      if (Array.isArray(whRes) && whRes.length > 0) {
+        setWarehouseSends(whRes);
+      } else if (isSupabaseConfigured()) {
+        try {
+          const cloudWh = await supabaseApi.getWarehouseSends(targetUserId);
+          if (Array.isArray(cloudWh) && cloudWh.length > 0) {
+            const mappedWh = cloudWh.map(w => ({
+              id: w.id,
+              userId: w.user_id,
+              dispatchNo: w.dispatch_no,
+              destination: w.destination,
+              reason: w.reason,
+              notes: w.notes,
+              totalCount: Number(w.total_count) || 0,
+              sentItems: typeof w.sent_items === 'string' ? JSON.parse(w.sent_items) : (w.sent_items || {}),
+              timestamp: w.timestamp
+            }));
+            setWarehouseSends(mappedWh);
+          }
+        } catch (sErr) {
+          console.warn('Supabase fallback warehouse sends error:', sErr);
+        }
+      }
     } catch (e) {
       console.error('Failed to fetch user data:', e);
     }
@@ -590,26 +634,60 @@ export function InventoryProvider({ children }) {
 
   // Product CRUD
   const addProduct = useCallback(async (productData) => {
-    return new Promise((resolve, reject) => {
-      if (socket && socket.connected) {
-        socket.emit('product:create', productData, (res) => {
-          if (res?.success) resolve(res.product);
-          else reject(new Error(res?.error || 'Failed to add product'));
+    const localId = `prod-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`;
+    const newProduct = {
+      id: localId,
+      ...productData,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
+
+    if (socket && socket.connected) {
+      return new Promise((resolve, reject) => {
+        socket.emit('product:create', productData, async (res) => {
+          if (res?.success) {
+            if (isSupabaseConfigured()) {
+              supabaseApi.upsertProduct(res.product, 'usr-krishan').catch(() => {});
+            }
+            resolve(res.product);
+          } else {
+            reject(new Error(res?.error || 'Failed to add product'));
+          }
         });
-      } else {
-        const host = window.location.hostname;
-        const apiUrl = window.location.port === '5173' ? `http://${host}:5000` : '';
-        fetch(`${apiUrl}/api/inventory`, {
-          method: 'POST',
-          headers: getAuthHeaders(),
-          body: JSON.stringify(productData)
-        })
-          .then(res => res.json())
-          .then(res => res.error ? reject(new Error(res.error)) : resolve(res))
-          .catch(reject);
+      });
+    }
+
+    const host = window.location.hostname;
+    const apiUrl = window.location.port === '5173' ? `http://${host}:5000` : '';
+    let serverProduct = null;
+
+    try {
+      const res = await fetch(`${apiUrl}/api/inventory`, {
+        method: 'POST',
+        headers: getAuthHeaders(),
+        body: JSON.stringify(productData)
+      });
+      const ct = res.headers.get('content-type') || '';
+      if (ct.includes('application/json')) {
+        const json = await res.json();
+        if (res.ok && !json.error) serverProduct = json;
       }
-    });
-  }, [socket, getAuthHeaders]);
+    } catch {}
+
+    const finalProduct = serverProduct || newProduct;
+
+    if (isSupabaseConfigured()) {
+      try {
+        await supabaseApi.upsertProduct(finalProduct, 'usr-krishan');
+      } catch (e) {
+        console.warn('Supabase addProduct error:', e);
+      }
+    }
+
+    setInventory(prev => [finalProduct, ...prev]);
+    playTone(800, 'sine', 0.1);
+    return finalProduct;
+  }, [socket, getAuthHeaders, setInventory]);
 
   const updateProduct = useCallback(async (id, updates) => {
     // 1. Optimistic UI update immediately
@@ -696,48 +774,265 @@ export function InventoryProvider({ children }) {
 
   // Replenishment Actions
   const addReplenishment = useCallback(async (data) => {
-    return new Promise((resolve, reject) => {
-      if (socket && socket.connected) {
-        socket.emit('replenishment:add', data, (res) => {
-          if (res?.success) resolve(res);
-          else reject(new Error(res?.error || 'Failed to add replenishment'));
+    return new Promise(async (resolve, reject) => {
+      try {
+        const product = inventory.find(p => p.id === data.productId);
+        if (!product) throw new Error('Product not found in catalog');
+
+        let totalReceived = 0;
+        const updatedSizes = { ...(product.sizes || {}) };
+        const receivedDetails = {};
+
+        Object.entries(data.sizeQuantities || {}).forEach(([size, qty]) => {
+          const addQty = Math.max(0, parseInt(qty, 10) || 0);
+          if (addQty > 0) {
+            updatedSizes[size] = (Number(updatedSizes[size]) || 0) + addQty;
+            totalReceived += addQty;
+            receivedDetails[size] = addQty;
+          }
         });
-      } else {
+
+        if (totalReceived === 0) {
+          throw new Error('Please specify at least 1 unit received');
+        }
+
+        const updatedProduct = {
+          ...product,
+          sizes: updatedSizes,
+          updatedAt: new Date().toISOString()
+        };
+
+        const replenishmentRecord = {
+          id: `rep-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`,
+          type: 'replenishment',
+          productId: product.id,
+          productName: product.name,
+          styleCategory: product.styleCategory || product.name,
+          sku: product.sku,
+          category: product.category,
+          supplier: (data.supplier || '').trim() || 'Distributor / Factory',
+          invoiceNo: (data.invoiceNo || '').trim() || 'N/A',
+          notes: (data.notes || '').trim(),
+          receivedItems: receivedDetails,
+          totalCount: totalReceived,
+          timestamp: new Date().toISOString()
+        };
+
+        if (socket && socket.connected) {
+          socket.emit('replenishment:add', data, async (res) => {
+            if (res?.success) {
+              const finalProd = res.updatedProduct || updatedProduct;
+              const finalRec = res.record || replenishmentRecord;
+              if (isSupabaseConfigured()) {
+                try {
+                  await supabaseApi.upsertProduct(finalProd, 'usr-krishan');
+                  await supabaseApi.insertReplenishment(finalRec, 'usr-krishan');
+                } catch (e) {}
+              }
+              setInventory(prev => prev.map(p => p.id === product.id ? finalProd : p));
+              setReplenishments(prev => [finalRec, ...prev]);
+              playTone(750, 'triangle', 0.12);
+              resolve(res);
+            } else {
+              reject(new Error(res?.error || 'Failed to add replenishment'));
+            }
+          });
+          return;
+        }
+
+        // Offline / Netlify / Direct Supabase path
         const host = window.location.hostname;
         const apiUrl = window.location.port === '5173' ? `http://${host}:5000` : '';
-        fetch(`${apiUrl}/api/replenishment`, {
-          method: 'POST',
-          headers: getAuthHeaders(),
-          body: JSON.stringify(data)
-        })
-          .then(res => res.json())
-          .then(res => res.error ? reject(new Error(res.error)) : resolve(res))
-          .catch(reject);
+        let serverResult = null;
+
+        try {
+          const res = await fetch(`${apiUrl}/api/replenishment`, {
+            method: 'POST',
+            headers: getAuthHeaders(),
+            body: JSON.stringify(data)
+          });
+          const ct = res.headers.get('content-type') || '';
+          if (ct.includes('application/json')) {
+            const json = await res.json();
+            if (res.ok && !json.error) serverResult = json;
+          }
+        } catch {}
+
+        const finalProduct = serverResult?.updatedProduct || updatedProduct;
+        const finalRecord = serverResult?.record || replenishmentRecord;
+
+        // Sync to Supabase Cloud Database
+        if (isSupabaseConfigured()) {
+          try {
+            await supabaseApi.upsertProduct(finalProduct, 'usr-krishan');
+            await supabaseApi.insertReplenishment(finalRecord, 'usr-krishan');
+          } catch (supErr) {
+            console.warn('Supabase replenishment sync error:', supErr);
+          }
+        }
+
+        setInventory(prev => prev.map(p => p.id === product.id ? finalProduct : p));
+        setReplenishments(prev => [finalRecord, ...prev]);
+        playTone(750, 'triangle', 0.12);
+        resolve(serverResult || { success: true, record: finalRecord, updatedProduct: finalProduct });
+      } catch (err) {
+        reject(err);
       }
     });
-  }, [socket, getAuthHeaders]);
+  }, [socket, getAuthHeaders, inventory, setInventory, setReplenishments]);
 
   const bulkReplenishStock = useCallback(async (bulkData) => {
-    return new Promise((resolve, reject) => {
-      if (socket && socket.connected) {
-        socket.emit('replenishment:bulk', bulkData, (res) => {
-          if (res?.success) resolve(res);
-          else reject(new Error(res?.error || 'Bulk replenishment failed'));
-        });
-      } else {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const { items = [], billNo = '', supplier = '', date = '', notes = '' } = bulkData;
+        if (!items || items.length === 0) {
+          throw new Error('No items provided for replenishment');
+        }
+
+        // Calculate updates
+        const updatedInventoryMap = new Map(inventory.map(p => [p.id, { ...p, sizes: { ...(p.sizes || {}) } }]));
+        const updatedProductsList = [];
+        const results = [];
+        let totalIntakeCount = 0;
+
+        for (const item of items) {
+          const rawSku = (item.sku || item.ean || '').trim();
+          const size = String(item.size || '').replace(/EU$/i, '').trim();
+          const qty = Math.max(1, parseInt(item.qty || 1, 10));
+          const articleName = (item.articleName || item.name || '').trim();
+          const category = item.category || 'women_footwear';
+
+          // Match by SKU
+          let matched = null;
+          for (const prod of updatedInventoryMap.values()) {
+            if (prod.sku && (prod.sku.toLowerCase() === rawSku.toLowerCase() || rawSku.toLowerCase().startsWith(prod.sku.toLowerCase()))) {
+              matched = prod;
+              break;
+            }
+          }
+
+          if (!matched) {
+            const parts = rawSku.split('-');
+            const extractedColor = parts.length > 2 ? parts[parts.length - 1] : 'Black';
+            const newProd = {
+              id: `prod-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`,
+              name: articleName || rawSku,
+              styleCategory: articleName || 'Standard Style',
+              sku: rawSku,
+              category,
+              color: extractedColor,
+              brand: 'Saint G',
+              costPrice: 0,
+              sellingPrice: 0,
+              sizes: { [size]: qty },
+              imageUrl: `/products/${rawSku.toUpperCase()}.png`,
+              createdAt: new Date().toISOString(),
+              updatedAt: new Date().toISOString()
+            };
+            updatedInventoryMap.set(newProd.id, newProd);
+            matched = newProd;
+            updatedProductsList.push(newProd);
+          } else {
+            matched.sizes[size] = (Number(matched.sizes[size]) || 0) + qty;
+            matched.updatedAt = new Date().toISOString();
+            if (!updatedProductsList.some(p => p.id === matched.id)) {
+              updatedProductsList.push(matched);
+            }
+          }
+
+          results.push({
+            sku: rawSku,
+            articleName: articleName || matched.styleCategory || matched.name,
+            size,
+            qty,
+            productId: matched.id
+          });
+          totalIntakeCount += qty;
+        }
+
+        const bulkRecord = {
+          id: `rep-bulk-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`,
+          type: 'replenishment',
+          invoiceNo: (billNo || '').trim() || 'N/A',
+          supplier: (supplier || '').trim() || 'Supplier',
+          notes: (notes || '').trim(),
+          totalCount: totalIntakeCount,
+          items: results,
+          timestamp: date ? new Date(date).toISOString() : new Date().toISOString()
+        };
+
+        if (socket && socket.connected) {
+          socket.emit('replenishment:bulk', bulkData, async (res) => {
+            if (res?.success) {
+              const finalProds = res.updatedProducts || updatedProductsList;
+              const finalRec = res.bulkRecord || bulkRecord;
+              if (isSupabaseConfigured()) {
+                try {
+                  for (const p of finalProds) {
+                    await supabaseApi.upsertProduct(p, 'usr-krishan');
+                  }
+                  await supabaseApi.insertReplenishment(finalRec, 'usr-krishan');
+                } catch (e) {}
+              }
+              setInventory(Array.from(updatedInventoryMap.values()));
+              setReplenishments(prev => [finalRec, ...prev]);
+              playTone(880, 'triangle', 0.15);
+              resolve(res);
+            } else {
+              reject(new Error(res?.error || 'Bulk replenishment failed'));
+            }
+          });
+          return;
+        }
+
+        // Offline / Netlify / Direct Supabase path
         const host = window.location.hostname;
         const apiUrl = window.location.port === '5173' ? `http://${host}:5000` : '';
-        fetch(`${apiUrl}/api/replenishment/bulk`, {
-          method: 'POST',
-          headers: getAuthHeaders(),
-          body: JSON.stringify(bulkData)
-        })
-          .then(res => res.json())
-          .then(res => res.error ? reject(new Error(res.error)) : resolve(res))
-          .catch(reject);
+        let serverResult = null;
+
+        try {
+          const res = await fetch(`${apiUrl}/api/replenishment/bulk`, {
+            method: 'POST',
+            headers: getAuthHeaders(),
+            body: JSON.stringify(bulkData)
+          });
+          const ct = res.headers.get('content-type') || '';
+          if (ct.includes('application/json')) {
+            const json = await res.json();
+            if (res.ok && !json.error) serverResult = json;
+          }
+        } catch {}
+
+        const finalProducts = serverResult?.updatedProducts || updatedProductsList;
+        const finalBulkRecord = serverResult?.bulkRecord || bulkRecord;
+
+        // Sync all to Supabase Cloud Database
+        if (isSupabaseConfigured()) {
+          try {
+            for (const p of finalProducts) {
+              await supabaseApi.upsertProduct(p, 'usr-krishan');
+            }
+            await supabaseApi.insertReplenishment(finalBulkRecord, 'usr-krishan');
+          } catch (supErr) {
+            console.warn('Supabase bulk replenishment sync error:', supErr);
+          }
+        }
+
+        setInventory(Array.from(updatedInventoryMap.values()));
+        setReplenishments(prev => [finalBulkRecord, ...prev]);
+        playTone(880, 'triangle', 0.15);
+
+        resolve(serverResult || {
+          success: true,
+          bulkRecord: finalBulkRecord,
+          updatedProducts: finalProducts,
+          totalIntakeCount
+        });
+      } catch (err) {
+        reject(err);
       }
     });
-  }, [socket, getAuthHeaders]);
+  }, [socket, getAuthHeaders, inventory, setInventory, setReplenishments]);
 
   // Warehouse Send Action
   const sendStockToWarehouse = useCallback(async (data) => {

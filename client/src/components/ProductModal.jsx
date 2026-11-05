@@ -355,16 +355,51 @@ export function ProductModal({ isOpen, onClose, editProduct = null }) {
             {/* Image URL & Barcode */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">
-                  Photo URL (Optional)
-                </label>
-                <input
-                  type="url"
-                  value={imageUrl}
-                  onChange={(e) => setImageUrl(e.target.value)}
-                  placeholder="https://..."
-                  className="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none"
-                />
+                <div className="flex items-center justify-between mb-1">
+                  <label className="block text-xs font-semibold text-slate-300">
+                    Photo Path / URL (Optional)
+                  </label>
+                  {imageUrl && (
+                    <button
+                      type="button"
+                      onClick={() => setImageUrl('')}
+                      className="text-[10px] text-rose-400 hover:text-rose-300 transition font-bold"
+                    >
+                      Remove Photo
+                    </button>
+                  )}
+                </div>
+                <div className="flex items-center gap-2">
+                  {imageUrl ? (
+                    <div className="w-12 h-10 rounded-lg bg-slate-950 border border-slate-700 p-0.5 flex items-center justify-center flex-shrink-0 overflow-hidden shadow-sm">
+                      <img
+                        src={imageUrl}
+                        alt="Preview"
+                        className="w-full h-full object-contain"
+                        onError={(e) => {
+                          e.currentTarget.onerror = null;
+                          e.currentTarget.parentElement.innerHTML = '<span class="text-slate-500 text-xs select-none">❌</span>';
+                        }}
+                      />
+                    </div>
+                  ) : null}
+                  <input
+                    type="text"
+                    value={imageUrl}
+                    onChange={(e) => setImageUrl(e.target.value)}
+                    placeholder="/products/SKU.png or https://..."
+                    className="flex-1 px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-amber-500"
+                  />
+                </div>
+                {sku && !imageUrl && (
+                  <button
+                    type="button"
+                    onClick={() => setImageUrl(`/products/${sku.trim().toUpperCase()}.png`)}
+                    className="mt-1 text-[10px] text-sky-400 hover:text-sky-300 transition"
+                  >
+                    + Use /products/{sku.trim().toUpperCase()}.png
+                  </button>
+                )}
               </div>
 
               <div>
@@ -376,7 +411,7 @@ export function ProductModal({ isOpen, onClose, editProduct = null }) {
                   value={barcode}
                   onChange={(e) => setBarcode(e.target.value)}
                   placeholder="Box barcode number"
-                  className="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs font-mono focus:outline-none"
+                  className="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs font-mono focus:outline-none focus:border-amber-500"
                 />
               </div>
             </div>
