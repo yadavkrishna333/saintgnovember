@@ -7,6 +7,7 @@ import {
   getAllCategories,
   addCategory,
   deleteCategory,
+  resetCategories,
   getSizesMap,
   getAllProducts,
   getProductById,
@@ -145,15 +146,33 @@ app.post('/api/categories', (req, res) => {
 
 app.delete('/api/categories/:id', (req, res) => {
   const userId = extractUserId(req);
+  const reassignTo = req.query.reassignTo || req.body?.reassignTo || null;
   try {
-    const success = deleteCategory(userId, req.params.id);
+    const success = deleteCategory(userId, req.params.id, reassignTo);
     if (!success) return res.status(404).json({ error: 'Category not found' });
     broadcastUpdates('category:deleted', {
       id: req.params.id,
       allCategories: getAllCategories(userId),
       sizesMap: getSizesMap(userId)
     }, userId);
+    if (reassignTo) {
+      io.to(`user:${userId}`).emit('inventory:updated_all', getAllProducts(userId));
+    }
     res.json({ success: true, id: req.params.id });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+app.post('/api/categories/reset', (req, res) => {
+  const userId = extractUserId(req);
+  try {
+    const resetCats = resetCategories(userId);
+    broadcastUpdates('category:reset', {
+      allCategories: resetCats,
+      sizesMap: getSizesMap(userId)
+    }, userId);
+    res.json({ success: true, categories: resetCats });
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
@@ -634,17 +653,33 @@ io.on('connection', (socket) => {
     }
   });
 
-  socket.on('category:delete', ({ id }, callback) => {
+  socket.on('category:delete', ({ id, reassignTo }, callback) => {
     try {
-      const success = deleteCategory(socket.userId, id);
+      const success = deleteCategory(socket.userId, id, reassignTo);
       if (success) {
         broadcastUpdates('category:deleted', {
           id,
           allCategories: getAllCategories(socket.userId),
           sizesMap: getSizesMap(socket.userId)
         }, socket.userId);
+        if (reassignTo) {
+          io.to(`user:${socket.userId}`).emit('inventory:updated_all', getAllProducts(socket.userId));
+        }
         if (typeof callback === 'function') callback({ success: true });
       }
+    } catch (err) {
+      if (typeof callback === 'function') callback({ success: false, error: err.message });
+    }
+  });
+
+  socket.on('category:reset', (callback) => {
+    try {
+      const resetCats = resetCategories(socket.userId);
+      broadcastUpdates('category:reset', {
+        allCategories: resetCats,
+        sizesMap: getSizesMap(socket.userId)
+      }, socket.userId);
+      if (typeof callback === 'function') callback({ success: true, allCategories: resetCats });
     } catch (err) {
       if (typeof callback === 'function') callback({ success: false, error: err.message });
     }

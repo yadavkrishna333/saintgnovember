@@ -24,6 +24,26 @@ function playTone(freq = 600, type = 'sine', duration = 0.08) {
   }
 }
 
+export const DEFAULT_CATEGORIES = [
+  { id: 'women_footwear', label: 'Women Footwear', sizes: ['35', '36', '37', '38', '39', '40', '41'], icon: '👠', order: 1 },
+  { id: 'men_footwear', label: 'Mens Footwear', sizes: ['40', '41', '42', '43', '44', '45'], icon: '👟', order: 2 },
+  { id: 'men_jacket', label: 'Mens Jacket', sizes: ['S', 'M', 'L', 'XL', 'XXL'], icon: '🧥', order: 3 },
+  { id: 'women_jacket', label: 'Women Jacket', sizes: ['S', 'M', 'L', 'XL', 'XXL'], icon: '🧥', order: 4 },
+  { id: 'bags', label: 'Bags', sizes: ['Standard'], icon: '👜', order: 5 },
+  { id: 'apparels', label: 'Apparels', sizes: ['Free Size'], icon: '👗', order: 6 },
+  { id: 'sunglasses', label: 'Sunglasses', sizes: ['Standard'], icon: '🕶️', order: 7 }
+];
+
+export const DEFAULT_SIZES_MAP = {
+  women_footwear: ['35', '36', '37', '38', '39', '40', '41'],
+  men_footwear: ['40', '41', '42', '43', '44', '45'],
+  men_jacket: ['S', 'M', 'L', 'XL', 'XXL'],
+  women_jacket: ['S', 'M', 'L', 'XL', 'XXL'],
+  bags: ['Standard'],
+  apparels: ['Free Size'],
+  sunglasses: ['Standard']
+};
+
 export function InventoryProvider({ children }) {
   // Authentication & Multi-Tenant state
   const [authToken, setAuthToken] = useState(() => localStorage.getItem('ky_token') || 'ky-token-usr-krishan-default');
@@ -48,25 +68,48 @@ export function InventoryProvider({ children }) {
   const [replenishments, setReplenishments] = useState([]);
   const [warehouseSends, setWarehouseSends] = useState([]);
   
-  const [categories, setCategories] = useState([
-    { id: 'women_footwear', label: 'Women Footwear', sizes: ['35', '36', '37', '38', '39', '40', '41'], icon: '👠', order: 1 },
-    { id: 'men_footwear', label: 'Mens Footwear', sizes: ['40', '41', '42', '43', '44', '45'], icon: '👟', order: 2 },
-    { id: 'men_jacket', label: 'Mens Jacket', sizes: ['S', 'M', 'L', 'XL', 'XXL'], icon: '🧥', order: 3 },
-    { id: 'women_jacket', label: 'Women Jacket', sizes: ['S', 'M', 'L', 'XL', 'XXL'], icon: '🧥', order: 4 },
-    { id: 'bags', label: 'Bags', sizes: ['Standard'], icon: '👜', order: 5 },
-    { id: 'apparels', label: 'Apparels', sizes: ['Free Size'], icon: '👗', order: 6 },
-    { id: 'sunglasses', label: 'Sunglasses', sizes: ['Standard'], icon: '🕶️', order: 7 }
-  ]);
-
-  const [sizesMap, setSizesMap] = useState({
-    women_footwear: ['35', '36', '37', '38', '39', '40', '41'],
-    men_footwear: ['40', '41', '42', '43', '44', '45'],
-    men_jacket: ['S', 'M', 'L', 'XL', 'XXL'],
-    women_jacket: ['S', 'M', 'L', 'XL', 'XXL'],
-    bags: ['Standard'],
-    apparels: ['Free Size'],
-    sunglasses: ['Standard']
+  const [categories, setCategories] = useState(() => {
+    try {
+      const stored = localStorage.getItem('ky_categories');
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      }
+    } catch (e) {
+      console.warn('Failed to parse ky_categories from localStorage:', e);
+    }
+    return DEFAULT_CATEGORIES;
   });
+
+  const [sizesMap, setSizesMap] = useState(() => {
+    try {
+      const stored = localStorage.getItem('ky_sizes_map');
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (parsed && typeof parsed === 'object' && Object.keys(parsed).length > 0) return parsed;
+      }
+    } catch (e) {
+      console.warn('Failed to parse ky_sizes_map from localStorage:', e);
+    }
+    return DEFAULT_SIZES_MAP;
+  });
+
+  // Sync categories and sizesMap to localStorage on any state change
+  useEffect(() => {
+    try {
+      if (Array.isArray(categories) && categories.length > 0) {
+        localStorage.setItem('ky_categories', JSON.stringify(categories));
+      }
+    } catch (e) {}
+  }, [categories]);
+
+  useEffect(() => {
+    try {
+      if (sizesMap && typeof sizesMap === 'object' && Object.keys(sizesMap).length > 0) {
+        localStorage.setItem('ky_sizes_map', JSON.stringify(sizesMap));
+      }
+    } catch (e) {}
+  }, [sizesMap]);
 
   const [stats, setStats] = useState({
     totalProducts: 0,
@@ -151,8 +194,22 @@ export function InventoryProvider({ children }) {
       ]);
 
       if (infoRes.localIp) setLocalIp(infoRes.localIp);
-      if (infoRes.categories) setCategories(infoRes.categories);
-      if (infoRes.sizesMap) setSizesMap(infoRes.sizesMap);
+      if (Array.isArray(infoRes.categories) && infoRes.categories.length > 0) {
+        setCategories(prev => {
+          const serverIds = new Set(infoRes.categories.map(c => c.id));
+          const custom = prev.filter(c => !serverIds.has(c.id));
+          const merged = [...infoRes.categories, ...custom];
+          try { localStorage.setItem('ky_categories', JSON.stringify(merged)); } catch (e) {}
+          return merged;
+        });
+      }
+      if (infoRes.sizesMap && typeof infoRes.sizesMap === 'object' && Object.keys(infoRes.sizesMap).length > 0) {
+        setSizesMap(prev => {
+          const merged = { ...infoRes.sizesMap, ...prev };
+          try { localStorage.setItem('ky_sizes_map', JSON.stringify(merged)); } catch (e) {}
+          return merged;
+        });
+      }
 
       if (Array.isArray(invRes) && invRes.length > 0) {
         setInventory(invRes);
@@ -398,13 +455,36 @@ export function InventoryProvider({ children }) {
     });
 
     newSocket.on('category:added', ({ allCategories, sizesMap }) => {
-      if (allCategories) setCategories(allCategories);
-      if (sizesMap) setSizesMap(sizesMap);
+      if (Array.isArray(allCategories) && allCategories.length > 0) {
+        setCategories(allCategories);
+        try { localStorage.setItem('ky_categories', JSON.stringify(allCategories)); } catch (e) {}
+      }
+      if (sizesMap) {
+        setSizesMap(sizesMap);
+        try { localStorage.setItem('ky_sizes_map', JSON.stringify(sizesMap)); } catch (e) {}
+      }
     });
 
     newSocket.on('category:deleted', ({ allCategories, sizesMap }) => {
-      if (allCategories) setCategories(allCategories);
-      if (sizesMap) setSizesMap(sizesMap);
+      if (Array.isArray(allCategories) && allCategories.length > 0) {
+        setCategories(allCategories);
+        try { localStorage.setItem('ky_categories', JSON.stringify(allCategories)); } catch (e) {}
+      }
+      if (sizesMap) {
+        setSizesMap(sizesMap);
+        try { localStorage.setItem('ky_sizes_map', JSON.stringify(sizesMap)); } catch (e) {}
+      }
+    });
+
+    newSocket.on('category:reset', ({ allCategories, sizesMap }) => {
+      if (Array.isArray(allCategories) && allCategories.length > 0) {
+        setCategories(allCategories);
+        try { localStorage.setItem('ky_categories', JSON.stringify(allCategories)); } catch (e) {}
+      }
+      if (sizesMap) {
+        setSizesMap(sizesMap);
+        try { localStorage.setItem('ky_sizes_map', JSON.stringify(sizesMap)); } catch (e) {}
+      }
     });
 
     newSocket.on('stats:updated', (newStats) => {
@@ -1545,46 +1625,145 @@ export function InventoryProvider({ children }) {
 
   // Category Actions
   const addCategory = useCallback(async (categoryData) => {
-    return new Promise((resolve, reject) => {
-      if (socket && socket.connected) {
-        socket.emit('category:add', categoryData, (res) => {
-          if (res?.success) resolve(res.category);
-          else reject(new Error(res?.error || 'Failed to add category'));
-        });
-      } else {
-        const host = window.location.hostname;
-        const apiUrl = window.location.port === '5173' ? `http://${host}:5000` : '';
-        fetch(`${apiUrl}/api/categories`, {
-          method: 'POST',
-          headers: getAuthHeaders(),
-          body: JSON.stringify(categoryData)
-        })
-          .then(res => res.json())
-          .then(res => res.error ? reject(new Error(res.error)) : resolve(res))
-          .catch(reject);
-      }
-    });
-  }, [socket, getAuthHeaders]);
+    if (!categoryData || !categoryData.label?.trim()) {
+      throw new Error("Category name is required");
+    }
 
-  const deleteCategory = useCallback(async (id) => {
-    return new Promise((resolve, reject) => {
-      if (socket && socket.connected) {
-        socket.emit('category:delete', { id }, (res) => {
-          if (res?.success) resolve(true);
-          else reject(new Error(res?.error || 'Failed to delete category'));
-        });
-      } else {
-        const host = window.location.hostname;
-        const apiUrl = window.location.port === '5173' ? `http://${host}:5000` : '';
-        fetch(`${apiUrl}/api/categories/${id}`, { 
-          method: 'DELETE',
-          headers: getAuthHeaders()
-        })
-          .then(res => res.json())
-          .then(res => res.error ? reject(new Error(res.error)) : resolve(true))
-          .catch(reject);
+    const label = categoryData.label.trim();
+    const rawId = categoryData.id || label.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+    const id = rawId || `cat_${Date.now()}`;
+
+    // Check if category already exists
+    if (categories.some(c => c.id === id || c.label.toLowerCase() === label.toLowerCase())) {
+      throw new Error(`Category "${label}" already exists!`);
+    }
+
+    const parsedSizes = Array.isArray(categoryData.sizes) && categoryData.sizes.length > 0 
+      ? categoryData.sizes 
+      : ['Standard'];
+
+    const newCat = {
+      id,
+      label,
+      sizes: parsedSizes,
+      icon: categoryData.icon || '📦',
+      order: categories.length + 1
+    };
+
+    // 1. Optimistic state & localStorage update (instant, works offline/Netlify)
+    const updatedCategories = [...categories, newCat];
+    const updatedSizesMap = { ...sizesMap, [id]: parsedSizes };
+    setCategories(updatedCategories);
+    setSizesMap(updatedSizesMap);
+    try {
+      localStorage.setItem('ky_categories', JSON.stringify(updatedCategories));
+      localStorage.setItem('ky_sizes_map', JSON.stringify(updatedSizesMap));
+    } catch (e) {}
+
+    // 2. Sync to backend if socket connected
+    if (socket && socket.connected) {
+      socket.emit('category:add', newCat, (res) => {
+        if (!res?.success) console.warn('Socket category:add warning:', res?.error);
+      });
+    } else {
+      // 3. Fallback sync to REST API defensively
+      const host = window.location.hostname;
+      const apiUrl = window.location.port === '5173' ? `http://${host}:5000` : '';
+      if (apiUrl) {
+        try {
+          const res = await fetch(`${apiUrl}/api/categories`, {
+            method: 'POST',
+            headers: getAuthHeaders(),
+            body: JSON.stringify(newCat)
+          });
+          const ct = res.headers.get('content-type') || '';
+          if (ct.includes('application/json')) {
+            await res.json();
+          }
+        } catch (err) {
+          console.warn('REST category:add skipped/offline:', err.message);
+        }
       }
-    });
+    }
+
+    return newCat;
+  }, [socket, getAuthHeaders, categories, sizesMap]);
+
+  const deleteCategory = useCallback(async (id, options = {}) => {
+    const target = categories.find(c => c.id === id);
+    if (!target) throw new Error("Category not found");
+
+    const inUseCount = inventory.filter(p => p.category === id).length;
+    if (inUseCount > 0 && !options.reassign) {
+      throw new Error(`Cannot delete "${target.label}" because it contains ${inUseCount} products. Please reassign or delete them first.`);
+    }
+
+    // If reassign requested and products exist, move them to fallback category
+    if (inUseCount > 0 && options.reassign) {
+      const targetCategory = options.reassignTo || 'bags';
+      setInventory(prev => prev.map(p => p.category === id ? { ...p, category: targetCategory } : p));
+    }
+
+    // 1. Optimistic state & localStorage update (instant, works offline/Netlify)
+    const updatedCategories = categories.filter(c => c.id !== id);
+    const updatedSizesMap = { ...sizesMap };
+    delete updatedSizesMap[id];
+    setCategories(updatedCategories);
+    setSizesMap(updatedSizesMap);
+    try {
+      localStorage.setItem('ky_categories', JSON.stringify(updatedCategories));
+      localStorage.setItem('ky_sizes_map', JSON.stringify(updatedSizesMap));
+    } catch (e) {}
+
+    // 2. Sync with socket if connected
+    if (socket && socket.connected) {
+      socket.emit('category:delete', { id, reassignTo: options.reassignTo || null }, (res) => {
+        if (!res?.success) console.warn('Socket category:delete warning:', res?.error);
+      });
+    } else {
+      // 3. Fallback sync to REST API defensively
+      const host = window.location.hostname;
+      const apiUrl = window.location.port === '5173' ? `http://${host}:5000` : '';
+      if (apiUrl) {
+        try {
+          const qs = options.reassignTo ? `?reassignTo=${encodeURIComponent(options.reassignTo)}` : '';
+          const res = await fetch(`${apiUrl}/api/categories/${id}${qs}`, { 
+            method: 'DELETE',
+            headers: getAuthHeaders()
+          });
+          const ct = res.headers.get('content-type') || '';
+          if (ct.includes('application/json')) {
+            await res.json();
+          }
+        } catch (err) {
+          console.warn('REST category:delete skipped/offline:', err.message);
+        }
+      }
+    }
+
+    return true;
+  }, [socket, getAuthHeaders, categories, sizesMap, inventory, setInventory]);
+
+  const resetCategoriesAction = useCallback(async () => {
+    setCategories(DEFAULT_CATEGORIES);
+    setSizesMap(DEFAULT_SIZES_MAP);
+    try {
+      localStorage.setItem('ky_categories', JSON.stringify(DEFAULT_CATEGORIES));
+      localStorage.setItem('ky_sizes_map', JSON.stringify(DEFAULT_SIZES_MAP));
+    } catch (e) {}
+
+    if (socket && socket.connected) {
+      socket.emit('category:reset', () => {});
+    } else {
+      const host = window.location.hostname;
+      const apiUrl = window.location.port === '5173' ? `http://${host}:5000` : '';
+      if (apiUrl) {
+        try {
+          await fetch(`${apiUrl}/api/categories/reset`, { method: 'POST', headers: getAuthHeaders() });
+        } catch (e) {}
+      }
+    }
+    return DEFAULT_CATEGORIES;
   }, [socket, getAuthHeaders]);
 
   // Combined History (Sales, Replenishments, Warehouse Sends)
@@ -1778,6 +1957,7 @@ export function InventoryProvider({ children }) {
     syncToGoogleSheets,
     addCategory,
     deleteCategory,
+    resetCategories: resetCategoriesAction,
     theme,
     toggleTheme
   };

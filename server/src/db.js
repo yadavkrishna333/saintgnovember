@@ -72,6 +72,20 @@ export const defaultCategories = [
     sizes: ['Standard'],
     icon: '👜',
     order: 5
+  },
+  {
+    id: 'apparels',
+    label: 'Apparels',
+    sizes: ['Free Size'],
+    icon: '👗',
+    order: 6
+  },
+  {
+    id: 'sunglasses',
+    label: 'Sunglasses',
+    sizes: ['Standard'],
+    icon: '🕶️',
+    order: 7
   }
 ];
 
@@ -191,12 +205,18 @@ export function getAllCategories(userId) {
   return t.categories;
 }
 
-export function addCategory(userId, { label, sizes, icon }) {
+export function addCategory(userId, { id: customId, label, sizes, icon }) {
   const t = getTenant(userId);
   if (!label || !label.trim()) throw new Error("Category label is required");
-  const id = label.trim().toLowerCase().replace(/[^a-z0-9]+/g, '_');
-  const existing = t.categories.find(c => c.id === id);
-  if (existing) throw new Error("Category with this name already exists");
+  const rawId = (customId || label).trim().toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+  const id = rawId || `cat_${Date.now()}`;
+  const existing = t.categories.find(c => c.id === id || c.label.toLowerCase() === label.trim().toLowerCase());
+  if (existing) {
+    existing.sizes = Array.isArray(sizes) && sizes.length > 0 ? sizes : existing.sizes;
+    if (icon) existing.icon = icon;
+    t.saveCategories();
+    return existing;
+  }
 
   const newCat = {
     id,
@@ -211,19 +231,33 @@ export function addCategory(userId, { label, sizes, icon }) {
   return newCat;
 }
 
-export function deleteCategory(userId, id) {
+export function deleteCategory(userId, id, reassignTo = null) {
   const t = getTenant(userId);
   const index = t.categories.findIndex(c => c.id === id);
-  if (index === -1) return false;
+  if (index === -1) return true;
 
   const inUse = t.inventory.some(p => p.category === id);
   if (inUse) {
-    throw new Error("Cannot delete category because there are products currently assigned to it. Please reassign or delete the products first.");
+    if (reassignTo) {
+      t.inventory.forEach(p => {
+        if (p.category === id) p.category = reassignTo;
+      });
+      t.saveInventory();
+    } else {
+      throw new Error("Cannot delete category because there are products currently assigned to it. Please reassign or delete the products first.");
+    }
   }
 
   t.categories.splice(index, 1);
   t.saveCategories();
   return true;
+}
+
+export function resetCategories(userId) {
+  const t = getTenant(userId);
+  t.categories = JSON.parse(JSON.stringify(defaultCategories));
+  t.saveCategories();
+  return t.categories;
 }
 
 export function getSizesMap(userId) {

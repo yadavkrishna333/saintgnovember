@@ -49,6 +49,15 @@ export function InventoryView({ onOpenAddModal, onEditProduct, onQuickSale, onOp
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // If the active selected category gets deleted or is invalid, fallback cleanly
+  useEffect(() => {
+    if (selectedCategory !== 'all' && Array.isArray(categories) && categories.length > 0) {
+      if (!categories.some(c => c.id === selectedCategory)) {
+        setSelectedCategory(categories[0].id);
+      }
+    }
+  }, [categories, selectedCategory]);
+
   const showTable = viewMode === 'table' || (viewMode === 'auto' && !isMobile);
   const showCards = viewMode === 'cards' || (viewMode === 'auto' && isMobile);
 

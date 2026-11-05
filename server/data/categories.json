@@ -62,5 +62,23 @@
     ],
     "icon": "👜",
     "order": 5
+  },
+  {
+    "id": "apparels",
+    "label": "Apparels",
+    "sizes": [
+      "Free Size"
+    ],
+    "icon": "👗",
+    "order": 6
+  },
+  {
+    "id": "sunglasses",
+    "label": "Sunglasses",
+    "sizes": [
+      "Standard"
+    ],
+    "icon": "🕶️",
+    "order": 7
   }
 ]

@@ -16,11 +16,12 @@ import {
   Globe,
   Database,
   CloudUpload,
-  Loader2
+  Loader2,
+  RotateCcw
 } from 'lucide-react';
 
 export function SettingsView({ onOpenQrModal, onOpenGSheetModal }) {
-  const { categories, addCategory, deleteCategory, inventory, isConnected, localIp } = useInventory();
+  const { categories, addCategory, deleteCategory, resetCategories, inventory, isConnected, localIp } = useInventory();
 
   const [categoryLabel, setCategoryLabel] = useState('');
   const [sizesInput, setSizesInput] = useState('');
@@ -116,12 +117,42 @@ export function SettingsView({ onOpenQrModal, onOpenGSheetModal }) {
   };
 
   const handleDeleteCategory = async (cat) => {
+    const productCount = inventory.filter(p => p.category === cat.id).length;
+
+    if (productCount > 0) {
+      const confirmReassign = window.confirm(
+        `Category "${cat.label}" contains ${productCount} active products in your inventory.\n\n` +
+        `Click OK to delete this category and move its ${productCount} products to "Bags / Accessories" so no items are lost.\n\n` +
+        `Click Cancel to keep this category.`
+      );
+      if (!confirmReassign) return;
+
+      try {
+        await deleteCategory(cat.id, { reassign: true, reassignTo: 'bags' });
+        setMsg({ type: 'success', text: `Category "${cat.label}" removed and ${productCount} products moved to Bags.` });
+      } catch (err) {
+        setMsg({ type: 'error', text: err.message || 'Could not delete category' });
+      }
+      return;
+    }
+
     if (window.confirm(`Are you sure you want to remove category "${cat.label}"?`)) {
       try {
         await deleteCategory(cat.id);
         setMsg({ type: 'success', text: `Category "${cat.label}" removed.` });
       } catch (err) {
         setMsg({ type: 'error', text: err.message || 'Could not delete category' });
+      }
+    }
+  };
+
+  const handleResetCategories = async () => {
+    if (window.confirm("Restore default categories? This will restore standard categories (Women Footwear, Mens Footwear, Mens Jacket, Women Jacket, Bags, Apparels, Sunglasses).")) {
+      try {
+        await resetCategories();
+        setMsg({ type: 'success', text: "Default categories restored successfully!" });
+      } catch (err) {
+        setMsg({ type: 'error', text: err.message || 'Failed to reset categories' });
       }
     }
   };
@@ -229,14 +260,26 @@ export function SettingsView({ onOpenQrModal, onOpenGSheetModal }) {
 
       {/* ACTIVE CATEGORIES LIST */}
       <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-5 sm:p-6 shadow-xl backdrop-blur-xl">
-        <h2 className="text-base font-black text-white mb-3 flex items-center gap-2">
-          <Layers className="w-4 h-4 text-indigo-400" />
-          <span>Active Categories ({categories.length})</span>
-        </h2>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+          <h2 className="text-base font-black text-white flex items-center gap-2">
+            <Layers className="w-4 h-4 text-indigo-400" />
+            <span>Active Categories ({categories.length})</span>
+          </h2>
+          <button
+            type="button"
+            onClick={handleResetCategories}
+            className="flex items-center gap-1.5 text-[11px] font-bold text-slate-400 hover:text-amber-400 px-3 py-1.5 rounded-xl border border-slate-800 hover:border-slate-700 bg-slate-950 transition active:scale-95 w-fit"
+            title="Restore the 7 default standard categories"
+          >
+            <RotateCcw className="w-3.5 h-3.5" />
+            <span>Reset to Standard Categories</span>
+          </button>
+        </div>
 
         <div className="divide-y divide-slate-800">
           {categories.map((cat) => {
             const productCount = inventory.filter(p => p.category === cat.id).length;
+            const sizeList = Array.isArray(cat.sizes) && cat.sizes.length > 0 ? cat.sizes : ['Standard'];
 
             return (
               <div key={cat.id} className="py-3.5 flex items-center justify-between gap-3">
@@ -250,7 +293,7 @@ export function SettingsView({ onOpenQrModal, onOpenGSheetModal }) {
                       </span>
                     </div>
                     <div className="text-xs text-slate-400 font-mono mt-0.5">
-                      Sizes: {cat.sizes.join(', ')}
+                      Sizes: {sizeList.join(', ')}
                     </div>
                   </div>
                 </div>
