@@ -67,6 +67,18 @@ export function InventoryProvider({ children }) {
   const [sales, setSales] = useState([]);
   const [replenishments, setReplenishments] = useState([]);
   const [warehouseSends, setWarehouseSends] = useState([]);
+  const [excelImports, setExcelImports] = useState(() => {
+    try {
+      const stored = localStorage.getItem('ky_excel_imports');
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed)) return parsed;
+      }
+    } catch (e) {
+      console.warn('Failed to parse ky_excel_imports:', e);
+    }
+    return [];
+  });
   
   const [categories, setCategories] = useState(() => {
     try {
@@ -1142,6 +1154,204 @@ export function InventoryProvider({ children }) {
     });
   }, [socket, getAuthHeaders, inventory, setInventory, setReplenishments]);
 
+  const updateReplenishmentRecord = useCallback(async (id, updates) => {
+    const oldRecord = replenishments.find(r => r.id === id);
+    if (!oldRecord) throw new Error('Replenishment record not found');
+
+    const clean = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+    const targetProduct = inventory.find(p => p.id === oldRecord.productId || (p.sku && clean(p.sku) === clean(oldRecord.sku)));
+    const newReceivedItems = updates.receivedItems || oldRecord.receivedItems || {};
+    let totalCount = 0;
+    Object.values(newReceivedItems).forEach(q => { totalCount += (Number(q) || 0); });
+
+    let updatedProduct = null;
+    if (targetProduct) {
+      const updatedSizes = { ...(targetProduct.sizes || {}) };
+      const allSizes = new Set([
+        ...Object.keys(oldRecord.receivedItems || {}),
+        ...Object.keys(newReceivedItems)
+      ]);
+
+      allSizes.forEach(size => {
+        const oldQty = Number(oldRecord.receivedItems?.[size] || 0);
+        const newQty = Number(newReceivedItems[size] || 0);
+        const delta = newQty - oldQty;
+        updatedSizes[size] = Math.max(0, (Number(updatedSizes[size]) || 0) + delta);
+      });
+
+      updatedProduct = {
+        ...targetProduct,
+        sizes: updatedSizes,
+        updatedAt: new Date().toISOString()
+      };
+
+      setInventory(prev => prev.map(p => p.id === targetProduct.id ? updatedProduct : p));
+
+      if (isSupabaseConfigured()) {
+        try {
+          await supabaseApi.upsertProduct(updatedProduct, 'usr-krishan');
+        } catch (e) {
+          console.warn('Supabase upsertProduct in updateReplenishment warning:', e);
+        }
+      }
+    }
+
+    const updatedRecord = {
+      ...oldRecord,
+      ...updates,
+      receivedItems: newReceivedItems,
+      totalCount,
+      timestamp: updates.timestamp ? new Date(updates.timestamp).toISOString() : oldRecord.timestamp,
+      updatedAt: new Date().toISOString()
+    };
+
+    setReplenishments(prev => prev.map(r => r.id === id ? updatedRecord : r));
+
+    if (isSupabaseConfigured()) {
+      try {
+        await supabaseApi.updateReplenishment(id, updatedRecord);
+      } catch (e) {
+        console.warn('Supabase updateReplenishment warning:', e);
+      }
+    }
+
+    const host = window.location.hostname;
+    const apiUrl = window.location.port === '5173' ? `http://${host}:5000` : '';
+    try {
+      await fetch(`${apiUrl}/api/replenishment/${id}`, {
+        method: 'PUT',
+        headers: getAuthHeaders(),
+        body: JSON.stringify(updates)
+      });
+    } catch (e) {}
+
+    playTone(850, 'triangle', 0.15);
+    return { success: true, updatedRecord, updatedProduct };
+  }, [replenishments, inventory, getAuthHeaders, setInventory, setReplenishments]);
+
+  const deleteReplenishmentRecord = useCallback(async (id) => {
+    const oldRecord = replenishments.find(r => r.id === id);
+    if (!oldRecord) throw new Error('Replenishment record not found');
+
+    const clean = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+    const targetProduct = inventory.find(p => p.id === oldRecord.productId || (p.sku && clean(p.sku) === clean(oldRecord.sku)));
+    if (targetProduct && oldRecord.receivedItems) {
+      const updatedSizes = { ...(targetProduct.sizes || {}) };
+      Object.entries(oldRecord.receivedItems).forEach(([size, qty]) => {
+        updatedSizes[size] = Math.max(0, (Number(updatedSizes[size]) || 0) - (Number(qty) || 0));
+      });
+
+      const updatedProduct = {
+        ...targetProduct,
+        sizes: updatedSizes,
+        updatedAt: new Date().toISOString()
+      };
+
+      setInventory(prev => prev.map(p => p.id === targetProduct.id ? updatedProduct : p));
+
+      if (isSupabaseConfigured()) {
+        try {
+          await supabaseApi.upsertProduct(updatedProduct, 'usr-krishan');
+        } catch (e) {
+          console.warn('Supabase upsertProduct in deleteReplenishment warning:', e);
+        }
+      }
+    }
+
+    setReplenishments(prev => prev.filter(r => r.id !== id));
+
+    if (isSupabaseConfigured()) {
+      try {
+        await supabaseApi.deleteReplenishment(id);
+      } catch (e) {
+        console.warn('Supabase deleteReplenishment warning:', e);
+      }
+    }
+
+    const host = window.location.hostname;
+    const apiUrl = window.location.port === '5173' ? `http://${host}:5000` : '';
+    try {
+      await fetch(`${apiUrl}/api/replenishment/${id}`, {
+        method: 'DELETE',
+        headers: getAuthHeaders()
+      });
+    } catch (e) {}
+
+    playTone(700, 'sine', 0.15);
+    return { success: true };
+  }, [replenishments, inventory, getAuthHeaders, setInventory, setReplenishments]);
+
+  const importExcelInventory = useCallback(async ({ newItems = [], updatedItems = [] }, filename = 'INVENTORY.xlsx') => {
+    let updatedInventory = [...inventory];
+
+    for (const item of updatedItems) {
+      const idx = updatedInventory.findIndex(p => p.id === item.id);
+      if (idx !== -1) {
+        updatedInventory[idx] = {
+          ...updatedInventory[idx],
+          sizes: { ...(item.newSizes || {}) },
+          sellingPrice: item.newPrice !== undefined ? Number(item.newPrice) : updatedInventory[idx].sellingPrice,
+          updatedAt: new Date().toISOString()
+        };
+      }
+    }
+
+    const newlyCreated = newItems.map(item => ({
+      id: item.id || `prod-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`,
+      sku: item.sku,
+      name: item.name || `Article ${item.sku}`,
+      styleCategory: item.styleCategory || 'Standard',
+      color: item.color || 'Standard',
+      category: item.category || 'women_footwear',
+      brand: 'Saint G',
+      sellingPrice: Number(item.sellingPrice) || 0,
+      costPrice: Number(item.costPrice) || 0,
+      sizes: item.sizes || {},
+      imageUrl: item.imageUrl || '',
+      images: item.images || [],
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    }));
+
+    updatedInventory = [...updatedInventory, ...newlyCreated];
+    setInventory(updatedInventory);
+
+    if (isSupabaseConfigured()) {
+      try {
+        for (const item of updatedItems) {
+          const prod = updatedInventory.find(p => p.id === item.id);
+          if (prod) await supabaseApi.upsertProduct(prod, 'usr-krishan');
+        }
+        for (const prod of newlyCreated) {
+          await supabaseApi.upsertProduct(prod, 'usr-krishan');
+        }
+      } catch (err) {
+        console.warn('Supabase importExcelInventory sync error:', err);
+      }
+    }
+
+    const importRecord = {
+      id: `import-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`,
+      filename,
+      timestamp: new Date().toISOString(),
+      newItemsCount: newlyCreated.length,
+      updatedItemsCount: updatedItems.length,
+      totalRows: newlyCreated.length + updatedItems.length,
+      summary: `${newlyCreated.length} naye articles jode gaye, ${updatedItems.length} articles ka stock update kiya gaya.`
+    };
+
+    setExcelImports(prev => {
+      const next = [importRecord, ...prev];
+      try {
+        localStorage.setItem('ky_excel_imports', JSON.stringify(next));
+      } catch (e) {}
+      return next;
+    });
+
+    playTone(900, 'sine', 0.2);
+    return { success: true, importRecord, newlyCreated, updatedItems };
+  }, [inventory, setInventory]);
+
   // Warehouse Send Action
   const sendStockToWarehouse = useCallback(async (data) => {
     return new Promise(async (resolve, reject) => {
@@ -1317,7 +1527,7 @@ export function InventoryProvider({ children }) {
               id: saleId,
               userId: 'usr-krishan',
               source: isWarehouse ? 'warehouse' : 'store',
-              productId: targetProduct?.id || saleData.productId || 'prod-warehouse',
+              productId: (isWarehouse || !targetProduct) ? null : targetProduct.id,
               sku: targetProduct?.sku || saleData.sku || 'N/A',
               productName: targetProduct?.name || saleData.productName || (saleData.sku ? `Article ${saleData.sku}` : 'Warehouse Article'),
               styleCategory: targetProduct?.styleCategory || saleData.styleCategory || targetProduct?.name || 'Warehouse Item',
@@ -1331,7 +1541,11 @@ export function InventoryProvider({ children }) {
               timestamp: saleTimestamp
             };
 
-            await supabaseApi.insertSale(saleRecord, 'usr-krishan');
+            try {
+              await supabaseApi.insertSale(saleRecord, 'usr-krishan');
+            } catch (supInsErr) {
+              console.warn('Supabase insertSale warning, proceeding locally:', supInsErr);
+            }
 
             if (!isWarehouse && targetProduct) {
               const currentQty = Number(targetProduct.sizes?.[saleData.size] || 0);
@@ -1344,7 +1558,11 @@ export function InventoryProvider({ children }) {
                 },
                 updatedAt: new Date().toISOString()
               };
-              await supabaseApi.upsertProduct(updatedProduct, 'usr-krishan');
+              try {
+                await supabaseApi.upsertProduct(updatedProduct, 'usr-krishan');
+              } catch (supUpErr) {
+                console.warn('Supabase upsertProduct warning:', supUpErr);
+              }
               setInventory(prev => prev.map(p => p.id === targetProduct.id ? updatedProduct : p));
             }
 
@@ -1352,6 +1570,7 @@ export function InventoryProvider({ children }) {
             playTone(950, 'triangle', 0.15);
             return resolve({ success: true, sale: saleRecord });
           } catch (supErr) {
+            console.error('Error in recordSale fallback:', supErr);
             return reject(supErr);
           }
         }
@@ -1407,7 +1626,7 @@ export function InventoryProvider({ children }) {
     const updatedSale = {
       ...(oldSale || {}),
       id,
-      productId: targetProduct?.id || targetProductId,
+      productId: (updates.source === 'warehouse' || oldSale?.source === 'warehouse' || !targetProduct) ? null : (targetProduct?.id || targetProductId),
       sku: targetProduct?.sku || updates.sku || oldSale?.sku || 'N/A',
       productName: targetProduct?.name || updates.productName || oldSale?.productName || 'N/A',
       styleCategory: targetProduct?.styleCategory || updates.styleCategory || oldSale?.styleCategory || 'Standard',
@@ -1794,6 +2013,7 @@ export function InventoryProvider({ children }) {
         r.items.forEach((item, idx) => {
           list.push({
             id: `${r.id}-${idx}`,
+            recordId: r.id,
             kind: 'replenishment',
             typeLabel: 'Stock Received (In)',
             timestamp: r.timestamp,
@@ -1811,6 +2031,7 @@ export function InventoryProvider({ children }) {
         Object.entries(r.receivedItems || {}).forEach(([s, q], idx) => {
           list.push({
             id: `${r.id}-${idx}`,
+            recordId: r.id,
             kind: 'replenishment',
             typeLabel: 'Stock Received (In)',
             timestamp: r.timestamp,
@@ -1832,6 +2053,7 @@ export function InventoryProvider({ children }) {
       Object.entries(w.sentItems || {}).forEach(([s, q], idx) => {
         list.push({
           id: `${w.id}-${idx}`,
+          recordId: w.id,
           kind: 'warehouse_send',
           typeLabel: 'Warehouse Dispatch (Out)',
           timestamp: w.timestamp,
@@ -1847,8 +2069,27 @@ export function InventoryProvider({ children }) {
       });
     });
 
+    // Excel Imports History
+    (excelImports || []).forEach(imp => {
+      list.push({
+        id: imp.id,
+        recordId: imp.id,
+        kind: 'excel_import',
+        typeLabel: 'Excel Import',
+        timestamp: imp.timestamp,
+        productName: imp.filename || 'INVENTORY.xlsx',
+        sku: `${imp.newItemsCount || 0} New, ${imp.updatedItemsCount || 0} Upd`,
+        styleCategory: 'Excel Inventory Sync',
+        size: `${imp.totalRows || 0} Rows`,
+        qty: (imp.newItemsCount || 0) + (imp.updatedItemsCount || 0),
+        amount: 0,
+        notes: imp.summary || `${imp.newItemsCount || 0} naye articles add kiye gaye, ${imp.updatedItemsCount || 0} update`,
+        raw: imp
+      });
+    });
+
     return list.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-  }, [sales, replenishments, warehouseSends]);
+  }, [sales, replenishments, warehouseSends, excelImports]);
 
   const computedStats = useMemo(() => {
     if (stats.totalProducts > 0 && isConnected) return stats;
@@ -1931,6 +2172,7 @@ export function InventoryProvider({ children }) {
     sales,
     replenishments,
     warehouseSends,
+    excelImports,
     unifiedHistory,
     stats: computedStats,
     isConnected,
@@ -1948,6 +2190,9 @@ export function InventoryProvider({ children }) {
     updateProduct,
     deleteProduct,
     addReplenishment,
+    updateReplenishmentRecord,
+    deleteReplenishmentRecord,
+    importExcelInventory,
     bulkReplenishStock,
     sendStockToWarehouse,
     updateWarehouseRecord,

@@ -15,16 +15,21 @@ import {
   DollarSign,
   Layers,
   ChevronDown,
-  CheckCircle2
+  CheckCircle2,
+  Edit3
 } from 'lucide-react';
+import { EditReplenishmentModal } from '../components/EditReplenishmentModal';
+import { EditSaleModal } from '../components/EditSaleModal';
 
 export function HistoryView() {
-  const { unifiedHistory, sales, replenishments, warehouseSends } = useInventory();
+  const { unifiedHistory, sales, replenishments, warehouseSends, excelImports = [] } = useInventory();
 
   // Filters
-  const [kindFilter, setKindFilter] = useState('all'); // 'all' | 'sale' | 'replenishment' | 'warehouse_send'
+  const [kindFilter, setKindFilter] = useState('all'); // 'all' | 'sale' | 'replenishment' | 'warehouse_send' | 'excel_import'
   const [searchTerm, setSearchTerm] = useState('');
   const [dateRange, setDateRange] = useState('all'); // 'all' | 'today' | '7days' | '30days'
+  const [editingReplenishment, setEditingReplenishment] = useState(null);
+  const [editingSale, setEditingSale] = useState(null);
 
   // Summary Metrics
   const summary = useMemo(() => {
@@ -285,6 +290,18 @@ export function HistoryView() {
             <ArrowUpRight className="w-3.5 h-3.5" />
             Warehouse Out ({warehouseSends.length})
           </button>
+
+          <button
+            onClick={() => setKindFilter('excel_import')}
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition whitespace-nowrap flex items-center gap-1.5 ${
+              kindFilter === 'excel_import'
+                ? 'bg-purple-500 text-slate-950 shadow-md shadow-purple-500/20 font-black'
+                : 'bg-slate-800/80 text-slate-300 hover:text-white'
+            }`}
+          >
+            <FileSpreadsheet className="w-3.5 h-3.5 text-purple-400" />
+            Excel Imports ({excelImports.length})
+          </button>
         </div>
 
         {/* Search & Date Filter */}
@@ -341,6 +358,7 @@ export function HistoryView() {
                   <th className="py-2.5 px-3 text-center">Qty</th>
                   <th className="py-2.5 px-3 text-right">Amount (₹)</th>
                   <th className="py-2.5 px-3">Reference / Remarks</th>
+                  <th className="py-2.5 px-3 text-center print:hidden">Action</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/60 print:divide-gray-200 font-medium">
@@ -366,6 +384,10 @@ export function HistoryView() {
                     badgeStyle = "bg-amber-500/15 text-amber-400 border-amber-500/30";
                     qtyColor = "text-amber-400 font-bold";
                     prefix = "↑";
+                  } else if (item.kind === 'excel_import') {
+                    badgeStyle = "bg-purple-500/15 text-purple-400 border-purple-500/30";
+                    qtyColor = "text-purple-300 font-bold";
+                    prefix = "📊 ";
                   }
 
                   return (
@@ -396,6 +418,30 @@ export function HistoryView() {
                       <td className="py-2.5 px-3 text-slate-400 print:text-gray-700 max-w-xs truncate" title={item.notes}>
                         {item.notes || '—'}
                       </td>
+                      <td className="py-2.5 px-3 text-center print:hidden whitespace-nowrap">
+                        {item.kind === 'replenishment' && (
+                          <button
+                            type="button"
+                            onClick={() => setEditingReplenishment(item.raw)}
+                            className="px-2.5 py-1 rounded-xl bg-blue-500/10 hover:bg-blue-500/25 text-blue-400 hover:text-blue-300 border border-blue-500/30 text-xs font-bold inline-flex items-center gap-1 transition shadow-sm active:scale-95"
+                            title="Edit Received Stock Details"
+                          >
+                            <Edit3 className="w-3 h-3" />
+                            <span>Edit (बदलें)</span>
+                          </button>
+                        )}
+                        {item.kind === 'sale' && (
+                          <button
+                            type="button"
+                            onClick={() => setEditingSale(item.raw)}
+                            className="px-2.5 py-1 rounded-xl bg-amber-500/10 hover:bg-amber-500/25 text-amber-400 hover:text-amber-300 border border-amber-500/30 text-xs font-bold inline-flex items-center gap-1 transition shadow-sm active:scale-95"
+                            title="Edit Sale Details"
+                          >
+                            <Edit3 className="w-3 h-3" />
+                            <span>Edit (बदलें)</span>
+                          </button>
+                        )}
+                      </td>
                     </tr>
                   );
                 })}
@@ -405,6 +451,24 @@ export function HistoryView() {
         )}
 
       </div>
+
+      {/* Edit Replenishment Modal */}
+      {editingReplenishment && (
+        <EditReplenishmentModal
+          isOpen={Boolean(editingReplenishment)}
+          onClose={() => setEditingReplenishment(null)}
+          replenishment={editingReplenishment}
+        />
+      )}
+
+      {/* Edit Sale Modal */}
+      {editingSale && (
+        <EditSaleModal
+          isOpen={Boolean(editingSale)}
+          onClose={() => setEditingSale(null)}
+          sale={editingSale}
+        />
+      )}
 
     </div>
   );

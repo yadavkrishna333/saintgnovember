@@ -117,17 +117,31 @@ export function ManualSaleModal({ isOpen, onClose, onSaleAdded }) {
     setErrorMsg('');
   };
 
-  // Filter products for search autocomplete
+  const handleKeyDownSearch = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (filteredProducts.length > 0) {
+        handleSelectProduct(filteredProducts[0]);
+      } else if (searchTerm.trim()) {
+        handleSelectUnlisted(searchTerm.trim());
+      }
+    }
+  };
+
+  // Filter products for search autocomplete (with alphanumeric normalization)
   const filteredProducts = useMemo(() => {
     if (!searchTerm.trim()) return [];
     const q = searchTerm.toLowerCase().trim();
+    const cleanQ = q.replace(/[^a-z0-9]/g, '');
     return inventory.filter(p => {
-      const skuMatch = p.sku && p.sku.toLowerCase().includes(q);
+      const sku = (p.sku || '').toLowerCase();
+      const cleanSku = sku.replace(/[^a-z0-9]/g, '');
+      const skuMatch = sku.includes(q) || (cleanQ && cleanSku.includes(cleanQ));
       const nameMatch = p.name && p.name.toLowerCase().includes(q);
       const styleMatch = p.styleCategory && p.styleCategory.toLowerCase().includes(q);
       const colorMatch = p.color && p.color.toLowerCase().includes(q);
       return skuMatch || nameMatch || styleMatch || colorMatch;
-    }).slice(0, 8); // Top 8 matches
+    }).slice(0, 12); // Top 12 matches
   }, [inventory, searchTerm]);
 
   // Allowed sizes for selected product
@@ -183,10 +197,10 @@ export function ManualSaleModal({ isOpen, onClose, onSaleAdded }) {
     try {
       const isWarehouse = source === 'warehouse';
       const salePayload = {
-        productId: selectedProduct.id,
+        productId: isWarehouse ? null : selectedProduct.id,
         sku: selectedProduct.sku,
         productName: selectedProduct.name,
-        styleCategory: selectedProduct.styleCategory || 'Warehouse Item',
+        styleCategory: selectedProduct.styleCategory || (isWarehouse ? 'Warehouse Item' : selectedProduct.name),
         color: selectedProduct.color || 'Standard',
         size: selectedSize,
         quantity: Number(quantity),
@@ -196,7 +210,7 @@ export function ManualSaleModal({ isOpen, onClose, onSaleAdded }) {
         customerName: customerName.trim(),
         timestamp: targetDateObj.toISOString(),
         source: isWarehouse ? 'warehouse' : 'store',
-        deductStock: !isWarehouse
+        deductStock: isWarehouse ? false : deductStock
       };
 
       const result = await recordSale(salePayload);
@@ -323,7 +337,8 @@ export function ManualSaleModal({ isOpen, onClose, onSaleAdded }) {
                     type="text"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    placeholder="Type SKU code (e.g. 1560, SGM-12, TAN, Black)..."
+                    onKeyDown={handleKeyDownSearch}
+                    placeholder="Type SKU code (e.g. SG-F-01, 1560, Tan, Black)... Press Enter to select"
                     className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white text-xs sm:text-sm placeholder:text-slate-500 focus:outline-none focus:border-amber-500 font-mono"
                     autoFocus
                   />
@@ -369,20 +384,22 @@ export function ManualSaleModal({ isOpen, onClose, onSaleAdded }) {
                       );
                     })}
 
-                    {/* Unlisted / Warehouse Article option */}
-                    <div className="p-3 bg-purple-950/40 border-t border-purple-500/30 flex items-center justify-between gap-2">
-                      <div className="text-[11px] text-purple-200 truncate">
-                        Article store catalog me nahi hai?
+                    {/* Unlisted Article option: ONLY shown when genuinely 0 products match */}
+                    {filteredProducts.length === 0 && (
+                      <div className="p-3 bg-purple-950/40 flex items-center justify-between gap-2">
+                        <div className="text-[11px] text-purple-200 truncate">
+                          Store catalog me nahi mila: <strong className="text-white font-mono">{searchTerm}</strong>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => handleSelectUnlisted(searchTerm)}
+                          className="px-3 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs inline-flex items-center gap-1.5 transition shadow-sm cursor-pointer shrink-0"
+                        >
+                          <span>🏭</span>
+                          <span>Sell as Warehouse Item</span>
+                        </button>
                       </div>
-                      <button
-                        type="button"
-                        onClick={() => handleSelectUnlisted(searchTerm)}
-                        className="px-3 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs inline-flex items-center gap-1.5 transition shadow-sm cursor-pointer shrink-0"
-                      >
-                        <span>🏭</span>
-                        <span>Add as Warehouse Sale</span>
-                      </button>
-                    </div>
+                    )}
                   </div>
                 )}
               </div>
@@ -427,35 +444,47 @@ export function ManualSaleModal({ isOpen, onClose, onSaleAdded }) {
                 <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
                   2. Select Size Sold (बिका हुआ साइज़)*:
                 </label>
-                {selectedSize && (
-                  <span className={`text-[11px] font-bold ${currentStockForSize > 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
+                {source === 'warehouse' ? (
+                  <span className="text-[11px] font-bold text-purple-400 flex items-center gap-1">
+                    <span>🏭</span>
+                    <span>Warehouse Dispatch (Store stock minus nahi hoga)</span>
+                  </span>
+                ) : selectedSize ? (
+                  <span className={`text-[11px] font-bold ${currentStockForSize > 0 ? 'text-emerald-400' : 'text-amber-400'}`}>
                     Store Stock: {currentStockForSize} pieces available
                   </span>
-                )}
+                ) : null}
               </div>
 
               <div className="flex flex-wrap gap-2">
                 {allowedSizes.map((size) => {
                   const stock = Number(selectedProduct.sizes?.[size] || 0);
                   const isSelected = selectedSize === size;
+                  const isWh = source === 'warehouse';
 
                   return (
                     <button
                       key={size}
                       type="button"
                       onClick={() => setSelectedSize(size)}
-                      className={`px-3 py-2 rounded-xl text-xs font-mono font-black transition flex flex-col items-center min-w-[54px] border ${
+                      className={`px-3 py-2 rounded-xl text-xs font-mono font-black transition flex flex-col items-center min-w-[54px] border cursor-pointer ${
                         isSelected
-                          ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-md shadow-amber-500/30 scale-105'
-                          : stock > 0
-                          ? 'bg-slate-950 text-slate-200 border-slate-700 hover:border-slate-500'
-                          : 'bg-slate-950/60 text-slate-500 border-slate-800/80 opacity-60 hover:opacity-100'
+                          ? isWh
+                            ? 'bg-purple-600 text-white border-purple-400 shadow-md shadow-purple-600/30 scale-105'
+                            : 'bg-amber-500 text-slate-950 border-amber-400 shadow-md shadow-amber-500/30 scale-105'
+                          : isWh
+                            ? 'bg-slate-950 text-slate-200 border-slate-700 hover:border-purple-500'
+                            : stock > 0
+                              ? 'bg-slate-950 text-slate-200 border-slate-700 hover:border-slate-500'
+                              : 'bg-slate-950/60 text-slate-400 border-slate-800 hover:border-amber-500'
                       }`}
                     >
                       <span className="text-sm font-black">{size}</span>
-                      <span className={`text-[9px] font-sans font-semibold ${isSelected ? 'text-slate-900' : stock > 0 ? 'text-slate-400' : 'text-rose-400'}`}>
-                        {stock} pcs
-                      </span>
+                      {!isWh && (
+                        <span className={`text-[9px] font-sans font-semibold ${isSelected ? 'text-slate-900' : stock > 0 ? 'text-slate-400' : 'text-amber-400'}`}>
+                          {stock} pcs
+                        </span>
+                      )}
                     </button>
                   );
                 })}
@@ -638,25 +667,35 @@ export function ManualSaleModal({ isOpen, onClose, onSaleAdded }) {
               />
             </div>
 
-            {/* Inventory Stock Deduction Option */}
-            <label className="flex items-center gap-2.5 p-3 rounded-2xl bg-slate-950 border border-slate-800 cursor-pointer select-none">
-              <input
-                type="checkbox"
-                checked={deductStock}
-                onChange={(e) => setDeductStock(e.target.checked)}
-                className="w-4 h-4 rounded text-amber-500 focus:ring-0 bg-slate-900 border-slate-700 cursor-pointer"
-              />
-              <div className="text-xs">
-                <span className="font-bold text-white block">
-                  स्टोर स्टॉक से 1 पीस कम करें (Deduct stock from inventory)
-                </span>
-                <span className="text-[11px] text-slate-400">
-                  {deductStock 
-                    ? `✓ Save karne par is article ke Size ${selectedSize || '..'} ka store stock ${quantity} piece ghat jayega.` 
-                    : `⚠️ Stock nahi ghatega (sirf sale transaction record hoga).`}
-                </span>
+            {/* Inventory Stock Deduction Option (Store Only) */}
+            {source === 'store' ? (
+              <label className="flex items-center gap-2.5 p-3 rounded-2xl bg-slate-950 border border-slate-800 cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  checked={deductStock}
+                  onChange={(e) => setDeductStock(e.target.checked)}
+                  className="w-4 h-4 rounded text-amber-500 focus:ring-0 bg-slate-900 border-slate-700 cursor-pointer"
+                />
+                <div className="text-xs">
+                  <span className="font-bold text-white block">
+                    स्टोर स्टॉक से 1 पीस कम करें (Deduct stock from inventory)
+                  </span>
+                  <span className="text-[11px] text-slate-400">
+                    {deductStock 
+                      ? `✓ Save karne par is article ke Size ${selectedSize || '..'} ka store stock ${quantity} piece ghat jayega.` 
+                      : `⚠️ Stock nahi ghatega (sirf sale transaction record hoga).`}
+                  </span>
+                </div>
+              </label>
+            ) : (
+              <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-purple-950/20 border border-purple-800/40 text-purple-200">
+                <span className="text-base">🏭</span>
+                <div className="text-xs">
+                  <span className="font-bold text-purple-300 block">Warehouse Direct Dispatch</span>
+                  <span className="text-[11px] text-purple-400/80">Store inventory se stock minus nahi hoga (yeh warehouse se dispatch ho raha hai).</span>
+                </div>
               </div>
-            </label>
+            )}
           </div>
 
           {/* ACTION BUTTONS */}

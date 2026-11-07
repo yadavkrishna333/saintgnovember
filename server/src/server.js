@@ -21,6 +21,8 @@ import {
   revertSale,
   getAllSales,
   addReplenishment,
+  updateReplenishment,
+  deleteReplenishment,
   bulkReplenish,
   getAllReplenishments,
   sendToWarehouse,
@@ -271,6 +273,28 @@ app.post('/api/replenishment/bulk', (req, res) => {
     io.to(`user:${userId}`).emit('inventory:updated_all', getAllProducts(userId));
     broadcastUpdates('replenishment:bulk_recorded', result, userId);
     res.status(201).json(result);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+app.put('/api/replenishment/:id', (req, res) => {
+  const userId = extractUserId(req);
+  try {
+    const result = updateReplenishment(userId, req.params.id, req.body);
+    broadcastUpdates('replenishment:updated', result, userId);
+    res.json(result);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+app.delete('/api/replenishment/:id', (req, res) => {
+  const userId = extractUserId(req);
+  try {
+    const result = deleteReplenishment(userId, req.params.id);
+    broadcastUpdates('replenishment:deleted', result, userId);
+    res.json(result);
   } catch (err) {
     res.status(400).json({ error: err.message });
   }

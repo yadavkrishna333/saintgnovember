@@ -17,11 +17,23 @@ import {
   Database,
   CloudUpload,
   Loader2,
-  RotateCcw
+  RotateCcw,
+  Upload
 } from 'lucide-react';
+import { ExcelImportDiffModal } from '../components/ExcelImportDiffModal';
+import { parseExcelInventoryBuffer, computeInventoryDiff } from '../utils/excelInventoryParser';
 
 export function SettingsView({ onOpenQrModal, onOpenGSheetModal }) {
-  const { categories, addCategory, deleteCategory, resetCategories, inventory, isConnected, localIp } = useInventory();
+  const { 
+    categories, 
+    addCategory, 
+    deleteCategory, 
+    resetCategories, 
+    inventory, 
+    importExcelInventory,
+    isConnected, 
+    localIp 
+  } = useInventory();
 
   const [categoryLabel, setCategoryLabel] = useState('');
   const [sizesInput, setSizesInput] = useState('');
@@ -31,6 +43,42 @@ export function SettingsView({ onOpenQrModal, onOpenGSheetModal }) {
   
   const [isSyncingSupabase, setIsSyncingSupabase] = useState(false);
   const [supabaseMsg, setSupabaseMsg] = useState('');
+
+  // Excel Import State
+  const [isParsingExcel, setIsParsingExcel] = useState(false);
+  const [diffResult, setDiffResult] = useState(null);
+  const [importFilename, setImportFilename] = useState('');
+  const [isImportModalOpen, setIsImportModalOpen] = useState(false);
+  const [excelError, setExcelError] = useState('');
+
+  const handleExcelFileUpload = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setIsParsingExcel(true);
+    setExcelError('');
+
+    try {
+      const buffer = await file.arrayBuffer();
+      const parsedItems = parseExcelInventoryBuffer(buffer);
+
+      if (parsedItems.length === 0) {
+        throw new Error("Excel file me koi valid articles ya sheets nahi mile (Checked: Stock Room, Mens Footwear, BAGS, Mens Jackets, Women Jacket)");
+      }
+
+      const diff = computeInventoryDiff(parsedItems, inventory);
+      setDiffResult(diff);
+      setImportFilename(file.name);
+      setIsImportModalOpen(true);
+    } catch (err) {
+      console.error('Error parsing Excel:', err);
+      setExcelError(err.message || 'Excel file parse karne me error aaya');
+    } finally {
+      setIsParsingExcel(false);
+      // Reset input value so same file can be re-selected if needed
+      e.target.value = '';
+    }
+  };
 
   const handleSyncSupabase = async () => {
     setIsSyncingSupabase(true);
@@ -389,6 +437,68 @@ export function SettingsView({ onOpenQrModal, onOpenGSheetModal }) {
           </p>
         </div>
       </div>
+
+      {/* EXCEL INVENTORY IMPORT & DIFF SYNC */}
+      <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-5 sm:p-6 shadow-xl backdrop-blur-xl space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
+            <div className="w-9 h-9 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+              <FileSpreadsheet className="w-5 h-5" />
+            </div>
+            <div>
+              <h2 className="text-base font-black text-white">
+                Import Data from Excel (इन्वेंट्री एक्सेल इम्पोर्ट)
+              </h2>
+              <p className="text-xs text-slate-400">
+                Upload updated INVENTORY.xlsx (Stock Room, Mens Footwear, BAGS, Mens/Women Jackets)
+              </p>
+            </div>
+          </div>
+          <span className="text-[11px] font-mono text-slate-400 bg-slate-950 px-2.5 py-1 rounded-xl border border-slate-800 w-fit">
+            Auto Diff & Confirmation
+          </span>
+        </div>
+
+        <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 text-xs">
+          <p className="text-slate-300 leading-relaxed">
+            Aap apni Excel file upload karke store inventory ko update kar sakte hain. Excel aur current inventory ko match karke ek <strong>Diff Preview Popup</strong> aayega jo aapko dikhayega ki kaunse <strong>naye articles add honge</strong> aur kinka <strong>stock change hoga</strong>. Aapke <em>"Agree"</em> karne par hi updates apply honge aur <strong>History</strong> me iska audit record save ho jayega.
+          </p>
+
+          {excelError && (
+            <div className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs flex items-center gap-2">
+              <AlertCircle className="w-4 h-4 shrink-0" />
+              <span>{excelError}</span>
+            </div>
+          )}
+
+          <div className="flex flex-col sm:flex-row items-center gap-3 pt-1">
+            <label className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-xs shadow-lg shadow-amber-500/20 transition active:scale-95 cursor-pointer flex items-center justify-center gap-2">
+              {isParsingExcel ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  <span>Reading Excel File...</span>
+                </>
+              ) : (
+                <>
+                  <Upload className="w-4 h-4 stroke-[2.5]" />
+                  <span>Choose Excel File (.xlsx / .xls)</span>
+                </>
+              )}
+              <input
+                type="file"
+                accept=".xlsx, .xls"
+                onChange={handleExcelFileUpload}
+                disabled={isParsingExcel}
+                className="hidden"
+              />
+            </label>
+
+            <span className="text-[11px] text-slate-500">
+              Format: Supports multi-sheet <code className="text-amber-300">INVENTORY.xlsx</code> or single-sheet article table.
+            </span>
+          </div>
+        </div>
+      </div>
       {/* PHONE QR CODE ACCESS (MOBILE LIVE SCANNER) */}
       <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-5 sm:p-6 shadow-xl backdrop-blur-xl space-y-3">
         <h2 className="text-base font-black text-white flex items-center gap-2">
@@ -434,6 +544,19 @@ export function SettingsView({ onOpenQrModal, onOpenGSheetModal }) {
           </div>
         </div>
       </div>
+
+      {/* Excel Import Diff & Confirmation Modal */}
+      {isImportModalOpen && diffResult && (
+        <ExcelImportDiffModal
+          isOpen={isImportModalOpen}
+          onClose={() => setIsImportModalOpen(false)}
+          filename={importFilename}
+          diffResult={diffResult}
+          onConfirm={async ({ newItems, updatedItems }) => {
+            await importExcelInventory({ newItems, updatedItems }, importFilename);
+          }}
+        />
+      )}
 
     </div>
   );

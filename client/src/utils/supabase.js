@@ -94,28 +94,57 @@ export const supabaseApi = {
 
   async insertSale(sale, userId = 'usr-krishan') {
     if (!isSupabaseConfigured()) return null;
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/sales`, {
-      method: 'POST',
-      headers: getHeaders(),
-      body: JSON.stringify({
-        id: sale.id,
-        user_id: userId,
-        product_id: sale.productId,
-        sku: sale.sku,
-        product_name: sale.productName,
-        style_category: sale.styleCategory,
-        color: sale.color,
-        size: sale.size,
-        quantity: sale.quantity || 1,
-        unit_price: sale.unitPrice || 0,
-        total_amount: sale.totalAmount || 0,
-        payment_mode: sale.paymentMode || 'Cash',
-        customer_name: sale.customerName || '',
-        timestamp: sale.timestamp || new Date().toISOString()
-      })
+
+    // For warehouse sales or unlisted products, product_id must be null to prevent foreign key errors
+    const isWh = sale.source === 'warehouse' || !sale.productId || String(sale.productId).startsWith('prod-wh-');
+    const safeProductId = isWh ? null : sale.productId;
+
+    const buildPayload = (prodId) => ({
+      id: sale.id,
+      user_id: userId,
+      product_id: prodId,
+      sku: sale.sku,
+      product_name: sale.productName,
+      style_category: sale.styleCategory,
+      color: sale.color,
+      size: String(sale.size || ''),
+      quantity: Number(sale.quantity) || 1,
+      unit_price: Number(sale.unitPrice) || 0,
+      total_amount: Number(sale.totalAmount) || 0,
+      payment_mode: sale.paymentMode || 'Cash',
+      customer_name: sale.customerName || '',
+      timestamp: sale.timestamp || new Date().toISOString()
     });
-    if (!res.ok) throw new Error(await res.text());
-    return res.json();
+
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/sales`, {
+        method: 'POST',
+        headers: getHeaders(),
+        body: JSON.stringify(buildPayload(safeProductId))
+      });
+
+      if (res.ok) {
+        return await res.json();
+      }
+
+      const errText = await res.text();
+      // If foreign key constraint fails, retry immediately with product_id: null
+      if (errText.includes('sales_product_id_fkey') || errText.includes('23503')) {
+        const retryRes = await fetch(`${SUPABASE_URL}/rest/v1/sales`, {
+          method: 'POST',
+          headers: getHeaders(),
+          body: JSON.stringify(buildPayload(null))
+        });
+        if (retryRes.ok) {
+          return await retryRes.json();
+        }
+      }
+
+      throw new Error(errText);
+    } catch (e) {
+      console.warn('Supabase insertSale warning:', e);
+      throw e;
+    }
   },
 
   async updateSale(saleId, updates) {
@@ -132,7 +161,11 @@ export const supabaseApi = {
     if (updates.sku !== undefined) body.sku = updates.sku;
     if (updates.productName !== undefined) body.product_name = updates.productName;
     if (updates.styleCategory !== undefined) body.style_category = updates.styleCategory;
-    if (updates.productId !== undefined) body.product_id = updates.productId;
+    if (updates.source === 'warehouse') {
+      body.product_id = null;
+    } else if (updates.productId !== undefined) {
+      body.product_id = updates.productId;
+    }
 
     try {
       const res = await fetch(`${SUPABASE_URL}/rest/v1/sales?id=eq.${saleId}`, {
@@ -144,7 +177,17 @@ export const supabaseApi = {
         body: JSON.stringify(body)
       });
       if (!res.ok) {
-        console.warn('Supabase updateSale warning:', await res.text());
+        const errText = await res.text();
+        if (errText.includes('sales_product_id_fkey') || errText.includes('23503')) {
+          body.product_id = null;
+          const retryRes = await fetch(`${SUPABASE_URL}/rest/v1/sales?id=eq.${saleId}`, {
+            method: 'PATCH',
+            headers: { ...getHeaders(), 'Prefer': 'return=representation' },
+            body: JSON.stringify(body)
+          });
+          if (retryRes.ok) return retryRes.json();
+        }
+        console.warn('Supabase updateSale warning:', errText);
         return null;
       }
       return res.json();
@@ -200,6 +243,47 @@ export const supabaseApi = {
       console.warn('Supabase insertReplenishment error:', e);
     }
     return null;
+  },
+
+  async updateReplenishment(id, updates, userId = 'usr-krishan') {
+    if (!isSupabaseConfigured()) return null;
+    try {
+      const body = {};
+      if (updates.invoiceNo !== undefined) body.invoice_no = updates.invoiceNo;
+      if (updates.supplier !== undefined) body.supplier = updates.supplier;
+      if (updates.notes !== undefined) body.notes = updates.notes;
+      if (updates.totalCount !== undefined) body.total_count = Number(updates.totalCount) || 0;
+      if (updates.items !== undefined) body.items = updates.items;
+      if (updates.receivedItems !== undefined) body.items = updates.receivedItems;
+      if (updates.timestamp !== undefined) body.timestamp = updates.timestamp;
+
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/replenishments?id=eq.${id}`, {
+        method: 'PATCH',
+        headers: {
+          ...getHeaders(),
+          'Prefer': 'return=representation'
+        },
+        body: JSON.stringify(body)
+      });
+      if (res.ok) return await res.json();
+    } catch (e) {
+      console.warn('Supabase updateReplenishment error:', e);
+    }
+    return null;
+  },
+
+  async deleteReplenishment(id) {
+    if (!isSupabaseConfigured()) return null;
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/replenishments?id=eq.${id}`, {
+        method: 'DELETE',
+        headers: getHeaders()
+      });
+      return res.ok;
+    } catch (e) {
+      console.warn('Supabase deleteReplenishment error:', e);
+      return false;
+    }
   },
 
   // Warehouse Sends

@@ -513,6 +513,72 @@ export function getAllReplenishments(userId) {
   return t.replenishmentHistory;
 }
 
+export function updateReplenishment(userId, id, updates) {
+  const t = getTenant(userId);
+  const repIndex = t.replenishmentHistory.findIndex(r => r.id === id);
+  if (repIndex === -1) throw new Error("Replenishment record not found");
+
+  const oldRecord = t.replenishmentHistory[repIndex];
+  const product = t.inventory.find(p => p.id === oldRecord.productId || (p.sku && p.sku === oldRecord.sku));
+
+  const newReceivedItems = updates.receivedItems || oldRecord.receivedItems || {};
+  let totalCount = 0;
+  Object.values(newReceivedItems).forEach(qty => { totalCount += (Number(qty) || 0); });
+
+  // Adjust product stock delta
+  if (product && product.sizes) {
+    const allSizes = new Set([
+      ...Object.keys(oldRecord.receivedItems || {}),
+      ...Object.keys(newReceivedItems)
+    ]);
+
+    allSizes.forEach(size => {
+      const oldQty = Number(oldRecord.receivedItems?.[size] || 0);
+      const newQty = Number(newReceivedItems[size] || 0);
+      const delta = newQty - oldQty;
+      product.sizes[size] = Math.max(0, (Number(product.sizes[size]) || 0) + delta);
+    });
+
+    product.updatedAt = new Date().toISOString();
+    t.saveInventory();
+  }
+
+  const updatedRecord = {
+    ...oldRecord,
+    ...updates,
+    receivedItems: newReceivedItems,
+    totalCount,
+    updatedAt: new Date().toISOString()
+  };
+
+  t.replenishmentHistory[repIndex] = updatedRecord;
+  t.saveReplenishments();
+
+  return { updatedRecord, updatedProduct: product };
+}
+
+export function deleteReplenishment(userId, id) {
+  const t = getTenant(userId);
+  const repIndex = t.replenishmentHistory.findIndex(r => r.id === id);
+  if (repIndex === -1) throw new Error("Replenishment record not found");
+
+  const oldRecord = t.replenishmentHistory[repIndex];
+  const product = t.inventory.find(p => p.id === oldRecord.productId || (p.sku && p.sku === oldRecord.sku));
+
+  if (product && product.sizes && oldRecord.receivedItems) {
+    Object.entries(oldRecord.receivedItems).forEach(([size, qty]) => {
+      product.sizes[size] = Math.max(0, (Number(product.sizes[size]) || 0) - (Number(qty) || 0));
+    });
+    product.updatedAt = new Date().toISOString();
+    t.saveInventory();
+  }
+
+  t.replenishmentHistory.splice(repIndex, 1);
+  t.saveReplenishments();
+
+  return { id, updatedProduct: product };
+}
+
 // ---------------- Stock Send to Warehouse ----------------
 export function sendToWarehouse(userId, { productId, sizeQuantities = {}, dispatchNo = '', destination = 'Central Warehouse', reason = '', notes = '', date = '' }) {
   const t = getTenant(userId);
@@ -646,14 +712,15 @@ export function getAllWarehouseSends(userId) {
 export function recordSale(userId, { productId, sku, size, quantity = 1, unitPrice, paymentMode = 'Cash', customerName = '', timestamp, deductStock = true, source = 'store', productName, styleCategory, color, category }) {
   const t = getTenant(userId);
   const isWarehouse = source === 'warehouse' || deductStock === false;
+  const clean = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
 
   let product = t.inventory.find(p => p.id === productId);
   if (!product && sku) {
-    const cleanSku = String(sku).trim().toLowerCase();
-    product = t.inventory.find(p => p.sku && p.sku.trim().toLowerCase() === cleanSku);
+    const targetClean = clean(sku);
+    product = t.inventory.find(p => p.sku && (clean(p.sku) === targetClean || p.sku.toLowerCase().trim() === String(sku).toLowerCase().trim()));
   }
 
-  // If warehouse sale and product not found, create a lightweight representation
+  // If product not found in inventory
   if (!product) {
     if (isWarehouse) {
       product = {
@@ -668,16 +735,27 @@ export function recordSale(userId, { productId, sku, size, quantity = 1, unitPri
         sizes: {}
       };
     } else {
-      throw new Error("Product not found in inventory. Agar ye warehouse se bika he to 'Warehouse' select karein.");
+      // Auto-create lightweight product so store sale is never blocked
+      product = {
+        id: productId || `prod-${Date.now().toString(36)}`,
+        sku: sku || 'ITEM',
+        name: productName || (sku ? `Article ${sku}` : 'Article'),
+        styleCategory: styleCategory || 'Store Item',
+        color: color || 'Standard',
+        brand: 'Saint G',
+        category: category || 'general',
+        sellingPrice: Number(unitPrice) || 0,
+        sizes: { [size]: 0 }
+      };
+      t.inventory.push(product);
+      t.saveInventory();
     }
   }
 
   const currentQty = Number(product.sizes?.[size] || 0);
-  if (!isWarehouse) {
-    if (currentQty < quantity) {
-      throw new Error(`Insufficient stock for Size ${size}! Available: ${currentQty}, Requested: ${quantity}`);
-    }
-    product.sizes[size] = currentQty - quantity;
+  if (!isWarehouse && deductStock) {
+    if (!product.sizes) product.sizes = {};
+    product.sizes[size] = Math.max(0, currentQty - quantity);
     product.updatedAt = new Date().toISOString();
     t.saveInventory();
   }
@@ -697,7 +775,7 @@ export function recordSale(userId, { productId, sku, size, quantity = 1, unitPri
     id: `sale-${crypto.randomUUID().slice(0, 8)}`,
     type: 'sale',
     source: isWarehouse ? 'warehouse' : 'store',
-    productId: product.id,
+    productId: isWarehouse ? null : product.id,
     sku: product.sku,
     productName: product.name,
     styleCategory: product.styleCategory || product.name,
@@ -709,7 +787,7 @@ export function recordSale(userId, { productId, sku, size, quantity = 1, unitPri
     unitPrice: price,
     totalAmount,
     paymentMode,
-    customerName: customerName.trim(),
+    customerName: (customerName || '').trim(),
     timestamp: saleTimestamp
   };
 
@@ -726,36 +804,33 @@ export function updateSale(userId, saleId, updates) {
   if (saleIndex === -1) throw new Error("Sale record not found");
 
   const oldSale = t.sales[saleIndex];
-  const oldProduct = t.inventory.find(p => p.id === oldSale.productId);
-  const newProductId = updates.productId || oldSale.productId;
-  const newProduct = t.inventory.find(p => p.id === newProductId);
-  if (!newProduct) throw new Error("Product not found in inventory");
+  const isOldWarehouse = oldSale.source === 'warehouse' || oldSale.deductStock === false;
+  const isNewWarehouse = (updates.source !== undefined ? updates.source : oldSale.source) === 'warehouse';
 
-  const newSize = String(updates.size || oldSale.size);
+  const oldProduct = oldSale.productId ? t.inventory.find(p => p.id === oldSale.productId) : null;
+  const newProductId = updates.productId !== undefined ? updates.productId : oldSale.productId;
+  const newProduct = newProductId ? t.inventory.find(p => p.id === newProductId) : null;
+
+  const newSize = String(updates.size !== undefined ? updates.size : oldSale.size);
   const newQuantity = Number(updates.quantity !== undefined ? updates.quantity : oldSale.quantity);
-  const newUnitPrice = updates.unitPrice !== undefined ? Number(updates.unitPrice) : (updates.sellingPrice !== undefined ? Number(updates.sellingPrice) : oldSale.unitPrice);
+  const newUnitPrice = updates.unitPrice !== undefined ? Number(updates.unitPrice) : (updates.sellingPrice !== undefined ? Number(updates.sellingPrice) : (oldSale.unitPrice || 0));
   const newPaymentMode = updates.paymentMode || oldSale.paymentMode;
   const newCustomerName = updates.customerName !== undefined ? updates.customerName.trim() : oldSale.customerName;
 
-  // Step 1: Temporarily restore old stock
-  if (oldProduct && oldProduct.sizes) {
+  // Step 1: Temporarily restore old store stock if old sale was store sale
+  if (!isOldWarehouse && oldProduct && oldProduct.sizes) {
     oldProduct.sizes[oldSale.size] = (Number(oldProduct.sizes[oldSale.size]) || 0) + Number(oldSale.quantity);
   }
 
-  // Step 2: Check availability on new product & size
-  const availableInNew = Number(newProduct.sizes?.[newSize] || 0);
-  if (availableInNew < newQuantity) {
-    if (oldProduct && oldProduct.sizes) {
-      oldProduct.sizes[oldSale.size] = Math.max(0, (Number(oldProduct.sizes[oldSale.size]) || 0) - Number(oldSale.quantity));
-    }
-    throw new Error(`Insufficient stock for Size ${newSize}! Available: ${availableInNew}, Requested: ${newQuantity}`);
+  // Step 2: Deduct from new product if new sale is store sale
+  if (!isNewWarehouse && newProduct) {
+    if (!newProduct.sizes) newProduct.sizes = {};
+    const availableInNew = Number(newProduct.sizes[newSize] || 0);
+    newProduct.sizes[newSize] = Math.max(0, availableInNew - newQuantity);
+    newProduct.updatedAt = new Date().toISOString();
   }
 
-  // Step 3: Deduct from new product
-  if (!newProduct.sizes) newProduct.sizes = {};
-  newProduct.sizes[newSize] = availableInNew - newQuantity;
-  newProduct.updatedAt = new Date().toISOString();
-  if (oldProduct && oldProduct.id !== newProduct.id) {
+  if (oldProduct && (!newProduct || oldProduct.id !== newProduct.id)) {
     oldProduct.updatedAt = new Date().toISOString();
   }
 
@@ -769,16 +844,17 @@ export function updateSale(userId, saleId, updates) {
     }
   }
 
-  // Step 4: Update sale record
+  // Step 3: Update sale record
   const updatedSale = {
     ...oldSale,
-    productId: newProduct.id,
-    sku: newProduct.sku,
-    productName: newProduct.name,
-    styleCategory: newProduct.styleCategory || newProduct.name,
-    color: newProduct.color || 'Standard',
-    brand: newProduct.brand,
-    category: newProduct.category,
+    source: isNewWarehouse ? 'warehouse' : 'store',
+    productId: isNewWarehouse ? null : (newProduct ? newProduct.id : oldSale.productId),
+    sku: updates.sku || (newProduct ? newProduct.sku : oldSale.sku),
+    productName: updates.productName || (newProduct ? newProduct.name : oldSale.productName),
+    styleCategory: updates.styleCategory || (newProduct ? (newProduct.styleCategory || newProduct.name) : oldSale.styleCategory),
+    color: updates.color || (newProduct ? newProduct.color : oldSale.color),
+    brand: newProduct?.brand || oldSale.brand || 'Saint G',
+    category: newProduct?.category || oldSale.category || 'general',
     size: newSize,
     quantity: newQuantity,
     unitPrice: newUnitPrice,
@@ -792,8 +868,9 @@ export function updateSale(userId, saleId, updates) {
   t.sales[saleIndex] = updatedSale;
   t.saveSales();
 
-  const affectedProducts = [newProduct];
-  if (oldProduct && oldProduct.id !== newProduct.id) {
+  const affectedProducts = [];
+  if (newProduct && !isNewWarehouse) affectedProducts.push(newProduct);
+  if (oldProduct && (!newProduct || oldProduct.id !== newProduct.id) && !isOldWarehouse) {
     affectedProducts.push(oldProduct);
   }
 
