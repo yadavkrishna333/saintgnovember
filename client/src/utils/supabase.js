@@ -35,6 +35,37 @@ export const supabaseApi = {
     return res.json();
   },
 
+  async upsertProductsBulk(products, userId = 'usr-krishan') {
+    if (!isSupabaseConfigured() || !Array.isArray(products) || products.length === 0) return [];
+    const formatted = products.map(p => ({
+      id: p.id,
+      user_id: userId,
+      sku: p.sku,
+      name: p.name || p.sku || 'Article',
+      style_category: p.styleCategory || p.style_category || '',
+      color: p.color || '',
+      category: p.category || 'women_footwear',
+      brand: p.brand || 'Saint G',
+      cost_price: Number(p.costPrice || p.cost_price || 0),
+      selling_price: Number(p.sellingPrice || p.selling_price || 0),
+      sizes: p.sizes || {},
+      display_size: p.displaySize || p.display_size || null,
+      image_url: p.imageUrl || p.image_url || null,
+      updated_at: new Date().toISOString()
+    }));
+
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/inventory`, {
+      method: 'POST',
+      headers: {
+        ...getHeaders(),
+        'Prefer': 'resolution=merge-duplicates,return=representation'
+      },
+      body: JSON.stringify(formatted)
+    });
+    if (!res.ok) throw new Error(await res.text());
+    return res.json();
+  },
+
   async upsertProduct(product, userId = 'usr-krishan') {
     if (!isSupabaseConfigured()) return null;
     const res = await fetch(`${SUPABASE_URL}/rest/v1/inventory`, {

@@ -16,7 +16,8 @@ import {
 import { supabaseApi, isSupabaseConfigured } from '../utils/supabase';
 
 export function BulkPasteModal({ isOpen, onClose }) {
-  const { inventory, categories, sizesMap, addProduct, updateProduct } = useInventory();
+  const { inventory, categories, sizesMap, addProduct, updateProduct, currentStore } = useInventory();
+  const currentStoreUserId = currentStore?.userId || 'usr-krishan';
 
   const [rawText, setRawText] = useState('');
   const [pasteMode, setPasteMode] = useState('add'); // 'add' (plus quantities) | 'set' (exact replace)
@@ -193,7 +194,7 @@ SG-F-1867-OFFWHITE 1 2 1 1 1 2`;
           // Sync to Supabase if configured
           if (isSupabaseConfigured()) {
             try {
-              await supabaseApi.upsertProduct(updatedProduct, 'usr-krishan');
+              await supabaseApi.upsertProduct(updatedProduct, currentStoreUserId);
             } catch (e) {
               console.warn('Supabase bulk sync warning:', e);
             }
@@ -208,7 +209,7 @@ SG-F-1867-OFFWHITE 1 2 1 1 1 2`;
           });
         } else {
           // Create new product
-          const newId = `prod-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
+          const newId = `prod-${currentStore?.code?.toLowerCase() || 'mgs'}-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
           const initialSizes = {};
           
           const defaultCategorySizes = sizesMap[defaultCategory] || ['35', '36', '37', '38', '39', '40', '41'];
@@ -218,7 +219,7 @@ SG-F-1867-OFFWHITE 1 2 1 1 1 2`;
 
           const newProduct = {
             id: newId,
-            userId: 'usr-krishan',
+            userId: currentStoreUserId,
             sku: row.sku,
             name: row.sku,
             styleCategory: defaultCategory.includes('jacket') ? 'Standard' : 'Block Heels',
@@ -238,7 +239,7 @@ SG-F-1867-OFFWHITE 1 2 1 1 1 2`;
 
           if (isSupabaseConfigured()) {
             try {
-              await supabaseApi.upsertProduct(newProduct, 'usr-krishan');
+              await supabaseApi.upsertProduct(newProduct, currentStoreUserId);
             } catch (e) {
               console.warn('Supabase bulk create warning:', e);
             }

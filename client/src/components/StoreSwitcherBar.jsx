@@ -12,7 +12,18 @@ import {
 } from 'lucide-react';
 
 export function StoreSwitcherBar({ onOpenStoreModal, onOpenSyncSalesModal }) {
-  const { currentStore, switchStore, inventory, cloneCatalogFromStore, isCloningCatalog } = useInventory();
+  const { 
+    currentStore, 
+    switchStore, 
+    inventory, 
+    cloneCatalogFromStore, 
+    isCloningCatalog,
+    setIsStoreSelectorOpen,
+    setIsSyncDailySalesOpen
+  } = useInventory();
+
+  const handleOpenStore = onOpenStoreModal || (() => setIsStoreSelectorOpen(true));
+  const handleOpenSync = onOpenSyncSalesModal || (() => setIsSyncDailySalesOpen(true));
 
   const isCurrentStoreEmpty = inventory.length === 0;
 
@@ -25,7 +36,7 @@ export function StoreSwitcherBar({ onOpenStoreModal, onOpenSyncSalesModal }) {
         <div className="flex items-center gap-3">
           <button
             type="button"
-            onClick={onOpenStoreModal}
+            onClick={handleOpenStore}
             className="flex items-center gap-2.5 px-3 py-2 rounded-2xl bg-slate-950 border border-slate-800 hover:border-amber-500/50 transition group shrink-0"
             title="Click to Switch Store / स्टोर बदलें"
           >
@@ -77,7 +88,7 @@ export function StoreSwitcherBar({ onOpenStoreModal, onOpenSyncSalesModal }) {
         <div className="flex items-center gap-2 self-end md:self-auto">
           <button
             type="button"
-            onClick={onOpenSyncSalesModal}
+            onClick={handleOpenSync}
             className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-xs shadow-lg shadow-emerald-500/20 active:scale-95 transition"
             title="Google Sheet se daily sell auto-minus karein"
           >

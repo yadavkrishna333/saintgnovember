@@ -490,13 +490,15 @@ io.on('connection', (socket) => {
 
   // Authenticate socket on handshake
   const token = socket.handshake.auth?.token || socket.handshake.query?.token;
-  const user = getUserByToken(token) || { id: 'usr-krishan', username: 'Krishan' };
-  socket.userId = user.id;
+  const requestedUserId = socket.handshake.auth?.userId || socket.handshake.query?.userId;
+  const user = getUserByToken(token) || { id: requestedUserId || 'usr-krishan', username: 'Krishan' };
+  socket.userId = requestedUserId || user.id;
   socket.join(`user:${socket.userId}`);
 
   socket.emit('init:data', {
     appName: "KY INVENTORY",
-    user: { id: user.id, username: user.username },
+    userId: socket.userId,
+    user: { id: socket.userId, username: user.username },
     inventory: getAllProducts(socket.userId),
     categories: getAllCategories(socket.userId),
     sizesMap: getSizesMap(socket.userId),
@@ -505,6 +507,33 @@ io.on('connection', (socket) => {
     warehouseSends: getAllWarehouseSends(socket.userId),
     stats: getStats(socket.userId),
     localIp: getLocalIpAddress()
+  });
+
+  // Dynamic store switch event to isolate socket room per store
+  socket.on('store:switch', ({ storeId, userId }, callback) => {
+    if (userId) {
+      socket.leave(`user:${socket.userId}`);
+      socket.userId = userId;
+      socket.join(`user:${socket.userId}`);
+
+      const initData = {
+        userId: socket.userId,
+        inventory: getAllProducts(socket.userId),
+        categories: getAllCategories(socket.userId),
+        sizesMap: getSizesMap(socket.userId),
+        sales: getAllSales(socket.userId),
+        replenishments: getAllReplenishments(socket.userId),
+        warehouseSends: getAllWarehouseSends(socket.userId),
+        stats: getStats(socket.userId)
+      };
+
+      if (typeof callback === 'function') callback({ success: true, ...initData });
+      socket.emit('init:data', {
+        appName: "KY INVENTORY",
+        ...initData,
+        localIp: getLocalIpAddress()
+      });
+    }
   });
 
   socket.on('auth:authenticate', ({ token: authToken }, callback) => {

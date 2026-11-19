@@ -32,7 +32,8 @@ export function SettingsView({ onOpenQrModal, onOpenGSheetModal }) {
     inventory, 
     importExcelInventory,
     isConnected, 
-    localIp 
+    localIp,
+    currentStore
   } = useInventory();
 
   const [categoryLabel, setCategoryLabel] = useState('');
@@ -111,11 +112,12 @@ export function SettingsView({ onOpenQrModal, onOpenGSheetModal }) {
 
       if (!syncedViaApi) {
         let count = 0;
+        const targetUserId = currentStore?.userId || 'usr-krishan';
         for (const item of inventory) {
-          await supabaseApi.upsertProduct(item, 'usr-krishan');
+          await supabaseApi.upsertProduct(item, targetUserId);
           count++;
         }
-        setSupabaseMsg(`✅ Successfully synced ${count} items directly to Supabase Cloud Database!`);
+        setSupabaseMsg(`✅ Successfully synced ${count} items for ${currentStore?.name || 'Store'} directly to Supabase Cloud Database!`);
       }
     } catch (err) {
       setSupabaseMsg(`❌ Error: ${err.message}`);

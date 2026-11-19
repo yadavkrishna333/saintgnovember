@@ -65,19 +65,19 @@ function syncNow() {
     muteHttpExceptions: true
   };
 
-  // 1. Fetch Inventory Stock (up to 10,000 models)
-  var invRes = UrlFetchApp.fetch(supabaseUrl + "/inventory?select=*&order=sku.asc&limit=10000", options);
+  // 1. Fetch Inventory Stock for MG Sultanpur (up to 10,000 models - 100% isolated)
+  var invRes = UrlFetchApp.fetch(supabaseUrl + "/inventory?user_id=eq.usr-krishan&select=*&order=sku.asc&limit=10000", options);
   var inventory = JSON.parse(invRes.getContentText()) || [];
 
-  // 2. Fetch Sales History (up to 10,000 sales)
-  var salesRes = UrlFetchApp.fetch(supabaseUrl + "/sales?select=*&order=timestamp.desc&limit=10000", options);
+  // 2. Fetch Sales History for MG Sultanpur (up to 10,000 sales - 100% isolated)
+  var salesRes = UrlFetchApp.fetch(supabaseUrl + "/sales?user_id=eq.usr-krishan&select=*&order=timestamp.desc&limit=10000", options);
   var sales = [];
   try {
     sales = JSON.parse(salesRes.getContentText()) || [];
   } catch(e) {}
 
-  // 3. Fetch Replenishments Received Stock
-  var repRes = UrlFetchApp.fetch(supabaseUrl + "/replenishments?select=*&order=timestamp.desc&limit=10000", options);
+  // 3. Fetch Replenishments Received Stock for MG Sultanpur (100% isolated)
+  var repRes = UrlFetchApp.fetch(supabaseUrl + "/replenishments?user_id=eq.usr-krishan&select=*&order=timestamp.desc&limit=10000", options);
   var replenishments = [];
   try {
     replenishments = JSON.parse(repRes.getContentText()) || [];

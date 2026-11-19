@@ -398,12 +398,18 @@ export function InventoryProvider({ children }) {
       : window.location.origin;
 
     const token = localStorage.getItem('ky_token') || '';
+    const activeStoreId = localStorage.getItem('ky_selected_store_id') || DEFAULT_STORE_ID;
+    const activeStoreObj = getStoreById(activeStoreId) || STORES[0];
 
     const newSocket = io(socketUrl, {
       transports: ['websocket', 'polling'],
       reconnectionAttempts: 25,
       reconnectionDelay: 1000,
-      auth: { token }
+      auth: { 
+        token,
+        userId: activeStoreObj.userId,
+        storeId: activeStoreObj.id
+      }
     });
 
     newSocket.on('connect', () => {
@@ -420,6 +426,12 @@ export function InventoryProvider({ children }) {
     });
 
     newSocket.on('init:data', (data) => {
+      // Isolate store data: ignore init:data if it belongs to a different store
+      const curStoreId = localStorage.getItem('ky_selected_store_id') || DEFAULT_STORE_ID;
+      const curStore = getStoreById(curStoreId) || STORES[0];
+      if (data.userId && data.userId !== curStore.userId) {
+        return;
+      }
       if (data.user && !currentUser) {
         setCurrentUser(data.user);
       }
@@ -781,9 +793,11 @@ export function InventoryProvider({ children }) {
 
   // Product CRUD
   const addProduct = useCallback(async (productData) => {
-    const localId = `prod-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`;
+    const storePrefix = (currentStore?.code || 'mgs').toLowerCase();
+    const localId = `prod-${storePrefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`;
     const newProduct = {
       id: localId,
+      userId: currentStoreUserId,
       ...productData,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
@@ -1351,8 +1365,10 @@ export function InventoryProvider({ children }) {
       }
     }
 
+    const storePrefix = (currentStore?.code || 'mgs').toLowerCase();
     const newlyCreated = newItems.map(item => ({
-      id: item.id || `prod-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`,
+      id: item.id || `prod-${storePrefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`,
+      userId: currentStoreUserId,
       sku: item.sku,
       name: item.name || `Article ${item.sku}`,
       styleCategory: item.styleCategory || 'Standard',
@@ -1807,9 +1823,14 @@ export function InventoryProvider({ children }) {
     setSales([]);
     setReplenishments([]);
     setWarehouseSends([]);
+
+    if (socket && socket.connected) {
+      socket.emit('store:switch', { storeId: store.id, userId: store.userId });
+    }
+
     fetchUserData(null, store.userId);
     playTone(850, 'sine', 0.1);
-  }, [fetchUserData]);
+  }, [socket, fetchUserData]);
 
   // Clone Catalog from MG Sultanpur Store (with 0 stock)
   const cloneCatalogFromStore = useCallback(async (sourceStoreId = 'mg-sultanpur') => {
@@ -1870,11 +1891,16 @@ export function InventoryProvider({ children }) {
       });
 
       if (isSupabaseConfigured()) {
-        for (const item of clonedItems) {
-          try {
-            await supabaseApi.upsertProduct(item, currentStore.userId);
-          } catch (e) {
-            console.warn('Supabase upsertProduct cloned item warning:', item.sku, e);
+        try {
+          await supabaseApi.upsertProductsBulk(clonedItems, currentStore.userId);
+        } catch (e) {
+          console.warn('Supabase bulk upsert cloned items warning, trying single item fallback:', e);
+          for (const item of clonedItems) {
+            try {
+              await supabaseApi.upsertProduct(item, currentStore.userId);
+            } catch (err) {
+              console.warn('Supabase upsertProduct cloned item fallback error:', item.sku, err);
+            }
           }
         }
       }
@@ -1964,11 +1990,18 @@ export function InventoryProvider({ children }) {
     const modifiedProducts = updatedInv.filter(p => modifiedProductIds.has(p.id));
 
     if (isSupabaseConfigured()) {
-      for (const prod of modifiedProducts) {
+      if (modifiedProducts.length > 0) {
         try {
-          await supabaseApi.upsertProduct(prod, targetUserId);
-        } catch (err) {
-          console.warn('Error syncing deducted product to Supabase:', prod.sku, err);
+          await supabaseApi.upsertProductsBulk(modifiedProducts, targetUserId);
+        } catch (bulkErr) {
+          console.warn('Supabase bulk upsert products in dailySales warning, using fallback:', bulkErr);
+          for (const prod of modifiedProducts) {
+            try {
+              await supabaseApi.upsertProduct(prod, targetUserId);
+            } catch (err) {
+              console.warn('Error syncing deducted product to Supabase:', prod.sku, err);
+            }
+          }
         }
       }
 
