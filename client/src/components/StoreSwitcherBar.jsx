@@ -8,7 +8,8 @@ import {
   Sparkles, 
   Copy,
   Layers,
-  ArrowRight
+  ArrowRight,
+  ExternalLink
 } from 'lucide-react';
 
 export function StoreSwitcherBar({ onOpenStoreModal, onOpenSyncSalesModal }) {
@@ -84,8 +85,21 @@ export function StoreSwitcherBar({ onOpenStoreModal, onOpenSyncSalesModal }) {
           </div>
         </div>
 
-        {/* Right: Quick Action: Sync Daily Sales from Google Sheet */}
-        <div className="flex items-center gap-2 self-end md:self-auto">
+        {/* Right: Quick Actions */}
+        <div className="flex items-center gap-2 self-end md:self-auto flex-wrap">
+          {currentStore?.sheetUrl && (
+            <a
+              href={currentStore.sheetUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-2xl bg-slate-950 border border-slate-800 hover:border-emerald-500/50 hover:bg-slate-900 text-slate-300 hover:text-emerald-300 font-bold text-xs shadow-md transition active:scale-95"
+              title={`${currentStore.name} ki Google Sheet direct open karein`}
+            >
+              <ExternalLink className="w-3.5 h-3.5 text-emerald-400" />
+              <span>📄 View Google Sheet</span>
+            </a>
+          )}
+
           <button
             type="button"
             onClick={handleOpenSync}
@@ -93,7 +107,7 @@ export function StoreSwitcherBar({ onOpenStoreModal, onOpenSyncSalesModal }) {
             title="Google Sheet se daily sell auto-minus karein"
           >
             <FileSpreadsheet className="w-4 h-4 text-emerald-200" />
-            <span>⚡ Sync Daily Sales (Google Sheet)</span>
+            <span>⚡ Sync Daily Sales</span>
           </button>
         </div>
 

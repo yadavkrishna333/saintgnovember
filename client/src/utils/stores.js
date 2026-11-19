@@ -10,6 +10,8 @@ export const STORES = [
     address: 'MG Road, Sultanpur, New Delhi',
     tag: 'Main Store / Flagship',
     userId: 'usr-krishan', // Preserves 100% of existing inventory, sales & history
+    sheetId: '1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE',
+    sheetUrl: 'https://docs.google.com/spreadsheets/d/1b5udIekQd15iQ6btgoqQr1kuKee3K2rtPVfXmvEtYNE/edit',
     sheetTabName: 'MG Sultanpur Daily Sales',
     colorKey: 'amber',
     badgeClass: 'bg-amber-500/15 text-amber-300 border-amber-500/30',
@@ -24,7 +26,9 @@ export const STORES = [
     address: 'Khan Market, Rabindra Nagar, New Delhi',
     tag: 'Delhi Retail Outlet',
     userId: 'usr-store-khan-market',
-    sheetTabName: 'Khan Market Daily Sales',
+    sheetId: '1xXEgewbekRNVVHpVsXsdAWJO-cSQsCplTx8OsicohM0',
+    sheetUrl: 'https://docs.google.com/spreadsheets/d/1xXEgewbekRNVVHpVsXsdAWJO-cSQsCplTx8OsicohM0/edit?usp=sharing',
+    sheetTabName: '', // Default first sheet
     colorKey: 'blue',
     badgeClass: 'bg-blue-500/15 text-blue-300 border-blue-500/30',
     dotClass: 'bg-blue-400'
@@ -38,7 +42,9 @@ export const STORES = [
     address: 'MI Road / C-Scheme, Jaipur, Rajasthan',
     tag: 'Rajasthan Retail Outlet',
     userId: 'usr-store-jaipur',
-    sheetTabName: 'Jaipur Daily Sales',
+    sheetId: '11-Gs_3yJdmEeoXHmtFyqxciuh6ujpPNa7_EFvSSJLzc',
+    sheetUrl: 'https://docs.google.com/spreadsheets/d/11-Gs_3yJdmEeoXHmtFyqxciuh6ujpPNa7_EFvSSJLzc/edit?usp=sharing',
+    sheetTabName: '', // Default first sheet
     colorKey: 'rose',
     badgeClass: 'bg-rose-500/15 text-rose-300 border-rose-500/30',
     dotClass: 'bg-rose-400'

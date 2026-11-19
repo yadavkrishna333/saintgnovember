@@ -2030,6 +2030,22 @@ export function InventoryProvider({ children }) {
     setInventory(updatedInv);
     setSales(prev => [...createdSales, ...prev]);
 
+    // Persist deducted row signatures to prevent duplicate deductions
+    try {
+      const storageKey = `ky_deducted_signatures_${targetUserId}`;
+      let existingSigs = [];
+      try {
+        existingSigs = JSON.parse(localStorage.getItem(storageKey) || '[]');
+      } catch {}
+      const sigSet = new Set(existingSigs);
+      salesList.forEach(s => {
+        if (s.rowSignature) sigSet.add(s.rowSignature);
+      });
+      localStorage.setItem(storageKey, JSON.stringify(Array.from(sigSet)));
+    } catch (e) {
+      console.warn('Could not persist deducted signatures:', e);
+    }
+
     playTone(950, 'triangle', 0.2);
 
     return {
