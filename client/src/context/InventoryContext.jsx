@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
 import { io } from 'socket.io-client';
 import { supabaseApi, isSupabaseConfigured } from '../utils/supabase';
+import { STORES, DEFAULT_STORE_ID, getStoreById } from '../utils/stores';
 
 const InventoryContext = createContext(null);
 
@@ -45,6 +46,33 @@ export const DEFAULT_SIZES_MAP = {
 };
 
 export function InventoryProvider({ children }) {
+  // Multi-Store Management (MG Sultanpur, Khan Market, Jaipur)
+  const [selectedStoreId, setSelectedStoreId] = useState(() => {
+    try {
+      const saved = localStorage.getItem('ky_selected_store_id');
+      if (saved && STORES.some(s => s.id === saved)) return saved;
+    } catch {}
+    return DEFAULT_STORE_ID;
+  });
+
+  const currentStore = useMemo(() => {
+    return getStoreById(selectedStoreId) || STORES[0];
+  }, [selectedStoreId]);
+
+  const currentStoreUserId = currentStore?.userId || 'usr-krishan';
+
+  // Startup store selector prompt (opens on fresh session or manual click)
+  const [isStoreSelectorOpen, setIsStoreSelectorOpen] = useState(() => {
+    try {
+      const chosen = sessionStorage.getItem('ky_store_selected_this_session');
+      if (!chosen) return true;
+    } catch {}
+    return false;
+  });
+
+  const [isSyncDailySalesOpen, setIsSyncDailySalesOpen] = useState(false);
+  const [isCloningCatalog, setIsCloningCatalog] = useState(false);
+
   // Authentication & Multi-Tenant state
   const [authToken, setAuthToken] = useState(() => localStorage.getItem('ky_token') || 'ky-token-usr-krishan-default');
   const [currentUser, setCurrentUser] = useState(() => {
@@ -169,18 +197,20 @@ export function InventoryProvider({ children }) {
     const token = authToken || localStorage.getItem('ky_token') || '';
     return {
       'Content-Type': 'application/json',
+      'x-user-id': currentStoreUserId,
       ...(token ? { 'Authorization': `Bearer ${token}` } : {})
     };
-  }, [authToken]);
+  }, [authToken, currentStoreUserId]);
 
   // Fetch all data for the active user via HTTP
   const fetchUserData = useCallback(async (tokenOverride, userIdOverride) => {
     const host = window.location.hostname;
     const apiUrl = window.location.port === '5173' ? `http://${host}:5000` : '';
     const token = tokenOverride || authToken || localStorage.getItem('ky_token') || '';
-    const targetUserId = userIdOverride || currentUser?.id || 'usr-krishan';
+    const targetUserId = userIdOverride || currentStoreUserId || currentUser?.id || 'usr-krishan';
     const headers = {
       'Content-Type': 'application/json',
+      'x-user-id': targetUserId,
       ...(token ? { 'Authorization': `Bearer ${token}` } : {})
     };
 
@@ -247,10 +277,15 @@ export function InventoryProvider({ children }) {
               updatedAt: item.updated_at
             }));
             setInventory(mapped);
+          } else {
+            setInventory([]);
           }
         } catch (sErr) {
           console.warn('Supabase fallback inventory error:', sErr);
+          setInventory([]);
         }
+      } else {
+        setInventory([]);
       }
 
       if (statsRes && !statsRes.error) setStats(statsRes);
@@ -278,10 +313,15 @@ export function InventoryProvider({ children }) {
               timestamp: s.timestamp
             }));
             setSales(mappedSales);
+          } else {
+            setSales([]);
           }
         } catch (sErr) {
           console.warn('Supabase fallback sales error:', sErr);
+          setSales([]);
         }
+      } else {
+        setSales([]);
       }
 
       if (Array.isArray(repRes) && repRes.length > 0) {
@@ -301,10 +341,15 @@ export function InventoryProvider({ children }) {
               timestamp: r.timestamp
             }));
             setReplenishments(mappedReps);
+          } else {
+            setReplenishments([]);
           }
         } catch (sErr) {
           console.warn('Supabase fallback replenishments error:', sErr);
+          setReplenishments([]);
         }
+      } else {
+        setReplenishments([]);
       }
 
       if (Array.isArray(whRes) && whRes.length > 0) {
@@ -325,15 +370,25 @@ export function InventoryProvider({ children }) {
               timestamp: w.timestamp
             }));
             setWarehouseSends(mappedWh);
+          } else {
+            setWarehouseSends([]);
           }
         } catch (sErr) {
           console.warn('Supabase fallback warehouse sends error:', sErr);
+          setWarehouseSends([]);
         }
+      } else {
+        setWarehouseSends([]);
       }
     } catch (e) {
       console.error('Failed to fetch user data:', e);
     }
-  }, [authToken, currentUser]);
+  }, [authToken, currentUser, currentStoreUserId]);
+
+  // Auto-fetch data whenever active store changes
+  useEffect(() => {
+    fetchUserData(null, currentStoreUserId);
+  }, [selectedStoreId, currentStoreUserId, fetchUserData]);
 
   // Initialize Socket.IO connection
   useEffect(() => {
@@ -686,14 +741,14 @@ export function InventoryProvider({ children }) {
       }).catch(async (err) => {
         if (updatedTarget && isSupabaseConfigured()) {
           try {
-            await supabaseApi.upsertProduct(updatedTarget, 'usr-krishan');
+            await supabaseApi.upsertProduct(updatedTarget, currentStoreUserId);
           } catch (e) {
             console.warn('Supabase stock update error:', e);
           }
         }
       });
     }
-  }, [socket, getAuthHeaders]);
+  }, [socket, getAuthHeaders, currentStoreUserId]);
 
   // Update Display Size
   const updateDisplaySize = useCallback((productId, displaySize) => {
@@ -717,12 +772,12 @@ export function InventoryProvider({ children }) {
       }).catch(async () => {
         if (updatedTarget && isSupabaseConfigured()) {
           try {
-            await supabaseApi.upsertProduct(updatedTarget, 'usr-krishan');
+            await supabaseApi.upsertProduct(updatedTarget, currentStoreUserId);
           } catch (e) {}
         }
       });
     }
-  }, [socket, getAuthHeaders]);
+  }, [socket, getAuthHeaders, currentStoreUserId]);
 
   // Product CRUD
   const addProduct = useCallback(async (productData) => {
@@ -739,7 +794,7 @@ export function InventoryProvider({ children }) {
         socket.emit('product:create', productData, async (res) => {
           if (res?.success) {
             if (isSupabaseConfigured()) {
-              supabaseApi.upsertProduct(res.product, 'usr-krishan').catch(() => {});
+              supabaseApi.upsertProduct(res.product, currentStoreUserId).catch(() => {});
             }
             resolve(res.product);
           } else {
@@ -770,7 +825,7 @@ export function InventoryProvider({ children }) {
 
     if (isSupabaseConfigured()) {
       try {
-        await supabaseApi.upsertProduct(finalProduct, 'usr-krishan');
+        await supabaseApi.upsertProduct(finalProduct, currentStoreUserId);
       } catch (e) {
         console.warn('Supabase addProduct error:', e);
       }
@@ -779,7 +834,7 @@ export function InventoryProvider({ children }) {
     setInventory(prev => [finalProduct, ...prev]);
     playTone(800, 'sine', 0.1);
     return finalProduct;
-  }, [socket, getAuthHeaders, setInventory]);
+  }, [socket, getAuthHeaders, setInventory, currentStoreUserId]);
 
   const updateProduct = useCallback(async (id, updates) => {
     // 1. Optimistic UI update immediately
@@ -800,7 +855,7 @@ export function InventoryProvider({ children }) {
     // 2. Sync to Supabase Cloud Database immediately
     if (isSupabaseConfigured() && updatedProduct) {
       try {
-        await supabaseApi.upsertProduct(updatedProduct, 'usr-krishan');
+        await supabaseApi.upsertProduct(updatedProduct, currentStoreUserId);
       } catch (supErr) {
         console.warn('Supabase updateProduct warning:', supErr);
       }
@@ -829,7 +884,7 @@ export function InventoryProvider({ children }) {
           .catch(() => resolve(updatedProduct));
       }
     });
-  }, [socket, getAuthHeaders, setInventory]);
+  }, [socket, getAuthHeaders, setInventory, currentStoreUserId]);
 
   const deleteProduct = useCallback(async (id) => {
     // 1. Immediately remove from local inventory state (0ms instant response)
@@ -839,7 +894,7 @@ export function InventoryProvider({ children }) {
     // 2. Sync deletion to Supabase Cloud Database
     if (isSupabaseConfigured()) {
       try {
-        await supabaseApi.deleteProduct(id, 'usr-krishan');
+        await supabaseApi.deleteProduct(id, currentStoreUserId);
       } catch (supErr) {
         console.warn('Supabase deleteProduct error:', supErr);
       }
@@ -917,8 +972,8 @@ export function InventoryProvider({ children }) {
               const finalRec = res.record || replenishmentRecord;
               if (isSupabaseConfigured()) {
                 try {
-                  await supabaseApi.upsertProduct(finalProd, 'usr-krishan');
-                  await supabaseApi.insertReplenishment(finalRec, 'usr-krishan');
+                  await supabaseApi.upsertProduct(finalProd, currentStoreUserId);
+                  await supabaseApi.insertReplenishment(finalRec, currentStoreUserId);
                 } catch (e) {}
               }
               setInventory(prev => prev.map(p => p.id === product.id ? finalProd : p));
@@ -956,8 +1011,8 @@ export function InventoryProvider({ children }) {
         // Sync to Supabase Cloud Database
         if (isSupabaseConfigured()) {
           try {
-            await supabaseApi.upsertProduct(finalProduct, 'usr-krishan');
-            await supabaseApi.insertReplenishment(finalRecord, 'usr-krishan');
+            await supabaseApi.upsertProduct(finalProduct, currentStoreUserId);
+            await supabaseApi.insertReplenishment(finalRecord, currentStoreUserId);
           } catch (supErr) {
             console.warn('Supabase replenishment sync error:', supErr);
           }
@@ -971,7 +1026,7 @@ export function InventoryProvider({ children }) {
         reject(err);
       }
     });
-  }, [socket, getAuthHeaders, inventory, setInventory, setReplenishments]);
+  }, [socket, getAuthHeaders, inventory, setInventory, setReplenishments, currentStoreUserId]);
 
   const bulkReplenishStock = useCallback(async (bulkData) => {
     return new Promise(async (resolve, reject) => {
@@ -1077,9 +1132,9 @@ export function InventoryProvider({ children }) {
               if (isSupabaseConfigured()) {
                 try {
                   for (const p of finalProds) {
-                    await supabaseApi.upsertProduct(p, 'usr-krishan');
+                    await supabaseApi.upsertProduct(p, currentStoreUserId);
                   }
-                  await supabaseApi.insertReplenishment(finalRec, 'usr-krishan');
+                  await supabaseApi.insertReplenishment(finalRec, currentStoreUserId);
                 } catch (e) {}
               }
               setInventory(Array.from(updatedInventoryMap.values()));
@@ -1125,9 +1180,9 @@ export function InventoryProvider({ children }) {
         if (isSupabaseConfigured()) {
           try {
             for (const p of finalProducts) {
-              await supabaseApi.upsertProduct(p, 'usr-krishan');
+              await supabaseApi.upsertProduct(p, currentStoreUserId);
             }
-            await supabaseApi.insertReplenishment(finalBulkRecord, 'usr-krishan');
+            await supabaseApi.insertReplenishment(finalBulkRecord, currentStoreUserId);
           } catch (supErr) {
             console.warn('Supabase bulk replenishment sync error:', supErr);
           }
@@ -1189,7 +1244,7 @@ export function InventoryProvider({ children }) {
 
       if (isSupabaseConfigured()) {
         try {
-          await supabaseApi.upsertProduct(updatedProduct, 'usr-krishan');
+          await supabaseApi.upsertProduct(updatedProduct, currentStoreUserId);
         } catch (e) {
           console.warn('Supabase upsertProduct in updateReplenishment warning:', e);
         }
@@ -1227,7 +1282,7 @@ export function InventoryProvider({ children }) {
 
     playTone(850, 'triangle', 0.15);
     return { success: true, updatedRecord, updatedProduct };
-  }, [replenishments, inventory, getAuthHeaders, setInventory, setReplenishments]);
+  }, [replenishments, inventory, getAuthHeaders, setInventory, setReplenishments, currentStoreUserId]);
 
   const deleteReplenishmentRecord = useCallback(async (id) => {
     const oldRecord = replenishments.find(r => r.id === id);
@@ -1251,7 +1306,7 @@ export function InventoryProvider({ children }) {
 
       if (isSupabaseConfigured()) {
         try {
-          await supabaseApi.upsertProduct(updatedProduct, 'usr-krishan');
+          await supabaseApi.upsertProduct(updatedProduct, currentStoreUserId);
         } catch (e) {
           console.warn('Supabase upsertProduct in deleteReplenishment warning:', e);
         }
@@ -1279,7 +1334,7 @@ export function InventoryProvider({ children }) {
 
     playTone(700, 'sine', 0.15);
     return { success: true };
-  }, [replenishments, inventory, getAuthHeaders, setInventory, setReplenishments]);
+  }, [replenishments, inventory, getAuthHeaders, setInventory, setReplenishments, currentStoreUserId]);
 
   const importExcelInventory = useCallback(async ({ newItems = [], updatedItems = [] }, filename = 'INVENTORY.xlsx') => {
     let updatedInventory = [...inventory];
@@ -1320,10 +1375,10 @@ export function InventoryProvider({ children }) {
       try {
         for (const item of updatedItems) {
           const prod = updatedInventory.find(p => p.id === item.id);
-          if (prod) await supabaseApi.upsertProduct(prod, 'usr-krishan');
+          if (prod) await supabaseApi.upsertProduct(prod, currentStoreUserId);
         }
         for (const prod of newlyCreated) {
-          await supabaseApi.upsertProduct(prod, 'usr-krishan');
+          await supabaseApi.upsertProduct(prod, currentStoreUserId);
         }
       } catch (err) {
         console.warn('Supabase importExcelInventory sync error:', err);
@@ -1429,9 +1484,9 @@ export function InventoryProvider({ children }) {
             // Sync to Supabase
             if (isSupabaseConfigured()) {
               try {
-                await supabaseApi.upsertProduct(updatedProduct, 'usr-krishan');
+                await supabaseApi.upsertProduct(updatedProduct, currentStoreUserId);
                 if (supabaseApi.insertWarehouseSend) {
-                  await supabaseApi.insertWarehouseSend(record, 'usr-krishan');
+                  await supabaseApi.insertWarehouseSend(record, currentStoreUserId);
                 }
               } catch (supErr) {
                 console.warn('Supabase warehouse fallback sync warning:', supErr);
@@ -1450,7 +1505,7 @@ export function InventoryProvider({ children }) {
         }
       }
     });
-  }, [socket, getAuthHeaders, inventory, setInventory, setWarehouseSends]);
+  }, [socket, getAuthHeaders, inventory, setInventory, setWarehouseSends, currentStoreUserId]);
 
 
   const updateWarehouseRecord = useCallback(async (id, updates) => {
@@ -1525,7 +1580,7 @@ export function InventoryProvider({ children }) {
 
             const saleRecord = {
               id: saleId,
-              userId: 'usr-krishan',
+              userId: currentStoreUserId,
               source: isWarehouse ? 'warehouse' : 'store',
               productId: (isWarehouse || !targetProduct) ? null : targetProduct.id,
               sku: targetProduct?.sku || saleData.sku || 'N/A',
@@ -1542,7 +1597,7 @@ export function InventoryProvider({ children }) {
             };
 
             try {
-              await supabaseApi.insertSale(saleRecord, 'usr-krishan');
+              await supabaseApi.insertSale(saleRecord, currentStoreUserId);
             } catch (supInsErr) {
               console.warn('Supabase insertSale warning, proceeding locally:', supInsErr);
             }
@@ -1559,7 +1614,7 @@ export function InventoryProvider({ children }) {
                 updatedAt: new Date().toISOString()
               };
               try {
-                await supabaseApi.upsertProduct(updatedProduct, 'usr-krishan');
+                await supabaseApi.upsertProduct(updatedProduct, currentStoreUserId);
               } catch (supUpErr) {
                 console.warn('Supabase upsertProduct warning:', supUpErr);
               }
@@ -1577,7 +1632,7 @@ export function InventoryProvider({ children }) {
         reject(new Error('Failed to record sale'));
       }
     });
-  }, [socket, getAuthHeaders, inventory, setInventory, setSales]);
+  }, [socket, getAuthHeaders, inventory, setInventory, setSales, currentStoreUserId]);
 
   const updateSaleRecord = useCallback(async (id, updates) => {
     const oldSale = (sales || []).find(s => s.id === id);
@@ -1652,7 +1707,7 @@ export function InventoryProvider({ children }) {
       try {
         await supabaseApi.updateSale(id, updatedSale);
         for (const p of updatedProductsToSync) {
-          await supabaseApi.upsertProduct(p, 'usr-krishan');
+          await supabaseApi.upsertProduct(p, currentStoreUserId);
         }
       } catch (supErr) {
         console.warn('Supabase updateSaleRecord warning:', supErr);
@@ -1682,7 +1737,7 @@ export function InventoryProvider({ children }) {
           .catch(() => resolve(updatedSale));
       }
     });
-  }, [socket, getAuthHeaders, sales, inventory, setSales, setInventory]);
+  }, [socket, getAuthHeaders, sales, inventory, setSales, setInventory, currentStoreUserId]);
 
   const revertSale = useCallback(async (saleId) => {
     return new Promise(async (resolve, reject) => {
@@ -1721,7 +1776,7 @@ export function InventoryProvider({ children }) {
                     },
                     updatedAt: new Date().toISOString()
                   };
-                  await supabaseApi.upsertProduct(restoredProduct, 'usr-krishan');
+                  await supabaseApi.upsertProduct(restoredProduct, currentStoreUserId);
                   setInventory(prev => prev.map(p => p.id === targetProduct.id ? restoredProduct : p));
                 }
               }
@@ -1735,7 +1790,223 @@ export function InventoryProvider({ children }) {
         }
       }
     });
-  }, [socket, getAuthHeaders, sales, inventory]);
+  }, [socket, getAuthHeaders, sales, inventory, currentStoreUserId]);
+
+  // Store Switcher
+  const switchStore = useCallback((storeId) => {
+    const store = getStoreById(storeId);
+    if (!store) return;
+    setSelectedStoreId(store.id);
+    try {
+      localStorage.setItem('ky_selected_store_id', store.id);
+      sessionStorage.setItem('ky_store_selected_this_session', 'true');
+    } catch {}
+    setIsStoreSelectorOpen(false);
+    // Reset state before fetching target store
+    setInventory([]);
+    setSales([]);
+    setReplenishments([]);
+    setWarehouseSends([]);
+    fetchUserData(null, store.userId);
+    playTone(850, 'sine', 0.1);
+  }, [fetchUserData]);
+
+  // Clone Catalog from MG Sultanpur Store (with 0 stock)
+  const cloneCatalogFromStore = useCallback(async (sourceStoreId = 'mg-sultanpur') => {
+    const sourceStore = getStoreById(sourceStoreId) || STORES[0];
+    if (sourceStore.id === currentStore.id) {
+      alert("Source store aur target store same nahi ho sakte!");
+      return { success: false, error: "Same store" };
+    }
+
+    setIsCloningCatalog(true);
+    try {
+      let sourceProducts = [];
+      if (sourceStore.id === selectedStoreId) {
+        sourceProducts = inventory;
+      } else if (isSupabaseConfigured()) {
+        sourceProducts = await supabaseApi.getInventory(sourceStore.userId);
+      }
+
+      if (!sourceProducts || sourceProducts.length === 0) {
+        try {
+          const res = await fetch('/api/inventory', {
+            headers: { 'Content-Type': 'application/json', 'x-user-id': sourceStore.userId }
+          });
+          if (res.ok) sourceProducts = await res.json();
+        } catch {}
+      }
+
+      if (!sourceProducts || sourceProducts.length === 0) {
+        alert(`${sourceStore.name} me clone karne ke liye koi products nahi mile!`);
+        setIsCloningCatalog(false);
+        return { success: false, error: "No products found" };
+      }
+
+      const clonedItems = sourceProducts.map((p, idx) => {
+        const rawSizes = typeof p.sizes === 'string' ? JSON.parse(p.sizes) : (p.sizes || {});
+        const zeroSizes = {};
+        Object.keys(rawSizes).forEach(sz => {
+          zeroSizes[sz] = 0;
+        });
+
+        return {
+          id: `prod-${currentStore.code.toLowerCase()}-${p.sku ? p.sku.toLowerCase().replace(/[^a-z0-9]/g, '-') : idx}-${Date.now().toString(36)}`,
+          userId: currentStore.userId,
+          sku: p.sku || `SKU-${idx + 1}`,
+          name: p.name || p.sku || 'Article',
+          styleCategory: p.styleCategory || p.style_category || p.name || '',
+          color: p.color || '',
+          category: p.category || 'women_footwear',
+          brand: p.brand || 'Saint G',
+          costPrice: Number(p.costPrice || p.cost_price || 0),
+          sellingPrice: Number(p.sellingPrice || p.selling_price || 0),
+          sizes: zeroSizes,
+          displaySize: p.displaySize || p.display_size || '',
+          imageUrl: p.imageUrl || p.image_url || '',
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
+        };
+      });
+
+      if (isSupabaseConfigured()) {
+        for (const item of clonedItems) {
+          try {
+            await supabaseApi.upsertProduct(item, currentStore.userId);
+          } catch (e) {
+            console.warn('Supabase upsertProduct cloned item warning:', item.sku, e);
+          }
+        }
+      }
+
+      setInventory(clonedItems);
+      setIsCloningCatalog(false);
+      playTone(1050, 'sine', 0.2);
+      return { success: true, count: clonedItems.length };
+    } catch (err) {
+      console.error('Failed to clone catalog:', err);
+      setIsCloningCatalog(false);
+      return { success: false, error: err.message };
+    }
+  }, [currentStore, selectedStoreId, inventory]);
+
+  // Bulk Record Daily Sales from Google Sheet with Auto Stock Deduction
+  const recordBulkDailySales = useCallback(async (salesList, meta = {}) => {
+    if (!Array.isArray(salesList) || salesList.length === 0) {
+      return { success: false, error: "No sales to process" };
+    }
+
+    const targetUserId = currentStoreUserId;
+    const currentInvMap = new Map();
+    const updatedInv = inventory.map(p => {
+      const clone = {
+        ...p,
+        sizes: { ...(p.sizes || {}) }
+      };
+      if (clone.sku) currentInvMap.set(clone.sku.toUpperCase().trim(), clone);
+      if (clone.id) currentInvMap.set(clone.id, clone);
+      return clone;
+    });
+
+    const createdSales = [];
+    const modifiedProductIds = new Set();
+    let storeSalesCount = 0;
+    let warehouseSalesCount = 0;
+
+    for (let i = 0; i < salesList.length; i++) {
+      const saleItem = salesList[i];
+      const isWarehouse = !!saleItem.isWarehouse;
+      const skuKey = String(saleItem.sku || '').toUpperCase().trim();
+      const matchedProduct = currentInvMap.get(skuKey) || (saleItem.product?.id ? currentInvMap.get(saleItem.product.id) : null);
+
+      const qty = Math.max(1, Number(saleItem.quantity) || 1);
+      const sizeKey = String(saleItem.size || '').trim();
+      const unitPrice = Number(saleItem.price) || (matchedProduct?.sellingPrice || 0);
+      const totalAmount = unitPrice * qty;
+      const saleTimestamp = saleItem.date ? new Date(saleItem.date).toISOString() : new Date().toISOString();
+
+      const saleRecord = {
+        id: `sale-sheet-${Date.now()}-${i}-${Math.random().toString(36).slice(2, 6)}`,
+        userId: targetUserId,
+        source: isWarehouse ? 'warehouse' : 'store',
+        productId: matchedProduct?.id || null,
+        sku: matchedProduct?.sku || saleItem.sku || 'N/A',
+        productName: matchedProduct?.name || (matchedProduct?.sku ? `Article ${matchedProduct.sku}` : (saleItem.sku || 'Daily Sales Article')),
+        styleCategory: matchedProduct?.styleCategory || matchedProduct?.name || 'Daily Sales Item',
+        color: matchedProduct?.color || 'Standard',
+        size: sizeKey,
+        quantity: qty,
+        unitPrice,
+        totalAmount,
+        paymentMode: 'Google Sheet Daily Sales',
+        customerName: `Daily Sales (${currentStore.shortName || currentStore.name})`,
+        timestamp: saleTimestamp
+      };
+
+      createdSales.push(saleRecord);
+
+      if (isWarehouse) {
+        warehouseSalesCount++;
+        // Warehouse sale: do not deduct store stock
+      } else {
+        storeSalesCount++;
+        // Store sale: deduct from store stock if product matched
+        if (matchedProduct) {
+          const curStock = Number(matchedProduct.sizes?.[sizeKey] || 0);
+          const newStock = Math.max(0, curStock - qty);
+          matchedProduct.sizes[sizeKey] = newStock;
+          matchedProduct.updatedAt = new Date().toISOString();
+          modifiedProductIds.add(matchedProduct.id);
+        }
+      }
+    }
+
+    const modifiedProducts = updatedInv.filter(p => modifiedProductIds.has(p.id));
+
+    if (isSupabaseConfigured()) {
+      for (const prod of modifiedProducts) {
+        try {
+          await supabaseApi.upsertProduct(prod, targetUserId);
+        } catch (err) {
+          console.warn('Error syncing deducted product to Supabase:', prod.sku, err);
+        }
+      }
+
+      for (const sale of createdSales) {
+        try {
+          await supabaseApi.insertSale(sale, targetUserId);
+        } catch (err) {
+          console.warn('Error inserting daily sale to Supabase:', sale.sku, err);
+        }
+      }
+    }
+
+    try {
+      const host = window.location.hostname;
+      const apiUrl = window.location.port === '5173' ? `http://${host}:5000` : '';
+      await fetch(`${apiUrl}/api/sales/bulk`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-user-id': targetUserId
+        },
+        body: JSON.stringify({ sales: createdSales, updatedProducts: modifiedProducts })
+      });
+    } catch {}
+
+    setInventory(updatedInv);
+    setSales(prev => [...createdSales, ...prev]);
+
+    playTone(950, 'triangle', 0.2);
+
+    return {
+      success: true,
+      totalSales: createdSales.length,
+      storeSalesCount,
+      warehouseSalesCount,
+      updatedProductCount: modifiedProducts.length
+    };
+  }, [currentStore, currentStoreUserId, inventory]);
 
   // Google Sheets Sync
   const syncToGoogleSheets = useCallback(async (webhookUrl) => {
@@ -2154,6 +2425,20 @@ export function InventoryProvider({ children }) {
   }, [stats, isConnected, inventory, sales, categories]);
 
   const value = {
+    // Multi-Store State & Actions
+    STORES,
+    selectedStoreId,
+    setSelectedStoreId,
+    currentStore,
+    switchStore,
+    isStoreSelectorOpen,
+    setIsStoreSelectorOpen,
+    isSyncDailySalesOpen,
+    setIsSyncDailySalesOpen,
+    isCloningCatalog,
+    cloneCatalogFromStore,
+    recordBulkDailySales,
+
     // Auth & Tenants
     currentUser,
     authToken,

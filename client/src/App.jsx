@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useInventory } from './context/InventoryContext';
 import { Sidebar } from './components/Sidebar';
 import { MobileNav } from './components/MobileNav';
+import { StoreSwitcherBar } from './components/StoreSwitcherBar';
+import { StoreSelectorModal } from './components/StoreSelectorModal';
+import { SyncDailySalesGoogleSheetModal } from './components/SyncDailySalesGoogleSheetModal';
 import { DashboardView } from './views/DashboardView';
 import { InventoryView } from './views/InventoryView';
 import { SoldProductsView } from './views/SoldProductsView';
@@ -17,7 +20,17 @@ import { GoogleSheetsSyncModal } from './components/GoogleSheetsSyncModal';
 import { LoginModal } from './components/LoginModal';
 
 export function App() {
-  const { activeTab, setActiveTab, currentUser, isLoginModalOpen, setIsLoginModalOpen } = useInventory();
+  const { 
+    activeTab, 
+    setActiveTab, 
+    currentUser, 
+    isLoginModalOpen, 
+    setIsLoginModalOpen,
+    isStoreSelectorOpen,
+    setIsStoreSelectorOpen,
+    isSyncDailySalesOpen,
+    setIsSyncDailySalesOpen
+  } = useInventory();
 
   // Modals state
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
@@ -78,6 +91,10 @@ export function App() {
 
       {/* Main App Content View */}
       <div className="flex-1 flex flex-col min-w-0 pb-20 lg:pb-8">
+        
+        {/* Multi-Store Switcher Top Bar & Sheet Sync */}
+        <StoreSwitcherBar />
+
         <main className="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6">
           
           {activeTab === 'dashboard' && (
@@ -127,6 +144,16 @@ export function App() {
       </div>
 
       {/* Global Modals */}
+      <StoreSelectorModal
+        isOpen={isStoreSelectorOpen}
+        onClose={() => setIsStoreSelectorOpen(false)}
+      />
+
+      <SyncDailySalesGoogleSheetModal
+        isOpen={isSyncDailySalesOpen}
+        onClose={() => setIsSyncDailySalesOpen(false)}
+      />
+
       <ProductModal
         isOpen={isAddModalOpen}
         onClose={handleCloseModal}

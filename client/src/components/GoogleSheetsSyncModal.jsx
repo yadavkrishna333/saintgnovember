@@ -364,6 +364,40 @@ function populateSpreadsheet(ss, inventory, sales, replenishments) {
     salesSheet.setColumnWidth(5, 140);
   }
 
+  // 10. Multi-Store Daily Sales Sheets Initialization
+  // Ensures dedicated daily sales sheets exist for:
+  // - MG Sultanpur Daily Sales
+  // - Khan Market Daily Sales
+  // - Jaipur Daily Sales
+  var dailyStores = [
+    { name: "MG Sultanpur Daily Sales", color: "#d97706" },
+    { name: "Khan Market Daily Sales", color: "#2563eb" },
+    { name: "Jaipur Daily Sales", color: "#059669" }
+  ];
+  dailyStores.forEach(function(store) {
+    var sheet = ss.getSheetByName(store.name);
+    if (!sheet) {
+      sheet = ss.insertSheet(store.name);
+      var dailyHeaders = ["Date", "SKU Code", "Size", "Location (Store/Warehouse)", "Quantity", "Price", "Status"];
+      var exampleRows = [
+        dailyHeaders,
+        [Utilities.formatDate(new Date(), Session.getScriptTimeZone() || "GMT+5:30", "yyyy-MM-dd"), "SG-F-01-BLACK", "37", "Store", 1, 4999, "READY_TO_SYNC"],
+        [Utilities.formatDate(new Date(), Session.getScriptTimeZone() || "GMT+5:30", "yyyy-MM-dd"), "SG-M-02-BROWN", "42", "Warehouse", 1, 5499, "READY_TO_SYNC"]
+      ];
+      sheet.getRange(1, 1, exampleRows.length, dailyHeaders.length).setValues(exampleRows);
+      sheet.getRange(1, 1, 1, dailyHeaders.length).setFontWeight("bold").setBackground(store.color).setFontColor("#ffffff");
+      sheet.getRange(1, 1, exampleRows.length, dailyHeaders.length).setHorizontalAlignment("center");
+      sheet.getRange(2, 2, exampleRows.length - 1, 1).setHorizontalAlignment("left");
+      sheet.setColumnWidth(1, 120);
+      sheet.setColumnWidth(2, 210);
+      sheet.setColumnWidth(3, 80);
+      sheet.setColumnWidth(4, 210);
+      sheet.setColumnWidth(5, 90);
+      sheet.setColumnWidth(6, 100);
+      sheet.setColumnWidth(7, 140);
+    }
+  });
+
   return {
     status: "success",
     message: "Synced to Google Sheet!",

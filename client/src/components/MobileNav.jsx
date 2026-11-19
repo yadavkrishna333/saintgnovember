@@ -19,11 +19,25 @@ import {
   LogOut,
   User,
   Sun,
-  Moon
+  Moon,
+  Store
 } from 'lucide-react';
 
 export function MobileNav({ onOpenAddModal, onOpenQrModal, onOpenScanner, onOpenGSheetModal }) {
-  const { activeTab, setActiveTab, isConnected, connectedDevices, stats, currentUser, setIsLoginModalOpen, logout, theme, toggleTheme } = useInventory();
+  const { 
+    activeTab, 
+    setActiveTab, 
+    isConnected, 
+    connectedDevices, 
+    stats, 
+    currentUser, 
+    setIsLoginModalOpen, 
+    logout, 
+    theme, 
+    toggleTheme,
+    currentStore,
+    setIsStoreSelectorOpen
+  } = useInventory();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const allTabs = [
@@ -76,6 +90,15 @@ export function MobileNav({ onOpenAddModal, onOpenQrModal, onOpenScanner, onOpen
               </div>
             </div>
           </div>
+
+          <button
+            onClick={() => setIsStoreSelectorOpen(true)}
+            className="flex items-center gap-1 px-2 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-300 font-extrabold text-[11px] active:scale-95 transition"
+            title="Switch Store"
+          >
+            <Store className="w-3 h-3 text-amber-400" />
+            <span>[{currentStore?.code || 'MGS'}]</span>
+          </button>
         </div>
 
         {/* Sync Status & Quick Actions */}
@@ -123,6 +146,28 @@ export function MobileNav({ onOpenAddModal, onOpenQrModal, onOpenScanner, onOpen
                   className="w-8 h-8 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center"
                 >
                   <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Store Switcher Card in Drawer */}
+              <div className="mt-3 p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 flex items-center justify-between">
+                <div className="flex items-center gap-2 min-w-0">
+                  <span className="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                    <Store className="w-4 h-4" />
+                  </span>
+                  <div className="min-w-0">
+                    <div className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Active Store</div>
+                    <div className="text-xs font-black text-white truncate">{currentStore?.name}</div>
+                  </div>
+                </div>
+                <button
+                  onClick={() => {
+                    setIsDrawerOpen(false);
+                    setIsStoreSelectorOpen(true);
+                  }}
+                  className="text-[10px] font-black text-amber-400 bg-amber-400/10 px-2 py-1 rounded-md border border-amber-400/30 shrink-0"
+                >
+                  Switch
                 </button>
               </div>
 

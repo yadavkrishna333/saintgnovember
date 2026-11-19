@@ -18,11 +18,25 @@ import {
   FileSpreadsheet,
   LogOut,
   Sun,
-  Moon
+  Moon,
+  Store
 } from 'lucide-react';
 
 export function Sidebar({ onOpenAddModal, onOpenQrModal, onOpenScanner, onOpenGSheetModal }) {
-  const { activeTab, setActiveTab, isConnected, connectedDevices, stats, currentUser, setIsLoginModalOpen, logout, theme, toggleTheme } = useInventory();
+  const { 
+    activeTab, 
+    setActiveTab, 
+    isConnected, 
+    connectedDevices, 
+    stats, 
+    currentUser, 
+    setIsLoginModalOpen, 
+    logout, 
+    theme, 
+    toggleTheme,
+    currentStore,
+    setIsStoreSelectorOpen
+  } = useInventory();
   const [isPinned, setIsPinned] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -103,8 +117,32 @@ export function Sidebar({ onOpenAddModal, onOpenQrModal, onOpenScanner, onOpenGS
           </div>
         </div>
 
+        {/* Active Store Indicator / Switcher */}
+        <div className="mx-3 mt-3 p-2.5 rounded-xl bg-slate-950/80 border border-slate-800/90 hover:border-amber-500/50 transition">
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2 min-w-0">
+              <span className="w-6 h-6 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                <Store className="w-3.5 h-3.5" />
+              </span>
+              <div className="min-w-0">
+                <div className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Active Store</div>
+                <div className="text-xs font-black text-white truncate" title={currentStore?.name}>
+                  {currentStore?.shortName || currentStore?.name || 'Sultanpur'}
+                </div>
+              </div>
+            </div>
+            <button
+              onClick={() => setIsStoreSelectorOpen(true)}
+              className="text-[10px] font-black text-amber-400 bg-amber-400/10 hover:bg-amber-400/20 px-2 py-1 rounded-md border border-amber-400/30 transition shrink-0 active:scale-95"
+              title="Change Store (दुकान बदलें)"
+            >
+              Switch
+            </button>
+          </div>
+        </div>
+
         {/* Sync Indicator */}
-        <div className="mx-3 mt-3 px-3 py-1.5 rounded-xl bg-slate-950/80 border border-slate-800 flex items-center justify-between text-xs">
+        <div className="mx-3 mt-2 px-3 py-1.5 rounded-xl bg-slate-950/80 border border-slate-800 flex items-center justify-between text-xs">
           <div className="flex items-center gap-2">
             <span className={`w-2 h-2 rounded-full ${isConnected ? 'bg-emerald-400 animate-sync-pulse' : 'bg-rose-500'}`}></span>
             <span className="text-slate-300 font-medium text-[11px]">
