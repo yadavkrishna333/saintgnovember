@@ -1084,17 +1084,44 @@ export function InventoryProvider({ children }) {
 
             const parts = rawSku.split('-');
             const extractedColor = parts.length > 2 ? parts[parts.length - 1] : 'Black';
+
+            // Auto detect category from SKU prefix
+            let detectedCategory = item.category;
+            const upper = rawSku.toUpperCase();
+            if (upper.startsWith('SGM-') || upper.startsWith('SGM') || upper.startsWith('SG-M-') || upper.startsWith('SA-M-')) {
+              detectedCategory = 'men_footwear';
+            } else if (upper.startsWith('JK-M-') || upper.startsWith('JKM-') || upper.startsWith('JKM')) {
+              detectedCategory = 'men_jacket';
+            } else if (upper.startsWith('JK-F-') || upper.startsWith('JKF-') || upper.startsWith('JKF')) {
+              detectedCategory = 'women_jacket';
+            } else if (upper.startsWith('SG-B-') || upper.startsWith('SGB-') || upper.startsWith('BG-')) {
+              detectedCategory = 'bags';
+            } else if (upper.startsWith('SG-F-') || upper.startsWith('SA-F-') || upper.startsWith('SAF-')) {
+              detectedCategory = 'women_footwear';
+            }
+            if (!detectedCategory) detectedCategory = 'women_footwear';
+
+            const storePrefix = (currentStore?.code || 'mgs').toLowerCase();
             const newProd = {
-              id: `prod-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`,
-              name: articleName || rawSku,
-              styleCategory: articleName || 'Standard Style',
+              id: `prod-${storePrefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`,
+              userId: currentStoreUserId,
+              name: articleName || `Article ${rawSku}`,
+              styleCategory: detectedCategory === 'men_footwear' ? 'Mens Shoes' 
+                : detectedCategory === 'men_jacket' ? 'Mens Jackets' 
+                : detectedCategory === 'women_jacket' ? 'Women Jackets' 
+                : detectedCategory === 'bags' ? 'Leather Bags' 
+                : (articleName || 'Block Heels'),
               sku: rawSku,
-              category,
+              category: detectedCategory,
               color: extractedColor,
               brand: 'Saint G',
               costPrice: 0,
-              sellingPrice: 0,
+              sellingPrice: detectedCategory.includes('jacket') ? 4990 : 3990,
               sizes: { [size]: qty },
+              displaySize: detectedCategory === 'men_footwear' ? '41' 
+                : detectedCategory === 'women_footwear' ? '37' 
+                : (detectedCategory === 'men_jacket' || detectedCategory === 'women_jacket') ? 'M' 
+                : 'Standard',
               imageUrl: `/products/${rawSku.toUpperCase()}.png`,
               createdAt: new Date().toISOString(),
               updatedAt: new Date().toISOString()

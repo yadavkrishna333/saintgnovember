@@ -14,6 +14,7 @@ import {
   PackageCheck
 } from 'lucide-react';
 import { supabaseApi, isSupabaseConfigured } from '../utils/supabase';
+import { detectCategoryFromSheetOrSku } from '../utils/excelInventoryParser';
 
 export function BulkPasteModal({ isOpen, onClose }) {
   const { inventory, categories, sizesMap, addProduct, updateProduct, currentStore } = useInventory();
@@ -21,7 +22,7 @@ export function BulkPasteModal({ isOpen, onClose }) {
 
   const [rawText, setRawText] = useState('');
   const [pasteMode, setPasteMode] = useState('add'); // 'add' (plus quantities) | 'set' (exact replace)
-  const [defaultCategory, setDefaultCategory] = useState('women_footwear');
+  const [defaultCategory, setDefaultCategory] = useState('auto');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -74,6 +75,10 @@ SG-F-1867-OFFWHITE 1 2 1 1 1 2`;
       // Find matching product in existing catalog
       const matched = inventory.find(p => p.sku?.toUpperCase() === sku);
 
+      // Detect category per row
+      const detectedCat = detectCategoryFromSheetOrSku('', sku);
+      const rowCategory = matched?.category || (defaultCategory === 'auto' ? detectedCat : (detectedCat !== 'women_footwear' ? detectedCat : defaultCategory));
+
       const parsedSizes = {};
       let isSingleSize = false;
 
@@ -91,31 +96,54 @@ SG-F-1867-OFFWHITE 1 2 1 1 1 2`;
         // Multi-number distribution format: e.g. "1 2 1 1 1 1"
         const numbers = restTokens.map(t => parseInt(t, 10)).filter(n => !isNaN(n));
 
-        if (numbers.length === 6) {
-          // Standard Footwear 36, 37, 38, 39, 40, 41
-          const sizes6 = ['36', '37', '38', '39', '40', '41'];
-          sizes6.forEach((sz, sIdx) => {
-            parsedSizes[sz] = numbers[sIdx] || 0;
-          });
-        } else if (numbers.length === 7) {
-          // Full Footwear 35, 36, 37, 38, 39, 40, 41
-          const sizes7 = ['35', '36', '37', '38', '39', '40', '41'];
-          sizes7.forEach((sz, sIdx) => {
-            parsedSizes[sz] = numbers[sIdx] || 0;
-          });
-        } else if (numbers.length === 5) {
+        if (rowCategory === 'men_footwear') {
+          // Mens Footwear sizes 40 to 45 (or 39 to 45 if 7 numbers)
+          if (numbers.length === 6) {
+            const sizesMen6 = ['40', '41', '42', '43', '44', '45'];
+            sizesMen6.forEach((sz, sIdx) => {
+              parsedSizes[sz] = numbers[sIdx] || 0;
+            });
+          } else if (numbers.length === 7) {
+            const sizesMen7 = ['39', '40', '41', '42', '43', '44', '45'];
+            sizesMen7.forEach((sz, sIdx) => {
+              parsedSizes[sz] = numbers[sIdx] || 0;
+            });
+          } else {
+            const mSizes = sizesMap['men_footwear'] || ['40', '41', '42', '43', '44', '45'];
+            mSizes.forEach((sz, sIdx) => {
+              if (numbers[sIdx] !== undefined) parsedSizes[sz] = numbers[sIdx];
+            });
+          }
+        } else if (rowCategory === 'men_jacket' || rowCategory === 'women_jacket') {
           // Jackets: S, M, L, XL, XXL
           const sizes5 = ['S', 'M', 'L', 'XL', 'XXL'];
           sizes5.forEach((sz, sIdx) => {
-            parsedSizes[sz] = numbers[sIdx] || 0;
-          });
-        } else {
-          // Fallback to active category sizes sequentially
-          categorySizes.forEach((sz, sIdx) => {
             if (numbers[sIdx] !== undefined) {
-              parsedSizes[sz] = numbers[sIdx];
+              parsedSizes[sz] = numbers[sIdx] || 0;
             }
           });
+        } else if (rowCategory === 'bags') {
+          parsedSizes['Standard'] = numbers[0] || 1;
+        } else {
+          // Default / Women Footwear
+          if (numbers.length === 6) {
+            const sizes6 = ['36', '37', '38', '39', '40', '41'];
+            sizes6.forEach((sz, sIdx) => {
+              parsedSizes[sz] = numbers[sIdx] || 0;
+            });
+          } else if (numbers.length === 7) {
+            const sizes7 = ['35', '36', '37', '38', '39', '40', '41'];
+            sizes7.forEach((sz, sIdx) => {
+              parsedSizes[sz] = numbers[sIdx] || 0;
+            });
+          } else {
+            const catSizes = sizesMap[rowCategory] || ['35', '36', '37', '38', '39', '40', '41'];
+            catSizes.forEach((sz, sIdx) => {
+              if (numbers[sIdx] !== undefined) {
+                parsedSizes[sz] = numbers[sIdx];
+              }
+            });
+          }
         }
       }
 
@@ -134,6 +162,7 @@ SG-F-1867-OFFWHITE 1 2 1 1 1 2`;
       results.push({
         lineIndex: idx + 1,
         sku,
+        category: rowCategory,
         isMatched: !!matched,
         product: matched || null,
         parsedSizes,
@@ -208,13 +237,44 @@ SG-F-1867-OFFWHITE 1 2 1 1 1 2`;
             totalQty: row.totalQty
           });
         } else {
-          // Create new product
+          // Create new product with accurate category auto-detection
           const newId = `prod-${currentStore?.code?.toLowerCase() || 'mgs'}-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
-          const initialSizes = {};
+          const targetCategory = row.category || (defaultCategory === 'auto' ? 'women_footwear' : defaultCategory);
           
-          const defaultCategorySizes = sizesMap[defaultCategory] || ['35', '36', '37', '38', '39', '40', '41'];
-          defaultCategorySizes.forEach(sz => {
+          let defaultDisplaySize = '37';
+          let defaultStyleCat = 'Block Heels';
+          let defaultPrice = 3990;
+
+          if (targetCategory === 'men_footwear') {
+            defaultDisplaySize = '41';
+            defaultStyleCat = 'Mens Shoes';
+          } else if (targetCategory === 'men_jacket') {
+            defaultDisplaySize = 'M';
+            defaultStyleCat = 'Mens Jackets';
+            defaultPrice = 4990;
+          } else if (targetCategory === 'women_jacket') {
+            defaultDisplaySize = 'M';
+            defaultStyleCat = 'Women Jackets';
+            defaultPrice = 4990;
+          } else if (targetCategory === 'bags') {
+            defaultDisplaySize = 'Standard';
+            defaultStyleCat = 'Leather Bags';
+          }
+
+          const initialSizes = {};
+          const catSizes = sizesMap[targetCategory] || (
+            targetCategory === 'men_footwear' ? ['40', '41', '42', '43', '44', '45'] :
+            targetCategory.includes('jacket') ? ['S', 'M', 'L', 'XL', 'XXL'] :
+            targetCategory === 'bags' ? ['Standard'] :
+            ['35', '36', '37', '38', '39', '40', '41']
+          );
+          
+          catSizes.forEach(sz => {
             initialSizes[sz] = Number(row.parsedSizes[sz]) || 0;
+          });
+          // Also set any parsed size not explicitly in default set
+          Object.entries(row.parsedSizes).forEach(([sz, q]) => {
+            initialSizes[sz] = Number(q) || 0;
           });
 
           const newProduct = {
@@ -222,15 +282,15 @@ SG-F-1867-OFFWHITE 1 2 1 1 1 2`;
             userId: currentStoreUserId,
             sku: row.sku,
             name: row.sku,
-            styleCategory: defaultCategory.includes('jacket') ? 'Standard' : 'Block Heels',
+            styleCategory: defaultStyleCat,
             color: row.guessedColor,
-            category: defaultCategory,
+            category: targetCategory,
             brand: 'Saint G',
             costPrice: 0,
-            sellingPrice: defaultCategory.includes('jacket') ? 4990 : 3990,
+            sellingPrice: defaultPrice,
             sizes: initialSizes,
-            displaySize: '37',
-            imageUrl: '',
+            displaySize: defaultDisplaySize,
+            imageUrl: `/products/${row.sku.toUpperCase()}.png`,
             createdAt: new Date().toISOString(),
             updatedAt: new Date().toISOString()
           };
@@ -438,6 +498,7 @@ SG-F-1867-OFFWHITE 1 2 1 1 1 2`;
                 onChange={(e) => setDefaultCategory(e.target.value)}
                 className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-1.5 text-xs text-white font-bold focus:outline-none focus:border-amber-500"
               >
+                <option value="auto">✨ Auto-Detect (Mixed Categories)</option>
                 {categories.map(c => (
                   <option key={c.id} value={c.id}>{c.label}</option>
                 ))}
@@ -498,12 +559,25 @@ SG-F-1867-OFFWHITE 1 2 1 1 1 2`;
                     <div className="flex items-center gap-2 min-w-0">
                       <span className="text-slate-500 font-mono text-[10px]">#{row.lineIndex}</span>
                       <div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1.5 flex-wrap">
                           <span className="font-mono font-black text-amber-300 text-xs">{row.sku}</span>
-                          <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded-md ${
+                          <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-md ${
                             row.isMatched ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
                           }`}>
                             {row.isMatched ? 'Matched' : 'New Article'}
+                          </span>
+                          <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-md ${
+                            row.category === 'men_footwear' ? 'bg-cyan-500/10 text-cyan-300 border border-cyan-500/30' :
+                            row.category === 'men_jacket' ? 'bg-indigo-500/10 text-indigo-300 border border-indigo-500/30' :
+                            row.category === 'women_jacket' ? 'bg-purple-500/10 text-purple-300 border border-purple-500/30' :
+                            row.category === 'bags' ? 'bg-amber-500/10 text-amber-300 border border-amber-500/30' :
+                            'bg-pink-500/10 text-pink-300 border border-pink-500/30'
+                          }`}>
+                            {row.category === 'men_footwear' ? '👞 Men Footwear' :
+                             row.category === 'men_jacket' ? '🧥 Men Jacket' :
+                             row.category === 'women_jacket' ? '🧥 Women Jacket' :
+                             row.category === 'bags' ? '👜 Bags' :
+                             '👠 Women Footwear'}
                           </span>
                         </div>
                         <div className="text-[11px] text-slate-400 truncate">

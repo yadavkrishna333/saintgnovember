@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useInventory } from '../context/InventoryContext';
 import * as XLSX from 'xlsx';
+import confetti from 'canvas-confetti';
+import { detectCategoryFromSheetOrSku } from '../utils/excelInventoryParser';
 import { 
   Truck, 
   Upload, 
@@ -14,7 +16,13 @@ import {
   Search,
   Sparkles,
   FileText,
-  Copy
+  Copy,
+  Layers,
+  ArrowRight,
+  Filter,
+  Eye,
+  RefreshCw,
+  X
 } from 'lucide-react';
 
 export function ReplenishmentView({ preselectedProduct = null }) {
@@ -41,9 +49,11 @@ export function ReplenishmentView({ preselectedProduct = null }) {
   const [excelFileName, setExcelFileName] = useState('');
   
   // Mode 2: Quick Text input
-  const [quickCategory, setQuickCategory] = useState('women_footwear');
+  const [quickCategory, setQuickCategory] = useState('auto');
   const [quickTextInput, setQuickTextInput] = useState('');
   const [parsedTextItems, setParsedTextItems] = useState([]);
+  const [previewFilter, setPreviewFilter] = useState('all'); // 'all' | 'matched' | 'unmatched'
+  const [previewSearch, setPreviewSearch] = useState('');
 
   // Mode 3: Traditional single-product form
   const [selectedProductId, setSelectedProductId] = useState(preselectedProduct?.id || (inventory[0]?.id || ''));
@@ -54,6 +64,23 @@ export function ReplenishmentView({ preselectedProduct = null }) {
   const [importReport, setImportReport] = useState(null);
   const [copiedUnmatched, setCopiedUnmatched] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+
+  // Helper for category badge visual styling
+  const getCategoryBadge = (catId) => {
+    switch (catId) {
+      case 'men_footwear':
+        return { label: 'Mens Footwear', icon: '👞', color: 'bg-cyan-500/10 text-cyan-300 border-cyan-500/30' };
+      case 'men_jacket':
+        return { label: 'Mens Jacket', icon: '🧥', color: 'bg-indigo-500/10 text-indigo-300 border-indigo-500/30' };
+      case 'women_jacket':
+        return { label: 'Women Jacket', icon: '🧥', color: 'bg-purple-500/10 text-purple-300 border-purple-500/30' };
+      case 'bags':
+        return { label: 'Bags', icon: '👜', color: 'bg-amber-500/10 text-amber-300 border-amber-500/30' };
+      case 'women_footwear':
+      default:
+        return { label: 'Women Footwear', icon: '👠', color: 'bg-pink-500/10 text-pink-300 border-pink-500/30' };
+    }
+  };
 
   // ---------------- EXCEL FILE PARSING ----------------
   const handleFileUpload = (e) => {
@@ -77,15 +104,9 @@ export function ReplenishmentView({ preselectedProduct = null }) {
           return;
         }
 
-        // Parse each row according to user specs:
-        // EAN / SKU: e.g. SG-F-1940-CHESTNUT-39EU
-        // Article Name: Shorten if long
-        // Size: 39 or parsed from EAN
-        // QTY: piece count (default 1 or 2)
         const extracted = [];
 
         rows.forEach((row) => {
-          // Find keys case-insensitively
           const getVal = (candidates) => {
             for (const key of Object.keys(row)) {
               if (candidates.some(c => key.toLowerCase().includes(c))) {
@@ -100,16 +121,14 @@ export function ReplenishmentView({ preselectedProduct = null }) {
           let sizeVal = getVal(['size']);
           const qtyVal = parseInt(getVal(['qty', 'quantity', 'piece', 'count']) || 1, 10);
 
-          if (!rawEan && !articleName) return; // skip blank row
+          if (!rawEan && !articleName) return;
 
-          // Smart parse EAN like: SG-F-1940-CHESTNUT-39EU
           let cleanSize = sizeVal;
           let cleanSku = rawEan;
           let color = '';
 
           const parts = rawEan.split('-');
           if (parts.length >= 4) {
-            // Check if last part is size like 39EU, 39, 41, M, etc.
             const last = parts[parts.length - 1];
             if (/\d+EU$/i.test(last) || /\d+$/.test(last) || ['S','M','L','XL','XXL'].includes(last.toUpperCase())) {
               cleanSize = cleanSize || last.replace(/EU$/i, '');
@@ -120,27 +139,18 @@ export function ReplenishmentView({ preselectedProduct = null }) {
             }
           }
 
-          // Truncate long article names as requested: "agar name bda ho to sirf thoda name likhna sara na"
           if (articleName.length > 30) {
             articleName = articleName.slice(0, 30) + '...';
           }
 
-          // Detect category from SKU prefix
-          let detectedCategory = 'women_footwear';
-          const upperSku = cleanSku.toUpperCase();
-          if (upperSku.startsWith('SGM-')) detectedCategory = 'men_footwear';
-          else if (upperSku.startsWith('SG-F-')) detectedCategory = 'women_footwear';
-          else if (upperSku.startsWith('JK-M-')) detectedCategory = 'men_jacket';
-          else if (upperSku.startsWith('JK-F-')) detectedCategory = 'women_jacket';
-          else if (upperSku.startsWith('BG-')) detectedCategory = 'bags';
-          else if (upperSku.startsWith('SA-F-') || upperSku.startsWith('SA-')) detectedCategory = 'apparels';
-          else if (upperSku.startsWith('SP-UN-') || upperSku.startsWith('SP-')) detectedCategory = 'sunglasses';
+          // Use robust category detection (Sheet name + SKU prefix)
+          const detectedCategory = detectCategoryFromSheetOrSku(sheetName, cleanSku);
 
           extracted.push({
             sku: cleanSku || `ART-${Date.now().toString().slice(-4)}`,
             articleName: articleName || `Article ${cleanSku}`,
             color: color || 'Standard',
-            size: cleanSize || '37',
+            size: cleanSize || (detectedCategory === 'men_footwear' ? '41' : '37'),
             qty: Math.max(1, qtyVal || 1),
             category: detectedCategory
           });
@@ -160,65 +170,159 @@ export function ReplenishmentView({ preselectedProduct = null }) {
     reader.readAsArrayBuffer(file);
   };
 
-  // ---------------- SMART QUICK TEXT PARSER ----------------
-  // Supports:
-  // jk-m-01-black m 1
-  // jk-m-01-black-m 1
-  // jk-m-01-black m
-  // SG-F-1940-CHESTNUT 39 2
-  // SG-F-1940-CHESTNUT-39EU 1
-  const handleQuickTextChange = (text) => {
-    setQuickTextInput(text);
-    const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
+  // ---------------- SMART MULTI-CATEGORY QUICK TEXT PARSER ----------------
+  // Supports mixed items in a single paste:
+  // Single-size:
+  //   SGM-01-BLACK 42 2
+  //   JK-M-04-BLACK M 1
+  //   SG-F-1940-CHESTNUT 37 3
+  //   SG-B-07-BLACK Standard 1
+  // Multi-size distributions:
+  //   SGM-12-BLACK 1 1 1 1 1 0  (Men Shoes: sizes 40 to 45)
+  //   JK-M-01-BLACK 1 2 1 1 1   (Men Jacket: sizes S to XXL)
+  //   SG-F-1867-BLACK 1 2 1 1 1 1 (Women Shoes: sizes 36 to 41)
+  const parseQuickText = (text, activeCatFallback = 'auto', inventoryList = []) => {
+    if (!text || !text.trim()) return [];
+    const lines = text.split('\n');
     const parsed = [];
 
-    lines.forEach(line => {
-      // Replace dash with space if format is code-size qty
-      let tokens = line.split(/[\s,]+/);
+    const invMap = new Map();
+    inventoryList.forEach(p => {
+      if (p.sku) invMap.set(p.sku.toUpperCase().trim(), p);
+    });
+
+    lines.forEach((line, lineIdx) => {
+      const trimmed = line.trim();
+      if (!trimmed) return;
+
+      const upperLine = trimmed.toUpperCase();
+      if (upperLine.startsWith('SR NO') || upperLine.startsWith('SKU') || upperLine.startsWith('EAN') || upperLine.startsWith('TOTAL') || upperLine.startsWith('STYLE')) {
+        return;
+      }
+
+      const tokens = trimmed.split(/[\t, ]+/).filter(Boolean);
       if (tokens.length === 0) return;
 
-      let rawSku = tokens[0];
+      let startIdx = 0;
+      if (/^\d+\.?$/.test(tokens[0]) && tokens.length > 2 && /^[a-zA-Z]/.test(tokens[1])) {
+        startIdx = 1;
+      }
+
+      let rawSku = tokens[startIdx].toUpperCase();
+      if (!rawSku || rawSku === 'TOTAL' || rawSku === 'SR' || rawSku === 'SKU') return;
+
+      const matched = invMap.get(rawSku);
+
+      // Auto-detect category from SKU prefix, or fallback to selected category
+      const detectedCat = detectCategoryFromSheetOrSku('', rawSku);
+      let category = matched?.category || (activeCatFallback === 'auto' ? detectedCat : (detectedCat !== 'women_footwear' ? detectedCat : activeCatFallback));
+
+      const restTokens = tokens.slice(startIdx + 1);
+
+      // Case A: Multi-number distribution format
+      const numbers = restTokens.map(t => parseInt(t, 10)).filter(n => !isNaN(n));
+      if (restTokens.length >= 3 && numbers.length === restTokens.length) {
+        let sizeLabels = [];
+        if (category === 'men_footwear') {
+          sizeLabels = numbers.length === 7 
+            ? ['39', '40', '41', '42', '43', '44', '45']
+            : ['40', '41', '42', '43', '44', '45'];
+        } else if (category === 'men_jacket' || category === 'women_jacket') {
+          sizeLabels = ['S', 'M', 'L', 'XL', 'XXL'];
+        } else if (category === 'bags') {
+          sizeLabels = ['Standard'];
+        } else {
+          sizeLabels = numbers.length === 7
+            ? ['35', '36', '37', '38', '39', '40', '41']
+            : ['36', '37', '38', '39', '40', '41'];
+        }
+
+        sizeLabels.forEach((sz, idx) => {
+          const qty = numbers[idx] || 0;
+          if (qty > 0) {
+            const currentStock = (matched?.sizes && matched.sizes[sz]) || 0;
+            parsed.push({
+              id: `${lineIdx}-${rawSku}-${sz}`,
+              sku: rawSku,
+              size: sz,
+              qty,
+              category,
+              articleName: matched?.styleCategory || matched?.name || `Article ${rawSku}`,
+              isMatched: !!matched,
+              currentStock,
+              newStock: currentStock + qty,
+              product: matched || null
+            });
+          }
+        });
+        return;
+      }
+
+      // Case B: Single size format
       let size = '';
       let qty = 1;
 
-      // If token 1 is qty or size
-      if (tokens.length >= 3) {
-        // e.g. jk-m-01-black m 1
-        rawSku = tokens[0];
-        size = tokens[1].replace(/EU$/i, '');
-        qty = parseInt(tokens[2], 10) || 1;
-      } else if (tokens.length === 2) {
-        // could be jk-m-01-black m OR jk-m-01-black-m 1
-        if (rawSku.includes('-') && !isNaN(tokens[1])) {
-          // e.g. jk-m-01-black-m 1
-          qty = parseInt(tokens[1], 10) || 1;
-          const subParts = rawSku.split('-');
-          size = subParts.pop().replace(/EU$/i, '');
-          rawSku = subParts.join('-');
+      if (restTokens.length >= 2) {
+        size = restTokens[0].toUpperCase().replace(/EU$/i, '');
+        qty = parseInt(restTokens[1], 10) || 1;
+      } else if (restTokens.length === 1) {
+        if (/^\d+$/.test(restTokens[0])) {
+          const num = parseInt(restTokens[0], 10);
+          if (num >= 35 && num <= 48) {
+            size = String(num);
+            qty = 1;
+          } else {
+            qty = num;
+            size = category === 'men_footwear' ? '41' : category === 'women_footwear' ? '37' : category.includes('jacket') ? 'M' : 'Standard';
+          }
         } else {
-          // e.g. jk-m-01-black m
-          size = tokens[1].replace(/EU$/i, '');
+          size = restTokens[0].toUpperCase().replace(/EU$/i, '');
           qty = 1;
         }
-      } else if (tokens.length === 1 && rawSku.includes('-')) {
-        // e.g. SG-F-1940-CHESTNUT-39EU
-        const subParts = rawSku.split('-');
-        if (subParts.length >= 4) {
-          size = subParts.pop().replace(/EU$/i, '');
-          rawSku = subParts.join('-');
+      } else {
+        const parts = rawSku.split('-');
+        if (parts.length >= 4) {
+          const last = parts[parts.length - 1];
+          if (/\d+EU$/i.test(last) || /\d+$/.test(last) || ['S', 'M', 'L', 'XL', 'XXL'].includes(last.toUpperCase())) {
+            size = last.replace(/EU$/i, '');
+            rawSku = parts.slice(0, parts.length - 1).join('-');
+          }
+        }
+        if (!size) {
+          size = category === 'men_footwear' ? '41' : category === 'women_footwear' ? '37' : category.includes('jacket') ? 'M' : 'Standard';
         }
       }
 
+      const currentStock = (matched?.sizes && matched.sizes[size]) || 0;
       parsed.push({
-        sku: rawSku.toUpperCase(),
-        size: size || '37',
+        id: `${lineIdx}-${rawSku}-${size}`,
+        sku: rawSku,
+        size: size || (category === 'men_footwear' ? '41' : '37'),
         qty: Math.max(1, qty),
-        category: quickCategory,
-        articleName: `Article ${rawSku.toUpperCase()}`
+        category,
+        articleName: matched?.styleCategory || matched?.name || `Article ${rawSku}`,
+        isMatched: !!matched,
+        currentStock,
+        newStock: currentStock + Math.max(1, qty),
+        product: matched || null
       });
     });
 
+    return parsed;
+  };
+
+  const handleQuickTextChange = (text) => {
+    setQuickTextInput(text);
+    const parsed = parseQuickText(text, quickCategory, inventory);
     setParsedTextItems(parsed);
+  };
+
+  const handleSelectQuickCategory = (newCat) => {
+    setQuickCategory(newCat);
+    if (quickTextInput) {
+      const parsed = parseQuickText(quickTextInput, newCat, inventory);
+      setParsedTextItems(parsed);
+    }
   };
 
   // Helper to test if SKU exists in inventory
@@ -227,6 +331,48 @@ export function ReplenishmentView({ preselectedProduct = null }) {
     const target = rawSku.toLowerCase().trim();
     return inventory.some(p => p.sku && (p.sku.toLowerCase() === target || target.startsWith(p.sku.toLowerCase())));
   };
+
+  // Derived statistics for Quick Text Preview
+  const quickTextStats = useMemo(() => {
+    const totalUnits = parsedTextItems.reduce((s, i) => s + i.qty, 0);
+    const matchedItems = parsedTextItems.filter(i => i.isMatched);
+    const unmatchedItems = parsedTextItems.filter(i => !i.isMatched);
+    const matchedUnits = matchedItems.reduce((s, i) => s + i.qty, 0);
+    const unmatchedUnits = unmatchedItems.reduce((s, i) => s + i.qty, 0);
+
+    const byCategory = {};
+    parsedTextItems.forEach(item => {
+      byCategory[item.category] = (byCategory[item.category] || 0) + item.qty;
+    });
+
+    const uniqueSkus = new Set(parsedTextItems.map(i => i.sku)).size;
+
+    return {
+      totalUnits,
+      totalLines: parsedTextItems.length,
+      uniqueSkus,
+      matchedCount: matchedItems.length,
+      matchedUnits,
+      unmatchedCount: unmatchedItems.length,
+      unmatchedUnits,
+      byCategory
+    };
+  }, [parsedTextItems]);
+
+  const filteredPreviewItems = useMemo(() => {
+    return parsedTextItems.filter(item => {
+      if (previewFilter === 'matched' && !item.isMatched) return false;
+      if (previewFilter === 'unmatched' && item.isMatched) return false;
+      if (previewSearch.trim()) {
+        const q = previewSearch.toLowerCase().trim();
+        const skuMatch = item.sku.toLowerCase().includes(q);
+        const nameMatch = (item.articleName || '').toLowerCase().includes(q);
+        const sizeMatch = String(item.size).toLowerCase() === q;
+        if (!skuMatch && !nameMatch && !sizeMatch) return false;
+      }
+      return true;
+    });
+  }, [parsedTextItems, previewFilter, previewSearch]);
 
   // ---------------- SUBMIT HANDLERS ----------------
   const handleCommitExcel = async () => {
@@ -242,6 +388,12 @@ export function ReplenishmentView({ preselectedProduct = null }) {
         supplier: supplier || 'Distributor',
         date: billDate,
         notes: `Excel Import: ${excelFileName} ${notes}`
+      });
+
+      confetti({
+        particleCount: 80,
+        spread: 60,
+        origin: { y: 0.6 }
       });
 
       setImportReport({
@@ -281,6 +433,12 @@ export function ReplenishmentView({ preselectedProduct = null }) {
         notes: `Quick Text Entry: ${notes}`
       });
 
+      confetti({
+        particleCount: 90,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+
       setImportReport({
         totalIntakeCount: res.totalIntakeCount || parsedTextItems.reduce((s, i) => s + i.qty, 0),
         matchedCount: res.matchedCount || 0,
@@ -291,7 +449,7 @@ export function ReplenishmentView({ preselectedProduct = null }) {
 
       setStatusMsg({
         type: 'success',
-        text: `Success! Received ${res.totalIntakeCount || 0} units into inventory.`
+        text: `Success! Received ${res.totalIntakeCount || 0} units into inventory (${res.matchedCount || 0} matched catalog, ${res.unmatchedCount || 0} created as new articles).`
       });
       setQuickTextInput('');
       setParsedTextItems([]);
@@ -602,20 +760,41 @@ export function ReplenishmentView({ preselectedProduct = null }) {
       {/* ---------------- MODE 2: SMART QUICK TEXT ---------------- */}
       {tabMode === 'quicktext' && (
         <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-5 sm:p-6 space-y-4">
+          
+          {/* Category Selector Buttons */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">
-              Select Category for Quick Entry
-            </label>
-            <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+            <div className="flex items-center justify-between mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-400">
+                Category Routing Mode:
+              </label>
+              <span className="text-[11px] text-amber-400 font-bold">
+                {quickCategory === 'auto' ? '✨ Mixed Items Auto-Routing Active' : `Target: ${categories.find(c => c.id === quickCategory)?.label || quickCategory}`}
+              </span>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={() => handleSelectQuickCategory('auto')}
+                className={`py-2 px-3 rounded-xl text-xs font-bold border transition flex items-center justify-center gap-1.5 ${
+                  quickCategory === 'auto'
+                    ? 'bg-amber-500 text-slate-950 font-black shadow-lg shadow-amber-500/25 border-amber-400 ring-2 ring-amber-400/40'
+                    : 'bg-slate-950 border-slate-800 text-slate-300 hover:text-white'
+                }`}
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>✨ Auto-Detect (Mixed Items)</span>
+              </button>
+
               {categories.map(cat => (
                 <button
                   key={cat.id}
                   type="button"
-                  onClick={() => setQuickCategory(cat.id)}
-                  className={`py-2 px-2.5 rounded-xl text-xs font-bold border transition flex items-center justify-center gap-1.5 ${
+                  onClick={() => handleSelectQuickCategory(cat.id)}
+                  className={`py-2 px-3 rounded-xl text-xs font-bold border transition flex items-center justify-center gap-1.5 ${
                     quickCategory === cat.id
-                      ? 'bg-amber-500/20 border-amber-500 text-amber-300 ring-1 ring-amber-500/40'
-                      : 'bg-slate-950 border-slate-800 text-slate-400'
+                      ? 'bg-amber-500 text-slate-950 font-black shadow-lg shadow-amber-500/25 border-amber-400'
+                      : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-white'
                   }`}
                 >
                   <span>{cat.icon || '📦'}</span>
@@ -625,59 +804,243 @@ export function ReplenishmentView({ preselectedProduct = null }) {
             </div>
           </div>
 
+          {/* Quick Paste Area */}
           <div>
-            <div className="flex items-center justify-between mb-1.5">
-              <label className="block text-xs font-bold uppercase tracking-wider text-amber-400">
-                Type or Paste Multiple Lines:
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+              <label className="text-xs font-black uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+                <Barcode className="w-4 h-4" />
+                <span>Type or Paste Received Stock (Mixed Shoes, Jackets, Bags allowed):</span>
               </label>
-              <span className="text-[11px] text-slate-400">
-                Format: <code>SKU SIZE QTY</code> or <code>SKU-SIZE QTY</code>
-              </span>
+              
+              <div className="flex items-center gap-2 text-[10px]">
+                <button
+                  type="button"
+                  onClick={() => handleQuickTextChange(`SGM-01-BLACK 42 2\nJK-M-04-BLACK M 1\nJK-F-19-BLACK L 1\nSG-F-1852-SILVER 37 3\nSG-B-07-BLACK Standard 1`)}
+                  className="text-slate-400 hover:text-amber-300 font-bold underline cursor-pointer"
+                >
+                  Sample Mixed Items
+                </button>
+                <span className="text-slate-600">&bull;</span>
+                <button
+                  type="button"
+                  onClick={() => handleQuickTextChange(`SGM-12-BLACK 1 1 1 1 1 0\nJK-M-01-BLACK 1 2 1 1 1\nSG-F-1867-BLACK 1 2 1 1 1 1`)}
+                  className="text-slate-400 hover:text-amber-300 font-bold underline cursor-pointer"
+                >
+                  Sample Size Distributions
+                </button>
+              </div>
             </div>
+
             <textarea
               rows={5}
               value={quickTextInput}
               onChange={(e) => handleQuickTextChange(e.target.value)}
-              placeholder={`Examples:\njk-m-01-black m 1\njk-m-01-black-m 1\nSG-F-1940-CHESTNUT 37 2\nSG-F-1940-CHESTNUT-39EU 1\nSGM-21-BLACK 41 2`}
-              className="w-full p-3 rounded-2xl bg-slate-950 border border-slate-800 text-emerald-400 font-mono text-xs sm:text-sm focus:outline-none focus:border-amber-500"
+              placeholder={`Supported Mixed Paste Examples:\nSGM-01-BLACK 42 2          (Men Footwear Sz 42, 2 pcs)\nJK-M-04-BLACK M 1           (Men Jacket Sz M, 1 pc)\nJK-F-19-BLACK L 1           (Women Jacket Sz L, 1 pc)\nSG-F-1852-SILVER 37 3       (Women Footwear Sz 37, 3 pcs)\nSG-B-07-BLACK Standard 1    (Bag Standard, 1 pc)\n\nOr Multi-Size Distribution:\nSGM-12-BLACK 1 1 1 1 1 0    (Men Shoes: sizes 40 41 42 43 44 45)\nJK-M-01-BLACK 1 2 1 1 1     (Men Jackets: sizes S M L XL XXL)\nSG-F-1867-BLACK 1 2 1 1 1 1 (Women Shoes: sizes 36 37 38 39 40 41)`}
+              className="w-full p-3.5 rounded-2xl bg-slate-950 border-2 border-slate-800 focus:border-amber-500 text-emerald-400 font-mono text-xs sm:text-sm focus:outline-none transition leading-relaxed"
             />
           </div>
 
-          {/* Quick text preview */}
+          {/* CONFIRMATION & MATCH PREVIEW CARD */}
           {parsedTextItems.length > 0 && (
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-black text-amber-300">
-                  Ready to add {parsedTextItems.length} items ({parsedTextItems.reduce((a, b) => a + b.qty, 0)} units)
-                </span>
+            <div className="p-4 sm:p-5 rounded-3xl bg-slate-950 border-2 border-amber-500/30 space-y-4 shadow-2xl animate-fade-in">
+              
+              {/* Header & Commit Bar */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
+                <div>
+                  <h3 className="text-sm sm:text-base font-black text-white flex items-center gap-2">
+                    <PackageCheck className="w-5 h-5 text-amber-400" />
+                    <span>Intake Confirmation & Match Preview</span>
+                  </h3>
+                  <p className="text-xs text-slate-400 mt-0.5">
+                    Check below: <strong>Kitne catalog me match hue</strong> aur <strong>kitne new add honge</strong> before receiving stock.
+                  </p>
+                </div>
+                
+                <div className="flex items-center gap-2 flex-wrap">
+                  <button
+                    type="button"
+                    onClick={() => { setQuickTextInput(''); setParsedTextItems([]); }}
+                    className="px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                    <span>Clear Text</span>
+                  </button>
+                  
+                  <button
+                    onClick={handleCommitQuickText}
+                    disabled={isSubmitting || parsedTextItems.length === 0}
+                    className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 text-white font-black text-xs shadow-lg shadow-emerald-600/30 active:scale-95 transition flex items-center gap-2 cursor-pointer disabled:opacity-50"
+                  >
+                    <Check className="w-4 h-4 stroke-[3]" />
+                    <span>{isSubmitting ? 'Receiving...' : `Confirm & Receive ${quickTextStats.totalUnits} Units`}</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* KPI Metrics */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                {/* Total Units */}
+                <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-3 text-center">
+                  <div className="text-[10px] font-bold uppercase text-slate-400">Total Pieces</div>
+                  <div className="text-lg sm:text-xl font-black text-white font-mono">{quickTextStats.totalUnits}</div>
+                  <div className="text-[10px] text-slate-500">{quickTextStats.uniqueSkus} Articles ({quickTextStats.totalLines} lines)</div>
+                </div>
+
+                {/* Matched Count */}
+                <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-3 text-center">
+                  <div className="text-[10px] font-bold uppercase text-emerald-300">✅ Kitne Match Hue</div>
+                  <div className="text-lg sm:text-xl font-black text-emerald-400 font-mono">{quickTextStats.matchedUnits} Pcs</div>
+                  <div className="text-[10px] text-emerald-300/70">{quickTextStats.matchedCount} lines matched catalog</div>
+                </div>
+
+                {/* Unmatched / New Count */}
+                <div className="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-3 text-center">
+                  <div className="text-[10px] font-bold uppercase text-amber-300">⚠️ Kitne New / Unmatched</div>
+                  <div className="text-lg sm:text-xl font-black text-amber-400 font-mono">{quickTextStats.unmatchedUnits} Pcs</div>
+                  <div className="text-[10px] text-amber-300/70">{quickTextStats.unmatchedCount} lines auto-create</div>
+                </div>
+
+                {/* Categories Breakdown */}
+                <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-3 flex flex-col justify-center">
+                  <div className="text-[10px] font-bold uppercase text-slate-400 mb-1">Category Breakdown</div>
+                  <div className="flex flex-wrap gap-1 text-[10px] font-bold">
+                    {Object.entries(quickTextStats.byCategory).map(([catKey, qty]) => {
+                      const meta = getCategoryBadge(catKey);
+                      return (
+                        <span key={catKey} className={`px-1.5 py-0.5 rounded-md border ${meta.color}`}>
+                          {meta.icon} {qty} pcs
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+
+              {/* Filter Tabs & Search */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1">
+                <div className="flex items-center gap-1.5 overflow-x-auto">
+                  <button
+                    type="button"
+                    onClick={() => setPreviewFilter('all')}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer ${
+                      previewFilter === 'all'
+                        ? 'bg-amber-500 text-slate-950 font-black'
+                        : 'bg-slate-900 text-slate-400 hover:text-white'
+                    }`}
+                  >
+                    All ({parsedTextItems.length})
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setPreviewFilter('matched')}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1 cursor-pointer ${
+                      previewFilter === 'matched'
+                        ? 'bg-emerald-500 text-slate-950 font-black'
+                        : 'bg-slate-900 text-emerald-400 hover:bg-emerald-500/10'
+                    }`}
+                  >
+                    <span>✅ Matched ({quickTextStats.matchedCount})</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setPreviewFilter('unmatched')}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1 cursor-pointer ${
+                      previewFilter === 'unmatched'
+                        ? 'bg-amber-500 text-slate-950 font-black'
+                        : 'bg-slate-900 text-amber-400 hover:bg-amber-500/10'
+                    }`}
+                  >
+                    <span>⚠️ New ({quickTextStats.unmatchedCount})</span>
+                  </button>
+                </div>
+
+                <div className="relative">
+                  <Search className="w-3.5 h-3.5 absolute left-3 top-2.5 text-slate-500" />
+                  <input
+                    type="text"
+                    placeholder="Filter by SKU or size..."
+                    value={previewSearch}
+                    onChange={(e) => setPreviewSearch(e.target.value)}
+                    className="w-full sm:w-48 pl-8 pr-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-500 font-mono"
+                  />
+                </div>
+              </div>
+
+              {/* Review Table */}
+              <div className="rounded-2xl border border-slate-800 overflow-hidden max-h-72 overflow-y-auto">
+                <table className="w-full text-left text-xs">
+                  <thead className="bg-slate-950 sticky top-0 text-slate-400 font-bold uppercase text-[10px] z-10">
+                    <tr>
+                      <th className="p-2.5">Status</th>
+                      <th className="p-2.5">Category</th>
+                      <th className="p-2.5">SKU Code</th>
+                      <th className="p-2.5">Article / Description</th>
+                      <th className="p-2.5 text-center">Size</th>
+                      <th className="p-2.5 text-center">Incoming</th>
+                      <th className="p-2.5 text-center">Stock Change</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800 bg-slate-900/60 font-mono">
+                    {filteredPreviewItems.map((item, idx) => {
+                      const meta = getCategoryBadge(item.category);
+                      return (
+                        <tr key={idx} className="hover:bg-slate-800/40">
+                          <td className="p-2.5">
+                            {item.isMatched ? (
+                              <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[10px] font-bold">
+                                ✅ MATCHED
+                              </span>
+                            ) : (
+                              <span className="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] font-bold">
+                                ⚠️ NEW ARTICLE
+                              </span>
+                            )}
+                          </td>
+                          <td className="p-2.5">
+                            <span className={`px-2 py-0.5 rounded-md text-[10px] font-bold border ${meta.color} flex items-center gap-1 w-fit`}>
+                              <span>{meta.icon}</span>
+                              <span>{meta.label}</span>
+                            </span>
+                          </td>
+                          <td className="p-2.5 font-bold text-amber-300">{item.sku}</td>
+                          <td className="p-2.5 font-sans text-white text-[11px] truncate max-w-[160px]">{item.articleName}</td>
+                          <td className="p-2.5 text-center font-bold text-white">{item.size}</td>
+                          <td className="p-2.5 text-center font-black text-emerald-400">+{item.qty}</td>
+                          <td className="p-2.5 text-center text-[11px] text-slate-300">
+                            {item.isMatched ? (
+                              <span>
+                                <span className="text-slate-400">{item.currentStock}</span>
+                                <span className="text-slate-500 mx-1">&rarr;</span>
+                                <span className="text-emerald-400 font-bold">{item.newStock}</span>
+                              </span>
+                            ) : (
+                              <span className="text-amber-300">0 &rarr; {item.qty} (New)</span>
+                            )}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Bottom Confirm Button */}
+              <div className="pt-2 flex justify-end">
                 <button
                   onClick={handleCommitQuickText}
-                  disabled={isSubmitting}
-                  className="px-5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 text-white font-black text-xs shadow-lg shadow-emerald-600/30 active:scale-95 transition"
+                  disabled={isSubmitting || parsedTextItems.length === 0}
+                  className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 text-white font-black text-sm shadow-xl shadow-emerald-600/30 active:scale-95 transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                 >
-                  {isSubmitting ? 'Adding...' : 'Receive & Add Stock'}
+                  <Check className="w-5 h-5 stroke-[3]" />
+                  <span>{isSubmitting ? 'Adding Stock...' : `Confirm & Receive ${quickTextStats.totalUnits} Units into Inventory`}</span>
                 </button>
               </div>
 
-              <div className="flex flex-wrap gap-2">
-                {parsedTextItems.map((item, idx) => {
-                  const isMatched = checkSkuMatch(item.sku);
-                  return (
-                    <span 
-                      key={idx} 
-                      className={`px-2.5 py-1 rounded-xl bg-slate-950 border text-xs font-mono flex items-center gap-1.5 ${
-                        isMatched ? 'border-emerald-500/40 text-emerald-300' : 'border-amber-500/40 text-amber-300'
-                      }`}
-                    >
-                      <span className={`w-1.5 h-1.5 rounded-full ${isMatched ? 'bg-emerald-400' : 'bg-amber-400'}`} />
-                      <strong>{item.sku}</strong> &bull; Size {item.size} &bull; <strong className="text-white">+{item.qty}</strong>
-                      <span className="text-[9px] opacity-75">{isMatched ? '(MATCHED)' : '(NEW)'}</span>
-                    </span>
-                  );
-                })}
-              </div>
             </div>
           )}
+
         </div>
       )}
 
