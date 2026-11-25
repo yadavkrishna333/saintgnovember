@@ -1358,6 +1358,9 @@ export function InventoryProvider({ children }) {
       if (idx !== -1) {
         updatedInventory[idx] = {
           ...updatedInventory[idx],
+          category: item.category || updatedInventory[idx].category,
+          styleCategory: item.styleCategory || updatedInventory[idx].styleCategory,
+          displaySize: item.displaySize || updatedInventory[idx].displaySize,
           sizes: { ...(item.newSizes || {}) },
           sellingPrice: item.newPrice !== undefined ? Number(item.newPrice) : updatedInventory[idx].sellingPrice,
           updatedAt: new Date().toISOString()
@@ -1378,6 +1381,7 @@ export function InventoryProvider({ children }) {
       sellingPrice: Number(item.sellingPrice) || 0,
       costPrice: Number(item.costPrice) || 0,
       sizes: item.sizes || {},
+      displaySize: item.displaySize || null,
       imageUrl: item.imageUrl || '',
       images: item.images || [],
       createdAt: new Date().toISOString(),

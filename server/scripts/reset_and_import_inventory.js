@@ -323,11 +323,11 @@ export function parseInventoryFromExcel() {
   const wsWj = wb.Sheets['Women Jacket'];
   const wjRows = XLSX.utils.sheet_to_json(wsWj, { header: 1 });
   wjRows.forEach((r, idx) => {
-    if (idx < 2) return;
+    if (idx < 1) return;
     const skuRaw = r[1];
     if (!skuRaw) return;
     const sku = String(skuRaw).trim();
-    if (sku.toUpperCase() === 'TOTAL' || sku.toUpperCase() === 'SUM') return;
+    if (sku.toUpperCase() === 'TOTAL' || sku.toUpperCase() === 'SUM' || sku.toUpperCase() === 'SKU') return;
 
     const sizes = {
       'S': Number(r[2]) || 0,
